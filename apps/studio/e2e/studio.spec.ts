@@ -34,7 +34,7 @@ test("field interaction, analytic claim, surface recovery, and screenshot", asyn
   await expect(page.locator(".surface-context-notice")).toHaveCount(0);
 
   await page.getByRole("button", { name: /Field/ }).click();
-  await expect(page).toHaveScreenshot("studio-field.png", { fullPage: true });
+  await expect(page).toHaveScreenshot(`studio-field-${process.platform}.png`, { fullPage: true });
   expect(consoleErrors).toEqual([]);
 });
 

@@ -248,6 +248,7 @@ class FieldResult:
                 ordered_members = [("manifest.json", manifest_payload), *sorted(members.items())]
                 for path, payload in ordered_members:
                     info = zipfile.ZipInfo(path, date_time=(1980, 1, 1, 0, 0, 0))
+                    info.create_system = 3
                     info.compress_type = zipfile.ZIP_DEFLATED
                     info.external_attr = 0o100644 << 16
                     archive.writestr(info, payload)
