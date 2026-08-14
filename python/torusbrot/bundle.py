@@ -3,26 +3,23 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
-import shutil
-import tempfile
 import zipfile
 from collections import Counter
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .models import ClaimLevel, DomainPack, FieldPoint, RunSpec, canonical_json, content_hash
-
-
-@dataclass(frozen=True)
-class AuditReport:
-    valid: bool
-    run_id: str
-    checked_files: int
-    errors: tuple[str, ...]
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+from .audit import audit_bundle, read_bundle_members
+from .models import (
+    AuditReport,
+    ClaimLevel,
+    DomainPack,
+    FailureRecord,
+    FieldPoint,
+    RunSpec,
+    canonical_json,
+    content_hash,
+)
 
 
 def _jsonl(rows: list[dict[str, Any]]) -> bytes:
@@ -42,6 +39,7 @@ class FieldResult:
     run_id: str
     domain: DomainPack | None
     null_registry: list[dict[str, Any]]
+    failures: list[FailureRecord]
 
     @classmethod
     def from_run(
@@ -53,6 +51,7 @@ class FieldResult:
         claim_level: ClaimLevel,
         domain: DomainPack | None,
         null_registry: list[dict[str, Any]],
+        failures: list[FailureRecord] | None = None,
     ) -> FieldResult:
         identity = {
             "specification": specification.to_dict(),
@@ -67,6 +66,7 @@ class FieldResult:
             run_id=f"run-{content_hash(identity)[:16]}",
             domain=domain,
             null_registry=null_registry,
+            failures=failures or [],
         )
 
     @property
@@ -79,7 +79,7 @@ class FieldResult:
             "mean_UI": round(sum(point.UI for point in self.points) / count, 8),
             "mean_NSS": round(sum(point.NSS for point in self.points) / count, 8),
             "mean_S_e": round(sum(point.S_e for point in self.points) / count, 8),
-            "failure_count": 0,
+            "failure_count": len(self.failures),
         }
 
     def _members(self) -> dict[str, bytes]:
@@ -93,6 +93,7 @@ class FieldResult:
                 "title": self.domain.title,
                 "ladder": list(self.domain.ladder),
                 "domain_sha256": self.domain.sha256,
+                "claim_authority": self.domain.claim_authority.name,
             }
             if self.domain
             else {"parent_id": "analytic-origin-z0", "kind": "declared_initial_state"}
@@ -180,7 +181,7 @@ class FieldResult:
                 [
                     {
                         "transformation_id": self.kernel_id,
-                        "software_version": "0.1.0",
+                        "software_version": "0.1.1",
                         "seed": self.specification.seed,
                         "specification_sha256": self.specification.sha256,
                     }
@@ -213,7 +214,9 @@ class FieldResult:
                 },
                 pretty=True,
             ),
-            "audit/failure_ledger.jsonl": b"",
+            "audit/failure_ledger.jsonl": _jsonl(
+                [failure.to_dict() for failure in self.failures]
+            ),
         }
         sums = "".join(
             f"{_sha256(payload)}  {path}\n" for path, payload in sorted(members.items())
@@ -259,53 +262,19 @@ class FieldResult:
 
     def audit(self, source: str | Path | None = None) -> AuditReport:
         if source is None:
+            import tempfile
+
             with tempfile.TemporaryDirectory(prefix="torusbrot-audit-") as temporary:
                 target = self.export_tbx(Path(temporary) / "run.tbx")
                 return audit_bundle(target)
         return audit_bundle(source)
 
 
-def _read_members(source: str | Path) -> dict[str, bytes]:
-    path = Path(source)
-    if path.is_dir():
-        return {
-            str(member.relative_to(path)).replace("\\", "/"): member.read_bytes()
-            for member in path.rglob("*")
-            if member.is_file()
-        }
-    with zipfile.ZipFile(path) as archive:
-        return {name: archive.read(name) for name in archive.namelist() if not name.endswith("/")}
-
-
-def audit_bundle(source: str | Path) -> AuditReport:
-    try:
-        members = _read_members(source)
-    except (OSError, zipfile.BadZipFile) as error:
-        return AuditReport(False, "unknown", 0, (str(error),))
-    errors: list[str] = []
-    if "manifest.json" not in members:
-        return AuditReport(False, "unknown", 0, ("missing manifest.json",))
-    try:
-        manifest = json.loads(members["manifest.json"])
-    except json.JSONDecodeError as error:
-        return AuditReport(False, "unknown", 0, (f"invalid manifest JSON: {error}",))
-    checked = 0
-    for entry in manifest.get("files", []):
-        name = entry["path"]
-        if name not in members:
-            errors.append(f"missing {name}")
-            continue
-        checked += 1
-        payload = members[name]
-        if len(payload) != entry["bytes"]:
-            errors.append(f"size mismatch: {name}")
-        if _sha256(payload) != entry["sha256"]:
-            errors.append(f"hash mismatch: {name}")
-    return AuditReport(not errors, manifest.get("run_id", "unknown"), checked, tuple(errors))
-
-
 def read_field_table(source: str | Path) -> dict[str, Any]:
-    members = _read_members(source)
+    report = audit_bundle(source)
+    if not report.valid:
+        raise ValueError("Bundle audit failed: " + "; ".join(report.errors))
+    members = read_bundle_members(source)
     try:
         return json.loads(members["tables/field_points.json"])
     except KeyError as error:
@@ -330,13 +299,13 @@ def export_field_csv(source: str | Path, destination: str | Path) -> Path:
 def copy_field_json(source: str | Path, destination: str | Path) -> Path:
     target = Path(destination)
     target.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="torusbrot-export-"):
-        target.write_bytes(canonical_json(read_field_table(source), pretty=True))
+    target.write_bytes(canonical_json(read_field_table(source), pretty=True))
     return target
 
 
 def compare_bundles(left: str | Path, right: str | Path) -> dict[str, Any]:
-    left_members, right_members = _read_members(left), _read_members(right)
+    left_members = read_bundle_members(left)
+    right_members = read_bundle_members(right)
     left_manifest = json.loads(left_members["manifest.json"])
     right_manifest = json.loads(right_members["manifest.json"])
     left_points, right_points = read_field_table(left)["points"], read_field_table(right)["points"]
@@ -353,9 +322,3 @@ def compare_bundles(left: str | Path, right: str | Path) -> dict[str, Any]:
             for key in sorted(left_classes.keys() | right_classes.keys())
         },
     }
-
-
-def remove_tree(path: Path) -> None:
-    """Internal test helper kept narrow to a caller-owned output directory."""
-    if path.exists():
-        shutil.rmtree(path)

@@ -4,20 +4,93 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  verify:
+  python:
+    name: Python ${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install build and test dependencies
+        run: python -m pip install --upgrade build pip && python -m pip install -e ".[dev]"
+      - name: Check canonical schema package
+        run: python scripts/sync_schemas.py --check
+      - name: Lint
+        run: python -m ruff check python tests scripts
+      - name: Test
+        run: python -m pytest
+      - name: Build wheel
+        run: python -m build --wheel
+      - name: Install and smoke-test wheel
+        run: python scripts/wheel_smoke.py --wheel-dir dist --digest digests/${{ matrix.os }}.sha256
+      - name: Upload determinism digest
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v7
+        with:
+          name: digest-${{ matrix.os }}
+          path: digests/${{ matrix.os }}.sha256
+          if-no-files-found: error
+
+  determinism:
+    name: Cross-platform determinism
+    needs: python
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - run: python -m pip install -e .[dev]
-      - run: python -m ruff check python tests
-      - run: python -m pytest
-      - uses: actions/setup-node@v4
+      - uses: actions/download-artifact@v8
         with:
-          node-version: 22
-      - uses: pnpm/action-setup@v4
+          pattern: digest-*
+          path: downloaded-digests
+          merge-multiple: true
+      - run: python scripts/compare_digests.py downloaded-digests
+
+  web:
+    name: Browser studio
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/sync_schemas.py --check
+      - run: python scripts/generate_hostile_fixtures.py --output tests/generated-fixtures
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.19.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm run schemas:check
+      - run: pnpm run typecheck
       - run: pnpm run build
+      - run: pnpm run budget
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm run e2e
+      - name: Audit browser-generated TBX with the Python CLI
+        run: torusbrot audit tests/generated-fixtures/browser-export.tbx.zip
+      - name: Upload browser diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: browser-test-results
+          path: apps/studio/test-results
+          if-no-files-found: ignore
+          retention-days: 14

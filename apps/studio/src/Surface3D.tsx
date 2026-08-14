@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { colorAsRgb, metricValue } from "./palette";
@@ -13,6 +13,7 @@ interface Props {
 
 export function Surface3D({ table, metric, selected, showRaw }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
+  const [contextLost, setContextLost] = useState(false);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -26,6 +27,13 @@ export function Surface3D({ table, metric, selected, showRaw }: Props) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     host.appendChild(renderer.domElement);
+    const handleContextLost = (event: Event) => {
+      event.preventDefault();
+      setContextLost(true);
+    };
+    const handleContextRestored = () => setContextLost(false);
+    renderer.domElement.addEventListener("webglcontextlost", handleContextLost);
+    renderer.domElement.addEventListener("webglcontextrestored", handleContextRestored);
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.055;
@@ -113,11 +121,17 @@ export function Surface3D({ table, metric, selected, showRaw }: Props) {
       material.dispose();
       marker?.geometry.dispose();
       (marker?.material as THREE.Material | undefined)?.dispose();
+      renderer.domElement.removeEventListener("webglcontextlost", handleContextLost);
+      renderer.domElement.removeEventListener("webglcontextrestored", handleContextRestored);
       renderer.dispose();
-      host.removeChild(renderer.domElement);
+      if (host.contains(renderer.domElement)) host.removeChild(renderer.domElement);
     };
   }, [metric, selected, showRaw, table]);
 
-  return <div className="surface-host" ref={hostRef} aria-label="Interactive three-dimensional metric surface" />;
+  return (
+    <div className="surface-frame">
+      <div className="surface-host" ref={hostRef} aria-label="Interactive three-dimensional metric surface" />
+      {contextLost && <div className="surface-context-notice" role="status">WebGL context lost. Waiting for the browser to restore the surface.</div>}
+    </div>
+  );
 }
-

@@ -4,20 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "torusbrot"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local-first, provenance-forward scientific field workbench"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
-authors = [{ name = "GenghisDarb" }]
+license = "MIT"
+authors = [{ name = "Bradley Charles Peter" }]
 keywords = ["scientific-visualization", "reproducibility", "fractals", "provenance"]
 classifiers = [
   "Development Status :: 3 - Alpha",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Topic :: Scientific/Engineering :: Visualization",
 ]
-dependencies = []
+dependencies = ["jsonschema>=4.23,<5"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3", "ruff>=0.9"]
@@ -31,6 +30,9 @@ package-dir = {"" = "python"}
 [tool.setuptools.packages.find]
 where = ["python"]
 
+[tool.setuptools.package-data]
+torusbrot = ["schemas/**/*.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
@@ -41,4 +43,3 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
-

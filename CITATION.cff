@@ -1,11 +1,27 @@
 cff-version: 1.2.0
-message: "If you use TORUS Field Studio, please cite this software."
+message: "If you use TORUS Field Studio, please cite this software and the exact release artifact you audited."
 title: "TORUS Field Studio"
 type: software
-version: 0.1.0
-date-released: 2026-08-13
+version: 0.1.1
+date-released: 2026-08-14
 authors:
-  - name: GenghisDarb
+  - family-names: Peter
+    given-names: Bradley Charles
 repository-code: "https://github.com/GenghisDarb/torus-field-studio"
+url: "https://genghisdarb.github.io/torus-field-studio/"
 license: MIT
-
+keywords:
+  - scientific visualization
+  - reproducibility
+  - provenance
+  - deterministic computation
+  - evidence bundles
+preferred-citation:
+  type: software
+  title: "TORUS Field Studio"
+  version: 0.1.1
+  year: 2026
+  authors:
+    - family-names: Peter
+      given-names: Bradley Charles
+  repository-code: "https://github.com/GenghisDarb/torus-field-studio"

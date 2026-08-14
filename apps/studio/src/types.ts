@@ -47,6 +47,7 @@ export interface FieldTable {
   runId?: string;
   claimLevel?: string;
   engine?: Engine;
+  auditCheckedFiles?: number;
 }
 
 export interface GenerateRequest {

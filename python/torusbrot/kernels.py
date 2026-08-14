@@ -4,10 +4,17 @@ import cmath
 import math
 import random
 import statistics
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Protocol
 
-from .models import ClassificationRules, DomainPack, FieldPoint, MatchedNullPolicy, RunSpec
+from .models import (
+    ClassificationRules,
+    DomainPack,
+    FailureRecord,
+    FieldPoint,
+    MatchedNullPolicy,
+    RunSpec,
+)
 
 
 class FieldKernel(Protocol):
@@ -30,6 +37,7 @@ class AnalyticKernel:
     specification: RunSpec
     kernel_id: str = "analytic.complex_power.cpu.v1"
     schema_version: str = "1.0.0"
+    failures: list[FailureRecord] = field(default_factory=list, init=False)
 
     def generate(self) -> list[FieldPoint]:
         spec = self.specification
@@ -142,6 +150,7 @@ class LadderKernel:
     null_policy: MatchedNullPolicy
     kernel_id: str = "torus.local_ladder.cpu.v1"
     schema_version: str = "1.0.0"
+    failures: list[FailureRecord] = field(default_factory=list, init=False)
 
     def _nulls(self) -> list[list[float]]:
         if self.null_policy.kind != "preserve_multiset_shuffle":
@@ -293,9 +302,74 @@ class LadderKernel:
             anchoring = _lerp(y_max, y_min, grid_y, self.specification.grid.height)
             for grid_x in range(self.specification.grid.width):
                 mutation = _lerp(x_min, x_max, grid_x, self.specification.grid.width)
-                points.append(
-                    self._point(grid_x, grid_y, mutation, anchoring, null_mean, null_stdev)
-                )
+                try:
+                    point = self._point(
+                        grid_x, grid_y, mutation, anchoring, null_mean, null_stdev
+                    )
+                    metrics = (
+                        point.x,
+                        point.y,
+                        point.S_e,
+                        point.UI,
+                        point.NSS,
+                        point.SEP,
+                        point.rms_to_parent,
+                    )
+                    if not all(math.isfinite(value) for value in metrics):
+                        raise ArithmeticError("kernel produced a nonfinite metric")
+                    points.append(point)
+                except Exception as error:  # noqa: BLE001 - failures are part of the artifact
+                    failure_id = f"failure-point-{grid_y:04d}-{grid_x:04d}"
+                    self.failures.append(
+                        FailureRecord(
+                            failure_id=failure_id,
+                            category="KERNEL_EXCEPTION",
+                            stage="field_generation",
+                            message=f"{type(error).__name__}: {error}",
+                            grid_x=grid_x,
+                            grid_y=grid_y,
+                            coordinate={"x": mutation, "y": anchoring},
+                            recoverable=False,
+                        )
+                    )
+                    points.append(
+                        FieldPoint(
+                            index=grid_y * self.specification.grid.width + grid_x,
+                            grid_x=grid_x,
+                            grid_y=grid_y,
+                            x=round(mutation, 10),
+                            y=round(anchoring, 10),
+                            classification="UNRESOLVED",
+                            eligible=False,
+                            emerged=False,
+                            separated_from_null=False,
+                            closed=False,
+                            survived=False,
+                            escaped_from_reference=False,
+                            recovered=None,
+                            winner_N=None,
+                            T_e=None,
+                            S_e=0.0,
+                            UI=0.0,
+                            NSS=0.0,
+                            SEP=0.0,
+                            rms_to_parent=0.0,
+                            iterations=0,
+                            parent_id=self.domain.domain_id,
+                            null_policy_id=(
+                                f"{self.null_policy.kind}:{self.null_policy.count}:"
+                                f"{self.null_policy.seed}"
+                            ),
+                            trace=[
+                                {
+                                    "step": 0,
+                                    "stage": "failure",
+                                    "coherence": 0.0,
+                                }
+                            ],
+                            failure_id=failure_id,
+                        )
+                    )
         return points
 
     def null_registry(self) -> list[dict[str, Any]]:
