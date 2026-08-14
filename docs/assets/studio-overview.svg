@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="TORUS Field Studio interface preview">
+  <defs>
+    <radialGradient id="field" cx="45%" cy="45%" r="65%">
+      <stop offset="0" stop-color="#e8b85d"/><stop offset=".28" stop-color="#2b8e8e"/><stop offset=".62" stop-color="#163c43"/><stop offset="1" stop-color="#071014"/>
+    </radialGradient>
+    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" fill="none" stroke="#8ab0ac" stroke-opacity=".09"/></pattern>
+  </defs>
+  <rect width="1200" height="675" fill="#071014"/>
+  <rect x="0" y="0" width="1200" height="62" fill="#091519" stroke="#45605f" stroke-opacity=".35"/>
+  <g fill="none" stroke="#e8b85d"><ellipse cx="35" cy="31" rx="20" ry="9"/><ellipse cx="35" cy="31" rx="9" ry="20" transform="rotate(38 35 31)"/></g>
+  <text x="70" y="29" fill="#e8b85d" font-family="monospace" font-size="15" letter-spacing="3">TORUS</text><text x="132" y="29" fill="#dce8e5" font-family="monospace" font-size="15" letter-spacing="3">FIELD STUDIO</text>
+  <text x="70" y="45" fill="#66807e" font-family="monospace" font-size="8" letter-spacing="2">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.1</text>
+  <rect x="0" y="62" width="250" height="511" fill="#0b181c" stroke="#38504f" stroke-opacity=".4"/>
+  <rect x="950" y="62" width="250" height="511" fill="#0b181c" stroke="#38504f" stroke-opacity=".4"/>
+  <rect x="250" y="62" width="700" height="511" fill="url(#grid)"/>
+  <rect x="288" y="111" width="624" height="412" rx="2" fill="url(#field)"/>
+  <g fill="none" stroke="#f4eddc" stroke-opacity=".7"><circle cx="605" cy="300" r="11"/><circle cx="605" cy="300" r="18" stroke-opacity=".25"/></g>
+  <g font-family="monospace" font-size="9" fill="#829a98">
+    <text x="18" y="90" letter-spacing="2">RUN CONFIGURATION</text><text x="968" y="90" letter-spacing="2">POINT INSPECTOR</text>
+    <text x="18" y="127">ENGINE</text><text x="18" y="205">DATASET</text><text x="18" y="283">FROZEN PERTURBATION AXES</text><text x="18" y="388">VISUAL ENCODING</text>
+    <text x="968" y="130">CLASSIFICATION</text><text x="968" y="151" fill="#e4eae6" font-size="15">RECOVERED</text>
+  </g>
+  <g fill="#102328" stroke="#708e8c" stroke-opacity=".25"><rect x="18" y="139" width="103" height="48"/><rect x="129" y="139" width="103" height="48"/><rect x="18" y="218" width="214" height="34"/><rect x="18" y="402" width="214" height="34"/></g>
+  <g fill="#102328" stroke="#708e8c" stroke-opacity=".2"><rect x="968" y="183" width="63" height="48"/><rect x="1038" y="183" width="63" height="48"/><rect x="1108" y="183" width="63" height="48"/><rect x="968" y="238" width="63" height="48"/><rect x="1038" y="238" width="63" height="48"/><rect x="1108" y="238" width="63" height="48"/></g>
+  <g font-family="monospace" font-size="8" fill="#78908e"><text x="978" y="199">UI</text><text x="1048" y="199">NSS</text><text x="1118" y="199">SEP</text><text x="978" y="254">Sₑ</text><text x="1048" y="254">Tₑ</text><text x="1118" y="254">winner N</text></g>
+  <g font-family="monospace" font-size="13" fill="#dce8e5"><text x="978" y="220">.884</text><text x="1048" y="220">3.27σ</text><text x="1118" y="220">.245</text><text x="978" y="275">.923</text><text x="1048" y="275">4</text><text x="1118" y="275">10</text></g>
+  <rect x="0" y="573" width="1200" height="102" fill="#091519" stroke="#45605f" stroke-opacity=".35"/>
+  <text x="18" y="599" fill="#69817f" font-family="monospace" font-size="8" letter-spacing="2">SELECTED TRACE</text>
+  <polyline points="210,650 250,643 290,617 330,628 370,600 410,610 450,590 490,594 530,581 570,585 610,578 650,580 690,576 730,578 770,575 820,575" fill="none" stroke="#e8b85d" stroke-width="2"/>
+  <line x1="210" y1="627" x2="820" y2="627" stroke="#398181" stroke-dasharray="5 5"/>
+  <text x="975" y="603" fill="#69817f" font-family="monospace" font-size="8" letter-spacing="2">FIELD STATUS</text><text x="975" y="625" fill="#65b49f" font-family="monospace" font-size="12">COMPLETE</text>
+</svg>
+

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/run-spec/v1.schema.json",
+  "title": "TORUS run specification",
+  "type": "object",
+  "required": ["schema_version", "engine", "seed", "grid"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "engine": {"enum": ["analytic", "local_brot"]},
+    "seed": {"type": "integer", "minimum": 0},
+    "domain_id": {"type": "string"},
+    "claim_level": {"enum": ["ILLUSTRATIVE_ANALYTIC", "COMPUTED_DYNAMICAL", "TLD_DERIVED", "EXTERNALLY_VALIDATED"]},
+    "grid": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 4, "maximum": 1024},
+        "height": {"type": "integer", "minimum": 4, "maximum": 1024}
+      }
+    },
+    "parameters": {"type": "object"},
+    "classification_rules": {"type": "object"},
+    "null_policy": {"type": "object"}
+  },
+  "additionalProperties": false
+}
+

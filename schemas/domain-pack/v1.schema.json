@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/domain-pack/v1.schema.json",
+  "title": "TORUS domain pack",
+  "type": "object",
+  "required": ["schema_version", "domain_id", "title", "ladder", "claim_authority"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "domain_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "ladder": {"type": "array", "minItems": 4, "items": {"type": "number"}},
+    "claim_authority": {"enum": ["COMPUTED_DYNAMICAL", "TLD_DERIVED", "EXTERNALLY_VALIDATED"]},
+    "source": {"type": "object"}
+  },
+  "additionalProperties": false
+}
+

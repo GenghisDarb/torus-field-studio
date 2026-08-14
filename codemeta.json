@@ -1,0 +1,11 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "TORUS Field Studio",
+  "version": "0.1.0",
+  "codeRepository": "https://github.com/GenghisDarb/torus-field-studio",
+  "programmingLanguage": ["Python", "TypeScript"],
+  "license": "https://spdx.org/licenses/MIT",
+  "description": "A local-first scientific field workbench with explicit provenance and claim boundaries."
+}
+

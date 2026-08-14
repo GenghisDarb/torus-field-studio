@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/local-brot/v1.schema.json",
+  "title": "Local TORUS-BROT field point",
+  "type": "object",
+  "required": ["x", "y", "classification", "eligible", "emerged", "separated_from_null", "closed", "survived", "escaped_from_reference", "recovered", "winner_N", "T_e", "S_e", "UI", "NSS", "SEP"],
+  "properties": {
+    "x": {"type": "number"}, "y": {"type": "number"},
+    "classification": {"enum": ["BOUNDED", "ESCAPED", "RECOVERED", "NULL_LIKE", "UNRESOLVED"]},
+    "eligible": {"type": "boolean"}, "emerged": {"type": "boolean"},
+    "separated_from_null": {"type": "boolean"}, "closed": {"type": "boolean"},
+    "survived": {"type": "boolean"}, "escaped_from_reference": {"type": "boolean"},
+    "recovered": {"type": ["boolean", "null"]}, "winner_N": {"type": ["integer", "null"]},
+    "T_e": {"type": ["integer", "null"]}, "S_e": {"type": "number"},
+    "UI": {"type": "number"}, "NSS": {"type": "number"}, "SEP": {"type": "number"}
+  }
+}
+

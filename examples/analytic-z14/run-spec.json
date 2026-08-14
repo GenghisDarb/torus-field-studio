@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "engine": "analytic",
+  "seed": 14,
+  "domain_id": "analytic-z14",
+  "claim_level": "ILLUSTRATIVE_ANALYTIC",
+  "grid": {"width": 96, "height": 64},
+  "parameters": {"power": 14, "max_iterations": 80, "escape_radius": 2.0, "x_min": -1.35, "x_max": 1.35, "y_min": -1.05, "y_max": 1.05},
+  "classification_rules": {"bounded_iteration": 80},
+  "null_policy": {"kind": "none", "count": 0}
+}
+

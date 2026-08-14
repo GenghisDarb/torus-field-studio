@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/coupled-tot-brot/v1.schema.json",
+  "title": "Experimental typed ToT-BROT coupling edge",
+  "type": "object",
+  "required": ["edge_id", "source_system", "target_system", "matched_dimensions", "conflicting_dimensions", "shared_invariants", "orthology_evidence", "transfer_allowed"],
+  "properties": {
+    "edge_id": {"type": "string"}, "source_system": {"type": "string"}, "target_system": {"type": "string"},
+    "matched_dimensions": {"type": "array", "items": {"type": "string"}},
+    "conflicting_dimensions": {"type": "array", "items": {"type": "string"}},
+    "shared_invariants": {"type": "array", "items": {"type": "string"}},
+    "orthology_evidence": {"type": "array", "items": {"type": "string"}},
+    "transfer_allowed": {"type": "boolean"}, "transfer_forbidden_reason": {"type": ["string", "null"]}
+  }
+}
+

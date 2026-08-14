@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "engine": "local_brot",
+  "seed": 1407,
+  "domain_id": "synthetic-ring-14",
+  "claim_level": "COMPUTED_DYNAMICAL",
+  "grid": {"width": 40, "height": 28},
+  "parameters": {"x_min": 0.0, "x_max": 1.0, "y_min": 0.0, "y_max": 1.0, "recovery_steps": 12},
+  "classification_rules": {"separation_threshold": 0.08, "nss_threshold": 1.0, "survival_threshold": 0.6, "recovery_threshold": 0.78, "escape_threshold": 0.46},
+  "null_policy": {"kind": "preserve_multiset_shuffle", "count": 12, "seed": 1407}
+}

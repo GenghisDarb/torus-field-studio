@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "synthetic-ring-14",
+  "title": "Synthetic 14-rung cyclic reference",
+  "description": "Deterministic public fixture for parent/null and recovery controls; not externally validated.",
+  "ladder": [0.0, 0.5736, 0.8762, 0.9749, 1.1344, 1.2133, 0.7044, 0.0, -0.7044, -1.2133, -1.1344, -0.9749, -0.8762, -0.5736],
+  "claim_authority": "COMPUTED_DYNAMICAL",
+  "source": {"kind": "synthetic_fixture", "license": "CC0-1.0", "generator": "sin(2*pi*i/14)+0.25*sin(6*pi*i/14)"}
+}
+

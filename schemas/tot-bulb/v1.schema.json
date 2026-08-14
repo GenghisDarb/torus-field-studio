@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tot-bulb/v1.schema.json",
+  "title": "Experimental ToT-BULB boundary cell",
+  "type": "object",
+  "required": ["cell_id", "dimension", "state", "evidence_refs", "legal_next_probe", "forbidden_operations", "reopen_condition"],
+  "properties": {
+    "cell_id": {"type": "string"}, "dimension": {"type": "string"},
+    "state": {"enum": ["VERIFIED_PRESENT", "VERIFIED_ABSENT", "UNKNOWN", "CONFLICTED", "NOT_APPLICABLE", "BLOCKED_BY_AUTHORITY", "BLOCKED_BY_COST", "BLOCKED_BY_SECURITY"]},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "legal_next_probe": {"type": ["string", "null"]},
+    "forbidden_operations": {"type": "array", "items": {"type": "string"}},
+    "reopen_condition": {"type": ["string", "null"]}
+  }
+}
+
