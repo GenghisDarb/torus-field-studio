@@ -25,16 +25,17 @@ try {
 
     if (-not $SkipWeb) {
         Write-Host "Installing browser dependencies with the repository-pinned pnpm version"
+        $node = Get-Command node -ErrorAction SilentlyContinue
         $npm = Get-Command npm -ErrorAction SilentlyContinue
         $pnpm = Get-Command pnpm -ErrorAction SilentlyContinue
         $codexDependencies = Join-Path $env:USERPROFILE ".cache\codex-runtimes\codex-primary-runtime\dependencies"
         $codexNode = Join-Path $codexDependencies "node\bin\node.exe"
         $codexPnpm = Join-Path $codexDependencies "bin\fallback\pnpm.cmd"
-        if ($npm) {
+        if ($npm -and $node) {
             & $npm.Source exec --yes --package=pnpm@11.19.0 -- pnpm install
             if ($LASTEXITCODE -ne 0) { throw "pnpm install failed with exit code $LASTEXITCODE." }
         }
-        elseif ($pnpm) {
+        elseif ($pnpm -and $node) {
             & $pnpm.Source install
             if ($LASTEXITCODE -ne 0) { throw "pnpm install failed with exit code $LASTEXITCODE." }
         }
