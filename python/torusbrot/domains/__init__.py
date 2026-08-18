@@ -1,0 +1,2 @@
+"""Registered external-domain adapters."""
+

@@ -18,6 +18,7 @@ from .adapters.zenodo_tld_i import (
     validate_release_source,
 )
 from .bundle import audit_bundle, compare_bundles, copy_field_json, export_field_csv
+from .domains.beijing_pm25 import fetch_authoritative_source, materialize
 from .kernels import LadderKernel
 from .models import DomainPack, MatchedNullPolicy, RunSpec, canonical_json, validate_domain_pack
 from .runs import AnalyticRun, LocalBrotRun
@@ -28,6 +29,8 @@ from .tld import (
     export_tld_bundle,
     reproduce_tld_i,
 )
+from .tld.heldout import authorize_scored_run, execute_scored_run
+from .tld.heldout.verification import verify_scored_run
 
 
 def _print(value: Any) -> None:
@@ -121,6 +124,46 @@ def _run_fetch_tld_release(args: argparse.Namespace) -> int:
     receipt = fetch_tld_i(target)
     _print(receipt | {"output": str(target)})
     return 0
+
+
+def _run_fetch_heldout_source(args: argparse.Namespace) -> int:
+    _print(fetch_authoritative_source(Path(args.output)))
+    return 0
+
+
+def _run_materialize_heldout(args: argparse.Namespace) -> int:
+    receipt = materialize(Path(args.source), Path(args.study), Path(args.output))
+    _print(receipt)
+    return 0 if receipt["ready_for_scored_run_authorization"] else 1
+
+
+def _run_authorize_heldout(args: argparse.Namespace) -> int:
+    receipt = authorize_scored_run(
+        Path(args.materialized),
+        Path(args.study),
+        Path(args.output),
+        preregistration_commit=args.preregistration_commit,
+        implementation_commit=args.implementation_commit,
+    )
+    _print(receipt)
+    return 0
+
+
+def _run_execute_heldout(args: argparse.Namespace) -> int:
+    summary = execute_scored_run(Path(args.materialized), Path(args.study), Path(args.output))
+    _print(summary)
+    return 0
+
+
+def _run_verify_heldout(args: argparse.Namespace) -> int:
+    report = verify_scored_run(
+        Path(args.materialized),
+        Path(args.study),
+        Path(args.scored),
+        Path(args.output),
+    )
+    _print(report)
+    return 0 if report["status"] == "verified" else 1
 
 
 def _run_reproduce_tld_i(args: argparse.Namespace) -> int:
@@ -277,6 +320,37 @@ def build_parser() -> argparse.ArgumentParser:
     tld_fetch.add_argument("--doi", default=TLD_I_DOI)
     tld_fetch.add_argument("--output", "-o", required=True)
     tld_fetch.set_defaults(handler=_run_fetch_tld_release)
+    heldout_fetch = fetch_sub.add_parser("heldout-source")
+    heldout_fetch.add_argument("--output", "-o", required=True)
+    heldout_fetch.set_defaults(handler=_run_fetch_heldout_source)
+
+    materialize_parser = subparsers.add_parser(
+        "materialize", help="materialize a registered study before metrics"
+    )
+    materialize_sub = materialize_parser.add_subparsers(dest="materialize_kind", required=True)
+    heldout_materialize = materialize_sub.add_parser("heldout-study")
+    heldout_materialize.add_argument("--source", required=True)
+    heldout_materialize.add_argument("--study", required=True)
+    heldout_materialize.add_argument("--output", "-o", required=True)
+    heldout_materialize.set_defaults(handler=_run_materialize_heldout)
+
+    authorize = subparsers.add_parser("authorize", help="freeze a scored-run identity")
+    authorize_sub = authorize.add_subparsers(dest="authorize_kind", required=True)
+    heldout_authorize = authorize_sub.add_parser("heldout-study")
+    heldout_authorize.add_argument("--materialized", required=True)
+    heldout_authorize.add_argument("--study", required=True)
+    heldout_authorize.add_argument("--output", "-o", required=True)
+    heldout_authorize.add_argument("--preregistration-commit", required=True)
+    heldout_authorize.add_argument("--implementation-commit", required=True)
+    heldout_authorize.set_defaults(handler=_run_authorize_heldout)
+
+    execute = subparsers.add_parser("execute", help="execute an authorized scored study")
+    execute_sub = execute.add_subparsers(dest="execute_kind", required=True)
+    heldout_execute = execute_sub.add_parser("heldout-study")
+    heldout_execute.add_argument("--materialized", required=True)
+    heldout_execute.add_argument("--study", required=True)
+    heldout_execute.add_argument("--output", "-o", required=True)
+    heldout_execute.set_defaults(handler=_run_execute_heldout)
 
     freeze = subparsers.add_parser("freeze", help="canonicalize and hash a run specification")
     freeze.add_argument("path")
@@ -304,6 +378,12 @@ def build_parser() -> argparse.ArgumentParser:
     tld_result = verify_sub.add_parser("tld-result")
     tld_result.add_argument("bundle")
     tld_result.set_defaults(handler=_run_verify_tld_result)
+    heldout_result = verify_sub.add_parser("heldout-study")
+    heldout_result.add_argument("--materialized", required=True)
+    heldout_result.add_argument("--study", required=True)
+    heldout_result.add_argument("--scored", required=True)
+    heldout_result.add_argument("--output", "-o", required=True)
+    heldout_result.set_defaults(handler=_run_verify_heldout)
 
     nulls = subparsers.add_parser("nulls", help="matched-null operations")
     null_sub = nulls.add_subparsers(dest="null_command", required=True)
