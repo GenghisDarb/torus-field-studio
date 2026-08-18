@@ -32,6 +32,34 @@ REQUIRED_MEMBERS = frozenset(
         "audit/SHA256SUMS.txt",
     }
 )
+TLD_REQUIRED_MEMBERS = frozenset(
+    {
+        "source_registry.json",
+        "preregistration_contract.json",
+        "tld_profile.json",
+        "registry/ladder_registry.json",
+        "registry/control_or_null_registry.json",
+        "tables/tld_endpoint_table.json",
+        "tables/baseline_scores.json",
+        "tables/alpha_sweep.json",
+        "tables/core_alpha_compare.json",
+        "tables/preregistration_results.json",
+        "tables/trajectories.jsonl",
+        "tables/transition_counts.json",
+        "tables/operating_envelope.json",
+        "audit/independent_verification.json",
+        "audit/claim_adjudication.json",
+    }
+)
+TLD_I_INPUT_HASHES = {
+    "targets_baseline.csv": "856f102a4f58d53d67fdb1ac5982de12ca18a9c78efe13097f23879e262cb683",
+    "targets_metadata_addon.csv": (
+        "dfba2dc563706d284313f27e679132d028ea77c49a8816cff944baef13dd135f"
+    ),
+    "targets_metadata_template.csv": (
+        "49a536790c6920a6627f903062e0c0d4ce831acd167173ea1a366b7139f980e3"
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -102,8 +130,10 @@ def _preflight_zip(path: Path, policy: BundlePolicy) -> list[zipfile.ZipInfo]:
                         f"{info.filename} is {info.file_size} bytes",
                     )
                 )
-            ratio = math.inf if info.compress_size == 0 and info.file_size else (
-                info.file_size / max(info.compress_size, 1)
+            ratio = (
+                math.inf
+                if info.compress_size == 0 and info.file_size
+                else (info.file_size / max(info.compress_size, 1))
             )
             if ratio > policy.max_compression_ratio:
                 errors.append(
@@ -297,7 +327,10 @@ def _audit_manifest(
     extras = sorted(set(members) - expected)
     if extras:
         errors.append(_issue("MANIFEST_UNLISTED_MEMBER", ", ".join(extras)))
-    required_missing = sorted(REQUIRED_MEMBERS - set(paths))
+    required = set(REQUIRED_MEMBERS)
+    if str(manifest.get("profile", "")).startswith("tld-i-"):
+        required.update(TLD_REQUIRED_MEMBERS)
+    required_missing = sorted(required - set(paths))
     if required_missing:
         errors.append(_issue("REQUIRED_MEMBER_MISSING", ", ".join(required_missing)))
     return checked
@@ -305,6 +338,151 @@ def _audit_manifest(
 
 def _is_finite_number(value: Any) -> bool:
     return isinstance(value, int | float) and not isinstance(value, bool) and math.isfinite(value)
+
+
+def _audit_tld_semantics(
+    members: dict[str, bytes],
+    manifest: dict[str, Any],
+    claim: dict[str, Any],
+    points: list[Any],
+    failures: list[dict[str, Any]],
+    errors: list[str],
+    policy: BundlePolicy,
+) -> None:
+    source = _load_json(members, "source_registry.json", errors, policy)
+    preregistration = _load_json(members, "preregistration_contract.json", errors, policy)
+    profile = _load_json(members, "tld_profile.json", errors, policy)
+    ladder_registry = _load_json(members, "registry/ladder_registry.json", errors, policy)
+    endpoints = _load_json(members, "tables/tld_endpoint_table.json", errors, policy)
+    independent = _load_json(members, "audit/independent_verification.json", errors, policy)
+    adjudication = _load_json(members, "audit/claim_adjudication.json", errors, policy)
+    trajectories = _load_jsonl(members, "tables/trajectories.jsonl", errors, policy)
+    transitions = _load_json(members, "tables/transition_counts.json", errors, policy)
+    core = _load_json(members, "tables/core_alpha_compare.json", errors, policy)
+    controls = _load_json(members, "registry/control_or_null_registry.json", errors, policy)
+    documents = {
+        "tld-release-source": source,
+        "tld-preregistration-result": preregistration,
+        "tld-tbx-profile": profile,
+        "tld-ladder-registry": ladder_registry,
+        "tld-endpoint-table": endpoints,
+        "tld-independent-verification": independent,
+        "tld-claim-adjudication": adjudication,
+        "tld-trajectory-trace": {"schema_version": "1.0.0", "rows": trajectories},
+    }
+    for schema, value in documents.items():
+        if not isinstance(value, dict):
+            errors.append(_issue("TLD_MEMBER_INVALID", schema))
+            continue
+        for validation_error in validate_with_schema(schema, value):
+            errors.append(_issue("TLD_SCHEMA_INVALID", f"{schema}: {validation_error}"))
+    if not all(isinstance(value, dict) for value in documents.values()):
+        return
+    if source.get("doi") != "10.5281/zenodo.18080090":
+        errors.append(_issue("TLD_SOURCE_DOI_MISMATCH", repr(source.get("doi"))))
+    if source.get("claim_authority_ceiling") != "COMPUTED_DYNAMICAL":
+        errors.append(_issue("TLD_SOURCE_CLAIM_CEILING_INVALID", "source registry"))
+    if source.get("input_sha256") != TLD_I_INPUT_HASHES:
+        errors.append(_issue("TLD_SOURCE_INPUT_HASH_MISMATCH", "source registry"))
+    if profile.get("profile") != manifest.get("profile"):
+        errors.append(_issue("TLD_PROFILE_MISMATCH", "manifest and profile declaration"))
+    declared_members = set(profile.get("required_members", []))
+    if declared_members != set(TLD_REQUIRED_MEMBERS):
+        errors.append(_issue("TLD_PROFILE_MEMBERS_INVALID", "required member declaration"))
+    if profile.get("interpolation_used_for_metrics") is not False:
+        errors.append(_issue("TLD_INTERPOLATION_AS_OBSERVATION", "profile declaration"))
+    if independent.get("status") != "verified":
+        errors.append(_issue("TLD_INDEPENDENT_VERIFICATION_FAILED", "receipt status"))
+    independent_checks = independent.get("checks")
+    if not isinstance(independent_checks, dict) or any(
+        value is not True for value in independent_checks.values() if isinstance(value, bool)
+    ):
+        errors.append(_issue("TLD_INDEPENDENT_VERIFICATION_FAILED", "receipt checks"))
+    if adjudication.get("externally_validated") is not False:
+        errors.append(_issue("TLD_EXTERNAL_VALIDATION_FORBIDDEN", "claim adjudication"))
+    if adjudication.get("claim_level") != claim.get("claim_level"):
+        errors.append(_issue("TLD_CLAIM_ADJUDICATION_MISMATCH", "claim boundary"))
+    if (
+        manifest.get("claim_level") == "TLD_DERIVED"
+        and adjudication.get("tld_derived_status") != "PERMITTED"
+    ):
+        errors.append(_issue("TLD_DERIVED_GATE_BLOCKED", "claim adjudication"))
+    criteria = preregistration.get("criteria", {})
+    if isinstance(criteria, dict):
+        passed = sum(value is True for value in criteria.values())
+        failed = sum(value is False for value in criteria.values())
+        if preregistration.get("passed") != passed or preregistration.get("failed") != failed:
+            errors.append(_issue("TLD_PREREGISTRATION_COUNT_MISMATCH", "criteria counts"))
+        if isinstance(core, list) and len(core) == 2 and all(isinstance(row, dict) for row in core):
+            alpha0, alpha002 = core
+            expected_criteria = {
+                "alpha0_escape_rate_at_least_0.90": alpha0.get("escape_rate", -1) >= 0.90,
+                "alpha0_return_rate_at_most_0.40": alpha0.get("return_rate_given_escape", math.inf)
+                <= 0.40,
+                "alpha002_escape_rate_at_least_0.90": alpha002.get("escape_rate", -1) >= 0.90,
+                "alpha002_return_rate_at_least_0.95": alpha002.get("return_rate_given_escape", -1)
+                >= 0.95,
+                "alpha002_mean_return_steps_at_most_120": alpha002.get(
+                    "mean_return_steps", math.inf
+                )
+                <= 120,
+                "alpha002_p90_flips_at_most_5": alpha002.get("p90_flips", math.inf) <= 5,
+            }
+            if criteria != expected_criteria:
+                errors.append(_issue("TLD_PREREGISTRATION_OUTCOME_MISMATCH", "core results"))
+            if [row.get("alpha_heal") for row in core] != [0.0, 0.02]:
+                errors.append(_issue("TLD_PREREGISTRATION_CONTROL_MISMATCH", "alpha order"))
+        else:
+            errors.append(_issue("TLD_PREREGISTRATION_SOURCE_INVALID", "core results"))
+    endpoint_rows = endpoints.get("rows", [])
+    if isinstance(endpoint_rows, list):
+        for index, row in enumerate(endpoint_rows):
+            if isinstance(row, dict) and (row.get("T_e") is not None or row.get("S_e") is not None):
+                errors.append(_issue("TLD_UNCOMPUTED_ENDPOINT_POPULATED", f"endpoint {index}"))
+    seen_trace_rows: set[tuple[Any, Any, Any]] = set()
+    grouped: dict[int, list[dict[str, Any]]] = {}
+    for index, row in enumerate(trajectories):
+        identity = (row.get("trial_id"), row.get("phase"), row.get("t"))
+        if identity in seen_trace_rows:
+            errors.append(_issue("TLD_TRAJECTORY_DUPLICATE", str(index)))
+        seen_trace_rows.add(identity)
+        if row.get("phase") == "heal" and isinstance(row.get("trial_id"), int):
+            grouped.setdefault(row["trial_id"], []).append(row)
+    recomputed: Counter[tuple[float, int, int]] = Counter()
+    for rows in grouped.values():
+        rows.sort(key=lambda row: int(row["t"]))
+        for left, right in zip(rows[:-1], rows[1:]):
+            recomputed[
+                (float(left["alpha_heal"]), int(left["winner_N"]), int(right["winner_N"]))
+            ] += 1
+    if isinstance(transitions, list):
+        reported = Counter(
+            {
+                (float(row["alpha_heal"]), int(row["from_N"]), int(row["to_N"])): int(row["count"])
+                for row in transitions
+                if isinstance(row, dict)
+            }
+        )
+        if reported != recomputed:
+            errors.append(_issue("TLD_TRANSITION_COUNT_MISMATCH", "raw trajectories"))
+    missing_failure_ids = {
+        point.get("failure_id")
+        for point in points
+        if isinstance(point, dict) and point.get("observed") is False
+    }
+    ledger_ids = {failure.get("failure_id") for failure in failures}
+    if missing_failure_ids != ledger_ids:
+        errors.append(_issue("TLD_FAILURE_PRESERVATION_MISMATCH", "missing cells and ledger"))
+    if profile.get("profile") == "tld-i-modern-v21" and isinstance(controls, list):
+        if any(
+            isinstance(control, dict)
+            and any(
+                str(control.get(key, "")).casefold() in {"global", "global_pool", "pooled_global"}
+                for key in ("scope", "pool", "null_pool")
+            )
+            for control in controls
+        ):
+            errors.append(_issue("TLD_GLOBAL_NULL_POOL_FORBIDDEN", "modern controls"))
 
 
 def _audit_semantics(
@@ -320,12 +498,8 @@ def _audit_semantics(
     parent = _load_json(members, "registry/parent_registry.json", errors, policy)
     nulls = _load_json(members, "registry/null_registry.json", errors, policy)
     failures = _load_jsonl(members, "audit/failure_ledger.jsonl", errors, policy)
-    receipts = _load_jsonl(
-        members, "provenance/verification_receipts.jsonl", errors, policy
-    )
-    transformations = _load_jsonl(
-        members, "provenance/transformations.jsonl", errors, policy
-    )
+    receipts = _load_jsonl(members, "provenance/verification_receipts.jsonl", errors, policy)
+    transformations = _load_jsonl(members, "provenance/transformations.jsonl", errors, policy)
     if not all(
         isinstance(value, dict) for value in (run_spec, ontology, claim, table, parent)
     ) or not isinstance(nulls, list):
@@ -339,14 +513,24 @@ def _audit_semantics(
     for failure in failures:
         for validation_error in validate_with_schema("failure", failure):
             errors.append(_issue("FAILURE_SCHEMA_INVALID", validation_error))
+    engine = run_spec.get("engine")
+    tld_profile = str(manifest.get("profile", "")).startswith("tld-i-")
     if ontology.get("schema_version") != "1.0.0":
         errors.append(_issue("SCHEMA_VERSION_UNSUPPORTED", "ontology"))
+    non_equivalences = ontology.get("non_equivalences", [])
+    if tld_profile and (
+        "winner_N != T_e" not in non_equivalences
+        or "winner_N != S_e" not in non_equivalences
+        or "TORUS-BROT != ToT-BROT" not in non_equivalences
+    ):
+        errors.append(_issue("TLD_ONTOLOGY_CONFLATION", "required non-equivalences"))
+    if engine == "analytic" and "tld evidence" in json.dumps(claim).casefold():
+        errors.append(_issue("ANALYTIC_TLD_EVIDENCE_FORBIDDEN", "claim boundary"))
     if table.get("schema_version") != "1.0.0":
         errors.append(_issue("SCHEMA_VERSION_UNSUPPORTED", "field table"))
     specification_sha256 = content_hash(run_spec)
     if manifest.get("specification_sha256") != specification_sha256:
         errors.append(_issue("SPECIFICATION_HASH_MISMATCH", "manifest"))
-    engine = run_spec.get("engine")
     manifest_claim = manifest.get("claim_level")
     claim_name = claim.get("claim_level")
     if claim_name != manifest_claim:
@@ -363,6 +547,11 @@ def _audit_semantics(
             errors.append(_issue("CLAIM_LEVEL_ENGINE_CONFLICT", "analytic engine"))
         if engine == "local_brot" and output_level > ClaimLevel.TLD_DERIVED:
             errors.append(_issue("CLAIM_LEVEL_ENGINE_CONFLICT", "local engine"))
+        if engine == "tld" and not tld_profile:
+            errors.append(_issue("TLD_PROFILE_MISSING", "tld engine requires a TLD profile"))
+        if engine == "tld" and "historical" in str(manifest.get("profile")):
+            if output_level > ClaimLevel.COMPUTED_DYNAMICAL:
+                errors.append(_issue("CLAIM_LEVEL_ENGINE_CONFLICT", "historical TLD lane"))
         authority = claim_values.get(parent.get("claim_authority"))
         if authority is not None and output_level > authority:
             errors.append(_issue("CLAIM_LEVEL_DOMAIN_CONFLICT", manifest_claim))
@@ -404,7 +593,19 @@ def _audit_semantics(
         if not isinstance(point, dict):
             errors.append(_issue("FIELD_POINT_INVALID", str(position)))
             continue
-        if any(not _is_finite_number(point.get(field)) for field in numeric_fields):
+        if tld_profile:
+            if any(not _is_finite_number(point.get(field)) for field in ("x", "y")):
+                errors.append(_issue("FIELD_METRIC_NONFINITE", str(position)))
+            if any(point.get(field) is not None for field in ("T_e", "S_e", "UI", "NSS", "SEP")):
+                errors.append(_issue("TLD_UNCOMPUTED_ENDPOINT_POPULATED", str(position)))
+            observed = point.get("observed")
+            if observed is True and point.get("failure_id") is not None:
+                errors.append(_issue("TLD_OBSERVED_FAILURE_CONFLICT", str(position)))
+            if observed is False and (
+                point.get("classification") != "UNRESOLVED" or point.get("failure_id") is None
+            ):
+                errors.append(_issue("TLD_MISSING_CELL_NOT_PRESERVED", str(position)))
+        elif any(not _is_finite_number(point.get(field)) for field in numeric_fields):
             errors.append(_issue("FIELD_METRIC_NONFINITE", str(position)))
         grid_x, grid_y = point.get("grid_x"), point.get("grid_y")
         if not isinstance(grid_x, int) or not isinstance(grid_y, int):
@@ -444,6 +645,10 @@ def _audit_semantics(
                 reported_mean, expected_mean, rel_tol=0.0, abs_tol=1.1e-8
             ):
                 errors.append(_issue("STATISTICS_MISMATCH", statistics_key))
+    if tld_profile and any(
+        statistics.get(key) is not None for key in ("mean_UI", "mean_NSS", "mean_S_e")
+    ):
+        errors.append(_issue("TLD_UNCOMPUTED_STATISTIC_POPULATED", "manifest statistics"))
     if statistics.get("failure_count") != len(failures):
         errors.append(_issue("FAILURE_COUNT_MISMATCH", "failure ledger"))
     null_policy = run_spec.get("null_policy", {})
@@ -455,9 +660,13 @@ def _audit_semantics(
             errors.append(_issue("PROVENANCE_HASH_MISMATCH", "transformation"))
         if transformation.get("transformation_id") != manifest.get("kernel_id"):
             errors.append(_issue("PROVENANCE_KERNEL_MISMATCH", "transformation"))
+        if transformation.get("seed") != run_spec.get("seed"):
+            errors.append(_issue("PROVENANCE_SEED_MISMATCH", "transformation"))
     else:
         errors.append(_issue("PROVENANCE_TRANSFORMATION_MISSING", "no transformation"))
-    domain_sha256 = parent.get("domain_sha256") if engine == "local_brot" else None
+    if tld_profile:
+        _audit_tld_semantics(members, manifest, claim, points, failures, errors, policy)
+    domain_sha256 = parent.get("domain_sha256") if engine in {"local_brot", "tld"} else None
     identity = {
         "specification": run_spec,
         "kernel_id": manifest.get("kernel_id"),

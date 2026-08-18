@@ -2,7 +2,7 @@
 
 export interface TORUSRunSpecification {
   schema_version: "1.0.0";
-  engine: "analytic" | "local_brot";
+  engine: "analytic" | "local_brot" | "tld";
   seed: number;
   domain_id?: string;
   claim_level?: "ILLUSTRATIVE_ANALYTIC" | "COMPUTED_DYNAMICAL" | "TLD_DERIVED" | "EXTERNALLY_VALIDATED";

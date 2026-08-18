@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-release-source/v1.schema.json",
+  "title": "TLD release source registry",
+  "type": "object",
+  "required": ["schema_version", "source_id", "doi", "record_url", "title", "archive", "input_sha256", "confirmatory_notebooks", "exploratory_notebooks_used_as_evidence", "license", "claim_authority_ceiling"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "source_id": {"type": "string", "minLength": 1},
+    "doi": {"const": "10.5281/zenodo.18080090"},
+    "record_url": {"type": "string", "format": "uri"},
+    "title": {"type": "string", "minLength": 1},
+    "archive": {
+      "type": "object",
+      "required": ["filename", "md5", "sha256"],
+      "properties": {
+        "filename": {"const": "TORUS_Zenodo_v1.zip"},
+        "md5": {"pattern": "^[a-f0-9]{32}$"},
+        "sha256": {"pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "input_sha256": {"type": "object", "additionalProperties": {"pattern": "^[a-f0-9]{64}$"}},
+    "confirmatory_notebooks": {"const": [13, 14]},
+    "exploratory_notebooks_used_as_evidence": {"const": false},
+    "license": {"type": "string"},
+    "claim_authority_ceiling": {"const": "COMPUTED_DYNAMICAL"}
+  },
+  "additionalProperties": false
+}

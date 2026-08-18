@@ -181,7 +181,7 @@ class FieldResult:
                 [
                     {
                         "transformation_id": self.kernel_id,
-                        "software_version": "0.1.1",
+                        "software_version": "0.2.0",
                         "seed": self.specification.seed,
                         "specification_sha256": self.specification.sha256,
                     }

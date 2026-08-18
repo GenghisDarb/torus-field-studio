@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-perturbation-contract/v1.schema.json",
+  "title": "TLD perturbation contract",
+  "type": "object",
+  "required": ["schema_version", "contract_id", "escape_operator", "healing_operator", "p_swap", "epsilon", "alphas", "max_escape_steps", "max_heal_steps", "seed_policy"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "contract_id": {"type": "string"},
+    "escape_operator": {"type": "string"}, "healing_operator": {"type": "string"},
+    "p_swap": {"type": "number", "minimum": 0, "maximum": 1},
+    "epsilon": {"type": "number", "minimum": 0},
+    "alphas": {"type": "array", "items": {"type": "number", "minimum": 0, "maximum": 1}},
+    "max_escape_steps": {"type": "integer", "minimum": 1},
+    "max_heal_steps": {"type": "integer", "minimum": 1},
+    "seed_policy": {"type": "string"}
+  },
+  "additionalProperties": false
+}

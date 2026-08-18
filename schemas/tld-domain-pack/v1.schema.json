@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-domain-pack/v1.schema.json",
+  "title": "TLD domain pack",
+  "type": "object",
+  "required": ["schema_version", "domain_id", "doi", "source_input", "source_sha256", "row_order", "rows", "canonicalization", "ladderization", "adjacency_topology", "units", "duplicate_policy", "missing_value_policy", "claim_authority", "license"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "domain_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$"},
+    "doi": {"const": "10.5281/zenodo.18080090"},
+    "source_input": {"const": "targets_baseline.csv"},
+    "source_sha256": {"pattern": "^[a-f0-9]{64}$"},
+    "row_order": {"const": "source_csv_order"},
+    "rows": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["index", "family", "label", "value", "sigma"],
+        "properties": {
+          "index": {"type": "integer", "minimum": 0},
+          "family": {"type": "string"},
+          "label": {"type": "string"},
+          "value": {"type": "number", "exclusiveMinimum": 0},
+          "sigma": {"type": "number", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "canonicalization": {"const": "none; preserve source scalar bytes and row order"},
+    "ladderization": {"const": "omega=natural_log(value); sigma_omega=sigma/value"},
+    "adjacency_topology": {"const": "ordered_path"},
+    "units": {"const": "dimensionless"},
+    "duplicate_policy": {"const": "preserve source rows"},
+    "missing_value_policy": {"const": "reject"},
+    "claim_authority": {"const": "COMPUTED_DYNAMICAL"},
+    "license": {"type": "string"}
+  },
+  "additionalProperties": false
+}
