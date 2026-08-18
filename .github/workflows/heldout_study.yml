@@ -86,6 +86,10 @@ jobs:
         with: {version: 11.19.0}
       - uses: actions/setup-node@v7
         with: {node-version: 24, cache: pnpm}
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e .
+      - run: python scripts/generate_hostile_fixtures.py --output tests/generated-fixtures
       - run: pnpm install --frozen-lockfile
       - run: pnpm run schemas:check && pnpm run typecheck && pnpm run build && pnpm run budget
       - run: pnpm exec playwright install --with-deps chromium
