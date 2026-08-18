@@ -31,6 +31,8 @@ from .tld import (
 )
 from .tld.heldout import authorize_scored_run, execute_scored_run
 from .tld.heldout.adjudication import adjudicate, snapshot_result
+from .tld.heldout.bundle import export_heldout_bundle_set
+from .tld.heldout.publication import create_publication
 from .tld.heldout.verification import verify_scored_run
 
 
@@ -182,6 +184,31 @@ def _run_snapshot_heldout(args: argparse.Namespace) -> int:
     )
     _print(result)
     return 0
+
+
+def _run_publish_heldout(args: argparse.Namespace) -> int:
+    result = create_publication(
+        Path(args.scored),
+        Path(args.verification),
+        Path(args.adjudication),
+        Path(args.output),
+    )
+    _print(result)
+    return 0
+
+
+def _run_package_heldout(args: argparse.Namespace) -> int:
+    receipts = export_heldout_bundle_set(
+        Path(args.study),
+        Path(args.materialized),
+        Path(args.scored),
+        Path(args.verification),
+        Path(args.adjudication),
+        Path(args.publication),
+        Path(args.output),
+    )
+    _print({"bundles": receipts})
+    return 0 if all(receipt["audit"]["valid"] for receipt in receipts) else 1
 
 
 def _run_reproduce_tld_i(args: argparse.Namespace) -> int:
@@ -386,6 +413,27 @@ def build_parser() -> argparse.ArgumentParser:
     heldout_snapshot.add_argument("--adjudication", required=True)
     heldout_snapshot.add_argument("--output", "-o", required=True)
     heldout_snapshot.set_defaults(handler=_run_snapshot_heldout)
+
+    publish = subparsers.add_parser("publish", help="create publication-compatible exports")
+    publish_sub = publish.add_subparsers(dest="publish_kind", required=True)
+    heldout_publish = publish_sub.add_parser("heldout-study")
+    heldout_publish.add_argument("--scored", required=True)
+    heldout_publish.add_argument("--verification", required=True)
+    heldout_publish.add_argument("--adjudication", required=True)
+    heldout_publish.add_argument("--output", "-o", required=True)
+    heldout_publish.set_defaults(handler=_run_publish_heldout)
+
+    package = subparsers.add_parser("package", help="package a verified study")
+    package_sub = package.add_subparsers(dest="package_kind", required=True)
+    heldout_package = package_sub.add_parser("heldout-study")
+    heldout_package.add_argument("--study", required=True)
+    heldout_package.add_argument("--materialized", required=True)
+    heldout_package.add_argument("--scored", required=True)
+    heldout_package.add_argument("--verification", required=True)
+    heldout_package.add_argument("--adjudication", required=True)
+    heldout_package.add_argument("--publication", required=True)
+    heldout_package.add_argument("--output", "-o", required=True)
+    heldout_package.set_defaults(handler=_run_package_heldout)
 
     freeze = subparsers.add_parser("freeze", help="canonicalize and hash a run specification")
     freeze.add_argument("path")

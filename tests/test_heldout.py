@@ -7,6 +7,8 @@ from pathlib import Path
 
 import numpy as np
 import pytest
+from tld_fixtures import read_members, resign_bundle
+from torusbrot.audit import audit_bundle
 from torusbrot.domains.beijing_pm25 import (
     EXPECTED_DAYS,
     EXPECTED_HOURS,
@@ -160,3 +162,38 @@ def test_independent_verifier_does_not_import_production_endpoints() -> None:
             repository / "studies" / "heldout-v0.2.1" / "preregistration" / "frozen_thresholds.json"
         ).read_text(encoding="utf-8")
     )
+
+
+def test_public_heldout_bundle_is_auditable_and_semantic_mutations_fail(
+    tmp_path: Path,
+) -> None:
+    repository = Path(__file__).resolve().parents[1]
+    source = (
+        repository
+        / "apps"
+        / "studio"
+        / "public"
+        / "examples"
+        / "heldout-tld-study-combined.tbx.zip"
+    )
+    report = audit_bundle(source)
+    assert report.valid, report.errors
+    assert report.checked_files == 41
+
+    members = read_members(source)
+    endpoints = json.loads(members["tables/primary_endpoints.json"])
+    endpoints["T_e"] = 9
+    members["tables/primary_endpoints.json"] = (
+        json.dumps(endpoints, sort_keys=True, separators=(",", ":")).encode() + b"\n"
+    )
+    changed = resign_bundle(tmp_path / "winner-as-te.tbx.zip", members)
+    assert "HELDOUT_TE_MISMATCH" in audit_bundle(changed).issue_codes
+
+    members = read_members(source)
+    adjudication = json.loads(members["audit/claim_adjudication.json"])
+    adjudication["EXTERNALLY_VALIDATED"] = True
+    members["audit/claim_adjudication.json"] = (
+        json.dumps(adjudication, sort_keys=True, separators=(",", ":")).encode() + b"\n"
+    )
+    changed = resign_bundle(tmp_path / "external-validation.tbx.zip", members)
+    assert "HELDOUT_EXTERNAL_VALIDATION_FORBIDDEN" in audit_bundle(changed).issue_codes
