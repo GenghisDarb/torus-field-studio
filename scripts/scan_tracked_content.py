@@ -11,7 +11,8 @@ TOKEN_PATTERNS = (
     re.compile(r"AKIA[0-9A-Z]{16}"),
 )
 WINDOWS_USER = re.compile(r"C:\\Users\\([^\\/\s]+)", re.IGNORECASE)
-POSIX_USER = re.compile(r"/Users/([^/\s]+)")
+# Build the prefix in pieces so this scanner does not match its own pattern source.
+POSIX_USER = re.compile("/" + r"Users/([^/\s]+)")
 PLACEHOLDERS = {"<user>", "$env:username", "%username%", "username"}
 
 

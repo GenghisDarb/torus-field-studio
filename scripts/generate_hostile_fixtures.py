@@ -22,9 +22,7 @@ def sha256(payload: bytes) -> str:
 def read_members(path: Path) -> dict[str, bytes]:
     with zipfile.ZipFile(path) as archive:
         return {
-            info.filename: archive.read(info)
-            for info in archive.infolist()
-            if not info.is_dir()
+            info.filename: archive.read(info) for info in archive.infolist() if not info.is_dir()
         }
 
 

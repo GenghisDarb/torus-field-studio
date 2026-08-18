@@ -110,9 +110,7 @@ class ClassificationRules:
     @classmethod
     def from_mapping(cls, value: dict[str, Any] | None) -> ClassificationRules:
         value = value or {}
-        parsed = {
-            key: float(value.get(key, default)) for key, default in asdict(cls()).items()
-        }
+        parsed = {key: float(value.get(key, default)) for key, default in asdict(cls()).items()}
         return cls(**parsed)
 
 
@@ -239,9 +237,7 @@ def validate_domain_pack(data: dict[str, Any]) -> list[str]:
     errors = validate_with_schema("domain-pack", data)
     ladder = data.get("ladder", [])
     if isinstance(ladder, list) and any(
-        isinstance(value, bool)
-        or not isinstance(value, int | float)
-        or not math.isfinite(value)
+        isinstance(value, bool) or not isinstance(value, int | float) or not math.isfinite(value)
         for value in ladder
     ):
         errors.append("ladder: every value must be finite")

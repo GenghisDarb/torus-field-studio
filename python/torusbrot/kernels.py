@@ -303,9 +303,7 @@ class LadderKernel:
             for grid_x in range(self.specification.grid.width):
                 mutation = _lerp(x_min, x_max, grid_x, self.specification.grid.width)
                 try:
-                    point = self._point(
-                        grid_x, grid_y, mutation, anchoring, null_mean, null_stdev
-                    )
+                    point = self._point(grid_x, grid_y, mutation, anchoring, null_mean, null_stdev)
                     metrics = (
                         point.x,
                         point.y,
