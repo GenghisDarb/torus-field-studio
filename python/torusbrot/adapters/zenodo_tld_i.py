@@ -6,6 +6,8 @@ import hashlib
 import json
 import shutil
 import stat
+import time
+import urllib.error
 import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath
@@ -33,8 +35,22 @@ def fetch_tld_i(destination: str | Path) -> dict[str, Any]:
     if target.exists():
         raise ValueError(f"Refusing to overwrite existing source archive: {target}")
     target.parent.mkdir(parents=True, exist_ok=True)
-    with urllib.request.urlopen(DOWNLOAD_URL, timeout=60) as response, target.open("xb") as output:
-        shutil.copyfileobj(response, output)
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(DOWNLOAD_URL, timeout=120) as response, target.open(
+                "xb"
+            ) as output:
+                shutil.copyfileobj(response, output)
+            break
+        except (OSError, TimeoutError, urllib.error.URLError) as error:
+            last_error = error
+            if target.exists():
+                target.unlink()
+            if attempt < 2:
+                time.sleep(2**attempt)
+    else:
+        raise OSError("Zenodo download failed after three attempts") from last_error
     return validate_archive(target)
 
 
