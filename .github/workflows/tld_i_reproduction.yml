@@ -1,0 +1,171 @@
+name: TLD I reproduction
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/tld_i_reproduction.yml"
+      - "python/**"
+      - "schemas/**"
+      - "scripts/**"
+      - "tests/**"
+      - "apps/studio/**"
+      - "examples/tld-i/**"
+      - "pyproject.toml"
+      - "pnpm-lock.yaml"
+
+permissions:
+  contents: read
+
+env:
+  TLD_DOI: 10.5281/zenodo.18080090
+  TLD_ARCHIVE: external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip
+
+jobs:
+  source-custody:
+    name: Source custody
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e .
+      - run: torusbrot fetch tld-release --doi "$TLD_DOI" --output "$TLD_ARCHIVE"
+      - run: torusbrot validate tld-release "$TLD_ARCHIVE"
+
+  package-tests:
+    name: Unit / Python ${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "${{ matrix.python-version }}", cache: pip}
+      - run: python -m pip install -e ".[dev]"
+      - run: python scripts/sync_schemas.py --check
+      - run: python -m ruff check python tests scripts
+      - run: python -m pytest
+
+  historical-reproduction:
+    name: Authoritative historical reproduction
+    needs: source-custody
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.11", cache: pip}
+      - run: python -m pip install -e .
+      - run: torusbrot fetch tld-release --doi "$TLD_DOI" --output "$TLD_ARCHIVE"
+      - run: torusbrot reproduce tld-i --source "$TLD_ARCHIVE" --output results/tld-i
+      - uses: actions/upload-artifact@v7
+        with:
+          name: tld-i-historical-results
+          path: results/tld-i
+          if-no-files-found: error
+
+  independent-verification:
+    name: Independent verification and TBX audit
+    needs: historical-reproduction
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e .
+      - uses: actions/download-artifact@v8
+        with: {name: tld-i-historical-results, path: results/tld-i}
+      - run: |
+          for artifact in results/tld-i/bundles/*.tbx.zip; do
+            torusbrot verify tld-result "$artifact"
+            torusbrot audit "$artifact"
+          done
+
+  browser-import:
+    name: Browser import and accessibility
+    needs: historical-reproduction
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: {version: 11.19.0}
+      - uses: actions/setup-node@v7
+        with: {node-version: 24, cache: pnpm}
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e .
+      - run: python scripts/generate_hostile_fixtures.py --output tests/generated-fixtures
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run schemas:check && pnpm run typecheck && pnpm run build && pnpm run budget
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm run e2e
+      - run: torusbrot audit tests/generated-fixtures/browser-export.tbx.zip
+
+  platform-summary:
+    name: Raw summary / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e .
+      - run: torusbrot fetch tld-release --doi 10.5281/zenodo.18080090 --output external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip
+      - run: python scripts/tld_ci_summary.py --source external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip --output summaries/${{ runner.os }}.json
+      - uses: actions/upload-artifact@v7
+        with:
+          name: tld-summary-${{ runner.os }}
+          path: summaries/*.json
+          if-no-files-found: error
+
+  cross-platform-summary:
+    name: Cross-platform deterministic summary
+    needs: platform-summary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v8
+        with: {pattern: tld-summary-*, path: summaries, merge-multiple: true}
+      - run: python scripts/compare_tld_summaries.py summaries
+
+  security-scan:
+    name: Security and local-path scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Reject tracked credentials and local absolute paths
+        run: python scripts/scan_tracked_content.py
+
+  release-staging:
+    name: Release artifact staging
+    needs: [package-tests, independent-verification, browser-import, cross-platform-summary, security-scan]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install --upgrade build && python -m pip install -e .
+      - uses: actions/download-artifact@v8
+        with: {name: tld-i-historical-results, path: results/tld-i}
+      - run: python -m build --wheel --sdist
+      - run: |
+          mkdir -p staged
+          cp dist/* staged/
+          cp results/tld-i/bundles/* staged/
+          for artifact in results/tld-i/bundles/*.tbx.zip; do
+            torusbrot audit "$artifact"
+          done
+          sha256sum staged/* > staged/SHA256SUMS_v0.2.0.txt
+      - uses: actions/upload-artifact@v7
+        with:
+          name: v0.2.0-release-staging
+          path: staged
+          if-no-files-found: error
