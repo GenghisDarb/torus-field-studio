@@ -3,7 +3,7 @@
 > Every beautiful structure should trace back to a frozen computation.
 
 TORUS Field Studio is a local-first scientific workbench for generating, inspecting, and
-auditing geometric field artifacts. The v0.2 release deliberately separates three lanes:
+auditing geometric field artifacts. The v0.2.1 release deliberately separates four lanes:
 
 - **Analytic Sandbox** — reproducible `z -> z^p + c` fields with an explicit
   `ILLUSTRATIVE_ANALYTIC` claim badge.
@@ -13,14 +13,17 @@ auditing geometric field artifacts. The v0.2 release deliberately separates thre
 - **TLD I published-source reproduction** — an exact, independently checked reproduction of
   the confirmatory Zenodo release at DOI `10.5281/zenodo.18080090`, capped at
   `COMPUTED_DYNAMICAL`.
+- **Held-out Beijing PM2.5 study** — a prospectively frozen, parent-matched test on 12 UCI
+  monitoring stations. Its valid negative result is capped at `COMPUTED_DYNAMICAL`.
 
 The image is downstream of the artifact: classification is computed before rendering,
 interpolation never creates observations, and every exported bundle includes a SHA-256
 manifest, run specification, visual encoding, provenance, claim boundary, and failure ledger.
 
 [Open the browser studio](https://genghisdarb.github.io/torus-field-studio/) or download the
-[v0.1.1 release](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.1.1).
-Choose **Load TLD I result** in the studio to audit and inspect the bundled real-data example.
+[v0.2.1 release](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.2.1).
+Choose **Load held-out study** to audit the v0.2.1 result or **Load TLD I result** to inspect the
+preserved historical reproduction.
 
 ![TORUS Field Studio interface](docs/assets/studio-overview.svg)
 
@@ -73,6 +76,22 @@ not the repository and therefore had no `pyproject.toml`. PowerShell also uses a
 backslash—for line continuation. The commands above fix both issues. Calling the venv Python
 directly also avoids relying on an unactivated shell, while `setup.ps1` supplies the pinned pnpm
 runtime when `pnpm` is not globally installed.
+
+## Reproduce the held-out v0.2.1 study
+
+The complete outside-replication package is in [replication/README.md](replication/README.md).
+It builds and installs the wheel, fetches and hashes the registered UCI source, executes into a
+fresh directory, invokes the independent endpoint verifier and 25-mutation suite, and audits all
+three TBX profiles. The package does not require Brad's local files and does not embed an expected
+positive result.
+
+The canonical execution was scientifically negative under the frozen gates: no primary N from 6
+through 14 satisfied SEP, `T_e` was `NOT_OBSERVED`, contiguous `S_e` was 0, the separate closure
+minimum was N=9, and the secondary N=14 specificity gate failed. The independent verifier agreed
+with every endpoint and rejected 25 of 25 registered mutations. Therefore `TLD_DERIVED` remains
+blocked and `EXTERNALLY_VALIDATED` remains false. See the
+[plain-language summary](studies/heldout-v0.2.1/publication/plain-language-summary.md) and
+[technical report](studies/heldout-v0.2.1/publication/technical-report.md).
 
 ## Reproduce the published TLD I result
 
@@ -167,6 +186,10 @@ computational release, which is self-reproduction rather than external validatio
 v2.1 compliance lane uses frozen parent-matched, domain-isolated controls, but `TLD_DERIVED`
 remains blocked; the contract is not weakened to promote the result.
 
+The v0.2.1 held-out PM2.5 artifact is likewise `COMPUTED_DYNAMICAL`. It is a valid, publishable
+negative result under the prospectively frozen gates. A successful internal independent verifier
+does not constitute an outside replication, so the external-validation badge remains forbidden.
+
 ToT-BROT, ToT-BULB, and Dual-Space contracts are included as forward-compatible schemas only.
 They are not represented as validated engines in v0.2.
 
@@ -191,9 +214,9 @@ pnpm run e2e
 ```
 
 The Python reference engine is the classification authority. Browser kernels are small-run
-exploration tools and identify themselves as browser previews. The one committed computed bundle
-is the checksum-addressed, browser-importable TLD I public example; transient results, source
-archives, notebook executions, build products, and `node_modules` remain ignored.
+exploration tools and identify themselves as browser previews. The committed computed bundles are
+the checksum-addressed, browser-importable TLD I and held-out-study examples; transient results,
+source archives, notebook executions, build products, and `node_modules` remain ignored.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and
 [CHANGELOG.md](CHANGELOG.md) for project policy and release history.

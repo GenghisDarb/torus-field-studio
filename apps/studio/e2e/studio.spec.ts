@@ -95,9 +95,13 @@ test("held-out Beijing PM2.5 TBX exposes the frozen negative result", async ({ p
     if (message.type() === "error") consoleErrors.push(message.text());
   });
   await page.goto("/");
+  await waitForField(page);
   await page.getByRole("button", { name: "Load held-out study" }).click();
+  await expect(page.locator(".source-pill")).toHaveText("HELD-OUT SOURCE · AUDIT PASSED", {
+    timeout: 30_000,
+  });
   const source = page.getByTestId("heldout-source-panel");
-  await expect(source).toBeVisible();
+  await expect(source).toBeVisible({ timeout: 30_000 });
   await expect(source).toContainText("10.24432/C5RK5G");
   await expect(source).toContainText("NOT_OBSERVED");
   await expect(source).toContainText("winner_N");

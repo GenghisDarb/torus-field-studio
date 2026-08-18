@@ -456,7 +456,7 @@ def export_tld_bundle(result: dict[str, Any], profile: str, destination: str | P
             [
                 {
                     "transformation_id": kernel_id,
-                    "software_version": "0.2.0",
+                    "software_version": "0.2.1",
                     "seed": contract.seed,
                     "specification_sha256": specification_sha256,
                     "notebook_imported": False,

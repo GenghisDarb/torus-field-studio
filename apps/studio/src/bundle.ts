@@ -107,7 +107,7 @@ export async function exportBrowserBundle(table: FieldTable, request: GenerateRe
     "provenance/sources.jsonl": jsonlBytes([{ source_id: specification.domain_id, kind: "browser_preview", engine }]),
     "provenance/transformations.jsonl": jsonlBytes([{
       transformation_id: kernelId,
-      software_version: "0.2.0",
+      software_version: "0.2.1",
       seed: request.seed,
       specification_sha256: specificationSha256,
     }]),

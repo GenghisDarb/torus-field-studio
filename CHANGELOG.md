@@ -3,6 +3,31 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses semantic versioning.
 
+## [0.2.1] - 2026-08-18
+
+### Added
+
+- Outcome-blind selection audit and frozen preregistration for the UCI Beijing Multi-Site Air
+  Quality PM2.5 study (DOI `10.24432/C5RK5G`).
+- Registry-first adapter for 12 station parents, 127 parent-local nulls per station, six physical
+  primary conditions, two diagnostics, and N grids 6–14 (primary) and 4–20 (specificity).
+- Single-use scored-run authorization, complete failure preservation, a separately implemented
+  verifier, and a 25-mutation fail-closed protocol suite.
+- Three strict held-out TBX profiles, browser 2D/3D inspection, publication figures and reports,
+  and a Windows/Unix outside-replication package installed from the wheel.
+- Held-out source-custody, authoritative replay, browser import, dependency audit, SBOM,
+  release-manifest, and public Pages smoke workflows.
+
+### Scientific result
+
+- High-level outcome: `HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES`.
+- No primary N satisfied SEP; `T_e = NOT_OBSERVED`, `S_e_contiguous = 0`, and AUC(SEP) = 0.
+- The separate study closure minimum was N=9 and the secondary N=14 specificity gate failed.
+- The independent verifier reported 0 disagreements and rejected 25/25 mutations; 0 execution
+  failures were observed across 12 eligible parents.
+- Claim level remains `COMPUTED_DYNAMICAL`; `TLD_DERIVED_STATUS = BLOCKED` and
+  `EXTERNALLY_VALIDATED = false`.
+
 ## [0.2.0] - 2026-08-17
 
 ### Added
@@ -57,6 +82,7 @@ project uses semantic versioning.
 - Initial local-first field workbench, Python reference kernels, browser explorer, TBX export,
   provenance, claim boundaries, synthetic parent/null fixture, and analytic sandbox.
 
-[0.2.0]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.1...HEAD
+[0.2.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.1.0

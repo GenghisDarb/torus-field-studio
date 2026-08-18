@@ -2,8 +2,8 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "TORUS Field Studio",
-  "version": "0.2.0",
-  "dateModified": "2026-08-17",
+  "version": "0.2.1",
+  "dateModified": "2026-08-18",
   "author": {
     "@type": "Person",
     "givenName": "Bradley Charles",
@@ -15,5 +15,5 @@
   "runtimePlatform": ["Python 3.11-3.13", "Node.js 24", "Web browser"],
   "license": "https://spdx.org/licenses/MIT",
   "keywords": ["scientific visualization", "reproducibility", "provenance", "deterministic computation", "TBX"],
-  "description": "A local-first scientific field workbench with strict TBX auditing, published-source TORUS Ladder Dynamics reproduction, explicit provenance, and claim boundaries."
+  "description": "A local-first scientific field workbench with strict TBX auditing, a prospectively frozen held-out TLD study, explicit provenance, and claim boundaries."
 }
