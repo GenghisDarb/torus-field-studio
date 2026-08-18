@@ -1,0 +1,20 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "S_e_contiguous": 0.0,
+  "S_e_region_N": [],
+  "T_e": "NOT_OBSERVED",
+  "claim_ceiling": "COMPUTED_DYNAMICAL",
+  "eligible_parent_count": 12,
+  "failure_count": 0,
+  "fourteen_specificity_passed": false,
+  "null_parent_matching": true,
+  "schema_version": "1.0.0",
+  "winner_N_distribution": {
+    "14": 1,
+    "15": 1,
+    "8": 1,
+    "9": 9
+  },
+  "winner_N_distribution_mode": 9,
+  "winner_N_study_closure_minimum": 9
+}

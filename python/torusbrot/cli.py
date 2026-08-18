@@ -30,6 +30,7 @@ from .tld import (
     reproduce_tld_i,
 )
 from .tld.heldout import authorize_scored_run, execute_scored_run
+from .tld.heldout.adjudication import adjudicate, snapshot_result
 from .tld.heldout.verification import verify_scored_run
 
 
@@ -164,6 +165,23 @@ def _run_verify_heldout(args: argparse.Namespace) -> int:
     )
     _print(report)
     return 0 if report["status"] == "verified" else 1
+
+
+def _run_adjudicate_heldout(args: argparse.Namespace) -> int:
+    result = adjudicate(Path(args.scored), Path(args.verification), Path(args.output))
+    _print(result)
+    return 0
+
+
+def _run_snapshot_heldout(args: argparse.Namespace) -> int:
+    result = snapshot_result(
+        Path(args.scored),
+        Path(args.verification),
+        Path(args.adjudication),
+        Path(args.output),
+    )
+    _print(result)
+    return 0
 
 
 def _run_reproduce_tld_i(args: argparse.Namespace) -> int:
@@ -351,6 +369,23 @@ def build_parser() -> argparse.ArgumentParser:
     heldout_execute.add_argument("--study", required=True)
     heldout_execute.add_argument("--output", "-o", required=True)
     heldout_execute.set_defaults(handler=_run_execute_heldout)
+
+    adjudicate_parser = subparsers.add_parser("adjudicate", help="adjudicate a verified study")
+    adjudicate_sub = adjudicate_parser.add_subparsers(dest="adjudicate_kind", required=True)
+    heldout_adjudicate = adjudicate_sub.add_parser("heldout-study")
+    heldout_adjudicate.add_argument("--scored", required=True)
+    heldout_adjudicate.add_argument("--verification", required=True)
+    heldout_adjudicate.add_argument("--output", "-o", required=True)
+    heldout_adjudicate.set_defaults(handler=_run_adjudicate_heldout)
+
+    snapshot = subparsers.add_parser("snapshot", help="create a tracked result snapshot")
+    snapshot_sub = snapshot.add_subparsers(dest="snapshot_kind", required=True)
+    heldout_snapshot = snapshot_sub.add_parser("heldout-study")
+    heldout_snapshot.add_argument("--scored", required=True)
+    heldout_snapshot.add_argument("--verification", required=True)
+    heldout_snapshot.add_argument("--adjudication", required=True)
+    heldout_snapshot.add_argument("--output", "-o", required=True)
+    heldout_snapshot.set_defaults(handler=_run_snapshot_heldout)
 
     freeze = subparsers.add_parser("freeze", help="canonicalize and hash a run specification")
     freeze.add_argument("path")

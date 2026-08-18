@@ -1,0 +1,18 @@
+{
+  "AR1_beats_monthly_climatology_at_all_parents": true,
+  "S_e_contiguous": 0.0,
+  "T_e": "NOT_OBSERVED",
+  "baseline_SEP_any": false,
+  "domain_baseline_completed": true,
+  "eligible_parent_count": 12,
+  "failure_count": 0,
+  "fourteen_specificity_passed": false,
+  "independent_verifier": "verified",
+  "mutation_rejections": "25/25",
+  "negative_result_publishable": true,
+  "protocol_valid": true,
+  "run_id": "heldout-4681daef5ea40ce1",
+  "schema_version": "1.0.0",
+  "scientific_outcome": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES",
+  "winner_N": 9
+}

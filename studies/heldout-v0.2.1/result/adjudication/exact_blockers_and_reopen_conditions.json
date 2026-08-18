@@ -1,0 +1,14 @@
+{
+  "EXTERNALLY_VALIDATED_reopen_condition": "an independent outside team runs the frozen replication package and reports agreement; this does not convert a negative primary result into TLD_DERIVED",
+  "TLD_DERIVED_reopen_condition": "a new prospectively registered study under a new prompt identity; this frozen negative result remains unchanged",
+  "candidate_substitution_allowed": false,
+  "exact_blockers": [
+    "No N in the frozen primary grid satisfied SEP.",
+    "T_e is NOT_OBSERVED and may not be backfilled from winner_N.",
+    "S_e_contiguous is zero because no survival region begins at T_e.",
+    "The secondary N=14 specificity gate failed; the closure-mode result is N=9."
+  ],
+  "next_legal_action": "publish v0.2.1 and invite independent replication; do not start TLD II or a second domain in this task",
+  "same_study_reanalysis_allowed": false,
+  "schema_version": "1.0.0"
+}

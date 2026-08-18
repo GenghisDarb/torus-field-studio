@@ -1,0 +1,38 @@
+{
+  "candidate_substituted": false,
+  "contracts_changed": false,
+  "execution_class": "SCIENTIFIC_NEGATIVE",
+  "failure_count": 0,
+  "outcome_tuning": false,
+  "parent_cell_count": 864,
+  "primary_endpoints": {
+    "AUC_SEP": 0.0,
+    "EXTERNALLY_VALIDATED": false,
+    "S_e_contiguous": 0.0,
+    "S_e_region_N": [],
+    "T_e": "NOT_OBSERVED",
+    "baseline_at_T_e": null,
+    "baseline_residual_SEP_persists_at_T_e": false,
+    "eligible_parent_count": 12,
+    "failure_region_fraction": 0.0,
+    "fourteen_specificity_passed": false,
+    "maximum_contiguous_N_survival": 0,
+    "perturbation_family_survival_rate": null,
+    "recovery_region_survival": "NOT_APPLICABLE",
+    "run_id": "heldout-4681daef5ea40ce1",
+    "schema_version": "1.0.0",
+    "single_parent_dependency": false,
+    "winner_N_distribution": {
+      "14": 1,
+      "15": 1,
+      "8": 1,
+      "9": 9
+    },
+    "winner_N_distribution_mode": 9,
+    "winner_N_study_closure_minimum": 9
+  },
+  "registered_ladder_count": 12288,
+  "registered_parent_count": 12,
+  "run_id": "heldout-4681daef5ea40ce1",
+  "schema_version": "1.0.0"
+}

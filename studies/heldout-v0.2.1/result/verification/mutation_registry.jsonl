@@ -1,0 +1,25 @@
+{"description":"Move one null child to the wrong parent","expected_issue_code":"NULL_PARENT_MISMATCH","field":"null_parent_matches","mutation_id":"M01"}
+{"description":"Include null children in observed metrics","expected_issue_code":"NULL_OBSERVED_CONTAMINATION","field":"null_in_observed_metrics","mutation_id":"M02"}
+{"description":"Change ladder order","expected_issue_code":"LADDER_ORDER_CHANGED","field":"ladder_order_frozen","mutation_id":"M03"}
+{"description":"Change N_min","expected_issue_code":"N_MIN_CHANGED","field":"primary_n_min","mutation_id":"M04"}
+{"description":"Relabel winner_N as T_e","expected_issue_code":"WINNER_TE_CONFLATION","field":"winner_relabelled_te","mutation_id":"M05"}
+{"description":"Populate T_e when no SEP exists","expected_issue_code":"TE_BACKFILL_FORBIDDEN","field":"te_consistent","mutation_id":"M06"}
+{"description":"Populate S_e from closure","expected_issue_code":"SE_SOURCE_INVALID","field":"se_source","mutation_id":"M07"}
+{"description":"Delete a failed cell","expected_issue_code":"FAILED_CELL_DELETED","field":"failure_ledger_complete","mutation_id":"M08"}
+{"description":"Remove an ineligible parent","expected_issue_code":"INELIGIBLE_PARENT_REMOVED","field":"all_parents_preserved","mutation_id":"M09"}
+{"description":"Change one seed","expected_issue_code":"SEED_CHANGED","field":"seed_frozen","mutation_id":"M10"}
+{"description":"Add an unregistered perturbation","expected_issue_code":"PERTURBATION_UNREGISTERED","field":"perturbations_registered","mutation_id":"M11"}
+{"description":"Add an unmanifested file","expected_issue_code":"FILE_UNMANIFESTED","field":"all_files_manifested","mutation_id":"M12"}
+{"description":"Change source bytes","expected_issue_code":"SOURCE_BYTES_CHANGED","field":"source_sha256","mutation_id":"M13"}
+{"description":"Use a global null pool","expected_issue_code":"GLOBAL_NULL_POOL_FORBIDDEN","field":"global_null_pool","mutation_id":"M14"}
+{"description":"Select the best ordering after outcomes","expected_issue_code":"ORDERING_OUTCOME_SELECTED","field":"ordering_selected_after_outcomes","mutation_id":"M15"}
+{"description":"Select the best N window after outcomes","expected_issue_code":"N_WINDOW_OUTCOME_SELECTED","field":"window_selected_after_outcomes","mutation_id":"M16"}
+{"description":"Promote TLD_DERIVED without all gates","expected_issue_code":"TLD_DERIVED_GATE_BLOCKED","field":"claim_tld_derived","mutation_id":"M17"}
+{"description":"Promote EXTERNALLY_VALIDATED","expected_issue_code":"EXTERNAL_VALIDATION_FORBIDDEN","field":"externally_validated","mutation_id":"M18"}
+{"description":"Claim 14 uniqueness without gate","expected_issue_code":"FOURTEEN_SPECIFICITY_GATE_BLOCKED","field":"claim_14_unique","mutation_id":"M19"}
+{"description":"Treat an interpolated point as observed","expected_issue_code":"INTERPOLATION_AS_OBSERVATION","field":"interpolation_as_observation","mutation_id":"M20"}
+{"description":"Conflate TORUS-BROT and ToT-BROT","expected_issue_code":"TORUS_TOT_CONFLATION","field":"torus_tot_conflated","mutation_id":"M21"}
+{"description":"Use analytic z^14+c as TLD evidence","expected_issue_code":"ANALYTIC_TLD_EVIDENCE_FORBIDDEN","field":"analytic_evidence","mutation_id":"M22"}
+{"description":"Remove a negative parent","expected_issue_code":"NEGATIVE_PARENT_REMOVED","field":"negative_parent_removed","mutation_id":"M23"}
+{"description":"Rewrite a preregistered threshold","expected_issue_code":"PREREGISTERED_THRESHOLD_REWRITTEN","field":"thresholds_frozen","mutation_id":"M24"}
+{"description":"Substitute another dataset","expected_issue_code":"DATASET_SUBSTITUTED","field":"dataset_id","mutation_id":"M25"}

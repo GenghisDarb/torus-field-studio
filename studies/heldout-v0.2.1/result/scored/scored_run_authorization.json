@@ -1,0 +1,32 @@
+{
+  "authorization_status": "AUTHORIZED_FOR_EXACTLY_ONE_SCORED_EXECUTION",
+  "checks": {
+    "candidate_substitution": false,
+    "contracts_verified": true,
+    "environment_verified": true,
+    "input_files_verified": true,
+    "no_real_result_viewed": true,
+    "nulls_complete": true,
+    "perturbations_complete": true,
+    "registries_complete": true,
+    "source_bytes_verified": true
+  },
+  "identity": {
+    "domain_id": "uci-beijing-multisite-air-quality-pm25",
+    "implementation_commit": "d8e5c205e894a0177cf261e175596d9a36468f53",
+    "implementation_hashes": {
+      "beijing_domain_adapter": "2ce0f7ff9c6c2dd4f12cc41a20239a5445fedeae8f31be5a796356f74eea5f1f",
+      "heldout_study": "2e24c6b2e128c35b7e9034f6134cf0745f7825aef3e17fc4053805f1ca7569b4"
+    },
+    "input_manifest_sha256": "1eaefa13abce6c21f9542412dd5f578dce063e5690f8b769a6eb0538969031d1",
+    "preregistration_commit": "f15422bc64b1b101150240e612621683b15b3606",
+    "preregistration_manifest_sha256": "eb3a886aa3bc344ccf715d0036d5054cfba107aa3eae017ba00c68852bb73bfc",
+    "prompt_id": "TFS-V0.2.1-HELDOUT-TLD-TE-SE-SINGLE-EXECUTION-2026-08-18-V1",
+    "seed": 20260818,
+    "selection_commit": "2ff2ddb1a4f656d3c672079a6e8821bf9c3858eb",
+    "source_sha256": "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8"
+  },
+  "run_id": "heldout-4681daef5ea40ce1",
+  "schema_version": "1.0.0",
+  "scored_execution_limit": 1
+}
