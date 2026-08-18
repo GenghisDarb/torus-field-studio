@@ -3,7 +3,7 @@ message: "If you use TORUS Field Studio, please cite this software and the exact
 title: "TORUS Field Studio"
 type: software
 version: 0.1.1
-date-released: 2026-08-14
+date-released: 2026-08-17
 authors:
   - family-names: Peter
     given-names: Bradley Charles
