@@ -1,0 +1,10 @@
+{
+  "classification_precedes_rendering": true,
+  "computed_summaries_distinguished": true,
+  "ineligible_and_failed_cells_visible": true,
+  "interpolation_used_for_metrics": false,
+  "null_points_distinguished": true,
+  "raw_observed_points_distinguished": true,
+  "schema_version": "1.0.0",
+  "scientific_outcome": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES"
+}

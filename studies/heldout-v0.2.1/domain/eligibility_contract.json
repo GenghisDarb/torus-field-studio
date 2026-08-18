@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-eligibility",
+  "parent_requirements": {
+    "exact_raw_rows": 35064,
+    "exact_unique_hourly_timestamps": 35064,
+    "strict_hourly_coverage": true,
+    "station_value_matches_registered_filename": true,
+    "minimum_finite_hourly_fraction": 0.90,
+    "minimum_eligible_daily_fraction": 0.90,
+    "finite_values_nonnegative": true,
+    "robust_scale_greater_than": 1e-12
+  },
+  "daily_requirement": "at least 18 finite hourly values",
+  "cell_requirement": "at least 30 eligible coarse blocks and a finite nonconstant adjacent-pair score",
+  "minimum_eligible_parents_for_population_endpoint": 10,
+  "missing_or_failed_cell_policy": "retain as an explicit ineligible or failed registry row; exclude only from the stated denominator",
+  "no_post_outcome_exclusions": true
+}

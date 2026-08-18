@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-ladderization",
+  "omega": "ordered daily canonical station vector",
+  "operation_depth_N": "number of consecutive daily states in one non-overlapping coarse block",
+  "anchor": "first registered local date, 2013-03-01",
+  "primary_topology": "linear",
+  "secondary_topology": "cyclic",
+  "block_rule": "partition from the anchor into non-overlapping full N-day blocks; discard trailing incomplete block",
+  "block_eligibility": "at least ceil(0.80*N) finite daily states",
+  "block_value": "arithmetic mean of finite canonical daily states",
+  "cell_eligibility": "at least 30 eligible block values and finite nonconstant adjacent pairs",
+  "structure_score": "Pearson correlation between consecutive eligible block values; pairs spanning an ineligible block are omitted",
+  "cyclic_difference": "secondary score adds the last-to-first eligible block pair",
+  "closure_error": "root mean square of finite differences omega[t]-omega[t-N], divided by station robust RMS, with at least 365 pairs",
+  "winner_N": "per-parent argmin closure_error with the smaller N winning exact ties; study winner is the modal parent winner with smaller N winning frequency ties"
+}

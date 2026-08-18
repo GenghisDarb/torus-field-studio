@@ -1,0 +1,7 @@
+{"candidate_id":"uci_electricity_load_diagrams_321","excluded":false,"reason":"eligible runner-up; lower outcome-blind score because the 249.2 MB archive and 678.1 MB primary table increase complete-reproduction cost"}
+{"candidate_id":"physionet_mit_bih_arrhythmia_1_0_0","excluded":false,"reason":"eligible runner-up; lower outcome-blind score because clinical interpretation, record selection, and signal processing add risk"}
+{"candidate_id":"uci_wesad_465","excluded":true,"issue_code":"CANDIDATE_LICENSE_NOT_FROZEN","automatic_penalty":-100,"reason":"stable redistribution terms were not established before selection"}
+{"candidate_id":"nasa_cmapss","excluded":true,"issue_code":"CANDIDATE_LICENSE_NOT_FROZEN","automatic_penalty":-100,"reason":"NASA dataset record explicitly reports license not specified"}
+{"candidate_id":"ztf_snia_dr2","excluded":true,"issue_code":"CANDIDATE_REPRODUCIBLE_SOURCE_NOT_FROZEN","automatic_penalty":-100,"reason":"a single stable licensed raw numeric archive was not established at selection time"}
+{"candidate_id":"nanograv_15yr","excluded":true,"issue_code":"CANDIDATE_PRIOR_OUTCOME_EXPOSURE","automatic_penalty":-100,"reason":"the local program already contains NANOGrav GEO01-GEO10 artifacts and a registered TLD assay package"}
+{"candidate_id":"structured_light_unmaterialized","excluded":true,"issue_code":"CANDIDATE_RAW_NUMERIC_DATA_UNAVAILABLE","automatic_penalty":-200,"reason":"no stable licensed raw numeric source was identified and T_e/S_e applicability cannot be frozen"}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "highest_possible_claim": "TLD_DERIVED",
+  "TLD_DERIVED_requirements": [
+    "at least 10 eligible independent parents",
+    "all eligible parents have 127 registered parent-matched nulls",
+    "baseline SEP true under frozen gates",
+    "T_e observed",
+    "S_e_contiguous greater than zero",
+    "leave-one-parent-out does not identify a single-parent dependency",
+    "SEP persists at T_e after the frozen climatology-plus-AR(1) residual control",
+    "independent verifier agrees",
+    "all registered mutations rejected",
+    "failure preservation and registry reconciliation complete",
+    "no contamination or outcome-dependent tuning",
+    "claim audit passes"
+  ],
+  "EXTERNALLY_VALIDATED": false,
+  "external_validation_reopen_condition": "a genuinely independent outside team executes the frozen replication package and reports agreement",
+  "forbidden_claims": [
+    "TORUS Theory proven",
+    "14 uniquely established as a universal law",
+    "physical causation established",
+    "observer-state effects established",
+    "cosmological quantities derived",
+    "ToT-BROT validated",
+    "ToT-BULB validated",
+    "universal cross-domain closure established",
+    "a theory of everything confirmed"
+  ],
+  "fourteen_specificity_is_secondary": true,
+  "negative_result_is_publishable": true,
+  "historical_tld_i_claim_unchanged": "COMPUTED_DYNAMICAL"
+}

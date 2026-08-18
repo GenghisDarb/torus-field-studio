@@ -1,0 +1,37 @@
+{
+  "not_applicable_after_primary_negative": [
+    "F05",
+    "F10"
+  ],
+  "not_triggered": [
+    "F02",
+    "F04",
+    "F06",
+    "F07",
+    "F08",
+    "F12",
+    "F13",
+    "F14"
+  ],
+  "schema_version": "1.0.0",
+  "triggered": [
+    {
+      "criterion": "no baseline primary SEP cell",
+      "effect": "T_e=NOT_OBSERVED; scientific negative",
+      "id": "F01",
+      "observed": true
+    },
+    {
+      "criterion": "null children show equal or stronger structure under frozen gates",
+      "effect": "SEP false",
+      "id": "F03",
+      "observed": true
+    },
+    {
+      "criterion": "N=14 fails the frozen specificity gate",
+      "effect": "14-specificity negative; primary analysis unchanged",
+      "id": "F11",
+      "observed": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "prompt_id": "TFS-V0.2.1-HELDOUT-TLD-TE-SE-SINGLE-EXECUTION-2026-08-18-V1",
+  "lane": "PROSPECTIVE_HELDOUT_TLD_STUDY",
+  "starting_main": "aa5b474730ae0578fce4680ef531d51da34868fa",
+  "inherited_tld_code_commit": "aa5b474730ae0578fce4680ef531d51da34868fa",
+  "branch": "agent/v0.2.1-heldout-tld-study",
+  "package_version_at_start": "0.2.0",
+  "selected_candidate_id": "uci_beijing_multisite_air_quality_501",
+  "selection_frozen_at_utc": "2026-08-18T13:28:54.8743695Z",
+  "candidate_substitution_permitted": false,
+  "heldout_outcomes_computed_before_freeze": false,
+  "tld_i_history_changed": false
+}

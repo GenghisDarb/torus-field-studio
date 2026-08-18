@@ -28,6 +28,20 @@ depth endpoints, its `T_e` and `S_e` values are null and the modern extension re
 The `z^14+c` analytic preset remains a visual analog. It cannot be cited as TLD evidence.
 TORUS-BROT and ToT-BROT are distinct terms and engines; an audit rejects their conflation.
 
+## Prospectively frozen held-out study
+
+The v0.2.1 Beijing Multi-Site Air Quality study uses 12 monitoring stations as independent
+parents, 127 station-local within-year-month permutation nulls per parent, a primary N grid of
+6–14, and a secondary specificity grid of 4–20. Endpoint definitions, thresholds, seeds,
+eligibility, perturbations, falsifiers, and claim rules were committed before the single scored
+execution.
+
+The frozen primary result is negative: no baseline cell passes SEP, `T_e` is `NOT_OBSERVED`, and
+contiguous `S_e` is zero. `winner_N` remains a separate closure statistic and is N=9; it may not
+be relabeled as emergence. The internal independent implementation reports zero disagreements and
+rejects all 25 registered mutations. These facts make the negative protocol result publishable,
+but they do not permit `TLD_DERIVED` or `EXTERNALLY_VALIDATED`.
+
 ## Reference kernel scope
 
 The v0.1 ladder engine is a deterministic, documented reference implementation. It perturbs one

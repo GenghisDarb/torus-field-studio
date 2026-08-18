@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "selected_candidate_id": "uci_beijing_multisite_air_quality_501",
+  "search_scope": [
+    "canonical TLD source bundle and notebook breakdowns 1-44",
+    "TORUS Field Studio tracked source and documentation",
+    "expressly allowed TORUS/TLD-named local folders and top-level download filenames"
+  ],
+  "searched_identifiers": [
+    "Beijing Multi-Site Air Quality",
+    "10.24432/C5RK5G",
+    "PRSA2017_Data_20130301-20170228.zip",
+    "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8"
+  ],
+  "exact_matches_before_this_study": 0,
+  "used_to_tune_selected_operator": false,
+  "used_to_tune_thresholds": false,
+  "used_to_tune_ladderization": false,
+  "used_to_define_endpoints": false,
+  "candidate_selection_used_tld_outcomes": false,
+  "prior_exposure_result": "NO_PRIOR_OUTCOME_EXPOSURE_FOUND_FOR_SELECTED_SOURCE",
+  "contrasting_exclusion": {
+    "candidate_id": "nanograv_15yr",
+    "result": "CONFIRMED_PRIOR_OUTCOME_EXPOSURE",
+    "evidence": "local NANOGrav GEO01-GEO10 files and nanograv_geo04_registered_tld_assay_package.zip predate this study"
+  }
+}

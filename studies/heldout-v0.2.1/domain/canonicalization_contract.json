@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-canonicalization",
+  "steps": [
+    "apply log1p to each finite nonnegative hourly PM2.5 value",
+    "for each station-local civil day, take the median only when at least 18 of 24 hourly values are finite; otherwise mark the day missing",
+    "for each station and calendar month-of-year 1 through 12, subtract the median of eligible daily log1p values in that month across all years",
+    "divide station residuals by 1.4826 times their finite median absolute deviation"
+  ],
+  "zero_scale_policy": "station is ineligible when the robust scale is nonfinite or at most 1e-12",
+  "rounding": "none during computation",
+  "interpolation": "forbidden",
+  "output_length_per_parent": 1461,
+  "canonical_start_local_date": "2013-03-01",
+  "canonical_end_local_date": "2017-02-28",
+  "full_dataset_unsupervised_transform": true,
+  "labels_used": false
+}

@@ -1,0 +1,13 @@
+# Reference environment used to validate this package on 2026-08-18.
+# Supported Python runtime range is 3.11 through 3.13; reference runtime: CPython 3.13.14.
+build==1.5.1
+packaging==25.0
+pyproject_hooks==1.2.0
+setuptools==76.0.0
+wheel==0.45.1
+attrs==26.1.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+referencing==0.37.0
+rpds-py==2026.6.3
+numpy==2.2.5

@@ -107,7 +107,7 @@ export async function exportBrowserBundle(table: FieldTable, request: GenerateRe
     "provenance/sources.jsonl": jsonlBytes([{ source_id: specification.domain_id, kind: "browser_preview", engine }]),
     "provenance/transformations.jsonl": jsonlBytes([{
       transformation_id: kernelId,
-      software_version: "0.2.0",
+      software_version: "0.2.1",
       seed: request.seed,
       specification_sha256: specificationSha256,
     }]),
@@ -170,5 +170,6 @@ export async function importBundle(file: File): Promise<FieldTable> {
     engine: engine === "analytic" || engine === "local_brot" || engine === "tld" ? engine : undefined,
     auditCheckedFiles: audit.checkedFiles,
     tld: audit.tld,
+    heldout: audit.heldout,
   };
 }

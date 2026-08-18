@@ -1,0 +1,17 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TORUS_BROT_equals_ToT_BROT": false,
+  "analytic_z14_is_TLD_evidence": false,
+  "forbidden_claims": [
+    "TORUS Theory proven",
+    "14 uniquely established as a universal law",
+    "physical causation established",
+    "observer-state effects established",
+    "cosmological quantities derived",
+    "ToT-BROT validated",
+    "ToT-BULB validated",
+    "universal cross-domain closure established",
+    "a theory of everything confirmed"
+  ],
+  "schema_version": "1.0.0"
+}

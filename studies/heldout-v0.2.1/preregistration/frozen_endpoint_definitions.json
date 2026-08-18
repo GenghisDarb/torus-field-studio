@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "structure_score": "lag-1 Pearson correlation of consecutive eligible non-overlapping N-day block means",
+  "parent_local_p": "(1 + number of finite matched-null scores greater than or equal to observed score) / 128; requires all 127 registered children finite",
+  "parent_robust_z": "(observed score - median null score) / max(1.4826*median absolute deviation of null scores, 1e-12)",
+  "UI": "fraction of eligible parents whose parent-local p is at most 0.05",
+  "NSS": "median parent robust z across eligible parents",
+  "population_sign_p": "exact one-sided Binomial(m,0.5) tail for the count of eligible parents with observed score strictly greater than their null median; ties count as not positive",
+  "SEP": "eligible parent count at least 10 AND UI at least 0.50 AND NSS at least 2.0 AND within-condition Holm-adjusted population sign p at most 0.05",
+  "T_e": "minimum N in the primary grid with baseline linear-adjacency SEP true; otherwise NOT_OBSERVED; never backfilled from winner_N",
+  "S_e_family_survival_at_N": "baseline SEP is true and at least four of five nonbaseline primary-survival perturbations have SEP true at the same N",
+  "S_e_region": "maximal consecutive sequence in the primary N grid beginning exactly at T_e for which S_e_family_survival_at_N is true; empty if the rule fails at T_e",
+  "S_e_contiguous": "SEP-true eligible cell count divided by all eligible cells in the Cartesian product of the S_e region and six primary-survival conditions; zero when T_e is NOT_OBSERVED or the region is empty",
+  "AUC_SEP": "SEP-true eligible cell count divided by all eligible cells over the full primary N grid and six primary-survival conditions",
+  "maximum_contiguous_N_survival": "largest number of consecutive primary N values satisfying S_e_family_survival_at_N anywhere on the primary grid",
+  "perturbation_family_survival_rate": "fraction of the five nonbaseline primary-survival perturbations with SEP true at T_e; NOT_APPLICABLE when T_e is not observed",
+  "failure_region_fraction": "registered endpoint cells that are failed or ineligible divided by all registered endpoint cells",
+  "recovery_region_survival": "NOT_APPLICABLE",
+  "winner_N_parent": "N on the specificity grid minimizing the frozen normalized lag closure error; smaller N breaks an exact tie",
+  "winner_N_study": "mode of eligible parent winner_N labels; smaller N breaks a frequency tie",
+  "per_parent_T_e": "first primary N with local p at most 0.05 and robust z at least 2.0; descriptive and uncorrected",
+  "per_parent_S_e": "fraction of consecutive primary N values from per-parent T_e through the first later local-gate failure that pass the local p and robust-z gates; descriptive and uncorrected"
+}

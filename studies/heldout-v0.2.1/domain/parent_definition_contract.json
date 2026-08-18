@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-parents",
+  "expected_parent_count": 12,
+  "parent_key": "station",
+  "expected_station_ids": ["Aotizhongxin", "Changping", "Dingling", "Dongsi", "Guanyuan", "Gucheng", "Huairou", "Nongzhanguan", "Shunyi", "Tiantan", "Wanliu", "Wanshouxigong"],
+  "independence_scope": "distinct monitoring station data streams; population inference is across stations",
+  "no_pooling": "raw or canonical observations from different stations are never combined to form a parent or a null child",
+  "leave_one_out": "secondary only; run only if at least 10 parents are eligible",
+  "leave_one_time_origin_out": "not applicable because there is one fixed registered origin"
+}

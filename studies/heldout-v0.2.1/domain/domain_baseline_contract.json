@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-domain-baseline",
+  "model": "station-local monthly climatology plus AR(1)",
+  "split": "first floor(0.75*1461) local days train; remaining days test",
+  "fit": "on finite training pairs, fit daily log1p PM2.5 = month-of-year intercept + phi times prior-day residual by deterministic least squares",
+  "comparators": ["training monthly climatology only", "training global mean"],
+  "prediction_metric": "test RMSE on dates whose observed and required lag values are finite",
+  "separation_control": "construct full-length one-step residuals using training-only coefficients, robust-scale by training residual MAD, and recompute the frozen primary SEP surface with the same registered null permutations",
+  "baseline_explains_primary": "true when primary T_e is observed but the residual SEP at primary T_e is false or no residual contiguous survival begins there",
+  "tld_derived_gate": "if the primary study is positive, SEP must persist at primary T_e after this baseline control",
+  "no_model_selection": true
+}

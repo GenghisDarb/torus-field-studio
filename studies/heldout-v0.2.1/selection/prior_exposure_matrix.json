@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "candidate_exposure": [
+    {"candidate_id": "uci_beijing_multisite_air_quality_501", "exact_source_in_tld_corpus": false, "local_outcome_artifacts": false, "used_in_rule_design": false, "risk": "LOW"},
+    {"candidate_id": "uci_electricity_load_diagrams_321", "exact_source_in_tld_corpus": false, "local_outcome_artifacts": false, "used_in_rule_design": false, "risk": "LOW"},
+    {"candidate_id": "physionet_mit_bih_arrhythmia_1_0_0", "exact_source_in_tld_corpus": false, "local_outcome_artifacts": false, "used_in_rule_design": false, "risk": "LOW_TO_MODERATE"},
+    {"candidate_id": "uci_wesad_465", "exact_source_in_tld_corpus": false, "local_outcome_artifacts": false, "used_in_rule_design": false, "risk": "MODERATE"},
+    {"candidate_id": "nasa_cmapss", "exact_source_in_tld_corpus": false, "local_outcome_artifacts": false, "used_in_rule_design": false, "risk": "LOW"},
+    {"candidate_id": "ztf_snia_dr2", "exact_source_in_tld_corpus": false, "local_outcome_artifacts": false, "used_in_rule_design": false, "risk": "MODERATE_DUE_TO_PRIOR_COSMOLOGY_WORK"},
+    {"candidate_id": "nanograv_15yr", "exact_source_in_tld_corpus": true, "local_outcome_artifacts": true, "used_in_rule_design": true, "risk": "CONFIRMED_PRIOR_OUTCOME_EXPOSURE"},
+    {"candidate_id": "structured_light_unmaterialized", "exact_source_in_tld_corpus": false, "local_outcome_artifacts": false, "used_in_rule_design": false, "risk": "UNKNOWN_SOURCE_NOT_IDENTIFIED"}
+  ],
+  "selected_candidate_id": "uci_beijing_multisite_air_quality_501",
+  "selected_prior_exposure_result": "NO_PRIOR_OUTCOME_EXPOSURE_FOUND_FOR_SELECTED_SOURCE"
+}

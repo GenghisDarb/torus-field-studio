@@ -1,0 +1,10 @@
+{
+  "analysis_rerun": false,
+  "contracts_changed": false,
+  "issue_code": "POST_EXECUTION_LOG_FLUSH_MANIFEST_CORRECTION",
+  "original_manifest_preserved": "SHA256SUMS_SCORED_RUN.prelog.txt",
+  "original_manifest_sha256": "0b3000078e22f3ff93d1aa954e418066f5e6da7ef5ee6b36bbac2f6f0220c9d2",
+  "reason": "the preliminary manifest was computed inside the scorer before redirected stdout flushed",
+  "schema_version": "1.0.0",
+  "scientific_outputs_changed": false
+}

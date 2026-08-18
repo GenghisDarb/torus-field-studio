@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "preregistration_id": "tfs-v0.2.1-heldout-tld-beijing-pm25",
+  "prompt_id": "TFS-V0.2.1-HELDOUT-TLD-TE-SE-SINGLE-EXECUTION-2026-08-18-V1",
+  "frozen_at_utc_date": "2026-08-18",
+  "selection_commit": "2ff2ddb1a4f656d3c672079a6e8821bf9c3858eb",
+  "inherited_code_commit": "aa5b474730ae0578fce4680ef531d51da34868fa",
+  "dataset": {
+    "title": "Beijing Multi-Site Air Quality",
+    "doi": "10.24432/C5RK5G",
+    "authoritative_archive_sha256": "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8",
+    "observable": "PM2.5",
+    "expected_parents": 12
+  },
+  "primary_question": "Do ordered station-local daily PM2.5 ladders separate from their own within-year-month day-permutation null ensembles under frozen gates, and if so where does separation first appear and how far does it survive?",
+  "primary_grid": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+  "specificity_grid": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  "nulls_per_parent": 127,
+  "primary_endpoints": ["T_e", "S_e_contiguous", "UI", "NSS", "SEP_surface", "winner_N_distribution", "observed_parent_eligibility", "parent_matched_null_separation", "failure_fraction"],
+  "secondary_endpoints": ["structured_fragility_fingerprint", "linear_vs_cyclic_adjacency", "leave_one_parent_out", "AUC_SEP", "maximum_contiguous_N_survival", "perturbation_family_survival_rate", "fourteen_specificity", "domain_baseline_comparison"],
+  "single_scored_execution": true,
+  "outcome_tuning_forbidden": true,
+  "candidate_substitution_forbidden": true,
+  "recovery_and_ringing": "NOT_APPLICABLE",
+  "synthetic_calibration": {
+    "script": "scripts/calibrate_heldout_thresholds.py",
+    "real_source_accessed": false,
+    "negative_separated_depths": [],
+    "positive_separated_depths": [6, 7, 8, 9],
+    "calibration_passed": true
+  },
+  "contract_files": [
+    "../domain/domain_translation_contract.json",
+    "../domain/raw_to_values_contract.json",
+    "../domain/canonicalization_contract.json",
+    "../domain/ladderization_contract.json",
+    "../domain/eligibility_contract.json",
+    "../domain/parent_definition_contract.json",
+    "../domain/matched_null_contract.json",
+    "../domain/perturbation_contract.json",
+    "../domain/domain_baseline_contract.json",
+    "../domain/failure_preservation_contract.json",
+    "../domain/claim_translation_contract.json"
+  ]
+}

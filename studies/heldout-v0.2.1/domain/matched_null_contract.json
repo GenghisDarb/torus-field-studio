@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-parent-local-null",
+  "family": "within-year-month complete-day permutation",
+  "children_per_parent": 127,
+  "generation_stage": "after raw validation and before any observed structure or closure metric",
+  "unit_permuted": "complete 24-hour PM2.5 day record, including its missingness pattern",
+  "strata": "station-local calendar year and month",
+  "preserves": [
+    "station identity",
+    "exact hourly value multiset within every year-month",
+    "exact missingness multiset within every year-month",
+    "within-day ordering and autocorrelation",
+    "calendar-month and year membership",
+    "raw units"
+  ],
+  "destroys_or_weakens": ["observed ordering between days inside each year-month"],
+  "forbidden": ["global null pool", "cross-station exchange", "outcome-selected child", "replacement sampling", "imputation", "post-metric generation"],
+  "local_p_greater_equal": "(1 + count(null_score >= observed_score)) / 128",
+  "closure_local_p_less_equal": "(1 + count(null_closure_error <= observed_closure_error)) / 128",
+  "nonfinite_child_policy": "retain child and failed cells; never replace or regenerate"
+}

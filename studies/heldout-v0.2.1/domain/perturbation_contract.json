@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-perturbations",
+  "generation_stage": "registered and materialized before observed metrics",
+  "primary_survival_family": [
+    {"id": "baseline", "rule": "no perturbation", "strength": 0.0},
+    {"id": "calibration_scale_095", "rule": "multiply every finite raw PM2.5 value by 0.95", "strength": 0.05},
+    {"id": "calibration_scale_105", "rule": "multiply every finite raw PM2.5 value by 1.05", "strength": 0.05},
+    {"id": "sensor_noise_001", "rule": "add deterministic zero-mean Gaussian noise with sigma 0.01 times the station finite raw PM2.5 MAD, floor negative results at zero", "strength": 0.01},
+    {"id": "outage_6h_30d", "rule": "starting at the first timestamp, mark hours 0 through 5 missing every 30th local day", "strength": 0.008333333333333333},
+    {"id": "outage_24h_90d", "rule": "starting at the first date, mark every 90th complete local day missing", "strength": 0.011111111111111112}
+  ],
+  "diagnostic_family": [
+    {"id": "day_order_swap_010", "rule": "within each year-month, deterministically select floor(0.10*d/2) disjoint day pairs and swap complete day records", "strength": 0.10},
+    {"id": "cyclic_adjacency", "rule": "use the preregistered cyclic adjacency score without changing values", "strength": 1.0}
+  ],
+  "noise_seed_namespace": 3000000,
+  "diagnostic_swap_seed_namespace": 4000000,
+  "null_policy_under_perturbation": "apply the same perturbation rule to each parent-local raw series, then generate the registered matched null children from that perturbed series",
+  "outcome_adaptive_perturbations_forbidden": true
+}

@@ -103,7 +103,9 @@ export default function App() {
   }, []);
 
   const activeEngine = table?.source === "tbx_import" && table.engine ? table.engine : request.engine;
-  const isTld = activeEngine === "tld" && table?.tld != null;
+  const isHistoricalTld = activeEngine === "tld" && table?.tld != null;
+  const isHeldout = activeEngine === "tld" && table?.heldout != null;
+  const isTld = isHistoricalTld || isHeldout;
   const claimLevel = table?.source === "tbx_import"
     ? table.claimLevel ?? "BUNDLE CLAIM UNKNOWN"
     : activeEngine === "analytic"
@@ -114,7 +116,7 @@ export default function App() {
     table?.points.forEach((point) => { counts[point.classification] = (counts[point.classification] ?? 0) + 1; });
     return counts;
   }, [table]);
-  const sourceLabel = isTld ? "PUBLISHED SOURCE · AUDIT PASSED" : table?.source === "tbx_import" ? "TBX AUDIT PASSED" : "BROWSER PREVIEW";
+  const sourceLabel = isHeldout ? "HELD-OUT SOURCE · AUDIT PASSED" : isHistoricalTld ? "PUBLISHED SOURCE · AUDIT PASSED" : table?.source === "tbx_import" ? "TBX AUDIT PASSED" : "BROWSER PREVIEW";
 
   const handleImport = async (file?: File) => {
     if (!file) return;
@@ -145,6 +147,19 @@ export default function App() {
     }
   };
 
+  const loadHeldoutStudy = async () => {
+    try {
+      setBusy(true);
+      const response = await fetch(`${import.meta.env.BASE_URL}examples/heldout-tld-study-combined.tbx.zip`);
+      if (!response.ok) throw new Error(`Held-out study request failed (${response.status})`);
+      const file = new File([await response.blob()], "heldout-tld-study-combined.tbx.zip", { type: "application/zip" });
+      await handleImport(file);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Could not load the held-out study.");
+      setBusy(false);
+    }
+  };
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -152,10 +167,11 @@ export default function App() {
           <TorusMark />
           <div>
             <div className="brand-name"><span>TORUS</span> FIELD STUDIO</div>
-            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.2.0</div>
+            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.2.1</div>
           </div>
         </div>
         <div className="header-actions">
+          <button className="quiet-button" type="button" onClick={loadHeldoutStudy}><Icon name="shield" /> Load held-out study</button>
           <button className="quiet-button" type="button" onClick={loadPublishedTld}><Icon name="spark" /> Load TLD I result</button>
           <button className="quiet-button" type="button" onClick={() => setAuditOpen(true)}><Icon name="shield" /> Audit</button>
           <button className="quiet-button" type="button" onClick={() => importRef.current?.click()}><Icon name="upload" /> Import bundle</button>
@@ -188,13 +204,13 @@ export default function App() {
           <section className="control-section compact">
             <label className="section-label">Dataset</label>
             <div className="select-like">
-              <span>{isTld ? "TLD I · published-source reproduction" : activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
+              <span>{isHeldout ? "Held-Out TLD · Beijing PM2.5" : isHistoricalTld ? "TLD I · published-source reproduction" : activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
               <span className="chevron">⌄</span>
             </div>
-            <div className="source-hash"><span>{isTld ? "DOI" : "SHA-256"}</span><code>{isTld ? table.tld?.doi : activeEngine === "analytic" ? "5d2b…c14e" : "8f04…a217"}</code></div>
+            <div className="source-hash"><span>{isTld ? "DOI" : "SHA-256"}</span><code>{isHeldout ? table?.heldout?.doi : isHistoricalTld ? table?.tld?.doi : activeEngine === "analytic" ? "5d2b…c14e" : "8f04…a217"}</code></div>
           </section>
 
-          {isTld && table.tld && (
+          {isHistoricalTld && table?.tld && (
             <section className="control-section tld-source-card" data-testid="tld-source-panel">
               <span className="eyebrow">REAL DATA · HISTORICAL LANE</span>
               <strong>TLD I — Structural Escape, Damped Healing, and Ringing</strong>
@@ -206,6 +222,24 @@ export default function App() {
                 <div><dt>Verifier</dt><dd>{table.tld.verificationStatus.toUpperCase()}</dd></div>
                 <div><dt>TLD-derived</dt><dd>{table.tld.tldDerivedStatus}</dd></div>
               </dl>
+            </section>
+          )}
+
+          {isHeldout && table?.heldout && (
+            <section className="control-section tld-source-card" data-testid="heldout-source-panel">
+              <span className="eyebrow">REAL DATA · PROSPECTIVE HELD-OUT LANE</span>
+              <strong>Held-Out TLD Study — Beijing PM2.5</strong>
+              <p>{table.heldout.scientificOutcome.replaceAll("_", " ")}</p>
+              <dl>
+                <div><dt>Source DOI</dt><dd>{table.heldout.doi}</dd></div>
+                <div><dt>Parents / nulls</dt><dd>{table.heldout.eligibleParentCount} · {table.heldout.nullsPerParent} each</dd></div>
+                <div><dt>Tₑ / Sₑ</dt><dd>{table.heldout.T_e} · {table.heldout.S_e.toFixed(3)}</dd></div>
+                <div><dt>winner_N</dt><dd>{table.heldout.winnerN} · separate closure mode</dd></div>
+                <div><dt>14 specificity</dt><dd>{table.heldout.specificity14 ? "PASSED" : "FAILED"}</dd></div>
+                <div><dt>Verifier</dt><dd>{table.heldout.verificationStatus.toUpperCase()} · {table.heldout.mutationRejectionCount}/{table.heldout.mutationCount} mutations</dd></div>
+                <div><dt>TLD-derived</dt><dd>{table.heldout.tldDerivedStatus}</dd></div>
+              </dl>
+              <div className="notice analytic-notice">Negative under frozen gates. Valid and publishable; external validation remains false.</div>
             </section>
           )}
 
@@ -255,13 +289,13 @@ export default function App() {
               </>}
             </select>
             <Toggle checked={showRaw} onChange={setShowRaw} label="Show raw samples" />
-            <div className="frozen-row"><Icon name="check" /><span>Seed {isTld ? 42 : request.seed} · rules frozen</span></div>
+            <div className="frozen-row"><Icon name="check" /><span>Seed {isHeldout ? 20260818 : isHistoricalTld ? 42 : request.seed} · rules frozen</span></div>
           </section>
 
           <div className="claim-card">
             <div><Icon name="shield" /><span>CLAIM BOUNDARY</span></div>
             <strong>{claimLevel}</strong>
-            <p>{isTld ? "Exact self-reproduction of a published computational release; TLD_DERIVED is blocked and external validation is not supplied." : activeEngine === "analytic" ? "Useful for intuition and comparison; not a TLD-derived result." : "Reproducible registered computation; external validation not supplied."}</p>
+            <p>{isHeldout ? "Prospective held-out negative result; TLD_DERIVED is blocked and external validation is not supplied." : isHistoricalTld ? "Exact self-reproduction of a published computational release; TLD_DERIVED is blocked and external validation is not supplied." : activeEngine === "analytic" ? "Useful for intuition and comparison; not a TLD-derived result." : "Reproducible registered computation; external validation not supplied."}</p>
           </div>
         </aside>
 
@@ -281,8 +315,8 @@ export default function App() {
             {table && viewMode === "field" && <Field2D table={table} metric={metric} selected={selected} showRaw={showRaw} onSelect={setSelected} />}
             {table && viewMode === "surface" && <Suspense fallback={<div className="busy-overlay"><span className="loader-ring" /><strong>Loading surface renderer</strong></div>}><Surface3D table={table} metric={metric} selected={selected} showRaw={showRaw} /></Suspense>}
             {busy && <div className="busy-overlay"><span className="loader-ring" /><strong>Computing frozen field</strong><small>Classification precedes rendering</small></div>}
-            <div className="axis-label axis-y">{isTld ? "TRIAL / ENDPOINT" : activeEngine === "analytic" ? "IMAGINARY" : "ANCHORING α"}</div>
-            <div className="axis-label axis-x">{isTld ? "REGISTERED STEP / α" : activeEngine === "analytic" ? "REAL" : "ORDER MUTATION"}</div>
+            <div className="axis-label axis-y">{isHeldout ? "REGISTERED CONDITION" : isHistoricalTld ? "TRIAL / ENDPOINT" : activeEngine === "analytic" ? "IMAGINARY" : "ANCHORING α"}</div>
+            <div className="axis-label axis-x">{isHeldout ? "OPERATION DEPTH N" : isHistoricalTld ? "REGISTERED STEP / α" : activeEngine === "analytic" ? "REAL" : "ORDER MUTATION"}</div>
             <div className="corner-readout"><span>COLOR</span><strong>{metric}</strong><span>INTERPOLATION</span><strong>VISUAL ONLY</strong></div>
           </div>
           <div className="stage-caption">
@@ -310,10 +344,10 @@ export default function App() {
               <MetricCard label="winner N" value={selected.winner_N ?? "—"} />
             </section>
             {isTld && <section className="inspector-section evidence-block" data-testid="tld-raw-point">
-              <h3>Raw trajectory identity</h3>
+              <h3>{isHeldout ? "Registered summary identity" : "Raw trajectory identity"}</h3>
               <dl>
                 <div><dt>Observed</dt><dd>{selected.observed ? "YES" : "NO — MISSING PRESERVED"}</dd></div>
-                <div><dt>Phase</dt><dd>{selected.phase ?? "after terminal event"}</dd></div>
+                <div><dt>Phase</dt><dd>{selected.phase ?? selected.trace[0]?.stage ?? "after terminal event"}</dd></div>
                 <div><dt>Trial</dt><dd>{selected.trial_id ?? "endpoint"}</dd></div>
                 <div><dt>α</dt><dd>{selected.alpha ?? "—"}</dd></div>
                 <div><dt>Registered t</dt><dd>{selected.t ?? "—"}</dd></div>
@@ -336,10 +370,10 @@ export default function App() {
                 <div><dt>Null policy</dt><dd>{selected.null_policy_id}</dd></div>
                 <div><dt>Run</dt><dd>{table?.runId ?? `browser:${request.seed}`}</dd></div>
                 <div><dt>Authority</dt><dd>{sourceLabel}</dd></div>
-                {isTld && <div><dt>Source DOI</dt><dd>{table?.tld?.doi}</dd></div>}
+                {isTld && <div><dt>Source DOI</dt><dd>{isHeldout ? table?.heldout?.doi : table?.tld?.doi}</dd></div>}
               </dl>
             </section>
-            <section className="interpretation legal"><h3>Legal interpretation</h3><p>{isTld ? "This point belongs to the independently audited historical published-source reproduction." : activeEngine === "analytic" ? "This point is part of a declared complex-power model." : "This point records a reproducible parent/null field computation."}</p></section>
+            <section className="interpretation legal"><h3>Legal interpretation</h3><p>{isHeldout ? "This cell is a computed population summary from the prospectively frozen held-out study." : isHistoricalTld ? "This point belongs to the independently audited historical published-source reproduction." : activeEngine === "analytic" ? "This point is part of a declared complex-power model." : "This point records a reproducible parent/null field computation."}</p></section>
             <section className="interpretation excluded"><h3>Excluded</h3><p>No external validation, causal ownership, or repair authority is implied.</p></section>
           </> : <div className="empty-inspector">Choose a computed point in the field.</div>}
         </aside>
@@ -347,7 +381,7 @@ export default function App() {
         <section className="timeline-panel">
           <div className="timeline-copy">
             <span>SELECTED TRACE</span>
-            <strong>{selected ? isTld ? `${selected.phase ?? "missing"} · trial ${selected.trial_id ?? "endpoint"}` : `${selected.trace.length} registered steps` : "No point selected"}</strong>
+            <strong>{selected ? isHeldout ? `${selected.trace[0]?.stage ?? "condition"} · N ${selected.x}` : isHistoricalTld ? `${selected.phase ?? "missing"} · trial ${selected.trial_id ?? "endpoint"}` : `${selected.trace.length} registered steps` : "No point selected"}</strong>
             <small>{selected?.trace.some((item) => item.stage === "healing") ? "Recovery threshold crossed" : activeEngine === "analytic" ? "Complex orbit" : "No healing event recorded"}</small>
           </div>
           <TraceChart point={selected} />
@@ -361,11 +395,17 @@ export default function App() {
             <strong>{busy ? "COMPUTING" : "COMPLETE"}</strong>
             <small>{Object.entries(classificationCounts).map(([key, value]) => `${key.toLowerCase()} ${value}`).join(" · ")}</small>
           </div>
-          {isTld && table?.tld && <div className="tld-run-evidence" data-testid="tld-evidence-summary">
+          {isHistoricalTld && table?.tld && <div className="tld-run-evidence" data-testid="tld-evidence-summary">
             <span>REGISTERED RESULTS</span>
             <strong>Escape · recovery · ringing</strong>
             <small>{table.tld.alphaSweep.map((row) => `α ${row.alpha}: return ${(row.returnRate * 100).toFixed(1)}%, steps ${row.meanReturnSteps.toFixed(1)}, p90 flips ${row.p90Flips}`).join(" · ")}</small>
             <small>Operating envelope: {table.tld.operatingEnvelope.map((row) => `p ${row.escapeStrength}: return ${(row.returnRate * 100).toFixed(1)}%`).join(" · ")} · {table.tld.transitionCount} winner-state transitions</small>
+          </div>}
+          {isHeldout && table?.heldout && <div className="tld-run-evidence" data-testid="heldout-evidence-summary">
+            <span>FROZEN HELD-OUT RESULT</span>
+            <strong>Tₑ {table.heldout.T_e} · Sₑ {table.heldout.S_e.toFixed(3)} · winner_N {table.heldout.winnerN}</strong>
+            <small>SEP observed: {table.heldout.sepAny ? "YES" : "NO"} · 14 specificity: {table.heldout.specificity14 ? "PASS" : "FAIL"} · failures: {table.heldout.failureCount}</small>
+            <small>{table.heldout.baselineStatus} · external validation: NO</small>
           </div>}
         </section>
       </main>
@@ -385,7 +425,9 @@ export default function App() {
               <div><Icon name="check" /><span>Failures and unresolved points preserved</span></div>
               <div><Icon name="check" /><span>Parent/null identity retained per point</span></div>
               {table?.auditCheckedFiles != null && <div><Icon name="check" /><span>{table.auditCheckedFiles} manifested files verified</span></div>}
-              {table?.tld && <><div><Icon name="check" /><span>Source DOI and published input hashes verified</span></div><div><Icon name="check" /><span>Preregistration and independent verification panels linked</span></div></>}
+              {table?.tld && <div><Icon name="check" /><span>Source DOI and published input hashes verified</span></div>}
+              {table?.heldout && <div><Icon name="check" /><span>Source DOI and registered input hashes verified</span></div>}
+              {(table?.tld || table?.heldout) && <div><Icon name="check" /><span>Preregistration and independent verification panels linked</span></div>}
             </div>
             <button className="primary-button full" type="button" onClick={() => setAuditOpen(false)}>Return to field</button>
           </section>

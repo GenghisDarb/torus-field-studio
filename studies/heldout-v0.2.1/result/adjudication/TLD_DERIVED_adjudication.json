@@ -1,0 +1,26 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED_status": "BLOCKED",
+  "claim_level": "COMPUTED_DYNAMICAL",
+  "exact_blockers": [
+    "No N in the frozen primary grid satisfied SEP.",
+    "T_e is NOT_OBSERVED and may not be backfilled from winner_N.",
+    "S_e_contiguous is zero because no survival region begins at T_e.",
+    "The secondary N=14 specificity gate failed; the closure-mode result is N=9."
+  ],
+  "gates": {
+    "SEP_under_frozen_rules": false,
+    "S_e_nonzero": false,
+    "T_e_observed": false,
+    "baseline_control_persists_at_T_e": false,
+    "domain_baseline_completed": true,
+    "eligible_independent_parents": true,
+    "failure_preservation_complete": true,
+    "independent_verifier_agrees": true,
+    "mutation_suite": true,
+    "no_contamination": true,
+    "no_outcome_dependent_tuning": true,
+    "parent_matched_nulls": true
+  },
+  "schema_version": "1.0.0"
+}

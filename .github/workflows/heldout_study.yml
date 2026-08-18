@@ -1,0 +1,145 @@
+name: Held-out TLD study
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/heldout_study.yml"
+      - "python/**"
+      - "schemas/**"
+      - "scripts/**"
+      - "tests/**"
+      - "apps/studio/**"
+      - "studies/heldout-v0.2.1/**"
+      - "replication/**"
+      - "pyproject.toml"
+      - "pnpm-lock.yaml"
+
+permissions:
+  contents: read
+
+env:
+  HELDOUT_SOURCE: external_cache/heldout-v0.2.1/PRSA2017_Data_20130301-20170228.zip
+
+jobs:
+  source-custody:
+    name: Held-out source custody
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e .
+      - run: torusbrot fetch heldout-source --output "$HELDOUT_SOURCE"
+      - name: Verify registered source hash
+        run: python -c "import hashlib, pathlib; p=pathlib.Path('$HELDOUT_SOURCE'); assert hashlib.sha256(p.read_bytes()).hexdigest() == 'd1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8'"
+
+  authoritative-replay:
+    name: Installed-wheel scored-run replay and independent verification
+    needs: source-custody
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install --upgrade build
+      - run: python -m build --wheel
+      - run: python -m pip install dist/torusbrot-*.whl
+      - run: torusbrot fetch heldout-source --output "$HELDOUT_SOURCE"
+      - run: torusbrot materialize heldout-study --source "$HELDOUT_SOURCE" --study studies/heldout-v0.2.1 --output results/replay/materialized
+      - run: >-
+          torusbrot authorize heldout-study
+          --materialized results/replay/materialized
+          --study studies/heldout-v0.2.1
+          --output results/replay/scored
+          --preregistration-commit f15422bc64b1b101150240e612621683b15b3606
+          --implementation-commit "${{ github.sha }}"
+      - run: torusbrot execute heldout-study --materialized results/replay/materialized --study studies/heldout-v0.2.1 --output results/replay/scored
+      - run: torusbrot verify heldout-study --materialized results/replay/materialized --study studies/heldout-v0.2.1 --scored results/replay/scored --output results/replay/verification
+      - run: torusbrot adjudicate heldout-study --scored results/replay/scored --verification results/replay/verification --output results/replay/adjudication
+      - run: torusbrot publish heldout-study --scored results/replay/scored --verification results/replay/verification --adjudication results/replay/adjudication --output results/replay/publication
+      - run: >-
+          torusbrot package heldout-study
+          --study studies/heldout-v0.2.1
+          --materialized results/replay/materialized
+          --scored results/replay/scored
+          --verification results/replay/verification
+          --adjudication results/replay/adjudication
+          --publication results/replay/publication
+          --output results/replay/bundles
+      - run: python replication/verify.py --source "$HELDOUT_SOURCE" --output results/replay
+      - uses: actions/upload-artifact@v7
+        with:
+          name: heldout-authoritative-replay
+          path: |
+            results/replay/replication-verification-report.json
+            results/replay/bundles/*.tbx.zip
+            results/replay/adjudication/*.json
+          if-no-files-found: error
+
+  browser-import:
+    name: Held-out browser import
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with: {version: 11.19.0}
+      - uses: actions/setup-node@v7
+        with: {node-version: 24, cache: pnpm}
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e .
+      - run: python scripts/generate_hostile_fixtures.py --output tests/generated-fixtures
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run schemas:check && pnpm run typecheck && pnpm run build && pnpm run budget
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm run e2e
+
+  security:
+    name: Secrets and dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - uses: pnpm/action-setup@v6
+        with: {version: 11.19.0}
+      - uses: actions/setup-node@v7
+        with: {node-version: 24, cache: pnpm}
+      - run: python scripts/scan_tracked_content.py
+      - run: python -m pip install -e . pip-audit
+      - run: python -m pip_audit
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm audit --audit-level high
+
+  sbom:
+    name: Software bill of materials
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: spdx-json
+          output-file: sbom.spdx.json
+          upload-artifact: false
+      - uses: actions/upload-artifact@v7
+        with:
+          name: heldout-sbom
+          path: sbom.spdx.json
+          if-no-files-found: error
+
+  release-manifest:
+    name: Release-manifest verification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12"}
+      - run: |
+          mkdir -p staged
+          cp apps/studio/public/examples/heldout-tld-study-combined.tbx.zip staged/
+          cp studies/heldout-v0.2.1/publication/* staged/
+          cp replication/SHA256SUMS.txt staged/replication-SHA256SUMS.txt
+          python scripts/release_manifest.py build staged --version v0.2.1 --commit "${{ github.sha }}"
+          python scripts/release_manifest.py verify staged/release-manifest-v0.2.1.json

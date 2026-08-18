@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "analysis_unit": "monitoring station parent",
+  "direction": "observed structure score greater than matched-null structure score",
+  "primary_inference": "exact station-level sign test combined with UI and NSS gates",
+  "null_monte_carlo": "127 deterministic parent-local children plus observed correction",
+  "missing_cells": "never imputed; excluded only under the frozen eligibility rule and retained in denominators where failure fraction is defined",
+  "primary_conditions": "baseline linear adjacency determines T_e; six frozen survival conditions determine S_e",
+  "leave_one_parent_out": "recompute primary baseline endpoints after omitting each eligible parent when at least 10 remain; descriptive robustness only",
+  "cyclic_adjacency": "secondary diagnostic with independently Holm-adjusted primary-grid sign p values",
+  "structured_fragility": "report deltas in UI, NSS, SEP, and T_e for each frozen perturbation without selecting a preferred condition",
+  "fourteen_specificity": {
+    "objective": "normalized lag closure error",
+    "paired_test": "exact one-sided sign test across eligible parents for closure_error(14) < closure_error(comparator)",
+    "comparators": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20],
+    "gate": "14 is the unique study-level minimum, every paired comparison is Holm-adjusted p<=0.05, and baseline SEP(14) is true so the effect also survives parent-matched nulls"
+  },
+  "domain_baseline": "report frozen train/test prediction errors and recompute SEP on climatology-plus-AR(1) residuals",
+  "numeric_policy": "float64 without outcome-driven rounding; publication tables may display rounded copies while machine JSON retains full precision"
+}

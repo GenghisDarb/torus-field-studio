@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-failure-preservation",
+  "required_failure_classes": ["MATERIALIZATION_FAILURE", "EXECUTION_FAILURE", "SCIENTIFIC_NEGATIVE", "SCIENTIFIC_POSITIVE", "PROTOCOL_INVALIDATION"],
+  "preserve": ["stdout", "stderr", "exceptions", "nonfinite cells", "ineligible parents", "ineligible children", "all registered ladder rows", "failed baseline cells", "verifier disagreements", "mutation results"],
+  "retry_policy": "environment or software failure may be fixed only before a scored run completes; preserve the failed attempt and do not change scientific contracts",
+  "scored_run_policy": "no selective retry, parameter change, child replacement, row deletion, or result-conditioned exclusion",
+  "denominator_policy": "every excluded cell has a stable reason code and remains countable",
+  "completion_gate": "registry counts and failure-ledger counts reconcile exactly"
+}

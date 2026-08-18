@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-domain-translation",
+  "prompt_id": "TFS-V0.2.1-HELDOUT-TLD-TE-SE-SINGLE-EXECUTION-2026-08-18-V1",
+  "domain_id": "uci-beijing-multisite-air-quality-pm25",
+  "selected_candidate": "UCI Machine Learning Repository dataset 501",
+  "doi": "10.24432/C5RK5G",
+  "observable": {
+    "column": "PM2.5",
+    "meaning": "hourly fine particulate matter concentration",
+    "retained_units": "micrograms per cubic metre",
+    "outcome_labels_used": false
+  },
+  "independent_parent": "one named Beijing monitoring station",
+  "raw_membership": "all registered hourly rows from exactly one station CSV",
+  "natural_order": "strictly increasing observation timestamp",
+  "omega": "the ordered, finite-or-missing daily canonical PM2.5 state vector for one station",
+  "omega_is_time": false,
+  "primary_adjacency": "linear chronological",
+  "secondary_adjacency": "cyclic chronological, diagnostic only",
+  "emergent_time_semantics": "first preregistered N-day operation depth at which eligible station parents separate from their own matched nulls; not physical time",
+  "emergent_scale_semantics": "survival of that separation across contiguous N-day depths and frozen domain-meaningful sensor perturbations",
+  "matched_null_child": "one within-station permutation of complete daily records inside each calendar year-month stratum",
+  "mainstream_baseline": "station-local monthly climatology plus AR(1), trained on the first 75 percent of ordered eligible days",
+  "weakens_tld": [
+    "no primary SEP cell",
+    "separation disappears after parent-local controls",
+    "separation is attributable to one parent",
+    "separation disappears after the frozen climatology-plus-AR(1) control",
+    "independent verifier disagreement",
+    "incomplete failure preservation"
+  ],
+  "neutral_or_not_applicable": [
+    "winner_N is not 14",
+    "the secondary 14-specificity gate fails",
+    "cyclic adjacency differs from the primary linear result",
+    "recovery or ringing, which are not registered domain endpoints"
+  ],
+  "forbidden_interpretations": [
+    "T_e is physical elapsed time",
+    "S_e is winner_N",
+    "PM2.5 causation is established",
+    "14 is a universal law",
+    "external validation has occurred"
+  ]
+}

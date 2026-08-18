@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "policy_frozen_before_tld_metric_computation": true,
+  "score_dimensions": [
+    {"name": "source_custody_and_stable_public_identity", "maximum": 20},
+    {"name": "independent_parent_construction", "maximum": 15},
+    {"name": "natural_defensible_ordering", "maximum": 15},
+    {"name": "semantic_te_se_fit", "maximum": 15},
+    {"name": "parent_matched_null_viability", "maximum": 15},
+    {"name": "license_and_redistribution_clarity", "maximum": 10},
+    {"name": "computational_feasibility", "maximum": 5},
+    {"name": "independent_replication_feasibility", "maximum": 5}
+  ],
+  "automatic_exclusion_penalty": -100,
+  "automatic_exclusions": [
+    "candidate previously used to tune the selected operator, threshold, or ladderization",
+    "raw numeric data unavailable",
+    "ordering cannot be defined without observing outcomes",
+    "matched controls cannot be constructed per parent",
+    "licensing prevents reproducible use",
+    "T_e or S_e has no honest domain interpretation"
+  ],
+  "tie_breakers": [
+    "stronger independence from previous TORUS/TLD work",
+    "more independent parents",
+    "clearer natural ordering",
+    "clearer negative controls",
+    "simpler complete reproduction",
+    "lower computational cost"
+  ],
+  "outcome_blinding": {
+    "allowed_before_selection": [
+      "source metadata",
+      "license",
+      "file identity and byte hashes",
+      "table names and schemas",
+      "reported row and parent counts",
+      "natural ordering semantics",
+      "prior-exposure searches",
+      "feasibility estimates"
+    ],
+    "forbidden_before_selection": [
+      "TLD metrics",
+      "closure objectives",
+      "separation statistics",
+      "candidate-specific T_e or S_e",
+      "winner_N",
+      "visual outcome inspection"
+    ]
+  },
+  "selection_rule": "highest total score after automatic penalties, followed by frozen tie-breakers",
+  "selected_candidate_id": "uci_beijing_multisite_air_quality_501"
+}

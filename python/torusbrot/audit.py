@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import csv
 import hashlib
+import io
 import json
 import math
 import re
@@ -8,6 +10,7 @@ import zipfile
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
+from statistics import median
 from typing import Any
 
 from .models import AuditReport, ClaimLevel, canonical_json, content_hash, validate_run_spec
@@ -49,6 +52,36 @@ TLD_REQUIRED_MEMBERS = frozenset(
         "tables/operating_envelope.json",
         "audit/independent_verification.json",
         "audit/claim_adjudication.json",
+    }
+)
+HELDOUT_REQUIRED_MEMBERS = frozenset(
+    {
+        "heldout_profile.json",
+        "source_registry.json",
+        "domain_translation.json",
+        "preregistration.json",
+        "registry/parent_registry.csv",
+        "registry/ladder_registry.csv",
+        "registry/null_registry.csv",
+        "registry/perturbation_registry.csv",
+        "tables/byN_surface.csv",
+        "tables/emergent_time_by_parent.csv",
+        "tables/emergent_scale_by_parent.csv",
+        "tables/primary_endpoints.json",
+        "tables/closure_mode_results.csv",
+        "tables/parent_null_comparison.csv",
+        "tables/structured_fragility_results.csv",
+        "tables/specificity_audit.csv",
+        "tables/domain_baseline_comparison.csv",
+        "audit/independent_verification.json",
+        "audit/independent_recomputed_endpoints.json",
+        "audit/mutation_results.jsonl",
+        "audit/claim_adjudication.json",
+        "audit/forbidden_claims.json",
+        "reports/plain_language_summary.md",
+        "reports/technical_report.md",
+        "visualization/byN_surface.svg",
+        "visualization/byN_surface.png",
     }
 )
 TLD_I_INPUT_HASHES = {
@@ -328,8 +361,11 @@ def _audit_manifest(
     if extras:
         errors.append(_issue("MANIFEST_UNLISTED_MEMBER", ", ".join(extras)))
     required = set(REQUIRED_MEMBERS)
-    if str(manifest.get("profile", "")).startswith("tld-i-"):
+    profile = str(manifest.get("profile", ""))
+    if profile.startswith("tld-i-"):
         required.update(TLD_REQUIRED_MEMBERS)
+    if profile.startswith("tld-heldout-"):
+        required.update(HELDOUT_REQUIRED_MEMBERS)
     required_missing = sorted(required - set(paths))
     if required_missing:
         errors.append(_issue("REQUIRED_MEMBER_MISSING", ", ".join(required_missing)))
@@ -338,6 +374,209 @@ def _audit_manifest(
 
 def _is_finite_number(value: Any) -> bool:
     return isinstance(value, int | float) and not isinstance(value, bool) and math.isfinite(value)
+
+
+def _load_csv(
+    members: dict[str, bytes], name: str, errors: list[str], policy: BundlePolicy
+) -> list[dict[str, str]]:
+    payload = members.get(name)
+    if payload is None:
+        errors.append(_issue("MEMBER_MISSING", name))
+        return []
+    if len(payload) > policy.max_json_bytes:
+        errors.append(_issue("MEMBER_SIZE_LIMIT", name))
+        return []
+    try:
+        text = payload.decode("utf-8")
+        return list(csv.DictReader(io.StringIO(text, newline="")))
+    except (UnicodeDecodeError, csv.Error) as error:
+        errors.append(_issue("CSV_INVALID", f"{name}: {error}"))
+        return []
+
+
+def _sign_p(positive: int, total: int) -> float:
+    return sum(math.comb(total, count) for count in range(positive, total + 1)) / (2**total)
+
+
+def _holm(raw: dict[int, float]) -> dict[int, float]:
+    ordered = sorted(raw.items(), key=lambda item: (item[1], item[0]))
+    adjusted: dict[int, float] = {}
+    running = 0.0
+    for rank, (key, value) in enumerate(ordered):
+        running = max(running, min(1.0, (len(ordered) - rank) * value))
+        adjusted[key] = running
+    return adjusted
+
+
+def _audit_heldout_semantics(
+    members: dict[str, bytes],
+    manifest: dict[str, Any],
+    claim: dict[str, Any],
+    failures: list[dict[str, Any]],
+    errors: list[str],
+    policy: BundlePolicy,
+) -> None:
+    profile = _load_json(members, "heldout_profile.json", errors, policy)
+    source = _load_json(members, "source_registry.json", errors, policy)
+    preregistration = _load_json(members, "preregistration.json", errors, policy)
+    endpoints = _load_json(members, "tables/primary_endpoints.json", errors, policy)
+    independent = _load_json(members, "audit/independent_verification.json", errors, policy)
+    recomputed = _load_json(members, "audit/independent_recomputed_endpoints.json", errors, policy)
+    adjudication = _load_json(members, "audit/claim_adjudication.json", errors, policy)
+    mutation_results = _load_jsonl(members, "audit/mutation_results.jsonl", errors, policy)
+    parent_cells = _load_csv(members, "tables/parent_null_comparison.csv", errors, policy)
+    surface = _load_csv(members, "tables/byN_surface.csv", errors, policy)
+    closure = _load_csv(members, "tables/closure_mode_results.csv", errors, policy)
+    parents = _load_csv(members, "registry/parent_registry.csv", errors, policy)
+    nulls = _load_csv(members, "registry/null_registry.csv", errors, policy)
+    perturbations = _load_csv(members, "registry/perturbation_registry.csv", errors, policy)
+    if not all(
+        isinstance(value, dict)
+        for value in (
+            profile,
+            source,
+            preregistration,
+            endpoints,
+            independent,
+            recomputed,
+            adjudication,
+        )
+    ):
+        return
+    if profile.get("profile") != manifest.get("profile"):
+        errors.append(_issue("HELDOUT_PROFILE_MISMATCH", "manifest and profile"))
+    if set(profile.get("required_members", [])) != set(HELDOUT_REQUIRED_MEMBERS):
+        errors.append(_issue("HELDOUT_PROFILE_MEMBERS_INVALID", "required member declaration"))
+    if profile.get("interpolation_used_for_metrics") is not False:
+        errors.append(_issue("HELDOUT_INTERPOLATION_AS_OBSERVATION", "profile declaration"))
+    if source.get("doi") != "10.24432/C5RK5G":
+        errors.append(_issue("HELDOUT_SOURCE_DOI_MISMATCH", repr(source.get("doi"))))
+    expected_source = "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8"
+    if source.get("authoritative_archive_sha256") != expected_source:
+        errors.append(_issue("HELDOUT_SOURCE_HASH_MISMATCH", "authoritative archive"))
+    expected_prereg = "eb3a886aa3bc344ccf715d0036d5054cfba107aa3eae017ba00c68852bb73bfc"
+    if profile.get("preregistration_manifest_sha256") != expected_prereg:
+        errors.append(_issue("HELDOUT_PREREGISTRATION_HASH_MISMATCH", "profile"))
+    if preregistration.get("selection_commit") != "2ff2ddb1a4f656d3c672079a6e8821bf9c3858eb":
+        errors.append(_issue("HELDOUT_SELECTION_COMMIT_MISMATCH", "preregistration"))
+    if (
+        len(parents) != 12
+        or sum(row.get("eligible", "").casefold() == "true" for row in parents) != 12
+    ):
+        errors.append(_issue("HELDOUT_PARENT_REGISTRY_INVALID", str(len(parents))))
+    if len(nulls) != 12192:
+        errors.append(_issue("HELDOUT_NULL_REGISTRY_COUNT_MISMATCH", str(len(nulls))))
+    if any(row.get("null_family") != "within_year_month_complete_day_permutation" for row in nulls):
+        errors.append(_issue("HELDOUT_GLOBAL_NULL_POOL_FORBIDDEN", "null registry"))
+    if len(perturbations) != 96:
+        errors.append(_issue("HELDOUT_PERTURBATION_REGISTRY_INVALID", str(len(perturbations))))
+
+    grouped: dict[str, dict[int, list[dict[str, str]]]] = {}
+    for row in parent_cells:
+        if row.get("eligible", "").casefold() == "true":
+            grouped.setdefault(row["condition"], {}).setdefault(int(row["N"]), []).append(row)
+    recomputed_surface: dict[tuple[str, int], dict[str, Any]] = {}
+    for condition, by_n in grouped.items():
+        raw_p: dict[int, float] = {}
+        staged: dict[int, tuple[float, float, int, int]] = {}
+        for n_value, rows in by_n.items():
+            ui = sum(float(row["local_p"]) <= 0.05 for row in rows) / len(rows)
+            nss = median(float(row["robust_z"]) for row in rows)
+            positive = sum(float(row["observed_score"]) > float(row["null_median"]) for row in rows)
+            raw_p[n_value] = _sign_p(positive, len(rows))
+            staged[n_value] = (ui, nss, positive, len(rows))
+        adjusted = _holm(raw_p)
+        for n_value, (ui, nss, positive, count) in staged.items():
+            recomputed_surface[(condition, n_value)] = {
+                "UI": ui,
+                "NSS": nss,
+                "positive_parent_count": positive,
+                "eligible_parent_count": count,
+                "holm_p": adjusted[n_value],
+                "SEP": count >= 10 and ui >= 0.5 and nss >= 2 and adjusted[n_value] <= 0.05,
+            }
+    for row in surface:
+        key = (row["condition"], int(row["N"]))
+        expected = recomputed_surface.get(key)
+        if expected is None:
+            errors.append(_issue("HELDOUT_SURFACE_CELL_MISSING", repr(key)))
+            continue
+        for field in ("UI", "NSS", "holm_p"):
+            if not math.isclose(float(row[field]), expected[field], rel_tol=0.0, abs_tol=1e-12):
+                errors.append(_issue("HELDOUT_SURFACE_MISMATCH", f"{key}:{field}"))
+        if (row["SEP"].casefold() == "true") != expected["SEP"]:
+            errors.append(_issue("HELDOUT_SEP_MISMATCH", repr(key)))
+    baseline_depths = [
+        n_value
+        for (condition, n_value), value in recomputed_surface.items()
+        if condition == "baseline" and value["SEP"]
+    ]
+    t_e: int | str = min(baseline_depths) if baseline_depths else "NOT_OBSERVED"
+    if endpoints.get("T_e") != t_e or recomputed.get("T_e") != t_e:
+        errors.append(_issue("HELDOUT_TE_MISMATCH", repr(t_e)))
+    primary_conditions = (
+        "baseline",
+        "calibration_scale_095",
+        "calibration_scale_105",
+        "sensor_noise_001",
+        "outage_6h_30d",
+        "outage_24h_90d",
+    )
+    region: list[int] = []
+    if isinstance(t_e, int):
+        for n_value in range(t_e, 15):
+            survives = (
+                recomputed_surface[("baseline", n_value)]["SEP"]
+                and sum(
+                    recomputed_surface[(condition, n_value)]["SEP"]
+                    for condition in primary_conditions[1:]
+                )
+                >= 4
+            )
+            if not survives:
+                break
+            region.append(n_value)
+    region_cells = [
+        recomputed_surface[(condition, n_value)]
+        for n_value in region
+        for condition in primary_conditions
+    ]
+    s_e = sum(cell["SEP"] for cell in region_cells) / len(region_cells) if region_cells else 0.0
+    if not math.isclose(float(endpoints.get("S_e_contiguous", -1)), s_e, abs_tol=1e-12):
+        errors.append(_issue("HELDOUT_SE_MISMATCH", repr(s_e)))
+    closure_by_station: dict[str, dict[int, float]] = {}
+    for row in closure:
+        closure_by_station.setdefault(row["station"], {})[int(row["N"])] = float(
+            row["closure_error"]
+        )
+    medians = {
+        n_value: median(values[n_value] for values in closure_by_station.values())
+        for n_value in range(4, 21)
+    }
+    winner = min(medians, key=lambda key: (medians[key], key))
+    if endpoints.get("winner_N_study_closure_minimum") != winner:
+        errors.append(_issue("HELDOUT_WINNER_MISMATCH", repr(winner)))
+    if independent.get("status") != "verified" or independent.get("disagreement_count") != 0:
+        errors.append(_issue("HELDOUT_INDEPENDENT_VERIFICATION_FAILED", "receipt"))
+    if len(mutation_results) != 25 or any(
+        row.get("rejected") is not True for row in mutation_results
+    ):
+        errors.append(_issue("HELDOUT_MUTATION_SUITE_FAILED", str(len(mutation_results))))
+    if adjudication.get("EXTERNALLY_VALIDATED") is not False:
+        errors.append(_issue("HELDOUT_EXTERNAL_VALIDATION_FORBIDDEN", "adjudication"))
+    expected_outcome = (
+        "HELDOUT_TLD_STUDY_POSITIVE_UNDER_FROZEN_GATES"
+        if isinstance(t_e, int) and s_e > 0
+        else "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES"
+    )
+    if adjudication.get("scientific_outcome") != expected_outcome:
+        errors.append(_issue("HELDOUT_ADJUDICATION_MISMATCH", expected_outcome))
+    if claim.get("claim_level") != "COMPUTED_DYNAMICAL" and expected_outcome.endswith(
+        "NEGATIVE_UNDER_FROZEN_GATES"
+    ):
+        errors.append(_issue("HELDOUT_NEGATIVE_CLAIM_ESCALATION", str(claim.get("claim_level"))))
+    if len(failures) != int(endpoints.get("failure_count", 0)):
+        errors.append(_issue("HELDOUT_FAILURE_COUNT_MISMATCH", str(len(failures))))
 
 
 def _audit_tld_semantics(
@@ -514,7 +753,10 @@ def _audit_semantics(
         for validation_error in validate_with_schema("failure", failure):
             errors.append(_issue("FAILURE_SCHEMA_INVALID", validation_error))
     engine = run_spec.get("engine")
-    tld_profile = str(manifest.get("profile", "")).startswith("tld-i-")
+    profile_name = str(manifest.get("profile", ""))
+    historical_tld_profile = profile_name.startswith("tld-i-")
+    heldout_tld_profile = profile_name.startswith("tld-heldout-")
+    tld_profile = historical_tld_profile or heldout_tld_profile
     if ontology.get("schema_version") != "1.0.0":
         errors.append(_issue("SCHEMA_VERSION_UNSUPPORTED", "ontology"))
     non_equivalences = ontology.get("non_equivalences", [])
@@ -593,7 +835,7 @@ def _audit_semantics(
         if not isinstance(point, dict):
             errors.append(_issue("FIELD_POINT_INVALID", str(position)))
             continue
-        if tld_profile:
+        if historical_tld_profile:
             if any(not _is_finite_number(point.get(field)) for field in ("x", "y")):
                 errors.append(_issue("FIELD_METRIC_NONFINITE", str(position)))
             if any(point.get(field) is not None for field in ("T_e", "S_e", "UI", "NSS", "SEP")):
@@ -645,7 +887,7 @@ def _audit_semantics(
                 reported_mean, expected_mean, rel_tol=0.0, abs_tol=1.1e-8
             ):
                 errors.append(_issue("STATISTICS_MISMATCH", statistics_key))
-    if tld_profile and any(
+    if historical_tld_profile and any(
         statistics.get(key) is not None for key in ("mean_UI", "mean_NSS", "mean_S_e")
     ):
         errors.append(_issue("TLD_UNCOMPUTED_STATISTIC_POPULATED", "manifest statistics"))
@@ -664,8 +906,10 @@ def _audit_semantics(
             errors.append(_issue("PROVENANCE_SEED_MISMATCH", "transformation"))
     else:
         errors.append(_issue("PROVENANCE_TRANSFORMATION_MISSING", "no transformation"))
-    if tld_profile:
+    if historical_tld_profile:
         _audit_tld_semantics(members, manifest, claim, points, failures, errors, policy)
+    if heldout_tld_profile:
+        _audit_heldout_semantics(members, manifest, claim, failures, errors, policy)
     domain_sha256 = parent.get("domain_sha256") if engine in {"local_brot", "tld"} else None
     identity = {
         "specification": run_spec,

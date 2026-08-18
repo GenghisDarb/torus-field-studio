@@ -89,6 +89,39 @@ test("published TLD I result exposes audited evidence without claim escalation",
   expect(consoleErrors).toEqual([]);
 });
 
+test("held-out Beijing PM2.5 TBX exposes the frozen negative result", async ({ page }) => {
+  const consoleErrors: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  await page.goto("/");
+  await waitForField(page);
+  await page.getByRole("button", { name: "Load held-out study" }).click();
+  await expect(page.locator(".source-pill")).toHaveText("HELD-OUT SOURCE · AUDIT PASSED", {
+    timeout: 30_000,
+  });
+  const source = page.getByTestId("heldout-source-panel");
+  await expect(source).toBeVisible({ timeout: 30_000 });
+  await expect(source).toContainText("10.24432/C5RK5G");
+  await expect(source).toContainText("NOT_OBSERVED");
+  await expect(source).toContainText("winner_N");
+  await expect(source).toContainText("9 · separate closure mode");
+  await expect(source).toContainText("FAILED");
+  await expect(source).toContainText("25/25 mutations");
+  await expect(source).toContainText("BLOCKED");
+  await expect(page.getByText("COMPUTED_DYNAMICAL", { exact: true })).toBeVisible();
+  const evidence = page.getByTestId("heldout-evidence-summary");
+  await expect(evidence).toContainText("Tₑ NOT_OBSERVED");
+  await expect(evidence).toContainText("Sₑ 0.000");
+  await expect(evidence).toContainText("14 specificity: FAIL");
+  await expect(evidence).toContainText("external validation: NO");
+  await page.getByRole("button", { name: "Surface" }).click();
+  await expect(page.locator("canvas").first()).toBeVisible();
+  await page.getByRole("button", { name: "Field" }).click();
+  await expect(page.getByText("Interpolated pixels are never counted as observations.")).toBeVisible();
+  expect(consoleErrors).toEqual([]);
+});
+
 test("mobile layout and serious accessibility checks", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");

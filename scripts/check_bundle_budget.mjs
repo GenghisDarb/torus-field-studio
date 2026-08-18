@@ -6,7 +6,7 @@ const root = process.cwd();
 const distribution = path.join(root, "apps", "studio", "dist");
 const limits = {
   application: 950 * 1024,
-  publishedExamples: 1024 * 1024,
+  publishedExamples: 2500 * 1024,
   mainJavaScript: 450 * 1024,
   surfaceJavaScript: 650 * 1024,
   css: 120 * 1024,

@@ -1,0 +1,12 @@
+{
+  "authorization_sha256": "b8f5c5f978f56c9f40443c15b21e64a865d192eddbe2a1d14a936595a90ef184",
+  "completed": true,
+  "execution_class": "SCIENTIFIC_NEGATIVE",
+  "execution_count": 1,
+  "failure_count": 0,
+  "parameters_changed": false,
+  "run_id": "heldout-4681daef5ea40ce1",
+  "schema_version": "1.0.0",
+  "scored_contract": "first executed held-out contract",
+  "selective_rerun": false
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-raw-to-values",
+  "authoritative_archive": {
+    "filename": "PRSA2017_Data_20130301-20170228.zip",
+    "sha256": "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8",
+    "expected_station_csv_count": 12,
+    "expected_rows_per_station": 35064,
+    "expected_columns": ["No", "year", "month", "day", "hour", "PM2.5", "PM10", "SO2", "NO2", "CO", "O3", "TEMP", "PRES", "DEWP", "RAIN", "wd", "WSPM", "station"]
+  },
+  "timestamp_rule": "parse year-month-day-hour as Asia/Shanghai civil time, then subtract eight hours to record UTC; ordering is invariant",
+  "value_rule": "parse PM2.5 as IEEE-754 decimal; empty or NA becomes missing; retain raw decimal text in the open values table",
+  "permitted_columns_for_analysis": ["timestamp_utc", "station", "PM2.5"],
+  "forbidden_columns_for_omega": ["PM10", "SO2", "NO2", "CO", "O3", "TEMP", "PRES", "DEWP", "RAIN", "wd", "WSPM"],
+  "missing_policy": "preserve missing values; never impute or interpolate",
+  "duplicate_policy": "any duplicate station/timestamp makes that parent ineligible and is preserved in the failure ledger",
+  "range_policy": "negative finite PM2.5 is invalid; no upper clipping",
+  "sorting_policy": "sort by timestamp only after duplicate and source-order audits; record whether source order differed"
+}
