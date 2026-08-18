@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-preregistration-result/v1.schema.json",
+  "title": "TLD preregistration result",
+  "type": "object",
+  "required": ["schema_version", "contract_sha256", "criteria", "passed", "failed"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "contract_sha256": {"pattern": "^[a-f0-9]{64}$"},
+    "criteria": {"type": "object", "additionalProperties": {"type": "boolean"}},
+    "passed": {"type": "integer", "minimum": 0}, "failed": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": false
+}

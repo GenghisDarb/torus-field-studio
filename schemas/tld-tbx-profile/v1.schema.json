@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-tbx-profile/v1.schema.json",
+  "title": "TLD TBX profile declaration",
+  "type": "object",
+  "required": ["schema_version", "profile", "lane", "required_members", "classification_precedes_rendering", "interpolation_used_for_metrics"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "profile": {"enum": ["tld-i-historical-v1", "tld-i-combined-v1", "tld-i-modern-v21"]},
+    "lane": {"type": "string"},
+    "required_members": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "classification_precedes_rendering": {"const": true},
+    "interpolation_used_for_metrics": {"const": false}
+  },
+  "additionalProperties": false
+}

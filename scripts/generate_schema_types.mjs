@@ -14,6 +14,17 @@ const schemas = {
   "field-table": "schemas/field-table/v1.schema.json",
   "run-spec": "schemas/run-spec/v1.schema.json",
   manifest: "schemas/tbx/v1.schema.json",
+  "tld-claim-adjudication": "schemas/tld-claim-adjudication/v1.schema.json",
+  "tld-domain-pack": "schemas/tld-domain-pack/v1.schema.json",
+  "tld-endpoint-table": "schemas/tld-endpoint-table/v1.schema.json",
+  "tld-independent-verification": "schemas/independent-verification/v1.schema.json",
+  "tld-ladder-registry": "schemas/tld-ladder-registry/v1.schema.json",
+  "tld-perturbation-contract": "schemas/tld-perturbation-contract/v1.schema.json",
+  "tld-preregistration-result": "schemas/tld-preregistration-result/v1.schema.json",
+  "tld-release-source": "schemas/tld-release-source/v1.schema.json",
+  "tld-run-contract": "schemas/tld-run-contract/v1.schema.json",
+  "tld-tbx-profile": "schemas/tld-tbx-profile/v1.schema.json",
+  "tld-trajectory-trace": "schemas/tld-trajectory-trace/v1.schema.json",
 };
 const check = process.argv.includes("--check");
 const mismatches = [];

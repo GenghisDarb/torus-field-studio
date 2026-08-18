@@ -6,7 +6,7 @@
   "required": ["schema_version", "engine", "seed", "grid"],
   "properties": {
     "schema_version": {"const": "1.0.0"},
-    "engine": {"enum": ["analytic", "local_brot"]},
+    "engine": {"enum": ["analytic", "local_brot", "tld"]},
     "seed": {"type": "integer", "minimum": 0},
     "domain_id": {"type": "string"},
     "claim_level": {"enum": ["ILLUSTRATIVE_ANALYTIC", "COMPUTED_DYNAMICAL", "TLD_DERIVED", "EXTERNALLY_VALIDATED"]},

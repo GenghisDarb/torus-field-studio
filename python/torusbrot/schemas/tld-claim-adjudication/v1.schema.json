@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-claim-adjudication/v1.schema.json",
+  "title": "TLD claim adjudication",
+  "type": "object",
+  "required": ["schema_version", "lane", "claim_level", "tld_derived_status", "externally_validated", "blockers", "forbidden_claims"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "lane": {"type": "string"},
+    "claim_level": {"enum": ["COMPUTED_DYNAMICAL", "TLD_DERIVED"]},
+    "tld_derived_status": {"enum": ["PERMITTED", "BLOCKED", "NOT_APPLICABLE"]},
+    "externally_validated": {"const": false},
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "forbidden_claims": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

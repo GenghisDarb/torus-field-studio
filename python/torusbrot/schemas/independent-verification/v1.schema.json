@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/independent-verification/v1.schema.json",
+  "title": "Independent verification receipt",
+  "type": "object",
+  "required": ["schema_version", "status", "verifier", "result_sha256", "checks"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "status": {"enum": ["verified", "rejected"]},
+    "verifier": {"type": "string", "minLength": 1},
+    "result_sha256": {"pattern": "^[a-f0-9]{64}$"}, "checks": {"type": "object"}
+  },
+  "additionalProperties": false
+}

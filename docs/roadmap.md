@@ -9,10 +9,12 @@
 - v0.1.1 hardening: strict cross-runtime audit, hostile corpus, failure preservation,
   cross-platform wheels, browser E2E, and GitHub Pages.
 
-## v0.2 — TLD workbench
+## v0.2 — TLD workbench (released)
 
-Domain registries, projections, registered perturbations, kernel participation tests, publication
-exports, and an externally reviewed mapping for any Level 2 claim.
+Published-source TLD I custody and exact historical reproduction, reusable scoring and dynamical
+modules, registry-first provenance, frozen modern matched controls, independent verification,
+TLD TBX profiles, browser integration, and explicit Level 2 blockers. External review and a
+semantically registered emergence/survival experiment remain future work.
 
 ## v0.3 — coupled and boundary labs
 

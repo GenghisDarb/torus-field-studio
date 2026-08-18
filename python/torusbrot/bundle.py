@@ -170,9 +170,7 @@ class FieldResult:
                         "sha256": self.domain.sha256 if self.domain else content_hash(spec),
                         "kind": self.domain.source.get("kind") if self.domain else "declared_model",
                         "details": (
-                            self.domain.source
-                            if self.domain
-                            else {"equation": "z[n+1]=z[n]^p+c"}
+                            self.domain.source if self.domain else {"equation": "z[n+1]=z[n]^p+c"}
                         ),
                     }
                 ]
@@ -181,7 +179,7 @@ class FieldResult:
                 [
                     {
                         "transformation_id": self.kernel_id,
-                        "software_version": "0.1.1",
+                        "software_version": "0.2.0",
                         "seed": self.specification.seed,
                         "specification_sha256": self.specification.sha256,
                     }
@@ -214,13 +212,9 @@ class FieldResult:
                 },
                 pretty=True,
             ),
-            "audit/failure_ledger.jsonl": _jsonl(
-                [failure.to_dict() for failure in self.failures]
-            ),
+            "audit/failure_ledger.jsonl": _jsonl([failure.to_dict() for failure in self.failures]),
         }
-        sums = "".join(
-            f"{_sha256(payload)}  {path}\n" for path, payload in sorted(members.items())
-        )
+        sums = "".join(f"{_sha256(payload)}  {path}\n" for path, payload in sorted(members.items()))
         members["audit/SHA256SUMS.txt"] = sums.encode()
         return members
 

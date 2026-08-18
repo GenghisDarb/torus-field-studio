@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-endpoint-table/v1.schema.json",
+  "title": "TLD endpoint table",
+  "type": "object",
+  "required": ["schema_version", "rows"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["endpoint_id", "lane", "condition", "winner_N", "T_e", "S_e", "metrics", "eligible"],
+        "properties": {
+          "endpoint_id": {"type": "string"}, "lane": {"type": "string"},
+          "condition": {"type": "object"}, "winner_N": {"type": ["integer", "null"]},
+          "T_e": {"type": ["integer", "null"]}, "S_e": {"type": ["number", "null"]},
+          "metrics": {"type": "object"}, "eligible": {"type": "boolean"},
+          "failure_id": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

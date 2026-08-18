@@ -17,6 +17,17 @@ Every point retains eligibility, emergence, null separation, closure, survival, 
 `winner_N`, `T_e`, and `S_e` separately. The viewer may layer them, but export never collapses them
 to one "bounded" boolean.
 
+## Published-source reproduction
+
+The TLD I historical profile reproduces the confirmatory public release at DOI
+`10.5281/zenodo.18080090`. Its source ceiling is `COMPUTED_DYNAMICAL`. Successful self-reproduction
+does not supply external validation. Because the historical release does not define observed/null
+depth endpoints, its `T_e` and `S_e` values are null and the modern extension records both as
+`NOT_APPLICABLE`.
+
+The `z^14+c` analytic preset remains a visual analog. It cannot be cited as TLD evidence.
+TORUS-BROT and ToT-BROT are distinct terms and engines; an audit rejects their conflation.
+
 ## Reference kernel scope
 
 The v0.1 ladder engine is a deterministic, documented reference implementation. It perturbs one
@@ -33,4 +44,3 @@ is never inferred from a visually compelling result.
 A run freezes engine, schema, seed, grid, axes, classification thresholds, and null policy. The
 CPU implementation is authoritative. JSON is serialized canonically, and every TBX member other
 than the manifest is listed with byte length and SHA-256 digest.
-

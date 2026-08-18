@@ -9,7 +9,7 @@
   <rect x="0" y="0" width="1200" height="62" fill="#091519" stroke="#45605f" stroke-opacity=".35"/>
   <g fill="none" stroke="#e8b85d"><ellipse cx="35" cy="31" rx="20" ry="9"/><ellipse cx="35" cy="31" rx="9" ry="20" transform="rotate(38 35 31)"/></g>
   <text x="70" y="29" fill="#e8b85d" font-family="monospace" font-size="15" letter-spacing="3">TORUS</text><text x="132" y="29" fill="#dce8e5" font-family="monospace" font-size="15" letter-spacing="3">FIELD STUDIO</text>
-  <text x="70" y="45" fill="#66807e" font-family="monospace" font-size="8" letter-spacing="2">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.1</text>
+  <text x="70" y="45" fill="#66807e" font-family="monospace" font-size="8" letter-spacing="2">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.2</text>
   <rect x="0" y="62" width="250" height="511" fill="#0b181c" stroke="#38504f" stroke-opacity=".4"/>
   <rect x="950" y="62" width="250" height="511" fill="#0b181c" stroke="#38504f" stroke-opacity=".4"/>
   <rect x="250" y="62" width="700" height="511" fill="url(#grid)"/>
@@ -30,4 +30,3 @@
   <line x1="210" y1="627" x2="820" y2="627" stroke="#398181" stroke-dasharray="5 5"/>
   <text x="975" y="603" fill="#69817f" font-family="monospace" font-size="8" letter-spacing="2">FIELD STATUS</text><text x="975" y="625" fill="#65b49f" font-family="monospace" font-size="12">COMPLETE</text>
 </svg>
-

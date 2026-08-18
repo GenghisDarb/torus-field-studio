@@ -1,4 +1,4 @@
-export type Engine = "analytic" | "local_brot";
+export type Engine = "analytic" | "local_brot" | "tld";
 export type Metric = "classification" | "S_e" | "UI" | "NSS";
 export type ViewMode = "field" | "surface";
 
@@ -27,15 +27,51 @@ export interface FieldPoint {
   recovered: boolean | null;
   winner_N: number | null;
   T_e: number | null;
-  S_e: number;
-  UI: number;
-  NSS: number;
-  SEP: number;
-  rms_to_parent: number;
+  S_e: number | null;
+  UI: number | null;
+  NSS: number | null;
+  SEP: number | null;
+  rms_to_parent: number | null;
   iterations: number;
   parent_id: string;
   null_policy_id: string;
   trace: TracePoint[];
+  failure_id?: string | null;
+  observed?: boolean;
+  phase?: string | null;
+  trial_id?: number | null;
+  alpha?: number | null;
+  t?: number | null;
+}
+
+export interface TldBundleMetadata {
+  doi: string;
+  title: string;
+  profile: string;
+  lane: string;
+  preregistrationPassed: number;
+  preregistrationFailed: number;
+  verificationStatus: string;
+  tldDerivedStatus: string;
+  blockers: string[];
+  forbiddenClaims: string[];
+  failureCount: number;
+  baselineWinnerN: number;
+  baselineMargin: number;
+  alphaSweep: Array<{
+    alpha: number;
+    escapeRate: number;
+    returnRate: number;
+    meanReturnSteps: number;
+    p90Flips: number;
+  }>;
+  operatingEnvelope: Array<{
+    escapeStrength: number;
+    returnRate: number;
+    meanReturnSteps: number;
+    p90Flips: number;
+  }>;
+  transitionCount: number;
 }
 
 export interface FieldTable {
@@ -48,6 +84,7 @@ export interface FieldTable {
   claimLevel?: string;
   engine?: Engine;
   auditCheckedFiles?: number;
+  tld?: TldBundleMetadata;
 }
 
 export interface GenerateRequest {

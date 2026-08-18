@@ -16,6 +16,17 @@ SCHEMA_PATHS = {
     "local-brot": "local-brot/v1.schema.json",
     "run-spec": "run-spec/v1.schema.json",
     "tbx": "tbx/v1.schema.json",
+    "tld-claim-adjudication": "tld-claim-adjudication/v1.schema.json",
+    "tld-domain-pack": "tld-domain-pack/v1.schema.json",
+    "tld-endpoint-table": "tld-endpoint-table/v1.schema.json",
+    "tld-independent-verification": "independent-verification/v1.schema.json",
+    "tld-ladder-registry": "tld-ladder-registry/v1.schema.json",
+    "tld-perturbation-contract": "tld-perturbation-contract/v1.schema.json",
+    "tld-preregistration-result": "tld-preregistration-result/v1.schema.json",
+    "tld-release-source": "tld-release-source/v1.schema.json",
+    "tld-run-contract": "tld-run-contract/v1.schema.json",
+    "tld-tbx-profile": "tld-tbx-profile/v1.schema.json",
+    "tld-trajectory-trace": "tld-trajectory-trace/v1.schema.json",
 }
 
 

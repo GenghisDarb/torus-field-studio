@@ -6,6 +6,7 @@
   "required": ["tbx_version", "run_id", "claim_level", "kernel_id", "specification_sha256", "statistics", "files"],
   "properties": {
     "tbx_version": {"const": "1.0.0"},
+    "profile": {"enum": ["field-v1", "tld-i-historical-v1", "tld-i-combined-v1", "tld-i-modern-v21"]},
     "run_id": {"type": "string"},
     "claim_level": {"type": "string"},
     "kernel_id": {"type": "string", "minLength": 1},
@@ -16,7 +17,7 @@
       "properties": {
         "point_count": {"type": "integer", "minimum": 0},
         "classification_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
-        "mean_UI": {"type": "number"}, "mean_NSS": {"type": "number"}, "mean_S_e": {"type": "number"},
+        "mean_UI": {"type": ["number", "null"]}, "mean_NSS": {"type": ["number", "null"]}, "mean_S_e": {"type": ["number", "null"]},
         "failure_count": {"type": "integer", "minimum": 0}
       },
       "additionalProperties": false

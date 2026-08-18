@@ -68,6 +68,27 @@ test("browser export can be re-imported through the strict auditor", async ({ pa
   await expect(page.locator(".source-pill")).toHaveText("TBX AUDIT PASSED", { timeout: 20_000 });
 });
 
+test("published TLD I result exposes audited evidence without claim escalation", async ({ page }) => {
+  const consoleErrors: string[] = [];
+  page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
+  await page.goto("/");
+  await waitForField(page);
+  await page.getByRole("button", { name: /Load TLD I result/ }).click();
+  await expect(page.locator(".source-pill")).toHaveText("PUBLISHED SOURCE · AUDIT PASSED", { timeout: 30_000 });
+  await expect(page.getByTestId("tld-source-panel")).toContainText("10.5281/zenodo.18080090");
+  await expect(page.getByTestId("tld-source-panel")).toContainText("4 pass · 2 fail");
+  await expect(page.getByText("COMPUTED_DYNAMICAL", { exact: true })).toBeVisible();
+  await expect(page.getByText("TLD_DERIVED is blocked", { exact: false })).toBeVisible();
+  await expect(page.getByTestId("tld-raw-point")).toBeVisible();
+  await expect(page.getByTestId("tld-evidence-summary")).toContainText("winner-state transitions");
+  await page.getByRole("button", { name: /Surface/ }).click();
+  await expect(page.locator(".surface-host canvas")).toBeVisible({ timeout: 30_000 });
+  await page.getByRole("button", { name: /Field/ }).click();
+  await page.getByRole("button", { name: /Audit/ }).click();
+  await expect(page.getByText("Source DOI and published input hashes verified")).toBeVisible();
+  expect(consoleErrors).toEqual([]);
+});
+
 test("mobile layout and serious accessibility checks", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-run-contract/v1.schema.json",
+  "title": "TLD run contract",
+  "type": "object",
+  "required": ["schema_version", "lane", "doi", "contract_sha256", "seed", "n_window", "n_center", "operators", "trials", "claim_ceiling"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "lane": {"enum": ["HISTORICAL_PUBLISHED_RELEASE_REPRODUCTION", "MODERN_V21_COMPLIANCE_EXTENSION"]},
+    "doi": {"const": "10.5281/zenodo.18080090"},
+    "contract_sha256": {"pattern": "^[a-f0-9]{64}$"},
+    "seed": {"type": "integer", "minimum": 0},
+    "n_window": {"type": "array", "items": {"type": "integer"}, "minItems": 2},
+    "n_center": {"type": "integer"},
+    "operators": {"type": "object"},
+    "trials": {"type": "object"},
+    "claim_ceiling": {"enum": ["COMPUTED_DYNAMICAL", "TLD_DERIVED"]}
+  },
+  "additionalProperties": false
+}

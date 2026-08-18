@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-trajectory-trace/v1.schema.json",
+  "title": "TLD trajectory trace",
+  "type": "object",
+  "required": ["schema_version", "rows"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["trial_id", "alpha_heal", "seed", "phase", "t", "chi", "winner_N", "winner_rms", "runner_N", "runner_rms", "margin"],
+        "properties": {
+          "trial_id": {"type": "integer"}, "alpha_heal": {"type": "number"},
+          "seed": {"type": "integer"}, "phase": {"enum": ["start", "escape", "heal"]},
+          "t": {"type": "integer", "minimum": 0}, "chi": {"type": "number"},
+          "winner_N": {"type": "integer"}, "winner_rms": {"type": "number"},
+          "runner_N": {"type": "integer"}, "runner_rms": {"type": "number"},
+          "margin": {"type": "number"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

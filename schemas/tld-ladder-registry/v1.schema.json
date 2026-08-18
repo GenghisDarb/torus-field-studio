@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/tld-ladder-registry/v1.schema.json",
+  "title": "TLD ladder registry",
+  "type": "object",
+  "required": ["schema_version", "ladders"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "ladders": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ladder_id", "domain_id", "kind", "parent_ladder_id", "omega_construction_rule", "adjacency_topology", "is_null", "eligible", "seed", "source_values_hash", "canonicalization_hash", "perturbation_contract_hash", "notes"],
+        "properties": {
+          "ladder_id": {"type": "string"}, "domain_id": {"type": "string"},
+          "kind": {"type": "string"}, "parent_ladder_id": {"type": ["string", "null"]},
+          "omega_construction_rule": {"type": "string"}, "adjacency_topology": {"type": "string"},
+          "is_null": {"type": "boolean"}, "eligible": {"type": "boolean"},
+          "seed": {"type": "integer", "minimum": 0},
+          "source_values_hash": {"pattern": "^[a-f0-9]{64}$"},
+          "canonicalization_hash": {"pattern": "^[a-f0-9]{64}$"},
+          "perturbation_contract_hash": {"pattern": "^[a-f0-9]{64}$"},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

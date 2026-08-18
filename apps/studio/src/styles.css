@@ -155,6 +155,13 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .claim-card svg { width: 13px; height: 13px; }
 .claim-card strong { display: block; margin-top: 10px; color: var(--amber); font: 500 10px/1.3 "DM Mono", monospace; overflow-wrap: anywhere; }
 .claim-card p { margin: 8px 0 0; color: #8c9290; font-size: 9px; line-height: 1.5; }
+.tld-source-card { background: linear-gradient(135deg, rgba(43,166,166,.09), rgba(232,184,93,.04)); }
+.tld-source-card strong { display: block; color: #dce9e5; font-size: 11px; line-height: 1.45; }
+.tld-source-card p { margin: 7px 0 10px; color: #849a97; font-size: 9px; line-height: 1.45; }
+.tld-source-card dl { margin: 0; }
+.tld-source-card dl > div { display: grid; grid-template-columns: 78px 1fr; gap: 7px; padding: 5px 0; border-top: 1px dotted rgba(155,194,190,.12); font: 400 8px/1.35 "DM Mono", monospace; }
+.tld-source-card dt { color: #617a78; }
+.tld-source-card dd { margin: 0; color: #a7bab7; overflow-wrap: anywhere; }
 
 .center-stage { min-width: 0; display: grid; grid-template-rows: 43px 1fr 36px; background: #081317; }
 .stage-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--line); }
@@ -232,6 +239,10 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .timeline-legend .point { width: 6px; height: 6px; border-radius: 50%; border: 1px solid var(--teal); background: var(--ice); }
 .run-summary { padding-left: 18px; border-left: 1px solid var(--line); }
 .run-summary strong { color: #68b7a3; font: 500 10px/1 "DM Mono", monospace; }
+.tld-run-evidence { grid-column: 1 / -1; padding-top: 11px; border-top: 1px solid var(--line); }
+.tld-run-evidence span { color: var(--muted); font: 500 8px/1 "DM Mono", monospace; letter-spacing: .14em; }
+.tld-run-evidence strong { display: block; margin-top: 6px; color: var(--amber); font-size: 10px; }
+.tld-run-evidence small { display: block; margin-top: 5px; color: #829795; font: 400 8px/1.5 "DM Mono", monospace; }
 
 .toast { position: fixed; right: 18px; bottom: 145px; z-index: 20; width: 330px; padding: 13px 38px 13px 14px; border: 1px solid rgba(219,103,79,.45); background: #1d1718; box-shadow: 0 15px 40px rgba(0,0,0,.35); }
 .toast strong, .toast span { display: block; } .toast strong { color: #e6a08d; font-size: 10px; } .toast span { margin-top: 5px; color: #9d8d89; font-size: 9px; }

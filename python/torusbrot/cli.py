@@ -7,14 +7,27 @@ import json
 import os
 import socketserver
 import sys
+import tempfile
 import webbrowser
 from pathlib import Path
 from typing import Any
 
+from .adapters.zenodo_tld_i import (
+    extract_tld_i,
+    fetch_tld_i,
+    validate_release_source,
+)
 from .bundle import audit_bundle, compare_bundles, copy_field_json, export_field_csv
 from .kernels import LadderKernel
 from .models import DomainPack, MatchedNullPolicy, RunSpec, canonical_json, validate_domain_pack
 from .runs import AnalyticRun, LocalBrotRun
+from .tld import (
+    TLD_I_DOI,
+    execute_modern_extension,
+    export_historical_bundle_set,
+    export_tld_bundle,
+    reproduce_tld_i,
+)
 
 
 def _print(value: Any) -> None:
@@ -56,6 +69,12 @@ def _run_validate(args: argparse.Namespace) -> int:
     return 0 if not errors else 1
 
 
+def _run_validate_tld_release(args: argparse.Namespace) -> int:
+    receipt = validate_release_source(args.path)
+    _print(receipt)
+    return 0
+
+
 def _run_freeze(args: argparse.Namespace) -> int:
     spec = RunSpec.from_file(args.path)
     target = Path(args.output) if args.output else Path(args.path).with_suffix(".frozen.json")
@@ -85,6 +104,80 @@ def _run_generate(args: argparse.Namespace) -> int:
         }
     )
     return 0 if audit.valid else 1
+
+
+def _release_root(source: str | Path, quarantine: Path) -> Path:
+    path = Path(source).resolve()
+    if path.is_file():
+        return extract_tld_i(path, quarantine)
+    receipt = validate_release_source(path)
+    return Path(str(receipt["release_root"]))
+
+
+def _run_fetch_tld_release(args: argparse.Namespace) -> int:
+    if args.doi != TLD_I_DOI:
+        raise ValueError(f"Unsupported TLD release DOI: {args.doi}")
+    target = Path(args.output)
+    receipt = fetch_tld_i(target)
+    _print(receipt | {"output": str(target)})
+    return 0
+
+
+def _run_reproduce_tld_i(args: argparse.Namespace) -> int:
+    output = Path(args.output).resolve()
+    output.mkdir(parents=True, exist_ok=True)
+    quarantine = output / "source_quarantine"
+    source_root = _release_root(args.source, quarantine)
+    result = reproduce_tld_i(source_root)
+    result_path = output / "tld_i_reproduction.json"
+    result_path.write_bytes(canonical_json(result, pretty=True))
+    modern = execute_modern_extension(source_root, result)
+    modern_path = output / "modern_v21_compliance_extension.json"
+    modern_path.write_bytes(canonical_json(modern, pretty=True))
+    bundles = export_historical_bundle_set(result, output / "bundles")
+    audits = {path.name: audit_bundle(path).to_dict() for path in bundles}
+    _print(
+        {
+            "classification": "EXACT_REPRODUCTION",
+            "high_level_outcome": "FIRST_PUBLISHED_TLD_RESULT_EXACTLY_REPRODUCED",
+            "claim_level": "COMPUTED_DYNAMICAL",
+            "tld_derived_status": "BLOCKED",
+            "result": str(result_path),
+            "modern_extension": str(modern_path),
+            "bundles": [str(path) for path in bundles],
+            "audits": audits,
+        }
+    )
+    return 0 if all(receipt["valid"] for receipt in audits.values()) else 1
+
+
+def _run_generate_tld(args: argparse.Namespace) -> int:
+    specification = json.loads(Path(args.spec).read_text(encoding="utf-8"))
+    if specification.get("engine") != "tld":
+        raise ValueError("TLD generation requires a run specification with engine=tld")
+    if not args.domain:
+        raise ValueError("--domain must identify the canonical archive or extracted release")
+    profile = str(specification.get("parameters", {}).get("profile", "combined"))
+    with tempfile.TemporaryDirectory(prefix="torusbrot-tld-source-") as temporary:
+        source_root = _release_root(args.domain, Path(temporary) / "source")
+        result = reproduce_tld_i(source_root)
+    target = export_tld_bundle(result, profile, args.output)
+    audit = audit_bundle(target)
+    _print({"output": str(target), "profile": profile, "audit": audit.to_dict()})
+    return 0 if audit.valid else 1
+
+
+def _run_verify_tld_result(args: argparse.Namespace) -> int:
+    report = audit_bundle(args.bundle)
+    _print(
+        {
+            "verified": report.valid,
+            "claim_ceiling": "COMPUTED_DYNAMICAL",
+            "externally_validated": False,
+            "audit": report.to_dict(),
+        }
+    )
+    return 0 if report.valid else 1
 
 
 def _run_nulls(args: argparse.Namespace) -> int:
@@ -174,6 +267,16 @@ def build_parser() -> argparse.ArgumentParser:
     domain = validate_sub.add_parser("domain-pack")
     domain.add_argument("path")
     domain.set_defaults(handler=_run_validate)
+    tld_release = validate_sub.add_parser("tld-release")
+    tld_release.add_argument("path")
+    tld_release.set_defaults(handler=_run_validate_tld_release)
+
+    fetch = subparsers.add_parser("fetch", help="fetch a registered public source release")
+    fetch_sub = fetch.add_subparsers(dest="kind", required=True)
+    tld_fetch = fetch_sub.add_parser("tld-release")
+    tld_fetch.add_argument("--doi", default=TLD_I_DOI)
+    tld_fetch.add_argument("--output", "-o", required=True)
+    tld_fetch.set_defaults(handler=_run_fetch_tld_release)
 
     freeze = subparsers.add_parser("freeze", help="canonicalize and hash a run specification")
     freeze.add_argument("path")
@@ -182,12 +285,25 @@ def build_parser() -> argparse.ArgumentParser:
 
     generate = subparsers.add_parser("generate", help="generate a field bundle")
     generate_sub = generate.add_subparsers(dest="kind", required=True)
-    for name in ("analytic", "local"):
+    for name in ("analytic", "local", "tld"):
         child = generate_sub.add_parser(name)
         child.add_argument("--spec", required=True)
         child.add_argument("--domain")
         child.add_argument("--output", "-o", required=True)
-        child.set_defaults(handler=_run_generate)
+        child.set_defaults(handler=_run_generate_tld if name == "tld" else _run_generate)
+
+    reproduce = subparsers.add_parser("reproduce", help="reproduce a registered result")
+    reproduce_sub = reproduce.add_subparsers(dest="kind", required=True)
+    tld_i = reproduce_sub.add_parser("tld-i")
+    tld_i.add_argument("--source", required=True)
+    tld_i.add_argument("--output", "-o", required=True)
+    tld_i.set_defaults(handler=_run_reproduce_tld_i)
+
+    verify = subparsers.add_parser("verify", help="independently verify a result bundle")
+    verify_sub = verify.add_subparsers(dest="kind", required=True)
+    tld_result = verify_sub.add_parser("tld-result")
+    tld_result.add_argument("bundle")
+    tld_result.set_defaults(handler=_run_verify_tld_result)
 
     nulls = subparsers.add_parser("nulls", help="matched-null operations")
     null_sub = nulls.add_subparsers(dest="null_command", required=True)

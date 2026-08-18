@@ -1,0 +1,23 @@
+{
+  "claim_ceiling": "TLD_DERIVED",
+  "contract_sha256": "fd97825935da43c8ca62b7e47fbe6bdc4a4fa059362143d72ccafb2b4b8f392b",
+  "doi": "10.5281/zenodo.18080090",
+  "lane": "MODERN_V21_COMPLIANCE_EXTENSION",
+  "n_center": 10,
+  "n_window": [7, 8, 9, 10, 11, 12, 13],
+  "operators": {
+    "S_e": "NOT_APPLICABLE: historical release has no registered post-emergence survival depth",
+    "T_e": "NOT_APPLICABLE: historical release has no registered observed/null emergence depth",
+    "control_scope": "parent_matched_domain_isolated",
+    "global_pool": false,
+    "historical_escape": "adjacent_order_mutation(p_swap=0.02)",
+    "historical_healing": "value_noise(epsilon=16) then parent_anchor(alpha)",
+    "matched_control": "parent-local deterministic permutation preserving the exact omega multiset"
+  },
+  "schema_version": "1.0.0",
+  "seed": 21000,
+  "trials": {
+    "historical_trials": "unchanged; consumed from independently verified Lane 1",
+    "matched_controls": 32
+  }
+}
