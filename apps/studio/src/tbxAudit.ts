@@ -6,8 +6,16 @@ import fieldTableSchema from "../../../schemas/field-table/v1.schema.json";
 import fieldPointSchema from "../../../schemas/local-brot/v1.schema.json";
 import runSpecSchema from "../../../schemas/run-spec/v1.schema.json";
 import manifestSchema from "../../../schemas/tbx/v1.schema.json";
+import tldClaimAdjudicationSchema from "../../../schemas/tld-claim-adjudication/v1.schema.json";
+import tldEndpointTableSchema from "../../../schemas/tld-endpoint-table/v1.schema.json";
+import tldIndependentVerificationSchema from "../../../schemas/independent-verification/v1.schema.json";
+import tldLadderRegistrySchema from "../../../schemas/tld-ladder-registry/v1.schema.json";
+import tldPreregistrationSchema from "../../../schemas/tld-preregistration-result/v1.schema.json";
+import tldProfileSchema from "../../../schemas/tld-tbx-profile/v1.schema.json";
+import tldReleaseSourceSchema from "../../../schemas/tld-release-source/v1.schema.json";
+import tldTrajectorySchema from "../../../schemas/tld-trajectory-trace/v1.schema.json";
 import type { TORUSBundleExchangeManifest } from "./generated/manifest";
-import type { FieldTable } from "./types";
+import type { FieldTable, TldBundleMetadata } from "./types";
 
 const REQUIRED_MEMBERS = new Set([
   "run_spec.json",
@@ -26,6 +34,30 @@ const REQUIRED_MEMBERS = new Set([
   "audit/failure_ledger.jsonl",
   "audit/SHA256SUMS.txt",
 ]);
+
+const TLD_REQUIRED_MEMBERS = new Set([
+  "source_registry.json",
+  "preregistration_contract.json",
+  "tld_profile.json",
+  "registry/ladder_registry.json",
+  "registry/control_or_null_registry.json",
+  "tables/tld_endpoint_table.json",
+  "tables/baseline_scores.json",
+  "tables/alpha_sweep.json",
+  "tables/core_alpha_compare.json",
+  "tables/preregistration_results.json",
+  "tables/trajectories.jsonl",
+  "tables/transition_counts.json",
+  "tables/operating_envelope.json",
+  "audit/independent_verification.json",
+  "audit/claim_adjudication.json",
+]);
+
+const TLD_I_INPUT_HASHES: Record<string, string> = {
+  "targets_baseline.csv": "856f102a4f58d53d67fdb1ac5982de12ca18a9c78efe13097f23879e262cb683",
+  "targets_metadata_addon.csv": "dfba2dc563706d284313f27e679132d028ea77c49a8816cff944baef13dd135f",
+  "targets_metadata_template.csv": "49a536790c6920a6627f903062e0c0d4ce831acd167173ea1a366b7139f980e3",
+};
 
 const POLICY = {
   maxFiles: 256,
@@ -49,6 +81,7 @@ export interface TbxAuditResult {
   manifest?: Manifest;
   specification?: JsonRecord;
   table?: FieldTable;
+  tld?: TldBundleMetadata;
 }
 
 function issue(errors: string[], code: string, detail: string) {
@@ -227,7 +260,22 @@ function parseJsonl(members: Record<string, Uint8Array>, name: string, errors: s
 }
 
 const ajv = new Ajv2020({ allErrors: true, strict: false });
-for (const schema of [manifestSchema, runSpecSchema, claimBoundarySchema, fieldPointSchema, fieldTableSchema, failureSchema]) {
+for (const schema of [
+  manifestSchema,
+  runSpecSchema,
+  claimBoundarySchema,
+  fieldPointSchema,
+  fieldTableSchema,
+  failureSchema,
+  tldClaimAdjudicationSchema,
+  tldEndpointTableSchema,
+  tldIndependentVerificationSchema,
+  tldLadderRegistrySchema,
+  tldPreregistrationSchema,
+  tldProfileSchema,
+  tldReleaseSourceSchema,
+  tldTrajectorySchema,
+]) {
   ajv.addSchema(schema);
 }
 
@@ -243,6 +291,14 @@ const validators = {
   claim: schemaValidator(claimBoundarySchema.$id),
   table: schemaValidator(fieldTableSchema.$id),
   failure: schemaValidator(failureSchema.$id),
+  tldClaimAdjudication: schemaValidator(tldClaimAdjudicationSchema.$id),
+  tldEndpointTable: schemaValidator(tldEndpointTableSchema.$id),
+  tldIndependentVerification: schemaValidator(tldIndependentVerificationSchema.$id),
+  tldLadderRegistry: schemaValidator(tldLadderRegistrySchema.$id),
+  tldPreregistration: schemaValidator(tldPreregistrationSchema.$id),
+  tldProfile: schemaValidator(tldProfileSchema.$id),
+  tldReleaseSource: schemaValidator(tldReleaseSourceSchema.$id),
+  tldTrajectory: schemaValidator(tldTrajectorySchema.$id),
 };
 
 function schemaErrors(errors: string[], code: string, validator: ValidateFunction, value: unknown) {
@@ -355,11 +411,165 @@ function finiteNumber(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
 }
 
+function equalStringSet(left: unknown, right: Set<string>): boolean {
+  return Array.isArray(left)
+    && left.every((value) => typeof value === "string")
+    && left.length === right.size
+    && left.every((value) => right.has(value));
+}
+
+function auditTldSemantics(
+  members: Record<string, Uint8Array>,
+  manifest: Manifest,
+  claim: JsonRecord,
+  ontology: JsonRecord,
+  points: unknown[],
+  failures: JsonRecord[],
+  errors: string[],
+): TldBundleMetadata | undefined {
+  const source = parseJson(members, "source_registry.json", errors);
+  const preregistration = parseJson(members, "preregistration_contract.json", errors);
+  const profile = parseJson(members, "tld_profile.json", errors);
+  const ladderRegistry = parseJson(members, "registry/ladder_registry.json", errors);
+  const endpoints = parseJson(members, "tables/tld_endpoint_table.json", errors);
+  const independent = parseJson(members, "audit/independent_verification.json", errors);
+  const adjudication = parseJson(members, "audit/claim_adjudication.json", errors);
+  const transitions = parseJson(members, "tables/transition_counts.json", errors);
+  const baseline = parseJson(members, "tables/baseline_scores.json", errors);
+  const alphaSweep = parseJson(members, "tables/alpha_sweep.json", errors);
+  const operatingEnvelope = parseJson(members, "tables/operating_envelope.json", errors);
+  const core = parseJson(members, "tables/core_alpha_compare.json", errors);
+  const controls = parseJson(members, "registry/control_or_null_registry.json", errors);
+  const trajectories = parseJsonl(members, "tables/trajectories.jsonl", errors);
+  const documents: Array<[string, ValidateFunction, unknown]> = [
+    ["source registry", validators.tldReleaseSource, source],
+    ["preregistration", validators.tldPreregistration, preregistration],
+    ["profile", validators.tldProfile, profile],
+    ["ladder registry", validators.tldLadderRegistry, ladderRegistry],
+    ["endpoint table", validators.tldEndpointTable, endpoints],
+    ["independent verification", validators.tldIndependentVerification, independent],
+    ["claim adjudication", validators.tldClaimAdjudication, adjudication],
+    ["trajectory trace", validators.tldTrajectory, { schema_version: "1.0.0", rows: trajectories }],
+  ];
+  for (const [name, validator, value] of documents) schemaErrors(errors, "TLD_SCHEMA_INVALID", validator, value);
+  if (
+    !isRecord(source)
+    || !isRecord(preregistration)
+    || !isRecord(profile)
+    || !isRecord(ladderRegistry)
+    || !isRecord(endpoints)
+    || !isRecord(independent)
+    || !isRecord(adjudication)
+  ) return undefined;
+  if (source.doi !== "10.5281/zenodo.18080090") issue(errors, "TLD_SOURCE_DOI_MISMATCH", String(source.doi));
+  if (source.claim_authority_ceiling !== "COMPUTED_DYNAMICAL") issue(errors, "TLD_SOURCE_CLAIM_CEILING_INVALID", "source registry");
+  if (canonicalJson(source.input_sha256) !== canonicalJson(TLD_I_INPUT_HASHES)) issue(errors, "TLD_SOURCE_INPUT_HASH_MISMATCH", "source registry");
+  if (profile.profile !== manifest.profile) issue(errors, "TLD_PROFILE_MISMATCH", "manifest and profile declaration");
+  if (!equalStringSet(profile.required_members, TLD_REQUIRED_MEMBERS)) issue(errors, "TLD_PROFILE_MEMBERS_INVALID", "required member declaration");
+  if (profile.interpolation_used_for_metrics !== false) issue(errors, "TLD_INTERPOLATION_AS_OBSERVATION", "profile declaration");
+  if (independent.status !== "verified" || !isRecord(independent.checks) || Object.values(independent.checks).some((value) => typeof value === "boolean" && value !== true)) {
+    issue(errors, "TLD_INDEPENDENT_VERIFICATION_FAILED", "receipt status or checks");
+  }
+  if (adjudication.externally_validated !== false) issue(errors, "TLD_EXTERNAL_VALIDATION_FORBIDDEN", "claim adjudication");
+  if (adjudication.claim_level !== claim.claim_level) issue(errors, "TLD_CLAIM_ADJUDICATION_MISMATCH", "claim boundary");
+  if (manifest.claim_level === "TLD_DERIVED" && adjudication.tld_derived_status !== "PERMITTED") issue(errors, "TLD_DERIVED_GATE_BLOCKED", "claim adjudication");
+
+  const nonEquivalences = Array.isArray(ontology.non_equivalences) ? ontology.non_equivalences : [];
+  if (!["winner_N != T_e", "winner_N != S_e", "TORUS-BROT != ToT-BROT"].every((term) => nonEquivalences.includes(term))) {
+    issue(errors, "TLD_ONTOLOGY_CONFLATION", "required non-equivalences");
+  }
+  if (isRecord(preregistration.criteria)) {
+    const passed = Object.values(preregistration.criteria).filter((value) => value === true).length;
+    const failed = Object.values(preregistration.criteria).filter((value) => value === false).length;
+    if (preregistration.passed !== passed || preregistration.failed !== failed) issue(errors, "TLD_PREREGISTRATION_COUNT_MISMATCH", "criteria counts");
+    if (Array.isArray(core) && core.length === 2 && core.every(isRecord)) {
+      const [alpha0, alpha002] = core;
+      const expected = {
+        "alpha0_escape_rate_at_least_0.90": Number(alpha0.escape_rate) >= 0.9,
+        "alpha0_return_rate_at_most_0.40": Number(alpha0.return_rate_given_escape) <= 0.4,
+        "alpha002_escape_rate_at_least_0.90": Number(alpha002.escape_rate) >= 0.9,
+        "alpha002_return_rate_at_least_0.95": Number(alpha002.return_rate_given_escape) >= 0.95,
+        "alpha002_mean_return_steps_at_most_120": Number(alpha002.mean_return_steps) <= 120,
+        "alpha002_p90_flips_at_most_5": Number(alpha002.p90_flips) <= 5,
+      };
+      if (canonicalJson(preregistration.criteria) !== canonicalJson(expected)) issue(errors, "TLD_PREREGISTRATION_OUTCOME_MISMATCH", "core results");
+      if (alpha0.alpha_heal !== 0 || alpha002.alpha_heal !== 0.02) issue(errors, "TLD_PREREGISTRATION_CONTROL_MISMATCH", "alpha order");
+    } else issue(errors, "TLD_PREREGISTRATION_SOURCE_INVALID", "core results");
+  }
+  if (Array.isArray(endpoints.rows)) {
+    endpoints.rows.forEach((row, index) => {
+      if (isRecord(row) && (row.T_e != null || row.S_e != null)) issue(errors, "TLD_UNCOMPUTED_ENDPOINT_POPULATED", String(index));
+    });
+  }
+
+  const seenTraceRows = new Set<string>();
+  const grouped = new Map<number, JsonRecord[]>();
+  trajectories.forEach((row, index) => {
+    const identity = `${row.trial_id}:${row.phase}:${row.t}`;
+    if (seenTraceRows.has(identity)) issue(errors, "TLD_TRAJECTORY_DUPLICATE", String(index));
+    seenTraceRows.add(identity);
+    if (row.phase === "heal" && Number.isInteger(row.trial_id)) {
+      const trial = Number(row.trial_id);
+      grouped.set(trial, [...(grouped.get(trial) ?? []), row]);
+    }
+  });
+  const recomputed = new Map<string, number>();
+  grouped.forEach((rows) => {
+    rows.sort((left, right) => Number(left.t) - Number(right.t));
+    for (let index = 1; index < rows.length; index += 1) {
+      const key = `${rows[index - 1].alpha_heal}:${rows[index - 1].winner_N}:${rows[index].winner_N}`;
+      recomputed.set(key, (recomputed.get(key) ?? 0) + 1);
+    }
+  });
+  const reported = new Map<string, number>();
+  if (Array.isArray(transitions)) transitions.forEach((row) => {
+    if (isRecord(row)) reported.set(`${row.alpha_heal}:${row.from_N}:${row.to_N}`, Number(row.count));
+  });
+  if (canonicalJson(Object.fromEntries([...reported].sort())) !== canonicalJson(Object.fromEntries([...recomputed].sort()))) {
+    issue(errors, "TLD_TRANSITION_COUNT_MISMATCH", "raw trajectories");
+  }
+  const missingFailureIds = new Set(points.filter(isRecord).filter((point) => point.observed === false).map((point) => point.failure_id));
+  const ledgerIds = new Set(failures.map((failure) => failure.failure_id));
+  if (canonicalJson([...missingFailureIds].sort()) !== canonicalJson([...ledgerIds].sort())) issue(errors, "TLD_FAILURE_PRESERVATION_MISMATCH", "missing cells and ledger");
+  if (profile.profile === "tld-i-modern-v21" && Array.isArray(controls) && controls.some((control) => isRecord(control) && ["scope", "pool", "null_pool"].some((key) => ["global", "global_pool", "pooled_global"].includes(String(control[key] ?? "").toLowerCase())))) {
+    issue(errors, "TLD_GLOBAL_NULL_POOL_FORBIDDEN", "modern controls");
+  }
+  return {
+    doi: String(source.doi),
+    title: String(source.title),
+    profile: String(profile.profile),
+    lane: String(profile.lane),
+    preregistrationPassed: Number(preregistration.passed),
+    preregistrationFailed: Number(preregistration.failed),
+    verificationStatus: String(independent.status),
+    tldDerivedStatus: String(adjudication.tld_derived_status),
+    blockers: Array.isArray(adjudication.blockers) ? adjudication.blockers.map(String) : [],
+    forbiddenClaims: Array.isArray(adjudication.forbidden_claims) ? adjudication.forbidden_claims.map(String) : [],
+    failureCount: failures.length,
+    baselineWinnerN: isRecord(baseline) && isRecord(baseline.sweep_2_30) ? Number(baseline.sweep_2_30.winner_N) : Number.NaN,
+    baselineMargin: isRecord(baseline) && isRecord(baseline.sweep_2_30) ? Number(baseline.sweep_2_30.margin) : Number.NaN,
+    alphaSweep: Array.isArray(alphaSweep) ? alphaSweep.filter(isRecord).map((row) => ({
+      alpha: Number(row.alpha_heal),
+      escapeRate: Number(row.escape_rate),
+      returnRate: Number(row.return_rate_given_escape),
+      meanReturnSteps: Number(row.mean_return_steps),
+      p90Flips: Number(row.p90_flips),
+    })) : [],
+    operatingEnvelope: Array.isArray(operatingEnvelope) ? operatingEnvelope.filter(isRecord).map((row) => ({
+      escapeStrength: Number(row.p_swap_escape),
+      returnRate: Number(row.return_rate_given_escape),
+      meanReturnSteps: Number(row.mean_return_steps),
+      p90Flips: Number(row.p90_flips),
+    })) : [],
+    transitionCount: Array.isArray(transitions) ? transitions.filter(isRecord).reduce((sum, row) => sum + Number(row.count), 0) : 0,
+  };
+}
+
 async function auditSemantics(
   members: Record<string, Uint8Array>,
   manifest: Manifest,
   errors: string[],
-): Promise<{ specification?: JsonRecord; table?: FieldTable }> {
+): Promise<{ specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata }> {
   const specification = parseJson(members, "run_spec.json", errors);
   const ontology = parseJson(members, "ontology.json", errors);
   const claim = parseJson(members, "claim_boundary.json", errors);
@@ -375,6 +585,7 @@ async function auditSemantics(
   schemaErrors(errors, "FIELD_TABLE_SCHEMA_INVALID", validators.table, table);
   for (const failure of failures) schemaErrors(errors, "FAILURE_SCHEMA_INVALID", validators.failure, failure);
   if (ontology.schema_version !== "1.0.0") issue(errors, "SCHEMA_VERSION_UNSUPPORTED", "ontology");
+  const tldProfile = typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-");
 
   const specText = new TextDecoder().decode(members["run_spec.json"]);
   let canonicalSpecification = "";
@@ -393,8 +604,13 @@ async function auditSemantics(
     if (requestedLevel === undefined || outputLevel > requestedLevel) issue(errors, "CLAIM_LEVEL_EXCEEDS_REQUEST", manifest.claim_level);
     if (specification.engine === "analytic" && outputLevel !== 0) issue(errors, "CLAIM_LEVEL_ENGINE_CONFLICT", "analytic engine");
     if (specification.engine === "local_brot" && outputLevel > 2) issue(errors, "CLAIM_LEVEL_ENGINE_CONFLICT", "local engine");
+    if (specification.engine === "tld" && !tldProfile) issue(errors, "TLD_PROFILE_MISSING", "tld engine requires a TLD profile");
+    if (specification.engine === "tld" && tldProfile && manifest.profile !== "tld-i-modern-v21" && outputLevel > 1) issue(errors, "CLAIM_LEVEL_ENGINE_CONFLICT", "historical TLD lane");
     const authority = claimLevels[String(parent.claim_authority)];
     if (authority !== undefined && outputLevel > authority) issue(errors, "CLAIM_LEVEL_DOMAIN_CONFLICT", manifest.claim_level);
+  }
+  if (specification.engine === "analytic" && JSON.stringify(claim).toLowerCase().includes("tld evidence")) {
+    issue(errors, "ANALYTIC_TLD_EVIDENCE_FORBIDDEN", "claim boundary");
   }
   const verifiedReceipt = receipts.some((row) => row.run_id === manifest.run_id && row.status === "verified" && Boolean(row.verifier));
   if ((claim.independent_verifier_status === "independently_verified" || manifest.claim_level === "EXTERNALLY_VALIDATED") && !verifiedReceipt) {
@@ -424,7 +640,12 @@ async function auditSemantics(
       issue(errors, "FIELD_POINT_INVALID", String(position));
       return;
     }
-    if (numericFields.some((field) => !finiteNumber(point[field]))) issue(errors, "FIELD_METRIC_NONFINITE", String(position));
+    if (tldProfile) {
+      if (!["x", "y"].every((field) => finiteNumber(point[field]))) issue(errors, "FIELD_METRIC_NONFINITE", String(position));
+      if (["T_e", "S_e", "UI", "NSS", "SEP"].some((field) => point[field] != null)) issue(errors, "TLD_UNCOMPUTED_ENDPOINT_POPULATED", String(position));
+      if (point.observed === true && point.failure_id != null) issue(errors, "TLD_OBSERVED_FAILURE_CONFLICT", String(position));
+      if (point.observed === false && (point.classification !== "UNRESOLVED" || point.failure_id == null)) issue(errors, "TLD_MISSING_CELL_NOT_PRESERVED", String(position));
+    } else if (numericFields.some((field) => !finiteNumber(point[field]))) issue(errors, "FIELD_METRIC_NONFINITE", String(position));
     if (!Number.isInteger(point.grid_x) || !Number.isInteger(point.grid_y) || Number(point.grid_x) < 0 || Number(point.grid_y) < 0 || Number(point.grid_x) >= Number(width) || Number(point.grid_y) >= Number(height)) {
       issue(errors, "FIELD_COORDINATE_INVALID", String(position));
     } else {
@@ -447,6 +668,7 @@ async function auditSemantics(
       if (!finiteNumber(reportedMean) || Math.abs(reportedMean - expectedMean) > 1.1e-8) issue(errors, "STATISTICS_MISMATCH", statisticsKey);
     }
   }
+  if (tldProfile && (statistics.mean_UI != null || statistics.mean_NSS != null || statistics.mean_S_e != null)) issue(errors, "TLD_UNCOMPUTED_STATISTIC_POPULATED", "manifest statistics");
   if (statistics.failure_count !== failures.length) issue(errors, "FAILURE_COUNT_MISMATCH", "failure ledger");
   const nullPolicy = isRecord(specification.null_policy) ? specification.null_policy : {};
   if (nulls.length !== nullPolicy.count) issue(errors, "NULL_REGISTRY_COUNT_MISMATCH", String(nulls.length));
@@ -454,9 +676,13 @@ async function auditSemantics(
   else {
     if (transformations[0].specification_sha256 !== manifest.specification_sha256) issue(errors, "PROVENANCE_HASH_MISMATCH", "transformation");
     if (transformations[0].transformation_id !== manifest.kernel_id) issue(errors, "PROVENANCE_KERNEL_MISMATCH", "transformation");
+    if (transformations[0].seed !== specification.seed) issue(errors, "PROVENANCE_SEED_MISMATCH", "transformation");
   }
+  const tld = tldProfile
+    ? auditTldSemantics(members, manifest, claim, ontology, points, failures, errors)
+    : undefined;
   if (canonicalSpecification) {
-    const domainSha = specification.engine === "local_brot" && typeof parent.domain_sha256 === "string" ? parent.domain_sha256 : null;
+    const domainSha = (specification.engine === "local_brot" || specification.engine === "tld") && typeof parent.domain_sha256 === "string" ? parent.domain_sha256 : null;
     const identity = `{"domain_sha256":${JSON.stringify(domainSha)},"kernel_id":${JSON.stringify(manifest.kernel_id)},"specification":${canonicalSpecification.trimEnd()}}\n`;
     const expectedRunId = `run-${(await sha256(identity)).slice(0, 16)}`;
     if (manifest.run_id !== expectedRunId) issue(errors, "RUN_ID_MISMATCH", expectedRunId);
@@ -466,7 +692,7 @@ async function auditSemantics(
     .sort(([left], [right]) => compareCodePoints(left, right))
     .map(async ([name, payload]) => `${await sha256(payload)}  ${name}\n`))).join("");
   if (new TextDecoder().decode(members["audit/SHA256SUMS.txt"]) !== expectedSums) issue(errors, "SHA256SUMS_MISMATCH", "audit/SHA256SUMS.txt");
-  return { specification, table: table as unknown as FieldTable };
+  return { specification, table: table as unknown as FieldTable, tld };
 }
 
 export async function auditTbx(bytes: Uint8Array): Promise<TbxAuditResult> {
@@ -517,9 +743,13 @@ export async function auditTbx(bytes: Uint8Array): Promise<TbxAuditResult> {
   if (paths.some((path, index) => index > 0 && compareCodePoints(paths[index - 1], path) > 0)) issue(errors, "MANIFEST_ORDER_INVALID", "file entries must be sorted");
   const extras = Object.keys(members).filter((name) => name !== "manifest.json" && !listed.has(name)).sort();
   if (extras.length) issue(errors, "MANIFEST_UNLISTED_MEMBER", extras.join(", "));
-  const requiredMissing = [...REQUIRED_MEMBERS].filter((name) => !listed.has(name)).sort();
+  const required = new Set(REQUIRED_MEMBERS);
+  if (typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-")) {
+    TLD_REQUIRED_MEMBERS.forEach((name) => required.add(name));
+  }
+  const requiredMissing = [...required].filter((name) => !listed.has(name)).sort();
   if (requiredMissing.length) issue(errors, "REQUIRED_MEMBER_MISSING", requiredMissing.join(", "));
-  let semantics: { specification?: JsonRecord; table?: FieldTable } = {};
+  let semantics: { specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata } = {};
   if (!errors.length) semantics = await auditSemantics(members, manifest, errors);
   const issueCodes = [...new Set(errors.map((error) => error.split(":", 1)[0]))];
   return { valid: errors.length === 0, issueCodes, errors, checkedFiles, manifest, ...semantics };

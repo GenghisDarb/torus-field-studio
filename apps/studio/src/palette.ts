@@ -31,9 +31,9 @@ function interpolate(t: number): string {
 }
 
 export function metricValue(point: FieldPoint, metric: Metric): number {
-  if (metric === "S_e") return point.S_e;
-  if (metric === "UI") return point.UI;
-  if (metric === "NSS") return Math.max(0, Math.min(1, (point.NSS + 1) / 8));
+  if (metric === "S_e") return point.S_e ?? 0.46;
+  if (metric === "UI") return point.UI ?? 0.46;
+  if (metric === "NSS") return point.NSS == null ? 0.46 : Math.max(0, Math.min(1, (point.NSS + 1) / 8));
   return {
     ESCAPED: 0.08,
     NULL_LIKE: 0.25,
@@ -51,4 +51,3 @@ export function colorAsRgb(point: FieldPoint, metric: Metric): [number, number, 
   const match = pointColor(point, metric).match(/\d+/g)?.map(Number) ?? [220, 236, 235];
   return [match[0] / 255, match[1] / 255, match[2] / 255];
 }
-

@@ -103,6 +103,7 @@ export default function App() {
   }, []);
 
   const activeEngine = table?.source === "tbx_import" && table.engine ? table.engine : request.engine;
+  const isTld = activeEngine === "tld" && table?.tld != null;
   const claimLevel = table?.source === "tbx_import"
     ? table.claimLevel ?? "BUNDLE CLAIM UNKNOWN"
     : activeEngine === "analytic"
@@ -113,7 +114,7 @@ export default function App() {
     table?.points.forEach((point) => { counts[point.classification] = (counts[point.classification] ?? 0) + 1; });
     return counts;
   }, [table]);
-  const sourceLabel = table?.source === "tbx_import" ? "TBX AUDIT PASSED" : "BROWSER PREVIEW";
+  const sourceLabel = isTld ? "PUBLISHED SOURCE · AUDIT PASSED" : table?.source === "tbx_import" ? "TBX AUDIT PASSED" : "BROWSER PREVIEW";
 
   const handleImport = async (file?: File) => {
     if (!file) return;
@@ -122,10 +123,24 @@ export default function App() {
       const imported = await importBundle(file);
       setTable(imported);
       setSelected(imported.points[Math.floor(imported.points.length / 2)] ?? null);
+      if (imported.engine === "tld") setMetric("classification");
       setError(null);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Could not read this bundle.");
     } finally {
+      setBusy(false);
+    }
+  };
+
+  const loadPublishedTld = async () => {
+    try {
+      setBusy(true);
+      const response = await fetch(`${import.meta.env.BASE_URL}examples/tld-i-combined-historical-reproduction.tbx.zip`);
+      if (!response.ok) throw new Error(`Published example request failed (${response.status})`);
+      const file = new File([await response.blob()], "tld-i-combined-historical-reproduction.tbx.zip", { type: "application/zip" });
+      await handleImport(file);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Could not load the published TLD I example.");
       setBusy(false);
     }
   };
@@ -137,13 +152,14 @@ export default function App() {
           <TorusMark />
           <div>
             <div className="brand-name"><span>TORUS</span> FIELD STUDIO</div>
-            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.1.1</div>
+            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.2.0</div>
           </div>
         </div>
         <div className="header-actions">
+          <button className="quiet-button" type="button" onClick={loadPublishedTld}><Icon name="spark" /> Load TLD I result</button>
           <button className="quiet-button" type="button" onClick={() => setAuditOpen(true)}><Icon name="shield" /> Audit</button>
           <button className="quiet-button" type="button" onClick={() => importRef.current?.click()}><Icon name="upload" /> Import bundle</button>
-          <button className="primary-button" type="button" disabled={!table} onClick={() => table && exportBrowserBundle(table, request, activeEngine)}><Icon name="download" /> Export .tbx</button>
+          <button className="primary-button" type="button" disabled={!table || isTld} title={isTld ? "Published-source TBX bytes are preserved outside the browser exporter." : undefined} onClick={() => table && exportBrowserBundle(table, request, activeEngine)}><Icon name="download" /> Export .tbx</button>
           <input ref={importRef} type="file" accept=".zip,.tbx.zip" hidden onChange={(event) => handleImport(event.target.files?.[0])} />
         </div>
       </header>
@@ -172,11 +188,26 @@ export default function App() {
           <section className="control-section compact">
             <label className="section-label">Dataset</label>
             <div className="select-like">
-              <span>{activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
+              <span>{isTld ? "TLD I · published-source reproduction" : activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
               <span className="chevron">⌄</span>
             </div>
-            <div className="source-hash"><span>SHA-256</span><code>{activeEngine === "analytic" ? "5d2b…c14e" : "8f04…a217"}</code></div>
+            <div className="source-hash"><span>{isTld ? "DOI" : "SHA-256"}</span><code>{isTld ? table.tld?.doi : activeEngine === "analytic" ? "5d2b…c14e" : "8f04…a217"}</code></div>
           </section>
+
+          {isTld && table.tld && (
+            <section className="control-section tld-source-card" data-testid="tld-source-panel">
+              <span className="eyebrow">REAL DATA · HISTORICAL LANE</span>
+              <strong>TLD I — Structural Escape, Damped Healing, and Ringing</strong>
+              <p>{table.tld.title}</p>
+              <dl>
+                <div><dt>Source DOI</dt><dd>{table.tld.doi}</dd></div>
+                <div><dt>Baseline</dt><dd>winner N {table.tld.baselineWinnerN} · margin {table.tld.baselineMargin.toFixed(6)}</dd></div>
+                <div><dt>Preregistration</dt><dd>{table.tld.preregistrationPassed} pass · {table.tld.preregistrationFailed} fail</dd></div>
+                <div><dt>Verifier</dt><dd>{table.tld.verificationStatus.toUpperCase()}</dd></div>
+                <div><dt>TLD-derived</dt><dd>{table.tld.tldDerivedStatus}</dd></div>
+              </dl>
+            </section>
+          )}
 
           {activeEngine === "analytic" ? (
             <section className="control-section">
@@ -185,18 +216,18 @@ export default function App() {
               <div className="range-ends"><span>2</span><span>32</span></div>
               <div className="notice analytic-notice">Declared visual analog. No TLD evidentiary authority is inferred.</div>
             </section>
-          ) : (
+          ) : !isTld ? (
             <section className="control-section axes-contract">
               <label className="section-label">Frozen perturbation axes</label>
               <div><span className="axis x">X</span><span>Order mutation</span><code>0.00 → 1.00</code></div>
               <div><span className="axis y">Y</span><span>Anchoring α</span><code>1.00 → 0.00</code></div>
               <div><span className="axis z">Z</span><span>{metric}</span><code>computed</code></div>
             </section>
-          )}
+          ) : null}
 
           <section className="control-section">
             <label className="section-label" htmlFor="metric">Visual encoding</label>
-            <select id="metric" value={metric} onChange={(event) => setMetric(event.target.value as Metric)}>
+            <select id="metric" value={metric} disabled={isTld} onChange={(event) => setMetric(event.target.value as Metric)}>
               <option value="classification">Classification</option>
               <option value="NSS">Null separation (NSS)</option>
               <option value="UI">Unification index (UI)</option>
@@ -210,26 +241,27 @@ export default function App() {
             <label className="section-label" htmlFor="resolution">Sample grid</label>
             <select
               id="resolution"
-              value={`${request.width}x${request.height}`}
+              value={isTld ? `${table?.width}x${table?.height}` : `${request.width}x${request.height}`}
+              disabled={isTld}
               onChange={(event) => {
                 const [width, height] = event.target.value.split("x").map(Number);
                 setRequest((current) => ({ ...current, width, height }));
               }}
             >
-              {activeEngine === "analytic" ? <>
+              {isTld ? <option value={`${table?.width}x${table?.height}`}>{table?.width} × {table?.height} registered cells</option> : activeEngine === "analytic" ? <>
                 <option value="64x44">64 × 44</option><option value="96x64">96 × 64</option><option value="128x88">128 × 88</option>
               </> : <>
                 <option value="40x28">40 × 28</option><option value="56x40">56 × 40</option><option value="80x56">80 × 56</option>
               </>}
             </select>
             <Toggle checked={showRaw} onChange={setShowRaw} label="Show raw samples" />
-            <div className="frozen-row"><Icon name="check" /><span>Seed {request.seed} · rules frozen</span></div>
+            <div className="frozen-row"><Icon name="check" /><span>Seed {isTld ? 42 : request.seed} · rules frozen</span></div>
           </section>
 
           <div className="claim-card">
             <div><Icon name="shield" /><span>CLAIM BOUNDARY</span></div>
             <strong>{claimLevel}</strong>
-            <p>{activeEngine === "analytic" ? "Useful for intuition and comparison; not a TLD-derived result." : "Reproducible registered computation; external validation not supplied."}</p>
+            <p>{isTld ? "Exact self-reproduction of a published computational release; TLD_DERIVED is blocked and external validation is not supplied." : activeEngine === "analytic" ? "Useful for intuition and comparison; not a TLD-derived result." : "Reproducible registered computation; external validation not supplied."}</p>
           </div>
         </aside>
 
@@ -249,8 +281,8 @@ export default function App() {
             {table && viewMode === "field" && <Field2D table={table} metric={metric} selected={selected} showRaw={showRaw} onSelect={setSelected} />}
             {table && viewMode === "surface" && <Suspense fallback={<div className="busy-overlay"><span className="loader-ring" /><strong>Loading surface renderer</strong></div>}><Surface3D table={table} metric={metric} selected={selected} showRaw={showRaw} /></Suspense>}
             {busy && <div className="busy-overlay"><span className="loader-ring" /><strong>Computing frozen field</strong><small>Classification precedes rendering</small></div>}
-            <div className="axis-label axis-y">{activeEngine === "analytic" ? "IMAGINARY" : "ANCHORING α"}</div>
-            <div className="axis-label axis-x">{activeEngine === "analytic" ? "REAL" : "ORDER MUTATION"}</div>
+            <div className="axis-label axis-y">{isTld ? "TRIAL / ENDPOINT" : activeEngine === "analytic" ? "IMAGINARY" : "ANCHORING α"}</div>
+            <div className="axis-label axis-x">{isTld ? "REGISTERED STEP / α" : activeEngine === "analytic" ? "REAL" : "ORDER MUTATION"}</div>
             <div className="corner-readout"><span>COLOR</span><strong>{metric}</strong><span>INTERPOLATION</span><strong>VISUAL ONLY</strong></div>
           </div>
           <div className="stage-caption">
@@ -270,13 +302,23 @@ export default function App() {
               <div><span>CLASSIFICATION</span><strong>{selected.classification.replace("_", " ")}</strong><small>x {selected.x.toFixed(4)} · y {selected.y.toFixed(4)}</small></div>
             </section>
             <section className="inspector-section metric-grid">
-              <MetricCard label="UI" value={selected.UI.toFixed(3)} />
-              <MetricCard label="NSS" value={selected.NSS.toFixed(2)} suffix="σ" />
-              <MetricCard label="SEP" value={selected.SEP.toFixed(3)} />
-              <MetricCard label="Sₑ" value={selected.S_e.toFixed(3)} />
+              <MetricCard label="UI" value={selected.UI?.toFixed(3) ?? "N/A"} />
+              <MetricCard label="NSS" value={selected.NSS?.toFixed(2) ?? "N/A"} suffix={selected.NSS == null ? "" : "σ"} />
+              <MetricCard label="SEP" value={selected.SEP?.toFixed(3) ?? "N/A"} />
+              <MetricCard label="Sₑ" value={selected.S_e?.toFixed(3) ?? "N/A"} />
               <MetricCard label="Tₑ" value={selected.T_e ?? "—"} />
               <MetricCard label="winner N" value={selected.winner_N ?? "—"} />
             </section>
+            {isTld && <section className="inspector-section evidence-block" data-testid="tld-raw-point">
+              <h3>Raw trajectory identity</h3>
+              <dl>
+                <div><dt>Observed</dt><dd>{selected.observed ? "YES" : "NO — MISSING PRESERVED"}</dd></div>
+                <div><dt>Phase</dt><dd>{selected.phase ?? "after terminal event"}</dd></div>
+                <div><dt>Trial</dt><dd>{selected.trial_id ?? "endpoint"}</dd></div>
+                <div><dt>α</dt><dd>{selected.alpha ?? "—"}</dd></div>
+                <div><dt>Registered t</dt><dd>{selected.t ?? "—"}</dd></div>
+              </dl>
+            </section>}
             <section className="inspector-section">
               <h3>Endpoint state</h3>
               <BooleanRow label="Eligible" value={selected.eligible} />
@@ -294,9 +336,10 @@ export default function App() {
                 <div><dt>Null policy</dt><dd>{selected.null_policy_id}</dd></div>
                 <div><dt>Run</dt><dd>{table?.runId ?? `browser:${request.seed}`}</dd></div>
                 <div><dt>Authority</dt><dd>{sourceLabel}</dd></div>
+                {isTld && <div><dt>Source DOI</dt><dd>{table?.tld?.doi}</dd></div>}
               </dl>
             </section>
-            <section className="interpretation legal"><h3>Legal interpretation</h3><p>{activeEngine === "analytic" ? "This point is part of a declared complex-power model." : "This point records a reproducible parent/null field computation."}</p></section>
+            <section className="interpretation legal"><h3>Legal interpretation</h3><p>{isTld ? "This point belongs to the independently audited historical published-source reproduction." : activeEngine === "analytic" ? "This point is part of a declared complex-power model." : "This point records a reproducible parent/null field computation."}</p></section>
             <section className="interpretation excluded"><h3>Excluded</h3><p>No external validation, causal ownership, or repair authority is implied.</p></section>
           </> : <div className="empty-inspector">Choose a computed point in the field.</div>}
         </aside>
@@ -304,7 +347,7 @@ export default function App() {
         <section className="timeline-panel">
           <div className="timeline-copy">
             <span>SELECTED TRACE</span>
-            <strong>{selected ? `${selected.trace.length} registered steps` : "No point selected"}</strong>
+            <strong>{selected ? isTld ? `${selected.phase ?? "missing"} · trial ${selected.trial_id ?? "endpoint"}` : `${selected.trace.length} registered steps` : "No point selected"}</strong>
             <small>{selected?.trace.some((item) => item.stage === "healing") ? "Recovery threshold crossed" : activeEngine === "analytic" ? "Complex orbit" : "No healing event recorded"}</small>
           </div>
           <TraceChart point={selected} />
@@ -318,6 +361,12 @@ export default function App() {
             <strong>{busy ? "COMPUTING" : "COMPLETE"}</strong>
             <small>{Object.entries(classificationCounts).map(([key, value]) => `${key.toLowerCase()} ${value}`).join(" · ")}</small>
           </div>
+          {isTld && table?.tld && <div className="tld-run-evidence" data-testid="tld-evidence-summary">
+            <span>REGISTERED RESULTS</span>
+            <strong>Escape · recovery · ringing</strong>
+            <small>{table.tld.alphaSweep.map((row) => `α ${row.alpha}: return ${(row.returnRate * 100).toFixed(1)}%, steps ${row.meanReturnSteps.toFixed(1)}, p90 flips ${row.p90Flips}`).join(" · ")}</small>
+            <small>Operating envelope: {table.tld.operatingEnvelope.map((row) => `p ${row.escapeStrength}: return ${(row.returnRate * 100).toFixed(1)}%`).join(" · ")} · {table.tld.transitionCount} winner-state transitions</small>
+          </div>}
         </section>
       </main>
 
@@ -336,6 +385,7 @@ export default function App() {
               <div><Icon name="check" /><span>Failures and unresolved points preserved</span></div>
               <div><Icon name="check" /><span>Parent/null identity retained per point</span></div>
               {table?.auditCheckedFiles != null && <div><Icon name="check" /><span>{table.auditCheckedFiles} manifested files verified</span></div>}
+              {table?.tld && <><div><Icon name="check" /><span>Source DOI and published input hashes verified</span></div><div><Icon name="check" /><span>Preregistration and independent verification panels linked</span></div></>}
             </div>
             <button className="primary-button full" type="button" onClick={() => setAuditOpen(false)}>Return to field</button>
           </section>

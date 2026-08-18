@@ -25,7 +25,10 @@ async function contentHash(value: unknown): Promise<string> {
 function statistics(points: FieldPoint[]) {
   const counts: Record<string, number> = {};
   for (const point of points) counts[point.classification] = (counts[point.classification] ?? 0) + 1;
-  const mean = (field: "UI" | "NSS" | "S_e") => Number((points.reduce((sum, point) => sum + point[field], 0) / Math.max(points.length, 1)).toFixed(8));
+  const mean = (field: "UI" | "NSS" | "S_e") => {
+    const values = points.map((point) => point[field]).filter((value): value is number => value != null);
+    return values.length ? Number((values.reduce((sum, value) => sum + value, 0) / values.length).toFixed(8)) : null;
+  };
   return {
     point_count: points.length,
     classification_counts: Object.fromEntries(Object.entries(counts).sort(([left], [right]) => compareCodePoints(left, right))),
@@ -104,7 +107,7 @@ export async function exportBrowserBundle(table: FieldTable, request: GenerateRe
     "provenance/sources.jsonl": jsonlBytes([{ source_id: specification.domain_id, kind: "browser_preview", engine }]),
     "provenance/transformations.jsonl": jsonlBytes([{
       transformation_id: kernelId,
-      software_version: "0.1.1",
+      software_version: "0.2.0",
       seed: request.seed,
       specification_sha256: specificationSha256,
     }]),
@@ -164,7 +167,8 @@ export async function importBundle(file: File): Promise<FieldTable> {
     source: "tbx_import",
     runId: audit.manifest.run_id,
     claimLevel: audit.manifest.claim_level,
-    engine: engine === "analytic" || engine === "local_brot" ? engine : undefined,
+    engine: engine === "analytic" || engine === "local_brot" || engine === "tld" ? engine : undefined,
     auditCheckedFiles: audit.checkedFiles,
+    tld: audit.tld,
   };
 }
