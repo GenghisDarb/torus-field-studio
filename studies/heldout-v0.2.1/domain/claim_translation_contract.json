@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "tfs-v0.2.1-beijing-pm25-claim-translation",
+  "translations": {
+    "omega": "ordered ladder state vector only",
+    "T_e": "first primary N with SEP; never winner_N or physical time",
+    "S_e": "contiguous separation survival after T_e; never closure mode",
+    "winner_N": "harmonic closure-mode label only",
+    "TORUS-BROT": "single-system field dual, if rendered",
+    "ToT-BROT": "not applicable and not implemented",
+    "ToT-BULB": "not applicable and not implemented"
+  },
+  "historical_tld_i_unchanged": {
+    "result": "FIRST_PUBLISHED_TLD_RESULT_EXACTLY_REPRODUCED",
+    "TLD_DERIVED_STATUS": "BLOCKED",
+    "claim_ceiling": "COMPUTED_DYNAMICAL"
+  },
+  "study_claim_ceiling": "TLD_DERIVED",
+  "externally_validated": false,
+  "errata_rule": "historical terms are quoted only with explicit historical-source labeling; current outputs use canonical terms"
+}

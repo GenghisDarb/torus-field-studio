@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "falsifiers": [
+    {"id": "F01", "criterion": "no baseline primary SEP cell", "effect": "T_e=NOT_OBSERVED; scientific negative"},
+    {"id": "F02", "criterion": "fewer than 10 eligible parents", "effect": "population endpoints blocked"},
+    {"id": "F03", "criterion": "null children show equal or stronger structure under frozen gates", "effect": "SEP false"},
+    {"id": "F04", "criterion": "result depends on one parent in leave-one-parent-out audit", "effect": "TLD_DERIVED blocked"},
+    {"id": "F05", "criterion": "primary separation is absent after the climatology-plus-AR(1) residual control at T_e", "effect": "TLD_DERIVED blocked"},
+    {"id": "F06", "criterion": "independent verifier disagrees", "effect": "protocol invalidation until resolved without scientific changes"},
+    {"id": "F07", "criterion": "failure preservation or registry reconciliation is incomplete", "effect": "TLD_DERIVED blocked"},
+    {"id": "F08", "criterion": "candidate, threshold, seed, null, ordering, perturbation, N grid, or endpoint changes after freeze", "effect": "protocol invalidation"},
+    {"id": "F09", "criterion": "apparent separation exists only under cyclic or an outcome-selected ordering", "effect": "primary separation false or protocol invalidation"},
+    {"id": "F10", "criterion": "S_e region is empty or S_e_contiguous is zero", "effect": "positive adjudication and TLD_DERIVED blocked"},
+    {"id": "F11", "criterion": "N=14 fails the frozen specificity gate", "effect": "14-specificity negative; primary analysis unchanged"},
+    {"id": "F12", "criterion": "source bytes or DOI identity disagree with the selection receipt", "effect": "materialization blocked; no substitution"},
+    {"id": "F13", "criterion": "independent mutation suite accepts any registered scientific mutation", "effect": "claim audit blocked"},
+    {"id": "F14", "criterion": "an interpolated or imputed value is treated as observed", "effect": "protocol invalidation"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "algorithm": "numpy.random.Generator(PCG64)",
+  "base_seed": 20260818,
+  "station_index": "zero-based lexicographic expected_station_ids index",
+  "null_seed": "base_seed + station_index*10000 + null_child_index, where child index is 1 through 127",
+  "sensor_noise_seed": "base_seed + 3000000 + station_index",
+  "diagnostic_swap_seed": "base_seed + 4000000 + station_index",
+  "permutation_rule": "call Generator.permutation independently for chronological year-month strata using one generator per child",
+  "seed_registry_created_before_metrics": true,
+  "replacement_or_retry_forbidden": true
+}

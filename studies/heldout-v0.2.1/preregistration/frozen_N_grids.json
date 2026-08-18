@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "primary_N_grid": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+  "primary_grid_origin": "inherited canonical grid",
+  "specificity_N_grid": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  "specificity_role": "secondary and incapable of redefining T_e",
+  "N_semantics": "consecutive daily states per non-overlapping coarse block or lag days for the separately reported closure objective",
+  "N_min_mutation_forbidden": true,
+  "post_outcome_window_selection_forbidden": true
+}

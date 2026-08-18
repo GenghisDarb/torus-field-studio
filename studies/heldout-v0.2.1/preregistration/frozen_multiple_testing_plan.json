@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "procedure": "Holm step-down adjusted p values with monotone cumulative maximum",
+  "primary_family": "nine population sign tests over N=6 through 14, corrected separately within each registered condition",
+  "primary_decision_family": "baseline linear-adjacency family only",
+  "S_e_condition_families": "each frozen perturbation has its own nine-N Holm family; the frozen four-of-five survival rule prevents post-outcome condition selection",
+  "specificity_family": "sixteen one-sided paired sign tests comparing N=14 with every other N in 4 through 20",
+  "local_parent_p_values": "not multiplicity-adjusted because they feed the preregistered UI summary and are not standalone claims",
+  "alpha": 0.05,
+  "no_optional_stopping": true
+}
