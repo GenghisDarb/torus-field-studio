@@ -6,6 +6,8 @@
 - Analytic `z^p+c` sandbox and one registered ladder engine.
 - Matched nulls, escape/healing trace, linked browser inspector.
 - TBX import/export, verification, CLI, Python API, deterministic fixtures.
+- v0.1.1 hardening: strict cross-runtime audit, hostile corpus, failure preservation,
+  cross-platform wheels, browser E2E, and GitHub Pages.
 
 ## v0.2 — TLD workbench
 
@@ -21,4 +23,3 @@ neutral probes, and evidence-backed environment alignment plans.
 
 Line-porosity/FUP estimation, positive and negative controls, neutral topology exports, and
 equal-budget ControllerGate ablations without transferring terminal or repair authority.
-

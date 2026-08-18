@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/claim-boundary/v1.schema.json",
+  "title": "TORUS claim boundary",
+  "type": "object",
+  "required": ["claim_level", "permitted_interpretations", "excluded_interpretations", "experimental_tags", "independent_verifier_status"],
+  "properties": {
+    "claim_level": {"enum": ["ILLUSTRATIVE_ANALYTIC", "COMPUTED_DYNAMICAL", "TLD_DERIVED", "EXTERNALLY_VALIDATED"]},
+    "permitted_interpretations": {"type": "array", "items": {"type": "string"}},
+    "excluded_interpretations": {"type": "array", "items": {"type": "string"}},
+    "experimental_tags": {"type": "array", "items": {"type": "string"}},
+    "independent_verifier_status": {"enum": ["not_supplied", "independently_verified"]}
+  },
+  "additionalProperties": false
+}

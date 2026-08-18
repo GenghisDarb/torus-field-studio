@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from dataclasses import asdict, dataclass, field
 from enum import IntEnum
 from pathlib import Path
 from typing import Any
+
+from .schema_validation import validate_with_schema
 
 
 class ClaimLevel(IntEnum):
@@ -193,43 +196,57 @@ class FieldPoint:
     parent_id: str
     null_policy_id: str
     trace: list[dict[str, float | int | str]]
+    failure_id: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
 
+@dataclass(frozen=True)
+class FailureRecord:
+    failure_id: str
+    category: str
+    stage: str
+    message: str
+    grid_x: int | None = None
+    grid_y: int | None = None
+    coordinate: dict[str, float] | None = None
+    recoverable: bool = False
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class AuditReport:
+    valid: bool
+    run_id: str
+    checked_files: int
+    errors: tuple[str, ...]
+    warnings: tuple[str, ...] = ()
+
+    @property
+    def issue_codes(self) -> tuple[str, ...]:
+        return tuple(error.partition(":")[0] for error in self.errors)
+
+    def to_dict(self) -> dict[str, Any]:
+        result = asdict(self)
+        result["issue_codes"] = list(self.issue_codes)
+        return result
+
+
 def validate_domain_pack(data: dict[str, Any]) -> list[str]:
-    errors: list[str] = []
-    required = ("schema_version", "domain_id", "title", "ladder", "claim_authority")
-    for key in required:
-        if key not in data:
-            errors.append(f"missing {key}")
-    if data.get("schema_version") != "1.0.0":
-        errors.append("schema_version must be 1.0.0")
+    errors = validate_with_schema("domain-pack", data)
     ladder = data.get("ladder", [])
-    if not isinstance(ladder, list) or len(ladder) < 4:
-        errors.append("ladder must contain at least four values")
-    elif not all(isinstance(value, int | float) for value in ladder):
-        errors.append("ladder values must be numeric")
-    if data.get("claim_authority") not in {item.name for item in ClaimLevel if item.value >= 1}:
-        errors.append("claim_authority is not a registered non-analytic level")
+    if isinstance(ladder, list) and any(
+        isinstance(value, bool)
+        or not isinstance(value, int | float)
+        or not math.isfinite(value)
+        for value in ladder
+    ):
+        errors.append("ladder: every value must be finite")
     return errors
 
 
 def validate_run_spec(data: dict[str, Any]) -> list[str]:
-    errors: list[str] = []
-    for key in ("schema_version", "engine", "seed", "grid"):
-        if key not in data:
-            errors.append(f"missing {key}")
-    if data.get("schema_version") != "1.0.0":
-        errors.append("schema_version must be 1.0.0")
-    if data.get("engine") not in {"analytic", "local_brot"}:
-        errors.append("engine must be analytic or local_brot")
-    grid = data.get("grid", {})
-    for dimension in ("width", "height"):
-        value = grid.get(dimension)
-        if not isinstance(value, int) or not 4 <= value <= 1024:
-            errors.append(f"grid.{dimension} must be an integer from 4 to 1024")
-    if not isinstance(data.get("seed"), int) or data.get("seed", -1) < 0:
-        errors.append("seed must be a non-negative integer")
-    return errors
+    return validate_with_schema("run-spec", data)

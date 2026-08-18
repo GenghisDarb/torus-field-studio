@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/evidence/failure-v1.schema.json",
+  "title": "TORUS failure record",
+  "type": "object",
+  "required": ["failure_id", "category", "stage", "message", "grid_x", "grid_y", "coordinate", "recoverable"],
+  "properties": {
+    "failure_id": {"type": "string", "minLength": 1},
+    "category": {"enum": ["INELIGIBLE_COORDINATE", "KERNEL_EXCEPTION", "NONFINITE_METRIC", "INSUFFICIENT_NULL_SUPPORT", "FAILED_CONVERGENCE", "UNAVAILABLE_PROJECTION", "INTERPOLATION_GAP", "PARTIAL_RUN", "CANCELLED_RUN", "INVALID_SOURCE_ROW", "AUDIT_FAILURE"]},
+    "stage": {"type": "string", "minLength": 1},
+    "message": {"type": "string", "minLength": 1},
+    "grid_x": {"type": ["integer", "null"], "minimum": 0},
+    "grid_y": {"type": ["integer", "null"], "minimum": 0},
+    "coordinate": {"type": ["object", "null"], "additionalProperties": {"type": "number"}},
+    "recoverable": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

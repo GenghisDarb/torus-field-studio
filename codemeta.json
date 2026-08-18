@@ -2,10 +2,18 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "TORUS Field Studio",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "dateModified": "2026-08-17",
+  "author": {
+    "@type": "Person",
+    "givenName": "Bradley Charles",
+    "familyName": "Peter"
+  },
   "codeRepository": "https://github.com/GenghisDarb/torus-field-studio",
+  "url": "https://genghisdarb.github.io/torus-field-studio/",
   "programmingLanguage": ["Python", "TypeScript"],
+  "runtimePlatform": ["Python 3.11-3.13", "Node.js 24", "Web browser"],
   "license": "https://spdx.org/licenses/MIT",
-  "description": "A local-first scientific field workbench with explicit provenance and claim boundaries."
+  "keywords": ["scientific visualization", "reproducibility", "provenance", "deterministic computation", "TBX"],
+  "description": "A local-first scientific field workbench with strict TBX auditing, explicit provenance, and claim boundaries."
 }
-

@@ -15,24 +15,70 @@ The image is downstream of the artifact: classification is computed before rende
 interpolation never creates observations, and every exported bundle includes a SHA-256
 manifest, run specification, visual encoding, provenance, claim boundary, and failure ledger.
 
+[Open the browser studio](https://genghisdarb.github.io/torus-field-studio/) or download the
+[v0.1.0 canonical release artifacts](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.1.0).
+The release includes analytic and synthetic parent/null TBX bundles plus a `SHA256SUMS.txt` file.
+
 ![TORUS Field Studio interface](docs/assets/studio-overview.svg)
 
 ## Quick start
 
-```bash
-python -m venv .venv
-.venv/Scripts/pip install -e .[dev]  # Windows
-torusbrot generate local --spec examples/tld-parent-null/run-spec.json \
-  --domain examples/tld-parent-null/domain.json --output results/parent-null.tbx
-torusbrot audit results/parent-null.tbx
+Clone the repository and enter it before installing. The commands below are for Windows
+PowerShell and do not require a globally installed `pnpm`:
 
-pnpm install
-pnpm run dev
+```powershell
+git clone https://github.com/GenghisDarb/torus-field-studio.git
+Set-Location torus-field-studio
+Set-ExecutionPolicy -Scope Process Bypass
+.\scripts\setup.ps1
+
+& .\.venv\Scripts\python.exe -m torusbrot.cli generate local `
+  --spec examples/tld-parent-null/run-spec.json `
+  --domain examples/tld-parent-null/domain.json `
+  --output results/parent-null.tbx.zip
+& .\.venv\Scripts\python.exe -m torusbrot.cli audit results/parent-null.tbx.zip
+
+.\scripts\studio.ps1
+```
+
+If the repository is already cloned, start with `Set-Location` using its actual folder. The
+bootstrap script creates `.venv`, installs the Python package and development tools, and uses
+the repository-pinned pnpm version through npm, an existing pnpm, or Codex's bundled runtime.
+Outside Codex, install Node.js 24 before running the browser studio. Python-only users can run
+`.\scripts\setup.ps1 -SkipWeb`.
+
+For macOS or Linux:
+
+```bash
+git clone https://github.com/GenghisDarb/torus-field-studio.git
+cd torus-field-studio
+python3 -m venv .venv
+.venv/bin/python -m pip install -e '.[dev]'
+.venv/bin/python -m torusbrot.cli generate local --spec examples/tld-parent-null/run-spec.json \
+  --domain examples/tld-parent-null/domain.json --output results/parent-null.tbx.zip
+.venv/bin/python -m torusbrot.cli audit results/parent-null.tbx.zip
+npx --yes pnpm@11.19.0 install
+npx --yes pnpm@11.19.0 run dev
 ```
 
 Open the Vite URL to explore the built-in analytic and ladder examples. Click any computed
 point to inspect its classification, parent/null metrics, provenance, legal interpretation,
 and recovery timeline. Use **Import bundle** to open a `.tbx.zip` created by the CLI.
+
+## Strict TBX audit
+
+Both the CLI and browser treat archives as hostile. Before a bundle is trusted, the auditor
+checks safe canonical paths, duplicate and encrypted members, expansion limits, exact manifest
+membership, byte counts and SHA-256 hashes, JSON schemas, grid and point identity, finite metrics,
+statistics, parent/null counts, provenance, claim authority, verification receipts, failure
+references, specification hashes, run identity, and `SHA256SUMS.txt`.
+
+```powershell
+& .\.venv\Scripts\python.exe -m torusbrot.cli audit path\to\artifact.tbx.zip
+```
+
+A failed audit returns stable issue codes such as `ARCHIVE_PATH_INVALID`,
+`MANIFEST_HASH_MISMATCH`, or `VERIFIER_RECEIPT_MISSING`. No field table is exposed after failure.
 
 ## CLI
 
@@ -81,20 +127,30 @@ ToT-BROT, ToT-BULB, and Dual-Space contracts are included as forward-compatible 
 They are not represented as validated engines in v0.1.
 
 Read [the scientific contract](docs/scientific_contract.md),
-[the TBX format](docs/tbx_spec.md), and [the roadmap](docs/roadmap.md) before interpreting a
-result.
+[the TBX format](docs/tbx_spec.md), [schema migration policy](docs/schema_migrations.md),
+[browser performance budget](docs/performance_budget.md), and [the roadmap](docs/roadmap.md)
+before interpreting a result.
 
 ## Development
 
 ```bash
 python -m pytest
-python -m ruff check python tests
+python -m ruff check python tests scripts
+python scripts/sync_schemas.py --check
+pnpm run schemas:check
+pnpm run typecheck
 pnpm run build
+pnpm run budget
+python scripts/generate_hostile_fixtures.py --output tests/generated-fixtures
+pnpm run e2e
 ```
 
 The Python reference engine is the classification authority. Browser kernels are small-run
 exploration tools and identify themselves as browser previews. No computed field, large bundle,
 or `node_modules` directory is committed to Git.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and
+[CHANGELOG.md](CHANGELOG.md) for project policy and release history.
 
 ## License
 

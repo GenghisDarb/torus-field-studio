@@ -43,7 +43,7 @@ function analyticPoint(index: number, gridX: number, gridY: number, request: Gen
     zi = pi + y;
     const magnitude = Math.hypot(zr, zi);
     if (iteration < 12) {
-      trace.push({ step: iteration, stage: "orbit", magnitude, coherence: clamp(1 - magnitude / 2) });
+      trace.push({ step: iteration, stage: "orbit", magnitude: Number.isFinite(magnitude) ? magnitude : 2, coherence: clamp(1 - magnitude / 2) });
     }
     if (!Number.isFinite(magnitude) || magnitude > 2) {
       escapedAt = iteration + 1;

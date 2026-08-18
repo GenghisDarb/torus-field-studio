@@ -113,7 +113,7 @@ export default function App() {
     table?.points.forEach((point) => { counts[point.classification] = (counts[point.classification] ?? 0) + 1; });
     return counts;
   }, [table]);
-  const sourceLabel = table?.source === "tbx_import" ? "TBX CPU ARTIFACT" : "BROWSER PREVIEW";
+  const sourceLabel = table?.source === "tbx_import" ? "TBX AUDIT PASSED" : "BROWSER PREVIEW";
 
   const handleImport = async (file?: File) => {
     if (!file) return;
@@ -137,14 +137,14 @@ export default function App() {
           <TorusMark />
           <div>
             <div className="brand-name"><span>TORUS</span> FIELD STUDIO</div>
-            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.1</div>
+            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.1.1</div>
           </div>
         </div>
         <div className="header-actions">
           <button className="quiet-button" type="button" onClick={() => setAuditOpen(true)}><Icon name="shield" /> Audit</button>
           <button className="quiet-button" type="button" onClick={() => importRef.current?.click()}><Icon name="upload" /> Import bundle</button>
           <button className="primary-button" type="button" disabled={!table} onClick={() => table && exportBrowserBundle(table, request, activeEngine)}><Icon name="download" /> Export .tbx</button>
-          <input ref={importRef} type="file" accept=".zip,.tbx.zip,.json" hidden onChange={(event) => handleImport(event.target.files?.[0])} />
+          <input ref={importRef} type="file" accept=".zip,.tbx.zip" hidden onChange={(event) => handleImport(event.target.files?.[0])} />
         </div>
       </header>
 
@@ -328,13 +328,14 @@ export default function App() {
             <button className="modal-close" type="button" onClick={() => setAuditOpen(false)}>×</button>
             <div className="audit-icon"><Icon name="shield" /></div>
             <span className="eyebrow">ARTIFACT AUDIT</span>
-            <h2>{table?.source === "tbx_import" ? "Imported bundle loaded" : "Browser preview is not independently verified"}</h2>
-            <p>The studio keeps the scientific classification separate from visual encoding. A CLI-generated bundle additionally carries byte-level SHA-256 verification.</p>
+            <h2>{table?.source === "tbx_import" ? "Imported bundle passed strict audit" : "Browser preview is not independently verified"}</h2>
+            <p>The studio keeps scientific classification separate from visual encoding. Imported TBX archives are preflighted before decompression and checked for exact membership, hashes, schema validity, claim consistency, run identity, and semantic invariants.</p>
             <div className="audit-checks">
               <div><Icon name="check" /><span>Claim badge always visible</span></div>
               <div><Icon name="check" /><span>Raw samples distinguishable from interpolation</span></div>
               <div><Icon name="check" /><span>Failures and unresolved points preserved</span></div>
               <div><Icon name="check" /><span>Parent/null identity retained per point</span></div>
+              {table?.auditCheckedFiles != null && <div><Icon name="check" /><span>{table.auditCheckedFiles} manifested files verified</span></div>}
             </div>
             <button className="primary-button full" type="button" onClick={() => setAuditOpen(false)}>Return to field</button>
           </section>

@@ -26,6 +26,7 @@ class AnalyticRun:
             claim_level=ClaimLevel.ILLUSTRATIVE_ANALYTIC,
             domain=None,
             null_registry=[],
+            failures=kernel.failures,
         )
 
 
@@ -64,5 +65,5 @@ class LocalBrotRun:
             claim_level=ClaimLevel(claim_level),
             domain=domain,
             null_registry=kernel.null_registry(),
+            failures=kernel.failures,
         )
-

@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible CLI, auditor, kernel, or studio defect.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include sensitive artifacts or security vulnerabilities in public issues.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v0.1.1 or commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [CLI, TBX auditor, Python kernel, Browser studio, Schema, Documentation]
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Provide the smallest commands or interaction sequence that reproduces the defect.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: OS, Python, Node.js, browser, and relevant output
+    validations:
+      required: true

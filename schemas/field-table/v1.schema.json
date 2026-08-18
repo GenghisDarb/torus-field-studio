@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/field-table/v1.schema.json",
+  "title": "TORUS field table",
+  "type": "object",
+  "required": ["schema_version", "width", "height", "points"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "width": {"type": "integer", "minimum": 4, "maximum": 1024},
+    "height": {"type": "integer", "minimum": 4, "maximum": 1024},
+    "points": {"type": "array", "items": {"$ref": "https://torus-field-studio.dev/schemas/local-brot/v1.schema.json"}}
+  },
+  "additionalProperties": false
+}

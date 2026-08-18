@@ -1,7 +1,7 @@
 """Public Python API for TORUS Field Studio."""
 
-from .bundle import AuditReport, FieldResult
-from .models import ClaimLevel, DomainPack, MatchedNullPolicy, RunSpec
+from .bundle import FieldResult
+from .models import AuditReport, ClaimLevel, DomainPack, FailureRecord, MatchedNullPolicy, RunSpec
 from .runs import AnalyticRun, LocalBrotRun
 
 __all__ = [
@@ -10,10 +10,10 @@ __all__ = [
     "ClaimLevel",
     "DomainPack",
     "FieldResult",
+    "FailureRecord",
     "LocalBrotRun",
     "MatchedNullPolicy",
     "RunSpec",
 ]
 
-__version__ = "0.1.0"
-
+__version__ = "0.1.1"

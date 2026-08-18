@@ -1,32 +1,90 @@
-import { strToU8, unzipSync, zipSync } from "fflate";
-import type { Engine, FieldTable, GenerateRequest } from "./types";
+import { strToU8, zipSync } from "fflate";
+import { auditTbx, canonicalJson, compareCodePoints } from "./tbxAudit";
+import type { Engine, FieldPoint, FieldTable, GenerateRequest } from "./types";
 
 function jsonBytes(value: unknown): Uint8Array {
-  return strToU8(`${JSON.stringify(value, null, 2)}\n`);
+  return strToU8(canonicalJson(value, true));
 }
 
-async function sha256(payload: Uint8Array): Promise<string> {
-  const copy = new Uint8Array(payload.byteLength);
-  copy.set(payload);
+function jsonlBytes(rows: unknown[]): Uint8Array {
+  return strToU8(rows.map((row) => canonicalJson(row)).join(""));
+}
+
+async function sha256(payload: Uint8Array | string): Promise<string> {
+  const bytes = typeof payload === "string" ? strToU8(payload) : payload;
+  const copy = new Uint8Array(bytes.byteLength);
+  copy.set(bytes);
   const digest = await crypto.subtle.digest("SHA-256", copy.buffer);
   return [...new Uint8Array(digest)].map((value) => value.toString(16).padStart(2, "0")).join("");
 }
 
+async function contentHash(value: unknown): Promise<string> {
+  return sha256(canonicalJson(value));
+}
+
+function statistics(points: FieldPoint[]) {
+  const counts: Record<string, number> = {};
+  for (const point of points) counts[point.classification] = (counts[point.classification] ?? 0) + 1;
+  const mean = (field: "UI" | "NSS" | "S_e") => Number((points.reduce((sum, point) => sum + point[field], 0) / Math.max(points.length, 1)).toFixed(8));
+  return {
+    point_count: points.length,
+    classification_counts: Object.fromEntries(Object.entries(counts).sort(([left], [right]) => compareCodePoints(left, right))),
+    mean_UI: mean("UI"),
+    mean_NSS: mean("NSS"),
+    mean_S_e: mean("S_e"),
+    failure_count: 0,
+  };
+}
+
 export async function exportBrowserBundle(table: FieldTable, request: GenerateRequest, engine: Engine) {
   const claimLevel = engine === "analytic" ? "ILLUSTRATIVE_ANALYTIC" : "COMPUTED_DYNAMICAL";
+  const kernelId = `browser.${engine}.v1`;
+  const nullCount = engine === "analytic" ? 0 : 12;
+  const specification = {
+    schema_version: "1.0.0",
+    engine,
+    seed: request.seed,
+    domain_id: engine === "analytic" ? "analytic-browser-preview" : "synthetic-ring-14",
+    claim_level: claimLevel,
+    grid: { width: table.width, height: table.height },
+    parameters: {
+      power: request.power,
+      max_iterations: request.maxIterations,
+      recovery_steps: request.recoverySteps,
+    },
+    classification_rules: {
+      separation_threshold: 0.08,
+      nss_threshold: 1,
+      survival_threshold: 0.6,
+      recovery_threshold: 0.78,
+      escape_threshold: 0.46,
+    },
+    null_policy: engine === "analytic"
+      ? { kind: "none", count: 0, seed: request.seed }
+      : { kind: "preserve_multiset_shuffle", count: nullCount, seed: request.seed },
+  };
+  const specificationSha256 = await contentHash(specification);
+  const runId = `run-${(await contentHash({ specification, kernel_id: kernelId, domain_sha256: null })).slice(0, 16)}`;
+  const tableForBundle = {
+    schema_version: "1.0.0",
+    width: table.width,
+    height: table.height,
+    points: table.points,
+  };
+  const summary = statistics(table.points);
+  const winnerCounts: Record<string, number> = {};
+  for (const point of table.points) {
+    if (point.winner_N != null) winnerCounts[String(point.winner_N)] = (winnerCounts[String(point.winner_N)] ?? 0) + 1;
+  }
+  const nullRegistry = Array.from({ length: nullCount }, (_, index) => ({
+    null_id: `browser-null-${String(index).padStart(2, "0")}`,
+    policy: "preserve_multiset_shuffle",
+    seed: request.seed + index,
+  }));
   const files: Record<string, Uint8Array> = {
-    "run_spec.json": jsonBytes({
-      schema_version: "1.0.0",
-      engine,
-      seed: request.seed,
-      domain_id: engine === "analytic" ? "analytic-browser-preview" : "synthetic-ring-14",
-      claim_level: claimLevel,
-      grid: { width: table.width, height: table.height },
-      parameters: { power: request.power, max_iterations: request.maxIterations, recovery_steps: request.recoverySteps },
-      classification_rules: {},
-      null_policy: engine === "analytic" ? { kind: "none", count: 0 } : { kind: "browser_preview", count: 12, seed: request.seed },
-    }),
+    "run_spec.json": jsonBytes(specification),
     "ontology.json": jsonBytes({
+      schema_version: "1.0.0",
       terms: { omega: "ordered ladder state", T_e: "first observed/null separation", S_e: "persistence after emergence", winner_N: "closure-mode label" },
       non_equivalences: ["closure != emergence", "survival != closure", "interpolation != observation"],
     }),
@@ -34,6 +92,7 @@ export async function exportBrowserBundle(table: FieldTable, request: GenerateRe
       claim_level: claimLevel,
       permitted_interpretations: ["browser-side reproducible preview"],
       excluded_interpretations: ["external validation", "causal authority", "scientific use without CPU regeneration"],
+      experimental_tags: ["browser_preview"],
       independent_verifier_status: "not_supplied",
     }),
     "visual_encoding.json": jsonBytes({
@@ -42,22 +101,48 @@ export async function exportBrowserBundle(table: FieldTable, request: GenerateRe
       interpolation: { method: "bilinear", used_for_metrics: false },
     }),
     "scene_recipe.json": jsonBytes({ viewer: "TORUS Field Studio", raw_samples_visible: true }),
-    "provenance/sources.jsonl": strToU8(`${JSON.stringify({ kind: "browser_preview", engine })}\n`),
-    "provenance/transformations.jsonl": strToU8(`${JSON.stringify({ transformation_id: `browser.${engine}.v1`, seed: request.seed })}\n`),
+    "provenance/sources.jsonl": jsonlBytes([{ source_id: specification.domain_id, kind: "browser_preview", engine }]),
+    "provenance/transformations.jsonl": jsonlBytes([{
+      transformation_id: kernelId,
+      software_version: "0.1.1",
+      seed: request.seed,
+      specification_sha256: specificationSha256,
+    }]),
     "provenance/verification_receipts.jsonl": new Uint8Array(),
-    "registry/parent_registry.json": jsonBytes({ parent_id: table.points[0]?.parent_id ?? "none" }),
-    "registry/null_registry.json": jsonBytes([]),
-    "tables/field_points.json": jsonBytes(table),
-    "tables/metrics_by_N.json": jsonBytes({ source: "browser_preview" }),
-    "audit/audit.json": jsonBytes({ status: "browser_preview_unverified", classification_precedes_rendering: true }),
+    "registry/parent_registry.json": jsonBytes({
+      parent_id: table.points[0]?.parent_id ?? "none",
+      kind: engine === "analytic" ? "declared_initial_state" : "browser_synthetic_fixture",
+      claim_authority: claimLevel,
+    }),
+    "registry/null_registry.json": jsonBytes(nullRegistry),
+    "tables/field_points.json": strToU8(canonicalJson(tableForBundle)),
+    "tables/metrics_by_N.json": jsonBytes({ winner_N_counts: winnerCounts, summary }),
+    "audit/audit.json": jsonBytes({
+      status: "browser_preview_unverified",
+      kernel_authority: "deterministic_browser_preview",
+      failure_preservation: "complete",
+      classification_precedes_rendering: true,
+    }),
     "audit/failure_ledger.jsonl": new Uint8Array(),
   };
   const entries = await Promise.all(Object.entries(files).map(async ([path, payload]) => ({ path, sha256: await sha256(payload), bytes: payload.byteLength })));
-  const sums = entries.map((entry) => `${entry.sha256}  ${entry.path}\n`).join("");
-  files["audit/SHA256SUMS.txt"] = strToU8(sums);
-  entries.push({ path: "audit/SHA256SUMS.txt", sha256: await sha256(files["audit/SHA256SUMS.txt"]), bytes: files["audit/SHA256SUMS.txt"].byteLength });
-  const runId = `browser-${(await sha256(files["tables/field_points.json"])).slice(0, 16)}`;
-  files["manifest.json"] = jsonBytes({ tbx_version: "1.0.0", run_id: runId, claim_level: claimLevel, kernel_id: `browser.${engine}.v1`, files: entries.sort((a, b) => a.path.localeCompare(b.path)) });
+  files["audit/SHA256SUMS.txt"] = strToU8(entries
+    .sort((left, right) => compareCodePoints(left.path, right.path))
+    .map((entry) => `${entry.sha256}  ${entry.path}\n`).join(""));
+  entries.push({
+    path: "audit/SHA256SUMS.txt",
+    sha256: await sha256(files["audit/SHA256SUMS.txt"]),
+    bytes: files["audit/SHA256SUMS.txt"].byteLength,
+  });
+  files["manifest.json"] = jsonBytes({
+    tbx_version: "1.0.0",
+    run_id: runId,
+    claim_level: claimLevel,
+    kernel_id: kernelId,
+    specification_sha256: specificationSha256,
+    statistics: summary,
+    files: entries.sort((left, right) => compareCodePoints(left.path, right.path)),
+  });
   const blob = new Blob([zipSync(files, { level: 9 }) as BlobPart], { type: "application/zip" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
@@ -68,16 +153,18 @@ export async function exportBrowserBundle(table: FieldTable, request: GenerateRe
 
 export async function importBundle(file: File): Promise<FieldTable> {
   const bytes = new Uint8Array(await file.arrayBuffer());
-  if (file.name.endsWith(".json")) {
-    return { ...(JSON.parse(new TextDecoder().decode(bytes)) as FieldTable), source: "tbx_import" };
+  const audit = await auditTbx(bytes);
+  if (!audit.valid || !audit.table || !audit.manifest || !audit.specification) {
+    const summary = audit.errors.slice(0, 3).join("; ");
+    throw new Error(`TBX audit rejected [${audit.issueCodes.join(", ")}]: ${summary}`);
   }
-  const members = unzipSync(bytes);
-  const tableBytes = members["tables/field_points.json"];
-  if (!tableBytes) throw new Error("This archive has no tables/field_points.json member.");
-  const table = JSON.parse(new TextDecoder().decode(tableBytes)) as FieldTable;
-  const manifestBytes = members["manifest.json"];
-  const manifest = manifestBytes ? JSON.parse(new TextDecoder().decode(manifestBytes)) : {};
-  const specBytes = members["run_spec.json"];
-  const specification = specBytes ? JSON.parse(new TextDecoder().decode(specBytes)) : {};
-  return { ...table, source: "tbx_import", runId: manifest.run_id, claimLevel: manifest.claim_level, engine: specification.engine };
+  const engine = audit.specification.engine;
+  return {
+    ...audit.table,
+    source: "tbx_import",
+    runId: audit.manifest.run_id,
+    claimLevel: audit.manifest.claim_level,
+    engine: engine === "analytic" || engine === "local_brot" ? engine : undefined,
+    auditCheckedFiles: audit.checkedFiles,
+  };
 }

@@ -1,0 +1,30 @@
+name: Domain pack proposal
+description: Propose a domain contract and document its evidence authority.
+title: "[Domain]: "
+labels: [domain-pack]
+body:
+  - type: input
+    id: identifier
+    attributes:
+      label: Proposed domain ID
+    validations:
+      required: true
+  - type: dropdown
+    id: authority
+    attributes:
+      label: Maximum claim authority
+      options: [ILLUSTRATIVE_ANALYTIC, COMPUTED_DYNAMICAL, TLD_DERIVED]
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source, license, and provenance
+    validations:
+      required: true
+  - type: textarea
+    id: ladder
+    attributes:
+      label: Ladder semantics and validation plan
+    validations:
+      required: true

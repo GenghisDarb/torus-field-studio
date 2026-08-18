@@ -5,9 +5,12 @@ __pycache__/
 .coverage
 .venv/
 dist/
+build/
 node_modules/
 apps/studio/dist/
 results/
+tests/generated-fixtures/
+apps/studio/test-results/
+apps/studio/playwright-report/
 *.tbx.zip
 .DS_Store
-
