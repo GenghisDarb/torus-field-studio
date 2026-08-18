@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -80,6 +82,16 @@ def main() -> None:
             lines.append(f"    {field}: {wrapper}[{annotation(field_schema)}]")
         lines.append("")
     content = "\n".join(lines).rstrip() + "\n"
+    formatted = subprocess.run(
+        [sys.executable, "-m", "ruff", "format", "--stdin-filename", str(OUTPUT), "-"],
+        input=content,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if formatted.returncode:
+        raise SystemExit(formatted.stderr)
+    content = formatted.stdout
     if "--check" in __import__("sys").argv:
         existing = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else ""
         if existing != content:
