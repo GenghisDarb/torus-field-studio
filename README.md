@@ -3,21 +3,24 @@
 > Every beautiful structure should trace back to a frozen computation.
 
 TORUS Field Studio is a local-first scientific workbench for generating, inspecting, and
-auditing geometric field artifacts. The v0.1 release deliberately separates two engines:
+auditing geometric field artifacts. The v0.2 release deliberately separates three lanes:
 
 - **Analytic Sandbox** — reproducible `z -> z^p + c` fields with an explicit
   `ILLUSTRATIVE_ANALYTIC` claim badge.
 - **TORUS-BROT** — a deterministic registered-ladder reference kernel with matched nulls,
   structural escape, recovery, ringing, `T_e`, `S_e`, `winner_N`, UI, NSS, and SEP retained
   as separate values.
+- **TLD I published-source reproduction** — an exact, independently checked reproduction of
+  the confirmatory Zenodo release at DOI `10.5281/zenodo.18080090`, capped at
+  `COMPUTED_DYNAMICAL`.
 
 The image is downstream of the artifact: classification is computed before rendering,
 interpolation never creates observations, and every exported bundle includes a SHA-256
 manifest, run specification, visual encoding, provenance, claim boundary, and failure ledger.
 
 [Open the browser studio](https://genghisdarb.github.io/torus-field-studio/) or download the
-[v0.1.0 canonical release artifacts](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.1.0).
-The release includes analytic and synthetic parent/null TBX bundles plus a `SHA256SUMS.txt` file.
+[v0.1.1 release](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.1.1).
+Choose **Load TLD I result** in the studio to audit and inspect the bundled real-data example.
 
 ![TORUS Field Studio interface](docs/assets/studio-overview.svg)
 
@@ -65,6 +68,37 @@ Open the Vite URL to explore the built-in analytic and ladder examples. Click an
 point to inspect its classification, parent/null metrics, provenance, legal interpretation,
 and recovery timeline. Use **Import bundle** to open a `.tbx.zip` created by the CLI.
 
+The errors shown when setup was run from the user-profile directory occurred because that directory was
+not the repository and therefore had no `pyproject.toml`. PowerShell also uses a backtick—not a
+backslash—for line continuation. The commands above fix both issues. Calling the venv Python
+directly also avoids relying on an unactivated shell, while `setup.ps1` supplies the pinned pnpm
+runtime when `pnpm` is not globally installed.
+
+## Reproduce the published TLD I result
+
+The source archive is fetched from Zenodo and kept in the ignored `external_cache` directory.
+These PowerShell commands perform custody validation, execute the production implementation,
+independently verify it, and create all three TBX profiles:
+
+```powershell
+& .\.venv\Scripts\python.exe -m torusbrot fetch tld-release `
+  --doi 10.5281/zenodo.18080090 `
+  --output external_cache\zenodo\18080090\TORUS_Zenodo_v1.zip
+& .\.venv\Scripts\python.exe -m torusbrot validate tld-release `
+  external_cache\zenodo\18080090\TORUS_Zenodo_v1.zip
+& .\.venv\Scripts\python.exe -m torusbrot reproduce tld-i `
+  --source external_cache\zenodo\18080090\TORUS_Zenodo_v1.zip `
+  --output results\tld-i
+& .\.venv\Scripts\python.exe -m torusbrot verify tld-result `
+  results\tld-i\bundles\tld-i-combined-historical-reproduction.tbx.zip
+```
+
+Expected runtime is roughly 1–2 minutes on a current laptop. The exact result is honest but
+mixed: Notebook 13 passes 4 of 6 preregistered criteria. The alpha=0.02 mean-return-steps and
+p90-flips limits fail. The archive's preregistration document says 400 healing steps while the
+executed Notebook 13 code uses 300. Neither historical lane computes `T_e` or `S_e`; those fields
+remain null. See [the full reproduction report](docs/tld_i_reproduction.md).
+
 ## Strict TBX audit
 
 Both the CLI and browser treat archives as hostile. Before a bundle is trusted, the auditor
@@ -85,6 +119,11 @@ A failed audit returns stable issue codes such as `ARCHIVE_PATH_INVALID`,
 ```text
 torusbrot init my-study
 torusbrot validate domain-pack examples/tld-parent-null/domain.json
+torusbrot validate tld-release external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip
+torusbrot fetch tld-release --doi 10.5281/zenodo.18080090 -o external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip
+torusbrot reproduce tld-i --source external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip -o results/tld-i
+torusbrot generate tld --spec examples/tld-i/historical-combined-run-spec.json --domain external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip -o results/tld-i.tbx.zip
+torusbrot verify tld-result results/tld-i.tbx.zip
 torusbrot freeze examples/tld-parent-null/run-spec.json
 torusbrot generate analytic --spec examples/analytic-z14/run-spec.json -o results/z14.tbx
 torusbrot generate local --spec examples/tld-parent-null/run-spec.json \
@@ -123,11 +162,17 @@ The bundled ladder example is a **synthetic reference fixture** and is marked
 `COMPUTED_DYNAMICAL`. Supplying a domain pack does not automatically grant Level 2 or Level 3;
 that authority must be registered in the pack and independently audited.
 
+The TLD I artifact is also `COMPUTED_DYNAMICAL`. It exactly reproduces Brad's published
+computational release, which is self-reproduction rather than external validation. The modern
+v2.1 compliance lane uses frozen parent-matched, domain-isolated controls, but `TLD_DERIVED`
+remains blocked; the contract is not weakened to promote the result.
+
 ToT-BROT, ToT-BULB, and Dual-Space contracts are included as forward-compatible schemas only.
-They are not represented as validated engines in v0.1.
+They are not represented as validated engines in v0.2.
 
 Read [the scientific contract](docs/scientific_contract.md),
-[the TBX format](docs/tbx_spec.md), [schema migration policy](docs/schema_migrations.md),
+[the TLD workbench](docs/tld_workbench.md), [the TBX format](docs/tbx_spec.md),
+[schema migration policy](docs/schema_migrations.md),
 [browser performance budget](docs/performance_budget.md), and [the roadmap](docs/roadmap.md)
 before interpreting a result.
 
@@ -146,8 +191,9 @@ pnpm run e2e
 ```
 
 The Python reference engine is the classification authority. Browser kernels are small-run
-exploration tools and identify themselves as browser previews. No computed field, large bundle,
-or `node_modules` directory is committed to Git.
+exploration tools and identify themselves as browser previews. The one committed computed bundle
+is the checksum-addressed, browser-importable TLD I public example; transient results, source
+archives, notebook executions, build products, and `node_modules` remain ignored.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and
 [CHANGELOG.md](CHANGELOG.md) for project policy and release history.

@@ -1,4 +1,4 @@
-# TORUS Bundle Exchange (`.tbx`) v0.1
+# TORUS Bundle Exchange (`.tbx`) v1 profiles
 
 A TBX artifact is either an ordinary directory ending in `.tbx` or a deterministic ZIP ending in
 `.tbx.zip`. Analysis tools should support the directory directly.
@@ -57,3 +57,16 @@ ID and, when it affects a grid cell, that cell remains in the field table as an 
 
 Unknown versions fail closed. See [schema migrations](schema_migrations.md) for compatibility and
 versioning rules.
+
+## TLD I profiles
+
+Profiles `tld-i-historical-v1` and `tld-i-combined-v1` add source and preregistration registries,
+ladder and control registries, endpoint, baseline, alpha, core-control, raw trajectory, transition,
+and operating-envelope tables, an independent-verification receipt, and claim adjudication. The
+profile declaration lists this exact required set. Both Python and browser auditors recompute its
+semantic cross-file invariants.
+
+TLD fields may be null only where the profile declares them uncomputed. For TLD I, `T_e`, `S_e`,
+UI, NSS, SEP, and their manifest means remain null. Raw missing cells require `observed=false`,
+classification `UNRESOLVED`, and an exact failure-ledger link. A modern profile additionally rejects
+global pooled nulls.

@@ -3,6 +3,29 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses semantic versioning.
 
+## [0.2.0] - 2026-08-17
+
+### Added
+
+- Independent exact reproduction of the confirmatory TORUS Ladder Dynamics I release from
+  Zenodo DOI `10.5281/zenodo.18080090`, without importing notebook result labels.
+- Reusable TLD scoring, perturbation, recovery, ringing, endpoint, registry, provenance,
+  source-custody, verification, and deterministic TBX modules.
+- Versioned TLD schemas with generated Python and TypeScript bindings, new installed-product
+  CLI commands, and three audited historical TBX profiles.
+- An independent raw-table verifier and a 15-control scientific mutation corpus.
+- Published-source browser example with linked source, preregistration, raw trajectory,
+  transition, operating-envelope, failure, verification, and claim views.
+- Frozen modern v2.1 compliance extension with parent-local multiset-preserving controls.
+
+### Scientific result
+
+- High-level outcome: `FIRST_PUBLISHED_TLD_RESULT_EXACTLY_REPRODUCED`.
+- Historical claim level: `COMPUTED_DYNAMICAL`; self-reproduction is not external validation.
+- `TLD_DERIVED_STATUS = BLOCKED`. The historical experiment does not register `T_e` or `S_e`,
+  two alpha=0.02 preregistered criteria fail, and the preregistration document's 400-step
+  declaration differs from Notebook 13's executed 300-step limit.
+
 ## [0.1.1] - 2026-08-17
 
 ### Added
@@ -34,5 +57,6 @@ project uses semantic versioning.
 - Initial local-first field workbench, Python reference kernels, browser explorer, TBX export,
   provenance, claim boundaries, synthetic parent/null fixture, and analytic sandbox.
 
-[0.1.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.0...HEAD
+[0.2.0]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.1.0
