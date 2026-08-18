@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "candidate_id": "uci_beijing_multisite_air_quality_501",
+  "title": "Beijing Multi-Site Air Quality",
+  "repository": "UCI Machine Learning Repository",
+  "doi": "10.24432/C5RK5G",
+  "license": "CC BY 4.0",
+  "landing_page": "https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data",
+  "download_url": "https://archive.ics.uci.edu/static/public/501/beijing%2Bmulti%2Bsite%2Bair%2Bquality%2Bdata.zip",
+  "outer_archive": {"name": "beijing_multi_site_air_quality_data.zip", "bytes": 8192212, "sha256": "b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4"},
+  "raw_archive": {"name": "PRSA2017_Data_20130301-20170228.zip", "bytes": 7959991, "sha256": "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8", "csv_members": 12},
+  "reported_instances": 420768,
+  "independent_parent_units": 12,
+  "natural_order": "hourly observation order within monitoring station",
+  "selection_score": 100,
+  "selection_rank": 1,
+  "selected_without_tld_outcome_inspection": true,
+  "source_bytes_acquired_before_selection_freeze": true,
+  "candidate_substitution_permitted": false,
+  "inherited_tld_code_commit": "aa5b474730ae0578fce4680ef531d51da34868fa",
+  "heldout_outcomes_computed_before_freeze": false
+}

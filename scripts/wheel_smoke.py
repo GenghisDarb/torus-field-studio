@@ -43,6 +43,18 @@ def main() -> int:
         if not executable.exists():
             raise ValueError("The wheel did not install the torusbrot console script")
         run(str(executable), "--help")
+        run(
+            str(executable),
+            "audit",
+            str(
+                ROOT
+                / "apps"
+                / "studio"
+                / "public"
+                / "examples"
+                / "heldout-tld-study-combined.tbx.zip"
+            ),
+        )
 
         specification = json.loads(
             (ROOT / "examples/tld-parent-null/run-spec.json").read_text(encoding="utf-8")

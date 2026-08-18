@@ -197,3 +197,19 @@ def test_public_heldout_bundle_is_auditable_and_semantic_mutations_fail(
     )
     changed = resign_bundle(tmp_path / "external-validation.tbx.zip", members)
     assert "HELDOUT_EXTERNAL_VALIDATION_FORBIDDEN" in audit_bundle(changed).issue_codes
+
+
+def test_external_replication_package_is_hash_bound_and_outcome_blind() -> None:
+    repository = Path(__file__).resolve().parents[1]
+    replication = repository / "replication"
+    for line in (replication / "SHA256SUMS.txt").read_text(encoding="utf-8").splitlines():
+        expected, relative = line.split("  ", 1)
+        assert sha256_file(replication / relative) == expected
+    inventory = json.loads(
+        (replication / "expected_artifact_inventory.json").read_text(encoding="utf-8")
+    )
+    assert inventory["required_bundle_count"] == 3
+    assert inventory["external_validation_must_remain_false_until_outside_report"] is True
+    assert "expected_scientific_outcome" not in inventory
+    verifier = (replication / "verify.py").read_text(encoding="utf-8")
+    assert "HELDOUT_TLD_STUDY_POSITIVE_UNDER_FROZEN_GATES" not in verifier

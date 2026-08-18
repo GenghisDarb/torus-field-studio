@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Expected paths only; no expected scientific outcome is encoded here.",
+  "required_files": [
+    "materialized/SHA256SUMS_INPUTS.txt",
+    "materialized/materialization_receipt.json",
+    "materialized/registered_arrays.npz",
+    "scored/.scored_execution_started",
+    "scored/SHA256SUMS_SCORED_RUN.txt",
+    "scored/primary_endpoints.json",
+    "scored/scored_run_receipt.json",
+    "verification/SHA256SUMS_VERIFICATION.txt",
+    "verification/independent_recomputed_endpoints.json",
+    "verification/independent_verification.json",
+    "verification/mutation_results.jsonl",
+    "verification/verification_disagreement_ledger.jsonl",
+    "adjudication/scientific_adjudication.json",
+    "adjudication/TLD_DERIVED_adjudication.json",
+    "adjudication/forbidden_claims.json",
+    "publication/plain-language-summary.md",
+    "publication/technical-report.md",
+    "bundles/heldout-tld-study-primary.tbx.zip",
+    "bundles/heldout-tld-study-specificity-audit.tbx.zip",
+    "bundles/heldout-tld-study-combined.tbx.zip"
+  ],
+  "required_bundle_count": 3,
+  "required_independent_verifier": true,
+  "required_mutation_count": 25,
+  "external_validation_must_remain_false_until_outside_report": true
+}
