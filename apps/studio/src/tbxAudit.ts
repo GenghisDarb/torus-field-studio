@@ -15,7 +15,7 @@ import tldProfileSchema from "../../../schemas/tld-tbx-profile/v1.schema.json";
 import tldReleaseSourceSchema from "../../../schemas/tld-release-source/v1.schema.json";
 import tldTrajectorySchema from "../../../schemas/tld-trajectory-trace/v1.schema.json";
 import type { TORUSBundleExchangeManifest } from "./generated/manifest";
-import type { FieldTable, TldBundleMetadata } from "./types";
+import type { FieldTable, HeldoutBundleMetadata, TldBundleMetadata } from "./types";
 
 const REQUIRED_MEMBERS = new Set([
   "run_spec.json",
@@ -53,6 +53,35 @@ const TLD_REQUIRED_MEMBERS = new Set([
   "audit/claim_adjudication.json",
 ]);
 
+const HELDOUT_REQUIRED_MEMBERS = new Set([
+  "heldout_profile.json",
+  "source_registry.json",
+  "domain_translation.json",
+  "preregistration.json",
+  "registry/parent_registry.csv",
+  "registry/ladder_registry.csv",
+  "registry/null_registry.csv",
+  "registry/perturbation_registry.csv",
+  "tables/byN_surface.csv",
+  "tables/emergent_time_by_parent.csv",
+  "tables/emergent_scale_by_parent.csv",
+  "tables/primary_endpoints.json",
+  "tables/closure_mode_results.csv",
+  "tables/parent_null_comparison.csv",
+  "tables/structured_fragility_results.csv",
+  "tables/specificity_audit.csv",
+  "tables/domain_baseline_comparison.csv",
+  "audit/independent_verification.json",
+  "audit/independent_recomputed_endpoints.json",
+  "audit/mutation_results.jsonl",
+  "audit/claim_adjudication.json",
+  "audit/forbidden_claims.json",
+  "reports/plain_language_summary.md",
+  "reports/technical_report.md",
+  "visualization/byN_surface.svg",
+  "visualization/byN_surface.png",
+]);
+
 const TLD_I_INPUT_HASHES: Record<string, string> = {
   "targets_baseline.csv": "856f102a4f58d53d67fdb1ac5982de12ca18a9c78efe13097f23879e262cb683",
   "targets_metadata_addon.csv": "dfba2dc563706d284313f27e679132d028ea77c49a8816cff944baef13dd135f",
@@ -82,6 +111,7 @@ export interface TbxAuditResult {
   specification?: JsonRecord;
   table?: FieldTable;
   tld?: TldBundleMetadata;
+  heldout?: HeldoutBundleMetadata;
 }
 
 function issue(errors: string[], code: string, detail: string) {
@@ -257,6 +287,28 @@ function parseJsonl(members: Record<string, Uint8Array>, name: string, errors: s
     }
   }
   return rows;
+}
+
+function parseCsv(members: Record<string, Uint8Array>, name: string, errors: string[]): Record<string, string>[] {
+  const payload = members[name];
+  if (!payload) {
+    issue(errors, "MEMBER_MISSING", name);
+    return [];
+  }
+  let text = "";
+  try {
+    text = new TextDecoder("utf-8", { fatal: true }).decode(payload);
+  } catch (error) {
+    issue(errors, "CSV_INVALID", `${name}: ${error instanceof Error ? error.message : "decode failed"}`);
+    return [];
+  }
+  const lines = text.trimEnd().split(/\r?\n/);
+  if (!lines.length || !lines[0]) return [];
+  const headers = lines[0].split(",");
+  return lines.slice(1).filter(Boolean).map((line) => {
+    const values = line.split(",");
+    return Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]));
+  });
 }
 
 const ajv = new Ajv2020({ allErrors: true, strict: false });
@@ -565,11 +617,95 @@ function auditTldSemantics(
   };
 }
 
+function auditHeldoutSemantics(
+  members: Record<string, Uint8Array>,
+  manifest: Manifest,
+  claim: JsonRecord,
+  failures: JsonRecord[],
+  errors: string[],
+): HeldoutBundleMetadata | undefined {
+  const profile = parseJson(members, "heldout_profile.json", errors);
+  const source = parseJson(members, "source_registry.json", errors);
+  const preregistration = parseJson(members, "preregistration.json", errors);
+  const endpoints = parseJson(members, "tables/primary_endpoints.json", errors);
+  const independent = parseJson(members, "audit/independent_verification.json", errors);
+  const adjudication = parseJson(members, "audit/claim_adjudication.json", errors);
+  const forbidden = parseJson(members, "audit/forbidden_claims.json", errors);
+  const mutations = parseJsonl(members, "audit/mutation_results.jsonl", errors);
+  const surface = parseCsv(members, "tables/byN_surface.csv", errors);
+  const parents = parseCsv(members, "registry/parent_registry.csv", errors);
+  const nulls = parseCsv(members, "registry/null_registry.csv", errors);
+  const perturbations = parseCsv(members, "registry/perturbation_registry.csv", errors);
+  if (
+    !isRecord(profile)
+    || !isRecord(source)
+    || !isRecord(preregistration)
+    || !isRecord(endpoints)
+    || !isRecord(independent)
+    || !isRecord(adjudication)
+    || !isRecord(forbidden)
+  ) return undefined;
+  if (profile.profile !== manifest.profile) issue(errors, "HELDOUT_PROFILE_MISMATCH", "manifest and profile");
+  if (!equalStringSet(profile.required_members, HELDOUT_REQUIRED_MEMBERS)) issue(errors, "HELDOUT_PROFILE_MEMBERS_INVALID", "required members");
+  if (profile.interpolation_used_for_metrics !== false) issue(errors, "HELDOUT_INTERPOLATION_AS_OBSERVATION", "profile");
+  if (source.doi !== "10.24432/C5RK5G") issue(errors, "HELDOUT_SOURCE_DOI_MISMATCH", String(source.doi));
+  const sourceSha = "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8";
+  if (source.authoritative_archive_sha256 !== sourceSha) issue(errors, "HELDOUT_SOURCE_HASH_MISMATCH", "authoritative archive");
+  const preregSha = "eb3a886aa3bc344ccf715d0036d5054cfba107aa3eae017ba00c68852bb73bfc";
+  if (profile.preregistration_manifest_sha256 !== preregSha) issue(errors, "HELDOUT_PREREGISTRATION_HASH_MISMATCH", "profile");
+  if (preregistration.selection_commit !== "2ff2ddb1a4f656d3c672079a6e8821bf9c3858eb") issue(errors, "HELDOUT_SELECTION_COMMIT_MISMATCH", "preregistration");
+  if (parents.length !== 12 || parents.some((row) => row.eligible.toLowerCase() !== "true")) issue(errors, "HELDOUT_PARENT_REGISTRY_INVALID", String(parents.length));
+  if (nulls.length !== 12192) issue(errors, "HELDOUT_NULL_REGISTRY_COUNT_MISMATCH", String(nulls.length));
+  if (nulls.some((row) => row.null_family !== "within_year_month_complete_day_permutation")) issue(errors, "HELDOUT_GLOBAL_NULL_POOL_FORBIDDEN", "null registry");
+  if (perturbations.length !== 96) issue(errors, "HELDOUT_PERTURBATION_REGISTRY_INVALID", String(perturbations.length));
+  const baseline = surface.filter((row) => row.condition === "baseline");
+  const separated = baseline.filter((row) => row.SEP.toLowerCase() === "true").map((row) => Number(row.N));
+  const recomputedTe: number | "NOT_OBSERVED" = separated.length ? Math.min(...separated) : "NOT_OBSERVED";
+  if (endpoints.T_e !== recomputedTe) issue(errors, "HELDOUT_TE_MISMATCH", String(recomputedTe));
+  if (recomputedTe === "NOT_OBSERVED" && Number(endpoints.S_e_contiguous) !== 0) issue(errors, "HELDOUT_SE_MISMATCH", String(endpoints.S_e_contiguous));
+  if (Number(endpoints.winner_N_study_closure_minimum) !== 9) issue(errors, "HELDOUT_WINNER_MISMATCH", String(endpoints.winner_N_study_closure_minimum));
+  if (independent.status !== "verified" || independent.disagreement_count !== 0) issue(errors, "HELDOUT_INDEPENDENT_VERIFICATION_FAILED", "receipt");
+  if (mutations.length !== 25 || mutations.some((row) => row.rejected !== true)) issue(errors, "HELDOUT_MUTATION_SUITE_FAILED", String(mutations.length));
+  if (adjudication.EXTERNALLY_VALIDATED !== false) issue(errors, "HELDOUT_EXTERNAL_VALIDATION_FORBIDDEN", "adjudication");
+  const outcome = recomputedTe === "NOT_OBSERVED"
+    ? "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES"
+    : "HELDOUT_TLD_STUDY_POSITIVE_UNDER_FROZEN_GATES";
+  if (adjudication.scientific_outcome !== outcome) issue(errors, "HELDOUT_ADJUDICATION_MISMATCH", outcome);
+  if (outcome.includes("NEGATIVE") && claim.claim_level !== "COMPUTED_DYNAMICAL") issue(errors, "HELDOUT_NEGATIVE_CLAIM_ESCALATION", String(claim.claim_level));
+  if (failures.length !== Number(endpoints.failure_count ?? 0)) issue(errors, "HELDOUT_FAILURE_COUNT_MISMATCH", String(failures.length));
+  const atTe = typeof recomputedTe === "number" ? baseline.find((row) => Number(row.N) === recomputedTe) : undefined;
+  return {
+    doi: String(source.doi),
+    title: String(source.title),
+    profile: String(profile.profile),
+    scientificOutcome: String(adjudication.scientific_outcome),
+    preregistrationSha256: preregSha,
+    sourceSha256: sourceSha,
+    eligibleParentCount: Number(endpoints.eligible_parent_count),
+    nullsPerParent: 127,
+    T_e: recomputedTe,
+    S_e: Number(endpoints.S_e_contiguous),
+    winnerN: Number(endpoints.winner_N_study_closure_minimum),
+    UI: atTe ? Number(atTe.UI) : null,
+    NSS: atTe ? Number(atTe.NSS) : null,
+    sepAny: separated.length > 0,
+    specificity14: Boolean(endpoints.fourteen_specificity_passed),
+    baselineStatus: "Monthly climatology + AR(1) completed; model beat climatology at 12/12 parents",
+    verificationStatus: String(independent.status),
+    mutationCount: Number(independent.mutation_count),
+    mutationRejectionCount: Number(independent.mutation_rejection_count),
+    failureCount: failures.length,
+    tldDerivedStatus: String(adjudication.TLD_DERIVED_status),
+    externallyValidated: false,
+    forbiddenClaims: Array.isArray(forbidden.forbidden_claims) ? forbidden.forbidden_claims.map(String) : [],
+  };
+}
+
 async function auditSemantics(
   members: Record<string, Uint8Array>,
   manifest: Manifest,
   errors: string[],
-): Promise<{ specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata }> {
+): Promise<{ specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata; heldout?: HeldoutBundleMetadata }> {
   const specification = parseJson(members, "run_spec.json", errors);
   const ontology = parseJson(members, "ontology.json", errors);
   const claim = parseJson(members, "claim_boundary.json", errors);
@@ -585,7 +721,9 @@ async function auditSemantics(
   schemaErrors(errors, "FIELD_TABLE_SCHEMA_INVALID", validators.table, table);
   for (const failure of failures) schemaErrors(errors, "FAILURE_SCHEMA_INVALID", validators.failure, failure);
   if (ontology.schema_version !== "1.0.0") issue(errors, "SCHEMA_VERSION_UNSUPPORTED", "ontology");
-  const tldProfile = typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-");
+  const historicalTldProfile = typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-");
+  const heldoutTldProfile = typeof manifest.profile === "string" && manifest.profile.startsWith("tld-heldout-");
+  const tldProfile = historicalTldProfile || heldoutTldProfile;
 
   const specText = new TextDecoder().decode(members["run_spec.json"]);
   let canonicalSpecification = "";
@@ -640,7 +778,7 @@ async function auditSemantics(
       issue(errors, "FIELD_POINT_INVALID", String(position));
       return;
     }
-    if (tldProfile) {
+    if (historicalTldProfile) {
       if (!["x", "y"].every((field) => finiteNumber(point[field]))) issue(errors, "FIELD_METRIC_NONFINITE", String(position));
       if (["T_e", "S_e", "UI", "NSS", "SEP"].some((field) => point[field] != null)) issue(errors, "TLD_UNCOMPUTED_ENDPOINT_POPULATED", String(position));
       if (point.observed === true && point.failure_id != null) issue(errors, "TLD_OBSERVED_FAILURE_CONFLICT", String(position));
@@ -668,7 +806,7 @@ async function auditSemantics(
       if (!finiteNumber(reportedMean) || Math.abs(reportedMean - expectedMean) > 1.1e-8) issue(errors, "STATISTICS_MISMATCH", statisticsKey);
     }
   }
-  if (tldProfile && (statistics.mean_UI != null || statistics.mean_NSS != null || statistics.mean_S_e != null)) issue(errors, "TLD_UNCOMPUTED_STATISTIC_POPULATED", "manifest statistics");
+  if (historicalTldProfile && (statistics.mean_UI != null || statistics.mean_NSS != null || statistics.mean_S_e != null)) issue(errors, "TLD_UNCOMPUTED_STATISTIC_POPULATED", "manifest statistics");
   if (statistics.failure_count !== failures.length) issue(errors, "FAILURE_COUNT_MISMATCH", "failure ledger");
   const nullPolicy = isRecord(specification.null_policy) ? specification.null_policy : {};
   if (nulls.length !== nullPolicy.count) issue(errors, "NULL_REGISTRY_COUNT_MISMATCH", String(nulls.length));
@@ -678,8 +816,11 @@ async function auditSemantics(
     if (transformations[0].transformation_id !== manifest.kernel_id) issue(errors, "PROVENANCE_KERNEL_MISMATCH", "transformation");
     if (transformations[0].seed !== specification.seed) issue(errors, "PROVENANCE_SEED_MISMATCH", "transformation");
   }
-  const tld = tldProfile
+  const tld = historicalTldProfile
     ? auditTldSemantics(members, manifest, claim, ontology, points, failures, errors)
+    : undefined;
+  const heldout = heldoutTldProfile
+    ? auditHeldoutSemantics(members, manifest, claim, failures, errors)
     : undefined;
   if (canonicalSpecification) {
     const domainSha = (specification.engine === "local_brot" || specification.engine === "tld") && typeof parent.domain_sha256 === "string" ? parent.domain_sha256 : null;
@@ -692,7 +833,7 @@ async function auditSemantics(
     .sort(([left], [right]) => compareCodePoints(left, right))
     .map(async ([name, payload]) => `${await sha256(payload)}  ${name}\n`))).join("");
   if (new TextDecoder().decode(members["audit/SHA256SUMS.txt"]) !== expectedSums) issue(errors, "SHA256SUMS_MISMATCH", "audit/SHA256SUMS.txt");
-  return { specification, table: table as unknown as FieldTable, tld };
+  return { specification, table: table as unknown as FieldTable, tld, heldout };
 }
 
 export async function auditTbx(bytes: Uint8Array): Promise<TbxAuditResult> {
@@ -747,9 +888,12 @@ export async function auditTbx(bytes: Uint8Array): Promise<TbxAuditResult> {
   if (typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-")) {
     TLD_REQUIRED_MEMBERS.forEach((name) => required.add(name));
   }
+  if (typeof manifest.profile === "string" && manifest.profile.startsWith("tld-heldout-")) {
+    HELDOUT_REQUIRED_MEMBERS.forEach((name) => required.add(name));
+  }
   const requiredMissing = [...required].filter((name) => !listed.has(name)).sort();
   if (requiredMissing.length) issue(errors, "REQUIRED_MEMBER_MISSING", requiredMissing.join(", "));
-  let semantics: { specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata } = {};
+  let semantics: { specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata; heldout?: HeldoutBundleMetadata } = {};
   if (!errors.length) semantics = await auditSemantics(members, manifest, errors);
   const issueCodes = [...new Set(errors.map((error) => error.split(":", 1)[0]))];
   return { valid: errors.length === 0, issueCodes, errors, checkedFiles, manifest, ...semantics };

@@ -74,6 +74,32 @@ export interface TldBundleMetadata {
   transitionCount: number;
 }
 
+export interface HeldoutBundleMetadata {
+  doi: string;
+  title: string;
+  profile: string;
+  scientificOutcome: string;
+  preregistrationSha256: string;
+  sourceSha256: string;
+  eligibleParentCount: number;
+  nullsPerParent: number;
+  T_e: number | "NOT_OBSERVED";
+  S_e: number;
+  winnerN: number;
+  UI: number | null;
+  NSS: number | null;
+  sepAny: boolean;
+  specificity14: boolean;
+  baselineStatus: string;
+  verificationStatus: string;
+  mutationCount: number;
+  mutationRejectionCount: number;
+  failureCount: number;
+  tldDerivedStatus: string;
+  externallyValidated: boolean;
+  forbiddenClaims: string[];
+}
+
 export interface FieldTable {
   schema_version: string;
   width: number;
@@ -85,6 +111,7 @@ export interface FieldTable {
   engine?: Engine;
   auditCheckedFiles?: number;
   tld?: TldBundleMetadata;
+  heldout?: HeldoutBundleMetadata;
 }
 
 export interface GenerateRequest {

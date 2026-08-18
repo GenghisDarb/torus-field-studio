@@ -170,5 +170,6 @@ export async function importBundle(file: File): Promise<FieldTable> {
     engine: engine === "analytic" || engine === "local_brot" || engine === "tld" ? engine : undefined,
     auditCheckedFiles: audit.checkedFiles,
     tld: audit.tld,
+    heldout: audit.heldout,
   };
 }
