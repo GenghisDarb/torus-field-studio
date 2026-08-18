@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import zipfile
 from collections import Counter
 from pathlib import Path
@@ -307,6 +308,9 @@ def _trace_field(
 def export_tld_bundle(result: dict[str, Any], profile: str, destination: str | Path) -> Path:
     if profile not in {"notebook13", "notebook14", "combined"}:
         raise ValueError(f"Unknown TLD bundle profile: {profile}")
+    # JSON object keys are strings on disk. Normalize before hashing or materializing so a
+    # freshly computed result and the same result loaded from JSON produce identical bytes.
+    result = json.loads(canonical_json(result))
     verification = verify_historical_result(result)
     if verification["status"] != "verified":
         raise ValueError("Independent TLD verifier rejected the production result")

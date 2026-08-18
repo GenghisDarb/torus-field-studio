@@ -78,7 +78,7 @@ def run_summary(
         "mean_return_steps": float(np.mean(return_steps)) if return_steps else float("inf"),
         "mean_flips": float(np.mean(flips)) if flips else float("inf"),
         "p90_flips": p90(flips),
-        "competitors": dict(competitors),
+        "competitors": {str(key): count for key, count in competitors.items()},
         "raw": {
             "escape_steps": escape_steps,
             "return_steps": return_steps,

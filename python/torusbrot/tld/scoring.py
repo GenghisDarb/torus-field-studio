@@ -23,7 +23,9 @@ class ClosureScore:
     rms_by_N: dict[int, float]
 
     def to_dict(self) -> dict[str, object]:
-        return asdict(self)
+        value = asdict(self)
+        value["rms_by_N"] = {str(key): score for key, score in self.rms_by_N.items()}
+        return value
 
 
 def materialize_ladder(

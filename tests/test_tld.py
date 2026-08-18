@@ -31,6 +31,9 @@ def test_tld_bundle_is_deterministic_and_auditable(tmp_path: Path) -> None:
     assert first.read_bytes() == second.read_bytes()
     report = audit_bundle(first)
     assert report.valid, report.errors
+    reloaded = json.loads(json.dumps(result))
+    third = export_tld_bundle(reloaded, "notebook14", tmp_path / "reloaded.tbx.zip")
+    assert first.read_bytes() == third.read_bytes()
 
 
 def test_domain_materialization_and_frozen_modern_contract(tmp_path: Path) -> None:
