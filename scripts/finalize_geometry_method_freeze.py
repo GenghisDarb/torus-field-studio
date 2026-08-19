@@ -18,7 +18,8 @@ def load(name: str) -> Any:
 
 
 def write(name: str, value: Any) -> None:
-    (OUT / name).write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    with (OUT / name).open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(value, indent=2, sort_keys=True) + "\n")
 
 
 def main() -> None:
@@ -268,10 +269,10 @@ def main() -> None:
         "frozen_parent_model.json",
         "frozen_claim_boundary.json",
     )
-    (OUT / "method_freeze_SHA256SUMS.txt").write_text(
-        "\n".join(f"{sha256(OUT / name)}  {name}" for name in freeze_files) + "\n",
-        encoding="utf-8",
-    )
+    with (OUT / "method_freeze_SHA256SUMS.txt").open(
+        "w", encoding="utf-8", newline="\n"
+    ) as handle:
+        handle.write("\n".join(f"{sha256(OUT / name)}  {name}" for name in freeze_files) + "\n")
     print(f"Frozen selected method: {selected}")
 
 

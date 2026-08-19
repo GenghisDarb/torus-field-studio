@@ -4,7 +4,7 @@
   "candidate_family_expansion": "FORBIDDEN",
   "channel_numeric_pooling": false,
   "external_heldout_field_outcome_at_freeze": "ABSENT",
-  "independent_verification_sha256": "4c564b8b772f2edc00e21daa52a96d8ce769591d7c55d4f3db930a990d2c83e9",
+  "independent_verification_sha256": "bbe83c1c951e3aa4f7f16aab581c7323f2e9d76a9027837b43a0a15ae3aaa2ae",
   "method_freeze_commit_identity": "the Git commit containing this artifact; exact SHA recorded in post-push receipt",
   "method_id": "METHOD_C_EVIDENCE_VECTOR_NONBINARY",
   "method_mode": "NONBINARY_EVIDENCE_VECTOR",

@@ -3,3 +3,8 @@
 *.zip binary
 *.docx binary
 *.pdf binary
+studies/**/*.csv text eol=lf
+studies/**/*.json text eol=lf
+studies/**/*.jsonl text eol=lf
+studies/**/*.md text eol=lf
+studies/**/*.txt text eol=lf

@@ -67,9 +67,10 @@ def main() -> None:
         "metadata_only_candidate_discovery_now_authorized": True,
         "binary_TLD_field_classification_authorized": False,
     }
-    (STUDY / "method_freeze_post_push_receipt.json").write_text(
-        json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
+    with (STUDY / "method_freeze_post_push_receipt.json").open(
+        "w", encoding="utf-8", newline="\n"
+    ) as handle:
+        handle.write(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
     print(f"Recorded pushed method freeze {EXPECTED_COMMIT}.")
 
 

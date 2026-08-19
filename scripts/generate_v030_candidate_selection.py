@@ -24,12 +24,14 @@ DIMENSIONS = {
 
 
 def dump_json(path: Path, value: Any) -> None:
-    path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(value, indent=2, sort_keys=True) + "\n")
 
 
 def dump_jsonl(path: Path, values: list[dict[str, Any]]) -> None:
     lines = [json.dumps(value, sort_keys=True, separators=(",", ":")) for value in values]
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(lines) + "\n")
 
 
 def source_file(name: str, size: int, md5: str) -> dict[str, Any]:

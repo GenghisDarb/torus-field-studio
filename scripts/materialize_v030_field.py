@@ -20,12 +20,14 @@ METHOD_FREEZE_COMMIT = "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c"
 
 
 def write_json(path: Path, value: Any) -> None:
-    path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(value, indent=2, sort_keys=True) + "\n")
 
 
 def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     lines = [json.dumps(row, sort_keys=True, separators=(",", ":")) for row in rows]
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(lines) + "\n")
 
 
 def sha256(path: Path) -> str:
@@ -614,7 +616,10 @@ def main() -> None:
         if path.is_file() and path.name != "SHA256SUMS_INPUTS.txt"
     )
     lines = [f"{sha256(out / name)}  {name}" for name in checksum_names]
-    (out / "SHA256SUMS_INPUTS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with (out / "SHA256SUMS_INPUTS.txt").open(
+        "w", encoding="utf-8", newline="\n"
+    ) as handle:
+        handle.write("\n".join(lines) + "\n")
 
 
 if __name__ == "__main__":

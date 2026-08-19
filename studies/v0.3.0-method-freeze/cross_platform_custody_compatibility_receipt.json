@@ -1,0 +1,22 @@
+{
+  "canonical_encoding": "UTF-8 without BOM",
+  "canonical_line_ending": "LF",
+  "field_materialization_manifest": {
+    "canonical_sha256": "1e5b4bf17ea4624123e9497a05a9255e7e981b0d268bda8b4bc402bc87574a33",
+    "previous_repository_sha256": "ceb15969307eeba0eef44dc8343bd0506bfa5862d1aa1397a466c538e4530dbb"
+  },
+  "issue_code": "PLATFORM_LINE_ENDING_CHECKSUM_MISMATCH",
+  "method_freeze_manifest": {
+    "canonical_sha256": "47c1210ff3d923b8bf9eaf4dcdba644911241228dc727e76c62ce03c56a27c19",
+    "previous_repository_sha256": "38646b4f05d5bae494b1a3d95ec79d434b124e0c3f710fb35accad13b76807b1",
+    "previous_working_tree_sha256_recorded_by_receipt": "e778765ccbfa83ad55f6117d30a464f5232463a7d8af85a4270d4c1a232329ef"
+  },
+  "numeric_values_changed": false,
+  "raw_outcome_values_inspected": false,
+  "scientific_contract_changed": false,
+  "embedded_hash_references_updated": true,
+  "scientific_semantic_values_changed": false,
+  "source_custody_changed": false,
+  "status": "BOUNDED_CROSS_PLATFORM_COMPATIBILITY_FIX",
+  "trigger": "GitHub Actions reproduced LF repository bytes while the original Windows generators hashed CRLF working-tree bytes"
+}
