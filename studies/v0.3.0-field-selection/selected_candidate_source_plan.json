@@ -1,0 +1,51 @@
+{
+  "acquisition_authorized_only_after_dataset_freeze_push": true,
+  "acquisition_order": [
+    "LICENSE.txt",
+    "README.md",
+    "TestMatrix.xlsx",
+    "Multiple Wake.zip"
+  ],
+  "candidate_id": "wind_farm_scanning_lidar_wakes",
+  "custody_checks": [
+    "HTTPS source identity and DOI resolve",
+    "exact published byte size",
+    "exact published MD5",
+    "locally computed SHA-256",
+    "safe archive paths with no absolute paths, traversal, links, or duplicate names",
+    "complete member inventory before NetCDF access",
+    "one DATA_test_X.nc member per declared experiment",
+    "NetCDF structural and coordinate integrity",
+    "test-matrix to NetCDF one-to-one reconciliation"
+  ],
+  "doi": "10.5281/zenodo.18731994",
+  "failure_policy": "record failure and return V030_GEOMETRY_FIELD_ASSAY_EXECUTION_BLOCKED; never substitute another candidate",
+  "license": "CC-BY-4.0",
+  "metadata_api": "https://zenodo.org/api/records/18731994",
+  "primary_measurement_archive": "Multiple Wake.zip",
+  "raw_value_firewall": "do not open any NetCDF variable or TestMatrix cell until the dataset-freeze commit is pushed",
+  "record_url": "https://zenodo.org/records/18731994",
+  "required_files": [
+    {
+      "name": "Multiple Wake.zip",
+      "published_md5": "fe1ccca62ad418f682b0dfae4f97a515",
+      "size_bytes": 607488674
+    },
+    {
+      "name": "LICENSE.txt",
+      "published_md5": "4b5dac56b6af4b437f77f2cd1757c6d8",
+      "size_bytes": 1033
+    },
+    {
+      "name": "README.md",
+      "published_md5": "78b1f3923739af43156b5eccc99cd391",
+      "size_bytes": 4486
+    },
+    {
+      "name": "TestMatrix.xlsx",
+      "published_md5": "e5a4ab27620b89e01f4a5eb953cbe026",
+      "size_bytes": 14113
+    }
+  ],
+  "schema_version": "1.0.0"
+}

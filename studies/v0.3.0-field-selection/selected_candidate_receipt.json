@@ -1,0 +1,25 @@
+{
+  "candidate_id": "wind_farm_scanning_lidar_wakes",
+  "candidate_substitution_after_dataset_freeze": "FORBIDDEN",
+  "documentation_risk": "archive-name mismatch between the deposited file and README must be reconciled by byte inventory or fail closed",
+  "doi": "10.5281/zenodo.18731994",
+  "license": "CC-BY-4.0",
+  "materialization_failure_outcome": "V030_GEOMETRY_FIELD_ASSAY_EXECUTION_BLOCKED",
+  "metadata_documents_accessed": [
+    "Zenodo record metadata",
+    "README.md (documentation only; published MD5 78b1f3923739af43156b5eccc99cd391)"
+  ],
+  "method_freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "outcome_data_used_for_selection": false,
+  "raw_measurement_archive_accessed": false,
+  "runner_up": {
+    "candidate_id": "structured_light_patterns",
+    "score": 94
+  },
+  "schema_version": "1.0.0",
+  "selected_method": "METHOD_C_EVIDENCE_VECTOR_NONBINARY",
+  "selected_score": 97,
+  "selection_rule": "highest eligible prespecified metadata-only score; tie-breakers not required",
+  "selection_state": "IRREVOCABLY_SELECTED_PENDING_FREEZE_COMMIT",
+  "title": "Wind Tunnel Experimental Dataset for Wind Farm Control with Scanning Lidar Wake Measurements"
+}
