@@ -18,7 +18,7 @@ def test_materialization_is_complete_without_claim_metrics() -> None:
     parents = (OUT / "parent_registry.jsonl").read_text(encoding="utf-8").splitlines()
     assert isinstance(receipt, dict)
     assert isinstance(contamination, dict)
-    assert receipt["status"] == "PASS_WITH_DOCUMENTED_WARNINGS"
+    assert receipt["status"] == "MATERIALIZED_ASSAY_EXECUTION_BLOCKED"
     assert receipt["parent_count"] == 4
     assert receipt["claim_metrics_computed"] is False
     assert contamination["dataset_frozen_before_raw_access"] is True
@@ -35,8 +35,23 @@ def test_field_units_and_parent_limitations_are_explicit() -> None:
     assert coordinate["native_unit_attributes"] is False
     assert coordinate["status"] == "PASS_WITH_CROSS_SOURCE_UNIT_PROVENANCE"
     assert parent["effective_parent_count_for_frozen_assay"] == 4
+    assert parent["frozen_minimum_effective_parent_count"] == 8
+    assert parent["status"] == "FAIL_FROZEN_MINIMUM_PARENT_SUPPORT"
     assert parent["binary_sensitivity_adequate"] is False
-    assert scout["claim_ceiling"] == "NONBINARY_EVIDENCE_VECTOR_ONLY"
+    assert scout["status"] == "INELIGIBLE_PARENT_SUPPORT"
+    assert scout["closure_authorized"] is False
+    assert scout["claim_ceiling"] == "DESCRIPTIVE_SOURCE_CUSTODY_ONLY"
+
+
+def test_field_assay_stopped_before_preregistration_or_scoring() -> None:
+    blocker = load("field_assay_blocker.json")
+    assert isinstance(blocker, dict)
+    assert blocker["frozen_minimum_effective_parents"] == 8
+    assert blocker["materialized_effective_parents"] == 4
+    assert blocker["nested_samples_promoted"] == 0
+    assert blocker["preregistration_created"] is False
+    assert blocker["scored_execution_count"] == 0
+    assert blocker["scientific_outcome"] == "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED"
 
 
 def test_materialization_input_checksums_are_current() -> None:

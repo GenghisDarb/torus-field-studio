@@ -401,6 +401,13 @@ def main() -> None:
                 "resolution": "coordinates are frozen as mm by agreement with *_Pos_*_mm and 925 mm plane metadata; velocities are frozen as m/s by agreement with Pitot_wind_speed_ms-1",
                 "scientific_contract_changed": False,
             },
+            {
+                "issue_code": "FROZEN_MINIMUM_EFFECTIVE_PARENT_SUPPORT_NOT_MET",
+                "severity": "EXECUTION_BLOCKER",
+                "evidence": "four separately acquired run-level parents materialized; frozen method requires at least eight",
+                "resolution": "assay stopped before preregistration and scoring; nested samples, lidars, and turbines were not promoted to independent parents",
+                "scientific_contract_changed": False,
+            },
         ],
     )
 
@@ -429,6 +436,8 @@ def main() -> None:
         "neutral_result": "mixed nonbinary evidence or inadequate sensitivity under the frozen four-parent support",
         "invalidates_protocol": "source mismatch, unresolved units, parent leakage, null/projection selection after outcomes, or hidden failure",
         "binary_claim_sensitivity": "INSUFFICIENT_BY_DESIGN; four independent parents have minimum exact two-sided sign resolution 0.125",
+        "claim_bearing_execution_authorized": False,
+        "execution_blocker": "frozen minimum effective parent count is eight; materialized count is four",
     }
     write_json(out / "domain_translation.json", translation)
 
@@ -469,9 +478,10 @@ def main() -> None:
     write_json(
         out / "parent_independence_precheck.json",
         {
-            "status": "PASS_WITH_SHARED_CAMPAIGN_LIMITATION",
+            "status": "FAIL_FROZEN_MINIMUM_PARENT_SUPPORT",
             "independent_parent_count": len(parents),
             "effective_parent_count_for_frozen_assay": 4,
+            "frozen_minimum_effective_parent_count": 8,
             "nested_samples_promoted": 0,
             "same_condition_replicates": 0,
             "shared_campaign": True,
@@ -516,22 +526,24 @@ def main() -> None:
         {
             "schema_version": "1.0.0",
             "scout_id": "SCOUT_ZENODO_18731994",
-            "status": "ELIGIBLE_NONBINARY_EVIDENCE_VECTOR",
-            "closure_authorized": True,
+            "status": "INELIGIBLE_PARENT_SUPPORT",
+            "closure_authorized": False,
             "materialized_fraction": 1.0,
             "effective_parent_count": 4.0,
+            "frozen_minimum_effective_parent_count": 8,
             "checks": {
                 "incident_materialized": True,
                 "control_materialized": True,
                 "source_provider_harness_boundaries": True,
-                "effective_independent_evidence": True,
+                "effective_independent_evidence": False,
                 "target_outcome_leakage": False,
                 "coordinates_and_units_frozen": True,
                 "projection_justified": True,
                 "domain_baseline_available": True,
                 "binary_sensitivity": False,
             },
-            "claim_ceiling": "NONBINARY_EVIDENCE_VECTOR_ONLY",
+            "failure_codes": ["INDEPENDENT_PARENT_SUPPORT_INSUFFICIENT"],
+            "claim_ceiling": "DESCRIPTIVE_SOURCE_CUSTODY_ONLY",
         },
     )
     write_json(
@@ -548,7 +560,7 @@ def main() -> None:
         },
     )
     receipt = {
-        "status": "PASS_WITH_DOCUMENTED_WARNINGS",
+        "status": "MATERIALIZED_ASSAY_EXECUTION_BLOCKED",
         "domain_id": translation["domain_id"],
         "source_custody": source_custody["status"],
         "coordinate_integrity": "PASS_WITH_CROSS_SOURCE_UNIT_PROVENANCE",
@@ -563,11 +575,38 @@ def main() -> None:
             "NATIVE_NETCDF_UNIT_ATTRIBUTES_ABSENT",
             "FOUR_PARENT_BINARY_SENSITIVITY_INADEQUATE",
         ],
+        "blockers": ["FROZEN_MINIMUM_EFFECTIVE_PARENT_SUPPORT_NOT_MET"],
         "claim_metrics_computed": False,
-        "preregistration_authorized": True,
+        "preregistration_authorized": False,
+        "scored_execution_authorized": False,
+        "scientific_outcome": "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED",
+        "protocol_outcome": "V030_GEOMETRY_FIELD_ASSAY_EXECUTION_BLOCKED",
         "candidate_substitution": "FORBIDDEN",
     }
     write_json(out / "materialization_receipt.json", receipt)
+    write_json(
+        out / "field_assay_blocker.json",
+        {
+            "schema_version": "1.0.0",
+            "status": "BLOCKED_BEFORE_PREREGISTRATION_AND_SCORING",
+            "issue_code": "FROZEN_MINIMUM_EFFECTIVE_PARENT_SUPPORT_NOT_MET",
+            "frozen_minimum_effective_parents": 8,
+            "materialized_effective_parents": 4,
+            "nested_lidar_samples": sum(row["lidar_sample_count"] for row in nested),
+            "nested_samples_promoted": 0,
+            "lidars_promoted_to_parents": 0,
+            "turbines_promoted_to_parents": 0,
+            "method_freeze_commit": METHOD_FREEZE_COMMIT,
+            "dataset_freeze_commit": DATASET_FREEZE_COMMIT,
+            "candidate_substitution": "FORBIDDEN",
+            "claim_metrics_computed": False,
+            "preregistration_created": False,
+            "scored_execution_count": 0,
+            "scientific_outcome": "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED",
+            "protocol_outcome": "V030_GEOMETRY_FIELD_ASSAY_EXECUTION_BLOCKED",
+            "next_legal_action": "design a future version with a new prospectively frozen candidate-selection policy; v0.3.0 may not substitute this dataset",
+        },
+    )
 
     checksum_names = sorted(
         path.name

@@ -1,0 +1,24 @@
+{
+  "candidate_substitution": "FORBIDDEN",
+  "corrected_artifacts": [
+    "domain_translation.json",
+    "failure_ledger.jsonl",
+    "field_assay_blocker.json",
+    "materialization_receipt.json",
+    "parent_independence_precheck.json",
+    "scout_eligibility.json",
+    "SHA256SUMS_INPUTS.txt"
+  ],
+  "correction": "Apply the frozen minimum of eight effective independent parents to the four materialized runs.",
+  "discovered_after_commit": "4364d7c2e3c3c5f71971242fde1995ed6a3e1386",
+  "issue_code": "SCOUT_PARENT_GATE_WAS_REPORTED_OPTIMISTICALLY",
+  "method_freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "original_scientific_contract_changed": false,
+  "outcome_values_inspected": false,
+  "preregistration_existed": false,
+  "raw_claim_metrics_computed": false,
+  "repair_scope": "eligibility and authorization receipts only",
+  "schema_version": "1.0.0",
+  "scored_execution_existed": false,
+  "status": "BOUNDED_COMPATIBILITY_CORRECTION"
+}

@@ -6,6 +6,7 @@
   ],
   "binary_claim_sensitivity": "INSUFFICIENT_BY_DESIGN; four independent parents have minimum exact two-sided sign resolution 0.125",
   "boundary_conditions": "finite open measured footprint; NaN is missing, never zero or interpolation; no periodic spatial boundary",
+  "claim_bearing_execution_authorized": false,
   "compatible_nulls": [
     "N01_PARENT_LOCAL_CYCLIC_FIELD_SHIFT",
     "N02_PARENT_LOCAL_CONTIGUOUS_BLOCK_PERMUTATION"
@@ -20,6 +21,7 @@
     "y-directed signs under y reflection",
     "coordinate values under unit-preserving transforms"
   ],
+  "execution_blocker": "frozen minimum effective parent count is eight; materialized count is four",
   "faithful_projections": [
     "P01_SOURCE_RECONSTRUCTED_VECTOR_GRID",
     "P02_DUAL_NATIVE_LOS_EVIDENCE_VECTOR"
