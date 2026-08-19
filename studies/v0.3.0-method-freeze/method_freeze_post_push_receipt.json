@@ -1,0 +1,33 @@
+{
+  "binary_TLD_field_classification_authorized": false,
+  "branch": "agent/v0.3.0-geometry-indexed-tld",
+  "candidate_dataset_search_before_push": false,
+  "candidate_raw_values_inspected_before_push": false,
+  "commit_subject": "Freeze geometry-indexed TLD method on synthetic and historical controls",
+  "external_heldout_field_outcome_at_freeze": "ABSENT",
+  "independent_verification_sha256": "4c564b8b772f2edc00e21daa52a96d8ce769591d7c55d4f3db930a990d2c83e9",
+  "independent_verification_status": "verified",
+  "local_remote_match": true,
+  "metadata_only_candidate_discovery_now_authorized": true,
+  "method_freeze_checksums_sha256": "e778765ccbfa83ad55f6117d30a464f5232463a7d8af85a4270d4c1a232329ef",
+  "method_freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "rejected_methods_and_exact_blockers": {
+    "METHOD_A_STRICT_CONJUNCTIVE": [
+      "family_type_I_error",
+      "representation_agreement",
+      "phase-randomized negative challenge was falsely classified; family error 0.25",
+      "closure winner boundary pinning rate 0.200000 remains descriptive"
+    ],
+    "METHOD_B_HIERARCHICAL": [
+      "family_type_I_error",
+      "representation_agreement",
+      "phase-randomized negative challenge was falsely classified; family error 0.25",
+      "closure winner boundary pinning rate 0.200000 remains descriptive"
+    ]
+  },
+  "remote_origin_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "schema_version": "1.0.0",
+  "selected_method": "METHOD_C_EVIDENCE_VECTOR_NONBINARY",
+  "source_checksums_sha256": "5b1390f903d4209568716fc9a100fbc008017d2f71e694372acab1de38357f52",
+  "source_hash_count": 21
+}
