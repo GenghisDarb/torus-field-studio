@@ -70,26 +70,48 @@ def _fragility(field: np.ndarray, seed: int) -> tuple[bool, dict[str, float]]:
     rng = np.random.default_rng(seed)
     baseline = field_projection_scores(field)
     null = coordinate_permutation_null(field, rng)
-    if field.ndim == 2 and field.shape[0] == field.shape[1] and np.allclose(field, field.T):
-        rotated = field[np.ix_(np.arange(len(field))[::-1], np.arange(len(field))[::-1])]
+    is_graph = (
+        field.ndim == 2
+        and field.shape[0] == field.shape[1]
+        and np.allclose(field, field.T)
+        and np.allclose(np.diag(field), 0.0)
+        and np.all((field == 0.0) | (field == 1.0))
+    )
+    if is_graph:
+        permutation = rng.permutation(len(field))
+        rotated = field[np.ix_(permutation, permutation)]
+        pairs = np.asarray(np.triu_indices(len(field), 1)).T
+
+        def graph_edge_dropout(fraction: float) -> np.ndarray:
+            candidate = field.copy()
+            present = pairs[np.asarray([candidate[left, right] == 1.0 for left, right in pairs])]
+            count = max(1, int(round(fraction * len(present))))
+            for left, right in present[rng.choice(len(present), size=count, replace=False)]:
+                candidate[left, right] = candidate[right, left] = 0.0
+            return candidate
+
+        noise = graph_edge_dropout(0.02)
+        missing = graph_edge_dropout(0.10)
+        resolution = graph_edge_dropout(0.25)
     else:
         rotated = np.rot90(field, axes=(0, 1))
-    scale = max(float(np.std(field)), 1.0)
-    noise = field + rng.normal(scale=0.05 * scale, size=field.shape)
-    missing = field.copy()
-    flat = (
-        missing.reshape(-1, missing.shape[-1])
-        if missing.ndim >= 3 and missing.shape[-1] in {2, 3}
-        else missing.reshape(-1, 1)
-    )
-    selected = rng.choice(len(flat), size=max(1, len(flat) // 10), replace=False)
-    flat[selected] = np.mean(flat, axis=0)
+        scale = max(float(np.std(field)), 1.0)
+        noise = field + rng.normal(scale=0.05 * scale, size=field.shape)
+        missing = field.copy()
+        flat = (
+            missing.reshape(-1, missing.shape[-1])
+            if missing.ndim >= 3 and missing.shape[-1] in {2, 3}
+            else missing.reshape(-1, 1)
+        )
+        selected = rng.choice(len(flat), size=max(1, len(flat) // 10), replace=False)
+        flat[selected] = np.mean(flat, axis=0)
+        resolution = _resample(field)
     variants = {
         "measurement_noise": noise,
         "coordinate_or_edge_shuffle": null,
         "orientation_rotation": rotated,
         "mask_dropout": missing,
-        "resolution_reduction": _resample(field),
+        "resolution_reduction": resolution,
     }
 
     def distance(candidate: np.ndarray) -> float:

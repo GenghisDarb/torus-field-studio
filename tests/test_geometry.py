@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import numpy as np
+from torusbrot.geometry.calibration import _fragility
 from torusbrot.geometry.channels import signed_bidirectional_separation
 from torusbrot.geometry.metrology import interior_relative_curvature, measurement_repeat_policy
 from torusbrot.geometry.models import ObservableClass
@@ -155,3 +156,17 @@ def test_repeat_policy_never_uses_timing_average_for_semantics() -> None:
     assert semantic["duplicate_clean_replay"] is True
     assert semantic["timing_average_claim_bearing"] is False
     assert timing["causal_authority"] is False
+
+
+def test_graph_fragility_perturbations_preserve_projection_type() -> None:
+    graph = build_synthetic_fixtures(300)[16].field
+    supported, responses = _fragility(graph, 300)
+    assert isinstance(supported, bool)
+    assert set(responses) == {
+        "measurement_noise",
+        "coordinate_or_edge_shuffle",
+        "orientation_rotation",
+        "mask_dropout",
+        "resolution_reduction",
+    }
+    assert all(np.isfinite(value) for value in responses.values())
