@@ -96,7 +96,7 @@ test("held-out Beijing PM2.5 TBX exposes the frozen negative result", async ({ p
   });
   await page.goto("/");
   await waitForField(page);
-  await page.getByRole("button", { name: "Load held-out study" }).click();
+  await page.getByRole("button", { name: "Load v0.2.2 forensic audit" }).click();
   await expect(page.locator(".source-pill")).toHaveText("HELD-OUT SOURCE · AUDIT PASSED", {
     timeout: 30_000,
   });
@@ -109,6 +109,7 @@ test("held-out Beijing PM2.5 TBX exposes the frozen negative result", async ({ p
   await expect(source).toContainText("FAILED");
   await expect(source).toContainText("25/25 mutations");
   await expect(source).toContainText("BLOCKED");
+  await expect(source).toContainText("post-hoc", { ignoreCase: true });
   await expect(page.getByText("COMPUTED_DYNAMICAL", { exact: true })).toBeVisible();
   const evidence = page.getByTestId("heldout-evidence-summary");
   await expect(evidence).toContainText("Tₑ NOT_OBSERVED");
