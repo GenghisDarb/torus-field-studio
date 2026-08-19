@@ -6,7 +6,6 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parents[1]
 STUDY = ROOT / "studies" / "v0.3.0-method-freeze"
 EXPECTED_COMMIT = "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c"
