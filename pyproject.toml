@@ -19,7 +19,13 @@ classifiers = [
 dependencies = ["jsonschema>=4.23,<5", "numpy>=1.26,<3"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.3", "ruff>=0.9"]
+dev = [
+  "netCDF4>=1.7,<2",
+  "openpyxl>=3.1,<4",
+  "pytest>=8.3",
+  "ruff>=0.9",
+]
+field = ["netCDF4>=1.7,<2", "openpyxl>=3.1,<4"]
 
 [project.scripts]
 torusbrot = "torusbrot.cli:main"

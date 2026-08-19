@@ -1,0 +1,113 @@
+{
+  "all_four_components_present": true,
+  "checks": [
+    {
+      "aligned_shape": [
+        150000
+      ],
+      "all_components_nonconstant": true,
+      "common_complete_count": 126406,
+      "components": {
+        "R2D2_vLOS": {
+          "finite_count": 126425,
+          "missing_count": 23575
+        },
+        "R2D3_vLOS": {
+          "finite_count": 126626,
+          "missing_count": 23374
+        },
+        "ux": {
+          "finite_count": 126406,
+          "missing_count": 23594
+        },
+        "uy": {
+          "finite_count": 126406,
+          "missing_count": 23594
+        }
+      },
+      "parent_id": "PARENT_TEST_1"
+    },
+    {
+      "aligned_shape": [
+        150000
+      ],
+      "all_components_nonconstant": true,
+      "common_complete_count": 125708,
+      "components": {
+        "R2D2_vLOS": {
+          "finite_count": 125738,
+          "missing_count": 24262
+        },
+        "R2D3_vLOS": {
+          "finite_count": 126001,
+          "missing_count": 23999
+        },
+        "ux": {
+          "finite_count": 125708,
+          "missing_count": 24292
+        },
+        "uy": {
+          "finite_count": 125708,
+          "missing_count": 24292
+        }
+      },
+      "parent_id": "PARENT_TEST_2"
+    },
+    {
+      "aligned_shape": [
+        150000
+      ],
+      "all_components_nonconstant": true,
+      "common_complete_count": 125863,
+      "components": {
+        "R2D2_vLOS": {
+          "finite_count": 125875,
+          "missing_count": 24125
+        },
+        "R2D3_vLOS": {
+          "finite_count": 126039,
+          "missing_count": 23961
+        },
+        "ux": {
+          "finite_count": 125863,
+          "missing_count": 24137
+        },
+        "uy": {
+          "finite_count": 125863,
+          "missing_count": 24137
+        }
+      },
+      "parent_id": "PARENT_TEST_3"
+    },
+    {
+      "aligned_shape": [
+        150000
+      ],
+      "all_components_nonconstant": true,
+      "common_complete_count": 125191,
+      "components": {
+        "R2D2_vLOS": {
+          "finite_count": 125194,
+          "missing_count": 24806
+        },
+        "R2D3_vLOS": {
+          "finite_count": 125241,
+          "missing_count": 24759
+        },
+        "ux": {
+          "finite_count": 125191,
+          "missing_count": 24809
+        },
+        "uy": {
+          "finite_count": 125191,
+          "missing_count": 24809
+        }
+      },
+      "parent_id": "PARENT_TEST_4"
+    }
+  ],
+  "claim_metrics_computed": false,
+  "missing_values_preserved": true,
+  "status": "PASS",
+  "units": "m/s"
+}

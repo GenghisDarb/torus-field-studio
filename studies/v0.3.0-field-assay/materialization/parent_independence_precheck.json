@@ -1,0 +1,11 @@
+{
+  "binary_sensitivity_adequate": false,
+  "effective_parent_count_for_frozen_assay": 4,
+  "external_validation_allowed": false,
+  "independent_parent_count": 4,
+  "minimum_exact_two_sided_sign_p": 0.125,
+  "nested_samples_promoted": 0,
+  "same_condition_replicates": 0,
+  "shared_campaign": true,
+  "status": "PASS_WITH_SHARED_CAMPAIGN_LIMITATION"
+}

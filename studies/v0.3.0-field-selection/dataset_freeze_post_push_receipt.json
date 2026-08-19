@@ -1,0 +1,15 @@
+{
+  "branch": "agent/v0.3.0-geometry-indexed-tld",
+  "candidate_id": "wind_farm_scanning_lidar_wakes",
+  "candidate_substitution": "FORBIDDEN",
+  "dataset_freeze_commit": "70fa574350ecff8c021ed61ad121c07edb3d581f",
+  "exact_commit_subject": "Freeze first geometry-indexed held-out field dataset",
+  "method_freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "raw_measurement_archive_access_before_push": false,
+  "raw_materialization_authorized": true,
+  "remote": "https://github.com/GenghisDarb/torus-field-studio.git",
+  "remote_head_observed": "70fa574350ecff8c021ed61ad121c07edb3d581f",
+  "remote_matches_dataset_freeze": true,
+  "schema_version": "1.0.0",
+  "selection_state": "FROZEN_AND_PUSHED"
+}

@@ -1,0 +1,10 @@
+{
+  "candidate_substitution": false,
+  "claim_metrics_computed_during_materialization": false,
+  "dataset_freeze_commit": "70fa574350ecff8c021ed61ad121c07edb3d581f",
+  "dataset_frozen_before_raw_access": true,
+  "method_freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "method_frozen_before_candidate_search": true,
+  "status": "PASS",
+  "test_matrix_use": "source mapping, parent identity, coordinates, units, and intervention metadata only"
+}

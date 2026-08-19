@@ -1,0 +1,20 @@
+{
+  "candidate_substitution": "FORBIDDEN",
+  "claim_metrics_computed": false,
+  "coordinate_integrity": "PASS_WITH_CROSS_SOURCE_UNIT_PROVENANCE",
+  "domain_id": "ZENODO_18731994_WIND_TUNNEL_LIDAR_WAKE",
+  "faithful_projection_count": 2,
+  "field_integrity": "PASS",
+  "nested_replicate_count": 600000,
+  "parent_count": 4,
+  "preregistration_authorized": true,
+  "registered_null_family_count": 2,
+  "registered_perturbation_count": 5,
+  "source_custody": "PASS",
+  "status": "PASS_WITH_DOCUMENTED_WARNINGS",
+  "warnings": [
+    "DOCUMENTATION_ARCHIVE_NAME_MISMATCH",
+    "NATIVE_NETCDF_UNIT_ATTRIBUTES_ABSENT",
+    "FOUR_PARENT_BINARY_SENSITIVITY_INADEQUATE"
+  ]
+}

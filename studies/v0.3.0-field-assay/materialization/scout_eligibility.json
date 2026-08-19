@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "binary_sensitivity": false,
+    "control_materialized": true,
+    "coordinates_and_units_frozen": true,
+    "domain_baseline_available": true,
+    "effective_independent_evidence": true,
+    "incident_materialized": true,
+    "projection_justified": true,
+    "source_provider_harness_boundaries": true,
+    "target_outcome_leakage": false
+  },
+  "claim_ceiling": "NONBINARY_EVIDENCE_VECTOR_ONLY",
+  "closure_authorized": true,
+  "effective_parent_count": 4.0,
+  "materialized_fraction": 1.0,
+  "schema_version": "1.0.0",
+  "scout_id": "SCOUT_ZENODO_18731994",
+  "status": "ELIGIBLE_NONBINARY_EVIDENCE_VECTOR"
+}

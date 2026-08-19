@@ -51,3 +51,12 @@ def test_selected_source_plan_has_fail_closed_custody() -> None:
     assert all("published_md5" in item for item in plan["required_files"])
     assert "never substitute" in plan["failure_policy"]
     assert exposure["selected_candidate"]["prior_outcome_exposure"] is False
+
+
+def test_dataset_freeze_is_recorded_after_remote_push() -> None:
+    receipt = load("dataset_freeze_post_push_receipt.json")
+    assert isinstance(receipt, dict)
+    assert receipt["selection_state"] == "FROZEN_AND_PUSHED"
+    assert receipt["remote_matches_dataset_freeze"] is True
+    assert receipt["raw_measurement_archive_access_before_push"] is False
+    assert receipt["dataset_freeze_commit"] == "70fa574350ecff8c021ed61ad121c07edb3d581f"
