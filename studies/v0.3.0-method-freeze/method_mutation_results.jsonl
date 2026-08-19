@@ -1,0 +1,20 @@
+{"description": "drop one fixture row", "mutation_id": "M01", "rejected": true}
+{"description": "duplicate one row", "mutation_id": "M02", "rejected": true}
+{"description": "negative p-value", "mutation_id": "M03", "rejected": true}
+{"description": "p-value above one", "mutation_id": "M04", "rejected": true}
+{"description": "nonfinite effect", "mutation_id": "M05", "rejected": true}
+{"description": "pixel pseudoreplication", "mutation_id": "M06", "rejected": true}
+{"description": "fixture truth changes by projection", "mutation_id": "M07", "rejected": true}
+{"description": "method A changes by projection", "mutation_id": "M08", "rejected": true}
+{"description": "representation changes by projection", "mutation_id": "M09", "rejected": true}
+{"description": "invalid serialized bool", "mutation_id": "M10", "rejected": true}
+{"description": "remove fixture id", "mutation_id": "M11", "rejected": true}
+{"description": "remove projection id", "mutation_id": "M12", "rejected": true}
+{"description": "infinite robust effect", "mutation_id": "M13", "rejected": true}
+{"description": "negative uncertainty", "mutation_id": "M14", "rejected": true}
+{"description": "upper-tail invalid", "mutation_id": "M15", "rejected": true}
+{"description": "lower-tail invalid", "mutation_id": "M16", "rejected": true}
+{"description": "fixture row moved to new id", "mutation_id": "M17", "rejected": true}
+{"description": "method truth malformed", "mutation_id": "M18", "rejected": true}
+{"description": "zero parent count", "mutation_id": "M19", "rejected": true}
+{"description": "delete a projection row", "mutation_id": "M20", "rejected": true}

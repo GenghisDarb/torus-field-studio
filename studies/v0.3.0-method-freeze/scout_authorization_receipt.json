@@ -1,0 +1,7 @@
+{
+  "all_synthetic_fixtures_authorized": true,
+  "closure_computed_only_after_eligibility": true,
+  "policy_id": "GeometryScoutV1",
+  "schema_version": "1.0.0",
+  "silent_drops": 0
+}

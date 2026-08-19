@@ -1,0 +1,33 @@
+{
+  "all_scout_eligible": true,
+  "binary_target_is_not_universal_structure": true,
+  "fixture_count": 25,
+  "method_metrics": {
+    "METHOD_A_STRICT_CONJUNCTIVE": {
+      "false_positive": 1,
+      "family_type_I_error_strict_nulls": 0.0,
+      "negative_fixture_count": 4,
+      "positive_fixture_count": 21,
+      "power": 0.9523809523809523,
+      "strict_null_count": 2,
+      "strict_null_false_positive": 0,
+      "true_positive": 20,
+      "type_I_error_all_negative_challenges": 0.25
+    },
+    "METHOD_B_HIERARCHICAL": {
+      "false_positive": 1,
+      "family_type_I_error_strict_nulls": 0.0,
+      "negative_fixture_count": 4,
+      "positive_fixture_count": 21,
+      "power": 0.9523809523809523,
+      "strict_null_count": 2,
+      "strict_null_false_positive": 0,
+      "true_positive": 20,
+      "type_I_error_all_negative_challenges": 0.25
+    }
+  },
+  "negative_challenge_count": 4,
+  "positive_fixture_count": 21,
+  "schema_version": "1.0.0",
+  "strict_exchangeable_null_count": 2
+}

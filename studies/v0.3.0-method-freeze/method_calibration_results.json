@@ -1,0 +1,60 @@
+{
+  "S_e_redundancy_claim_count": 0,
+  "T_e_semantic_misuse_count": 0,
+  "absolute_threshold_dependence": false,
+  "all_channels_finite": true,
+  "all_scout_eligible": true,
+  "binary_method_metrics": {
+    "METHOD_A_STRICT_CONJUNCTIVE": {
+      "false_positive": 1,
+      "family_type_I_error_strict_nulls": 0.0,
+      "negative_fixture_count": 4,
+      "positive_fixture_count": 21,
+      "power": 0.9523809523809523,
+      "strict_null_count": 2,
+      "strict_null_false_positive": 0,
+      "true_positive": 20,
+      "type_I_error_all_negative_challenges": 0.25
+    },
+    "METHOD_B_HIERARCHICAL": {
+      "false_positive": 1,
+      "family_type_I_error_strict_nulls": 0.0,
+      "negative_fixture_count": 4,
+      "positive_fixture_count": 21,
+      "power": 0.9523809523809523,
+      "strict_null_count": 2,
+      "strict_null_false_positive": 0,
+      "true_positive": 20,
+      "type_I_error_all_negative_challenges": 0.25
+    }
+  },
+  "candidate_dataset_search_performed": false,
+  "channel_numeric_pooling": false,
+  "closure_boundary_pinning_rate": 0.2,
+  "external_heldout_field_outcomes_used": false,
+  "fixture_count": 25,
+  "historical_construct_recovery_pass": true,
+  "independent_verification_status": "PENDING",
+  "null_adequacy": {
+    "adequate": true,
+    "selected": [
+      "coordinate_label_permutation_for_array_fields",
+      "edge_count_preserving_rewire_for_graph_fields"
+    ],
+    "strict_type_i": 0.0
+  },
+  "perturbation_nonredundancy": {
+    "count_gate_pass": true,
+    "selected": [
+      "measurement_noise",
+      "coordinate_or_edge_shuffle",
+      "orientation_rotation",
+      "mask_dropout",
+      "resolution_reduction"
+    ]
+  },
+  "preregistration_sha256": "cc22b61a888fb34b6f7cce7c14a589f8a6b2cedd8d38ad5f5be67314e0dccf37",
+  "representation_agreement_rate_supported_fixtures": 0.9523809523809523,
+  "schema_version": "1.0.0",
+  "sign_error_rate": 0.023809523809523808
+}

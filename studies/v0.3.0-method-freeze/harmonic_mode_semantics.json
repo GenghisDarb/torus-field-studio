@@ -1,0 +1,13 @@
+{
+  "authority": [
+    "formal_lexicon:B",
+    "errata_map:B",
+    "tfs_v022_release:A"
+  ],
+  "meaning": "closure-mode label under a frozen objective",
+  "schema_version": "1.0.0",
+  "symbol": "N",
+  "winner_N_is_S_e": false,
+  "winner_N_is_T_e": false,
+  "winner_N_is_geometric_scale": false
+}

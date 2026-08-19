@@ -1,0 +1,10 @@
+{
+  "reject_if": [
+    "nonfinite trace",
+    "nonpositive trace before log transform",
+    "robust log-trace scale at machine-zero floor",
+    "all closure minima tied"
+  ],
+  "schema_version": "1.0.0",
+  "status_on_rejection": "INCONCLUSIVE_NO_ELBOW"
+}

@@ -1,0 +1,5 @@
+fixture_id,ground_truth_present,strict_exchangeable_null,method_a_positive,method_b_positive,representation_status
+SYN-01,False,True,False,False,FAIL
+SYN-18,False,True,False,False,FAIL
+SYN-21,False,False,True,True,PASS
+SYN-25,False,False,False,False,FAIL

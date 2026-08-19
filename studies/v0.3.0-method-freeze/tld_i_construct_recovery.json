@@ -1,0 +1,54 @@
+{
+  "S_e": "NOT_APPLICABLE_HISTORICAL_TLD_I",
+  "T_e": "NOT_APPLICABLE_HISTORICAL_TLD_I",
+  "adapter_id": "canonical-tld-i-sequence-adapter-v1",
+  "baseline": {
+    "chi": 0.6253020625644651,
+    "margin": 0.05108693012191823,
+    "rms_by_N": {
+      "10": 0.0030164681534935456,
+      "11": 0.054103398275411774,
+      "12": 0.10170328696616626,
+      "13": 0.14198011585834308,
+      "7": 0.2722958384611901,
+      "8": 0.1600961008329832,
+      "9": 0.07282963823326671
+    },
+    "runner_N": 11,
+    "runner_rms": 0.054103398275411774,
+    "winner_N": 10,
+    "winner_rms": 0.0030164681534935456
+  },
+  "checks": {
+    "baseline_closed_at_N10": true,
+    "baseline_margin_exact": true,
+    "escape_distinguished": true,
+    "healed_return_high": true,
+    "order_controls_change_closure": true,
+    "unhealed_return_low": true,
+    "value_noise_robustness": true
+  },
+  "claim_boundary_preserved": true,
+  "construct_recovery_pass": true,
+  "escaped_alpha0": {
+    "escape_rate": 1.0,
+    "return_rate": 0.105
+  },
+  "geometry_proxy_substituted": false,
+  "healed_alpha002": {
+    "escape_rate": 1.0,
+    "return_rate": 0.9675
+  },
+  "historical_operator_preserved": true,
+  "operator": "canonical_TLD_I_chi_RMS_closure",
+  "order_mutation_winner_counts": {
+    "10": 0,
+    "11": 0,
+    "12": 0,
+    "13": 27,
+    "7": 36,
+    "8": 0,
+    "9": 1
+  },
+  "value_noise_N10_fraction": 1.0
+}

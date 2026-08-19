@@ -1,0 +1,12 @@
+{
+  "S_e_created_by_calibration": false,
+  "nonredundancy_gate": true,
+  "perturbations": [
+    "measurement_noise",
+    "coordinate_or_edge_shuffle",
+    "orientation_rotation",
+    "mask_dropout",
+    "resolution_reduction"
+  ],
+  "schema_version": "1.0.0"
+}

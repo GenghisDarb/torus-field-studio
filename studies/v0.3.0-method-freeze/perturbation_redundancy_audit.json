@@ -1,0 +1,17 @@
+{
+  "count_gate_pass": true,
+  "maximum_absolute_pairwise_correlation": 0.9,
+  "minimum_nonredundant_count": 3,
+  "normalization_erasure_tested": true,
+  "rejected": {},
+  "response_statistic": "median relative change across registered projections",
+  "schema_version": "1.0.0",
+  "selected": [
+    "measurement_noise",
+    "coordinate_or_edge_shuffle",
+    "orientation_rotation",
+    "mask_dropout",
+    "resolution_reduction"
+  ],
+  "uniform_scaling_counted_as_independent": false
+}

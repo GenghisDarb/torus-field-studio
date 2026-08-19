@@ -1,0 +1,15 @@
+{
+  "ControllerGate_repair_authority": false,
+  "EXTERNALLY_VALIDATED": false,
+  "S_e": "ONLY_IF_NONREDUNDANT_PERSISTENCE_SEMANTICS_PASS; OTHERWISE NOT_APPLICABLE",
+  "TLD_DERIVED": "SEPARATE_ADJUDICATION; DEFAULT BLOCKED",
+  "T_e": "ONLY_IF_OPERATION_DEPTH_SEMANTICS_PASS; OTHERWISE NOT_APPLICABLE",
+  "binary_positive_or_negative_field_classification": "FORBIDDEN",
+  "candidate_metadata_discovery_after_method_freeze_push": "ALLOWED",
+  "maximum_method_outcome": "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY",
+  "raw_candidate_values_before_method_freeze_push": "FORBIDDEN",
+  "schema_version": "1.0.0",
+  "selected_method": "METHOD_C_EVIDENCE_VECTOR_NONBINARY",
+  "theory_proof": false,
+  "winner_N": "CLOSURE_MODE_LABEL_ONLY"
+}

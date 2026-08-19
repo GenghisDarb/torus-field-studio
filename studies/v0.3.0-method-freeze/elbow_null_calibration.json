@@ -1,0 +1,8 @@
+{
+  "elbow_has_causal_or_repair_authority": false,
+  "elbow_is_winner_N": false,
+  "full_trace_retained": true,
+  "multiple_candidate_elbows_reported": 3,
+  "parent_matching_required": true,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,14 @@
+{
+  "binary_TLD_negative_allowed": false,
+  "binary_TLD_positive_allowed": false,
+  "candidate_family_expansion": "FORBIDDEN",
+  "channel_numeric_pooling": false,
+  "external_heldout_field_outcome_at_freeze": "ABSENT",
+  "independent_verification_sha256": "4c564b8b772f2edc00e21daa52a96d8ce769591d7c55d4f3db930a990d2c83e9",
+  "method_freeze_commit_identity": "the Git commit containing this artifact; exact SHA recorded in post-push receipt",
+  "method_id": "METHOD_C_EVIDENCE_VECTOR_NONBINARY",
+  "method_mode": "NONBINARY_EVIDENCE_VECTOR",
+  "preregistration_sha256": "cc22b61a888fb34b6f7cce7c14a589f8a6b2cedd8d38ad5f5be67314e0dccf37",
+  "schema_version": "1.0.0",
+  "selection_basis": "frozen loss over 25 synthetic fixtures and exact historical TLD I controls"
+}

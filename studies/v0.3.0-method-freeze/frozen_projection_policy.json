@@ -1,0 +1,14 @@
+{
+  "array_field_projections": [
+    "neighbor_coherence",
+    "spectral_concentration"
+  ],
+  "disagreement_under_method_C": "RETAIN_AND_REPORT",
+  "flattening_without_registered_contract": "FORBIDDEN",
+  "graph_field_projections": [
+    "graph_spectral_gap",
+    "graph_triangle_clustering"
+  ],
+  "minimum_faithful_projection_count": 2,
+  "schema_version": "1.0.0"
+}

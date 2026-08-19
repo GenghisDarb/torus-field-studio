@@ -1,0 +1,16 @@
+{
+  "authority": [
+    "formal_lexicon:B",
+    "v030_protocol:E"
+  ],
+  "meaning": "cumulative applications of one frozen operator, with r+1 applied after r",
+  "not_operation_depth": [
+    "block width",
+    "lag",
+    "resolution",
+    "geometric scale"
+  ],
+  "schema_version": "1.0.0",
+  "symbol": "r",
+  "synthetic_suite_status": "NOT_APPLICABLE_NO_RECURSIVE_OPERATOR"
+}

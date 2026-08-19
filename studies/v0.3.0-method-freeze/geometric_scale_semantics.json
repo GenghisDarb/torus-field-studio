@@ -1,0 +1,11 @@
+{
+  "authority": [
+    "formal_lexicon:B",
+    "v030_protocol:E"
+  ],
+  "first_separation_label": "separation_onset_scale",
+  "may_be_called_T_e": false,
+  "meaning": "spatial, temporal, modal, graph, or coarse-graining scale",
+  "schema_version": "1.0.0",
+  "symbol": "ell"
+}

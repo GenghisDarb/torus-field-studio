@@ -5,15 +5,32 @@ export interface GeometryScoutEligibility {
   scout_id: string;
   domain_id: string;
   checks: {
+    source_bytes_verified: boolean;
     materialized: boolean;
     coordinates_complete: boolean;
-    nondegenerate: boolean;
-    null_ensemble_complete: boolean;
-    independent_parent_support: boolean;
-    mask_valid: boolean;
-    support_sufficient: boolean;
     units_resolved: boolean;
-    sensitivity_adequate: "PASS" | "FAIL" | "NOT_APPLICABLE";
+    orientation_known: boolean;
+    components_registered: boolean;
+    mask_valid: boolean;
+    missingness_within_bounds: boolean;
+    nondegenerate: boolean;
+    variance_finite: boolean;
+    support_sufficient: boolean;
+    resolution_sufficient: boolean;
+    independent_parent_support: boolean;
+    effective_parent_support: boolean;
+    nested_replicates_identified: boolean;
+    null_ensemble_complete: boolean;
+    nulls_finite: boolean;
+    projection_deterministic: boolean;
+    projection_not_outcome_selected: boolean;
+    projection_justified: boolean;
+    boundary_conditions_known: boolean;
+    operation_depth_applicable: boolean;
+    geometric_scale_applicable: boolean;
+    domain_baseline_materializable: boolean;
+    failure_ledger_active: boolean;
+    sensitivity_adequate: boolean | "NOT_APPLICABLE";
   };
   materialized_fraction: number;
   effective_parent_count: number;
@@ -21,6 +38,16 @@ export interface GeometryScoutEligibility {
     [k: string]: any;
   } | null;
   closure_authorized: boolean;
-  status: "ELIGIBLE" | "INELIGIBLE" | "INCONCLUSIVE";
+  status:
+    | "ELIGIBLE"
+    | "INELIGIBLE_DEGENERATE"
+    | "INELIGIBLE_COORDINATE_AMBIGUITY"
+    | "INELIGIBLE_UNIT_AMBIGUITY"
+    | "INELIGIBLE_PARENT_SUPPORT"
+    | "INELIGIBLE_NULL_INCOMPLETE"
+    | "INELIGIBLE_PROJECTION_UNJUSTIFIED"
+    | "INELIGIBLE_OPERATION_DEPTH_NOT_APPLICABLE"
+    | "INELIGIBLE_BASELINE_UNAVAILABLE"
+    | "MATERIALIZATION_BLOCKED";
   failure_codes: string[];
 }

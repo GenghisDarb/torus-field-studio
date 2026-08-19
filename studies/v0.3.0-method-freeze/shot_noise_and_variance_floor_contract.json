@@ -1,0 +1,11 @@
+{
+  "applies_to": [
+    "NOISY_NUMERIC",
+    "registered physical sensitivity measurements"
+  ],
+  "does_not_apply_to": [
+    "DETERMINISTIC_SEMANTIC"
+  ],
+  "schema_version": "1.0.0",
+  "uncalibrated_PAT_dB_thresholds_imported": false
+}

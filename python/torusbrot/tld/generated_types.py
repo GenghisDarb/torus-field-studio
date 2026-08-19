@@ -286,7 +286,20 @@ class GeometryScoutEligibility(TypedDict, total=False):
     effective_parent_count: Required[float]
     orbit_length_summary: Required[dict[str, Any] | None]
     closure_authorized: Required[bool]
-    status: Required[Literal["ELIGIBLE", "INELIGIBLE", "INCONCLUSIVE"]]
+    status: Required[
+        Literal[
+            "ELIGIBLE",
+            "INELIGIBLE_DEGENERATE",
+            "INELIGIBLE_COORDINATE_AMBIGUITY",
+            "INELIGIBLE_UNIT_AMBIGUITY",
+            "INELIGIBLE_PARENT_SUPPORT",
+            "INELIGIBLE_NULL_INCOMPLETE",
+            "INELIGIBLE_PROJECTION_UNJUSTIFIED",
+            "INELIGIBLE_OPERATION_DEPTH_NOT_APPLICABLE",
+            "INELIGIBLE_BASELINE_UNAVAILABLE",
+            "MATERIALIZATION_BLOCKED",
+        ]
+    ]
     failure_codes: Required[list[str]]
 
 

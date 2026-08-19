@@ -1,0 +1,7 @@
+{
+  "claim_bearing_absolute_curvature_threshold_count": 0,
+  "inventory_count": 3,
+  "new_geometry_method_uses_machine_epsilon_only_for_numerical_denominators": true,
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

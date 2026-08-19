@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import hashlib
+import json
+from pathlib import Path
+
 import numpy as np
 from torusbrot.geometry.calibration import _fragility
 from torusbrot.geometry.channels import signed_bidirectional_separation
@@ -31,6 +35,7 @@ GEOMETRY_SCHEMAS = (
     "scout-eligibility",
     "structure-channel-registry",
 )
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_all_geometry_schemas_load() -> None:
@@ -170,3 +175,25 @@ def test_graph_fragility_perturbations_preserve_projection_type() -> None:
         "resolution_reduction",
     }
     assert all(np.isfinite(value) for value in responses.values())
+
+
+def test_frozen_scout_receipts_validate_against_authoritative_schema() -> None:
+    path = ROOT / "studies" / "v0.3.0-method-freeze" / "scout_receipts.jsonl"
+    receipts = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+    assert len(receipts) == 25
+    assert all(validate_with_schema("scout-eligibility", receipt) == [] for receipt in receipts)
+
+
+def test_method_freeze_checksums_and_nonbinary_boundary_are_current() -> None:
+    study = ROOT / "studies" / "v0.3.0-method-freeze"
+    for line in (study / "method_freeze_SHA256SUMS.txt").read_text(encoding="utf-8").splitlines():
+        expected, name = line.split(maxsplit=1)
+        assert hashlib.sha256((study / name).read_bytes()).hexdigest() == expected
+    method = json.loads((study / "frozen_revised_method.json").read_text(encoding="utf-8"))
+    verification = json.loads(
+        (study / "independent_method_verification.json").read_text(encoding="utf-8")
+    )
+    assert method["method_id"] == "METHOD_C_EVIDENCE_VECTOR_NONBINARY"
+    assert method["binary_TLD_positive_allowed"] is False
+    assert verification["status"] == "verified"
+    assert verification["disagreement_count"] == 0

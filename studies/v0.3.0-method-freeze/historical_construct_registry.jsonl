@@ -1,0 +1,5 @@
+{"construct_id": "TLD_I_BASELINE_CLOSED", "operator": "canonical_TLD_I_chi_RMS_closure", "outcome_exposed": true, "source": "TLD I exact replay"}
+{"construct_id": "TLD_I_ESCAPED_ALPHA0", "operator": "canonical_TLD_I_chi_RMS_closure", "outcome_exposed": true, "source": "TLD I exact replay"}
+{"construct_id": "TLD_I_HEALED_ALPHA002", "operator": "canonical_TLD_I_chi_RMS_closure", "outcome_exposed": true, "source": "TLD I exact replay"}
+{"construct_id": "TLD_I_ORDER_MUTATIONS", "operator": "canonical_TLD_I_chi_RMS_closure", "outcome_exposed": true, "source": "deterministic seed 300"}
+{"construct_id": "TLD_I_VALUE_NOISE_CONTROLS", "operator": "canonical_TLD_I_chi_RMS_closure", "outcome_exposed": true, "source": "deterministic seed 300"}

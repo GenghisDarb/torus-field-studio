@@ -1,0 +1,10 @@
+{
+  "confirmatory_claim": false,
+  "correlated_parent_warning": "ONE_CITY_WITH_SENSOR_REPLICATES",
+  "old_positive_persistence_projection": "NEGATIVE",
+  "registered_null_positive_correlation_bias": "DETECTED_IN_V022_FORENSIC",
+  "role": "OUTCOME_EXPOSED_DIAGNOSTIC_ONLY",
+  "schema_version": "1.0.0",
+  "source": "fresh exact v0.2.1 replay summarized in Phase A; no new raw-data read",
+  "threshold_or_operator_selection_use": false
+}

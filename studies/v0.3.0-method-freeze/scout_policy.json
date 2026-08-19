@@ -1,0 +1,11 @@
+{
+  "forbidden_thresholds": [
+    0.2143
+  ],
+  "minimum_effective_parents": 8,
+  "no_silent_drops": true,
+  "policy_id": "GeometryScoutV1",
+  "runs_before_claim_metrics": true,
+  "schema_version": "1.0.0",
+  "universal_materialization_fraction": null
+}

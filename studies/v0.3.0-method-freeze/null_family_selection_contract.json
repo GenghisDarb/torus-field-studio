@@ -1,0 +1,5 @@
+{
+  "rule": "parent matched, finite, registered target destruction, strict-null family FPR <= 0.05",
+  "schema_version": "1.0.0",
+  "selected_by_external_outcome": false
+}

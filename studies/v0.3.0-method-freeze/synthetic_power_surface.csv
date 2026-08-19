@@ -1,0 +1,3 @@
+method_id,true_positive,positive_fixture_count,power,false_positive,negative_fixture_count,type_I_error_all_negative_challenges,strict_null_false_positive,strict_null_count,family_type_I_error_strict_nulls
+METHOD_A_STRICT_CONJUNCTIVE,20,21,0.9523809523809523,1,4,0.25,0,2,0.0
+METHOD_B_HIERARCHICAL,20,21,0.9523809523809523,1,4,0.25,0,2,0.0
