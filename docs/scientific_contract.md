@@ -30,7 +30,10 @@ TORUS-BROT and ToT-BROT are distinct terms and engines; an audit rejects their c
 
 ## Prospectively frozen held-out study
 
-The v0.2.1 Beijing Multi-Site Air Quality study uses 12 monitoring stations as independent
+The v0.2.1 Beijing Multi-Site Air Quality study registered 12 monitoring stations as parents.
+The additive v0.2.2 dependence audit shows they are correlated sensors nested in one city-level
+parent; the registered count is preserved, but population inference must not treat them as 12
+independent domain replications. The original v0.2.1 contract described the stations as independent
 parents, 127 station-local within-year-month permutation nulls per parent, a primary N grid of
 6–14, and a secondary specificity grid of 4–20. Endpoint definitions, thresholds, seeds,
 eligibility, perturbations, falsifiers, and claim rules were committed before the single scored

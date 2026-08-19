@@ -11,6 +11,7 @@ on:
       - "tests/**"
       - "apps/studio/**"
       - "studies/heldout-v0.2.1/**"
+      - "studies/v0.2.2-negative-result-forensic/**"
       - "replication/**"
       - "pyproject.toml"
       - "pnpm-lock.yaml"
@@ -137,9 +138,16 @@ jobs:
       - uses: actions/setup-python@v7
         with: {python-version: "3.12"}
       - run: |
+          python -m pip install --upgrade build
           mkdir -p staged
-          cp apps/studio/public/examples/heldout-tld-study-combined.tbx.zip staged/
-          cp studies/heldout-v0.2.1/publication/* staged/
-          cp replication/SHA256SUMS.txt staged/replication-SHA256SUMS.txt
-          python scripts/release_manifest.py build staged --version v0.2.1 --commit "${{ github.sha }}"
-          python scripts/release_manifest.py verify staged/release-manifest-v0.2.1.json
+          cp studies/v0.2.2-negative-result-forensic/v021-negative-result-forensic-report.* staged/
+          cp studies/v0.2.2-negative-result-forensic/v021-*-diagnostics.csv staged/
+          cp studies/v0.2.2-negative-result-forensic/v021-closure-null-calibration.csv staged/
+          cp studies/v0.2.2-negative-result-forensic/v021-power-surface.csv staged/
+          cp studies/v0.2.2-negative-result-forensic/v021-forensic-combined.tbx.zip staged/
+          cp studies/v0.2.2-negative-result-forensic/external-replication-addon.zip staged/
+          python -m build --outdir staged
+          python scripts/release_manifest.py build staged --version v0.2.2 --commit "${{ github.sha }}"
+          python scripts/release_manifest.py verify staged/release-manifest-v0.2.2.json
+          python -m pip install staged/torusbrot-0.2.2-py3-none-any.whl
+          torusbrot audit staged/v021-forensic-combined.tbx.zip

@@ -1,0 +1,10 @@
+N,median_rolling_score,negative_station_count,window_geometry,status
+6,0.9083238272750065,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+7,0.9230928612171405,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+8,0.9353090039168221,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+9,0.9441296314887484,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+10,0.9494177437288585,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+11,0.9540327320827972,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+12,0.9584528141806015,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+13,0.9619079319013647,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY
+14,0.9663079295520417,0,overlapping rolling N-day mean,POST_HOC_DIAGNOSTIC_ONLY

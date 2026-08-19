@@ -1,0 +1,14 @@
+{
+  "changes_v021_result": false,
+  "classification": "CLOSURE_MODE_NULL_LIKE",
+  "observed_parent_winner_distribution": {
+    "8": 1,
+    "9": 9,
+    "14": 1,
+    "15": 1
+  },
+  "parent_N_cells": 204,
+  "registered_closure_null_p_was_implemented_in_v021": false,
+  "schema_version": "1.0.0",
+  "uncorrected_local_p_at_most_0_05_count": 0
+}

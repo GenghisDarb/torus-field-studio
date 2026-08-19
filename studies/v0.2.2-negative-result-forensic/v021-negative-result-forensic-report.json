@@ -1,0 +1,60 @@
+{
+  "Beijing_future_use": "diagnostic only",
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "V021_PRIMARY_RESULT": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES",
+  "components": [
+    {
+      "classification": "EXACT_SCIENTIFIC_REPRODUCTION",
+      "component": "exact reproduction"
+    },
+    {
+      "classification": "COHERENT_OPPOSITE_SIGN_STRUCTURE_EXPLAINED_BY_NULL",
+      "component": "opposite sign"
+    },
+    {
+      "classification": "REGISTERED_NULL_POSITIVE_CORRELATION_BIASED",
+      "component": "registered null"
+    },
+    {
+      "classification": "PHASE_SENSITIVE_BUT_DIRECTION_STABLE",
+      "component": "block phase"
+    },
+    {
+      "classification": "ONE_CITY_LEVEL_PARENT_WITH_SENSOR_REPLICATES",
+      "component": "parent dependence"
+    },
+    {
+      "classification": "NARROW_POSITIVE_PERSISTENCE_PROXY",
+      "component": "operator construct"
+    },
+    {
+      "classification": "CLOSURE_MODE_NULL_LIKE",
+      "component": "closure null"
+    },
+    {
+      "classification": "CALIBRATION_INSUFFICIENT",
+      "component": "gate adequacy"
+    }
+  ],
+  "exact_next_legal_action": "FREEZE_REVISED_METHOD_ON_SYNTHETIC_AND_HISTORICAL_CONTROLS",
+  "genuinely_falsified": "the preregistered positive-persistence projection on this dataset under the frozen gates",
+  "new_untouched_dataset_required_for_confirmation": true,
+  "not_falsified": [
+    "general TLD",
+    "negative-direction structure",
+    "other operators",
+    "other domains",
+    "ToT-BROT"
+  ],
+  "primary_forensic_classification": "V021_FORENSIC_RESULT_MIXED_WITH_EXACT_COMPONENTS",
+  "project_level_wording": "The v0.2.1 preregistered positive-persistence projection failed on the Beijing PM2.5 dataset.",
+  "release": "v0.2.2",
+  "schema_version": "1.0.0",
+  "unresolved": [
+    "general construct-valid operator",
+    "multi-city parent model",
+    "future null family",
+    "new held-out domain"
+  ]
+}

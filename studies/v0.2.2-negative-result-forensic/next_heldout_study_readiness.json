@@ -1,0 +1,7 @@
+{
+  "dataset_selection_allowed_now": false,
+  "exact_next_legal_action": "FREEZE_REVISED_METHOD_ON_SYNTHETIC_AND_HISTORICAL_CONTROLS",
+  "execution_allowed_now": false,
+  "ready": false,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,11 @@
+{
+  "alternative_nulls_change_original_result": false,
+  "changes_v021_result": false,
+  "classification": "REGISTERED_NULL_POSITIVE_CORRELATION_BIASED",
+  "mechanism": "Random day mixing breaks observed between-day order while retaining local levels; on these data it increases adjacent block-mean correlation.",
+  "median_null_minus_observed_correlation": 0.17306262914772388,
+  "opposite_sign_interpretation": "COHERENT_OPPOSITE_SIGN_STRUCTURE_EXPLAINED_BY_NULL",
+  "positive_fraction": 1.0,
+  "registered_null": "within-year-month complete-day permutation",
+  "schema_version": "1.0.0"
+}

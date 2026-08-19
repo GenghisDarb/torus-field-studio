@@ -1,0 +1,6 @@
+{
+  "calibration_scope": "forensic simulation; no threshold revision",
+  "criterion": "at least 80% upper-tail local detection",
+  "minimum_AR1_phi_across_any_registered_N": null,
+  "schema_version": "1.0.0"
+}

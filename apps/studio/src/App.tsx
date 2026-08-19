@@ -105,6 +105,7 @@ export default function App() {
   const activeEngine = table?.source === "tbx_import" && table.engine ? table.engine : request.engine;
   const isHistoricalTld = activeEngine === "tld" && table?.tld != null;
   const isHeldout = activeEngine === "tld" && table?.heldout != null;
+  const isForensic = isHeldout && table?.heldout?.profile.includes("forensic");
   const isTld = isHistoricalTld || isHeldout;
   const claimLevel = table?.source === "tbx_import"
     ? table.claimLevel ?? "BUNDLE CLAIM UNKNOWN"
@@ -150,9 +151,9 @@ export default function App() {
   const loadHeldoutStudy = async () => {
     try {
       setBusy(true);
-      const response = await fetch(`${import.meta.env.BASE_URL}examples/heldout-tld-study-combined.tbx.zip`);
+      const response = await fetch(`${import.meta.env.BASE_URL}examples/v021-forensic-combined.tbx.zip`);
       if (!response.ok) throw new Error(`Held-out study request failed (${response.status})`);
-      const file = new File([await response.blob()], "heldout-tld-study-combined.tbx.zip", { type: "application/zip" });
+      const file = new File([await response.blob()], "v021-forensic-combined.tbx.zip", { type: "application/zip" });
       await handleImport(file);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Could not load the held-out study.");
@@ -167,11 +168,11 @@ export default function App() {
           <TorusMark />
           <div>
             <div className="brand-name"><span>TORUS</span> FIELD STUDIO</div>
-            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.2.1</div>
+            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.2.2</div>
           </div>
         </div>
         <div className="header-actions">
-          <button className="quiet-button" type="button" onClick={loadHeldoutStudy}><Icon name="shield" /> Load held-out study</button>
+          <button className="quiet-button" type="button" onClick={loadHeldoutStudy}><Icon name="shield" /> Load v0.2.2 forensic audit</button>
           <button className="quiet-button" type="button" onClick={loadPublishedTld}><Icon name="spark" /> Load TLD I result</button>
           <button className="quiet-button" type="button" onClick={() => setAuditOpen(true)}><Icon name="shield" /> Audit</button>
           <button className="quiet-button" type="button" onClick={() => importRef.current?.click()}><Icon name="upload" /> Import bundle</button>
@@ -204,7 +205,7 @@ export default function App() {
           <section className="control-section compact">
             <label className="section-label">Dataset</label>
             <div className="select-like">
-              <span>{isHeldout ? "Held-Out TLD · Beijing PM2.5" : isHistoricalTld ? "TLD I · published-source reproduction" : activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
+              <span>{isForensic ? "v0.2.2 forensic · Beijing PM2.5" : isHeldout ? "Held-Out TLD · Beijing PM2.5" : isHistoricalTld ? "TLD I · published-source reproduction" : activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
               <span className="chevron">⌄</span>
             </div>
             <div className="source-hash"><span>{isTld ? "DOI" : "SHA-256"}</span><code>{isHeldout ? table?.heldout?.doi : isHistoricalTld ? table?.tld?.doi : activeEngine === "analytic" ? "5d2b…c14e" : "8f04…a217"}</code></div>
@@ -227,8 +228,8 @@ export default function App() {
 
           {isHeldout && table?.heldout && (
             <section className="control-section tld-source-card" data-testid="heldout-source-panel">
-              <span className="eyebrow">REAL DATA · PROSPECTIVE HELD-OUT LANE</span>
-              <strong>Held-Out TLD Study — Beijing PM2.5</strong>
+              <span className="eyebrow">{isForensic ? "POST-HOC FORENSIC AUDIT · IMMUTABLE ORIGINAL" : "REAL DATA · PROSPECTIVE HELD-OUT LANE"}</span>
+              <strong>{isForensic ? "v0.2.2 Negative-Result Reconciliation" : "Held-Out TLD Study — Beijing PM2.5"}</strong>
               <p>{table.heldout.scientificOutcome.replaceAll("_", " ")}</p>
               <dl>
                 <div><dt>Source DOI</dt><dd>{table.heldout.doi}</dd></div>
@@ -239,7 +240,7 @@ export default function App() {
                 <div><dt>Verifier</dt><dd>{table.heldout.verificationStatus.toUpperCase()} · {table.heldout.mutationRejectionCount}/{table.heldout.mutationCount} mutations</dd></div>
                 <div><dt>TLD-derived</dt><dd>{table.heldout.tldDerivedStatus}</dd></div>
               </dl>
-              <div className="notice analytic-notice">Negative under frozen gates. Valid and publishable; external validation remains false.</div>
+              <div className="notice analytic-notice">Negative under frozen gates. {isForensic ? "Forensic diagnostics are post-hoc and do not reverse v0.2.1." : "Valid and publishable;"} external validation remains false.</div>
             </section>
           )}
 

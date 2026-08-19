@@ -3,7 +3,7 @@
 > Every beautiful structure should trace back to a frozen computation.
 
 TORUS Field Studio is a local-first scientific workbench for generating, inspecting, and
-auditing geometric field artifacts. The v0.2.1 release deliberately separates four lanes:
+auditing geometric field artifacts. The v0.2.2 release deliberately separates four lanes:
 
 - **Analytic Sandbox** — reproducible `z -> z^p + c` fields with an explicit
   `ILLUSTRATIVE_ANALYTIC` claim badge.
@@ -21,8 +21,9 @@ interpolation never creates observations, and every exported bundle includes a S
 manifest, run specification, visual encoding, provenance, claim boundary, and failure ledger.
 
 [Open the browser studio](https://genghisdarb.github.io/torus-field-studio/) or download the
-[v0.2.1 release](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.2.1).
-Choose **Load held-out study** to audit the v0.2.1 result or **Load TLD I result** to inspect the
+[v0.2.2 release](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.2.2).
+Choose **Load v0.2.2 forensic audit** to inspect the immutable v0.2.1 result with its additive
+forensic reconciliation, or **Load TLD I result** to inspect the
 preserved historical reproduction.
 
 ![TORUS Field Studio interface](docs/assets/studio-overview.svg)
@@ -92,6 +93,22 @@ with every endpoint and rejected 25 of 25 registered mutations. Therefore `TLD_D
 blocked and `EXTERNALLY_VALIDATED` remains false. See the
 [plain-language summary](studies/heldout-v0.2.1/publication/plain-language-summary.md) and
 [technical report](studies/heldout-v0.2.1/publication/technical-report.md).
+
+## v0.2.2 forensic reconciliation
+
+The clean wheel replay reproduced the v0.2.1 scientific tables byte-for-byte. The replay run ID
+differs only because the materialization receipt records a host-specific absolute source path.
+The additive audit found a coherent post-hoc reverse-direction surface, but the registered null
+raises adjacent block-mean correlation in every station/N/phase cell. It also found that the 12
+stations are correlated sensor projections from one city, the operator is a narrow
+positive-persistence proxy, and the declared closure-local null p-value was absent from the
+original secondary implementation. The newly calculated closure surface is null-like.
+
+None of those findings rewrites the original endpoint: `T_e = NOT_OBSERVED`, `S_e = 0`,
+`TLD_DERIVED = BLOCKED`, and `EXTERNALLY_VALIDATED = false`. The project-level conclusion is no
+broader than: “The v0.2.1 preregistered positive-persistence projection failed on the Beijing
+PM2.5 dataset.” See the
+[forensic report](studies/v0.2.2-negative-result-forensic/v021-negative-result-forensic-report.md).
 
 ## Reproduce the published TLD I result
 

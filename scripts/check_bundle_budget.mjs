@@ -6,7 +6,8 @@ const root = process.cwd();
 const distribution = path.join(root, "apps", "studio", "dist");
 const limits = {
   application: 950 * 1024,
-  publishedExamples: 2500 * 1024,
+  // v0.2.2 keeps the immutable v0.2.1 bundle and adds the compressed forensic package.
+  publishedExamples: 4000 * 1024,
   mainJavaScript: 450 * 1024,
   surfaceJavaScript: 650 * 1024,
   css: 120 * 1024,

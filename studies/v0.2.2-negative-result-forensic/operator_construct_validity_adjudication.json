@@ -1,0 +1,8 @@
+{
+  "changes_v021_result": false,
+  "classification": "NARROW_POSITIVE_PERSISTENCE_PROXY",
+  "construct_validity_established": false,
+  "positive_persistence_detection_is_not_general_TLD_construct_recovery": true,
+  "reason": "The 61-element exact TLD I ladder cannot meet the v0.2.1 minimum of 30 blocks for any registered N.",
+  "schema_version": "1.0.0"
+}

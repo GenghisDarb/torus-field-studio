@@ -1,0 +1,6 @@
+{"finding_id":"FC001","issue_code":"NULL_DIRECTIONAL_BIAS","severity":"HIGH","status":"CONFIRMED"}
+{"finding_id":"FC002","issue_code":"PARENT_DEPENDENCE","severity":"HIGH","status":"CONFIRMED"}
+{"finding_id":"FC003","issue_code":"OPERATOR_CONSTRUCT_GAP","severity":"HIGH","status":"CONFIRMED"}
+{"finding_id":"FC004","issue_code":"CLOSURE_NULL_NOT_IMPLEMENTED","severity":"MEDIUM","status":"CONFIRMED"}
+{"finding_id":"FC005","issue_code":"N_SEMANTICS_COLLISION","severity":"MEDIUM","status":"CONFIRMED"}
+{"finding_id":"FC006","issue_code":"PERTURBATION_REDUNDANCY","severity":"MEDIUM","status":"CONFIRMED"}

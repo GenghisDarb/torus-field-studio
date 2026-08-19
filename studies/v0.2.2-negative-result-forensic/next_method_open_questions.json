@@ -1,0 +1,9 @@
+{
+  "questions": [
+    "Which construct-valid operator family is frozen before a new domain is selected?",
+    "How many independent city/domain clusters are required?",
+    "Which null families pass directional calibration across the synthetic envelope?",
+    "Should coarse-graining onset be renamed instead of called T_e?"
+  ],
+  "schema_version": "1.0.0"
+}

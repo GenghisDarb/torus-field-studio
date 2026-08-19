@@ -1,0 +1,9 @@
+{
+  "Beijing_PM25": "diagnostics only",
+  "forbidden": [
+    "confirmatory threshold tuning",
+    "candidate selection",
+    "claim of independent validation"
+  ],
+  "schema_version": "1.0.0"
+}

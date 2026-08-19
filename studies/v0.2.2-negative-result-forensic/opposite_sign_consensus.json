@@ -1,0 +1,8 @@
+{
+  "baseline_negative_consensus_N_count": 9,
+  "changes_v021_result": false,
+  "classification": "COHERENT_OPPOSITE_SIGN_STRUCTURE_EXPLAINED_BY_NULL",
+  "diagnostic_family": "post-hoc reverse-direction analysis",
+  "parent_dependence_caveat": "Twelve stations are correlated sensors in one city.",
+  "schema_version": "1.0.0"
+}

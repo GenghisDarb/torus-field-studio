@@ -1,0 +1,11 @@
+{
+  "calibration_scaling_median_canonical_rmse": 0.0011505215391793095,
+  "material_conditions": [
+    "sensor_noise_001",
+    "outage_6h_30d",
+    "outage_24h_90d"
+  ],
+  "reason": "log1p, month-median centering, and MAD scaling nearly erase multiplicative calibration changes",
+  "schema_version": "1.0.0",
+  "six_conditions_are_independent_experimental_axes": false
+}

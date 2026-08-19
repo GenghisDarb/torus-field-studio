@@ -1,0 +1,9 @@
+{
+  "all_issue_codes_stable": true,
+  "critic_uses_production_forensic_decision_functions": false,
+  "finding_count": 6,
+  "mutations_rejected": 30,
+  "mutations_total": 30,
+  "schema_version": "1.0.0",
+  "status": "VERIFIED_WITH_FINDINGS"
+}

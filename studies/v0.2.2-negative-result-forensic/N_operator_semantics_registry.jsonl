@@ -1,0 +1,3 @@
+{"N_semantics":"non-overlapping block width in days","operation_depth":false,"operator":"SEP"}
+{"N_semantics":"lag in days","operation_depth":false,"operator":"closure"}
+{"N_semantics":"recursion depth or operation count","implemented_in_v021":false,"operator":"formal_TLD"}

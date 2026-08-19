@@ -1,0 +1,40 @@
+{
+  "all_scientific_artifacts_byte_exact": true,
+  "original_run_id": "heldout-4681daef5ea40ce1",
+  "replay_run_id": "heldout-8281909944b04a54",
+  "schema_version": "1.0.0",
+  "scientific_artifacts": [
+    {
+      "byte_exact": true,
+      "original_sha256": "32f11d90892b6c88b89b4c85a8989822a1b9727e7907aa16b8b4891fe7c9d1e5",
+      "path": "scored/byN_surface.csv",
+      "replay_sha256": "32f11d90892b6c88b89b4c85a8989822a1b9727e7907aa16b8b4891fe7c9d1e5"
+    },
+    {
+      "byte_exact": true,
+      "original_sha256": "88eaa003251a88bb8219641d0b3d031234054ff88eeb188ee3a791dfb51bca71",
+      "path": "scored/closure_mode_results.csv",
+      "replay_sha256": "88eaa003251a88bb8219641d0b3d031234054ff88eeb188ee3a791dfb51bca71"
+    },
+    {
+      "byte_exact": true,
+      "original_sha256": "dbfa3da0b06c61cb3b04a8ebd7211c098c2ac7b7d6fd2d7eb02030fe72efdcaa",
+      "path": "scored/parent_null_comparison.csv",
+      "replay_sha256": "dbfa3da0b06c61cb3b04a8ebd7211c098c2ac7b7d6fd2d7eb02030fe72efdcaa"
+    },
+    {
+      "byte_exact": true,
+      "original_sha256": "851306b793c8117576a36ae5afb4b60d07fb650223a7e11ffe721b1973e6a2f3",
+      "path": "scored/structured_fragility_results.csv",
+      "replay_sha256": "851306b793c8117576a36ae5afb4b60d07fb650223a7e11ffe721b1973e6a2f3"
+    },
+    {
+      "byte_exact": true,
+      "original_sha256": "33ea5c45abd37fccb20320268c22f32d87eef9ac72897097bdfe5349c9980a8e",
+      "path": "scored/specificity_audit.csv",
+      "replay_sha256": "33ea5c45abd37fccb20320268c22f32d87eef9ac72897097bdfe5349c9980a8e"
+    }
+  ],
+  "scientific_disagreement": false,
+  "volatile_identity_difference": "absolute source path is included in SHA256SUMS_INPUTS and therefore run_id"
+}

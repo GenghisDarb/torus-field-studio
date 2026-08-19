@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "torusbrot"
-version = "0.2.1"
+version = "0.2.2"
 description = "Local-first, provenance-forward scientific field workbench"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -48,3 +48,5 @@ select = ["E", "F", "I", "UP"]
 "python/torusbrot/tld/generated_types.py" = ["E501"]
 "scripts/export_tld_i_figures.py" = ["E501"]
 "python/torusbrot/tld/heldout/publication.py" = ["E501"]
+"python/torusbrot/tld/forensic.py" = ["E501"]
+"tests/test_forensic.py" = ["E501"]

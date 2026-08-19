@@ -1,0 +1,8 @@
+{
+  "affects_primary_v021_T_e_or_S_e": false,
+  "classification": "DECLARED_BUT_NOT_IMPLEMENTED_SECONDARY_DIAGNOSTIC",
+  "declared": true,
+  "forensic_implementation": true,
+  "implemented_in_v021": false,
+  "schema_version": "1.0.0"
+}

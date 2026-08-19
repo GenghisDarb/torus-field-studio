@@ -19,6 +19,7 @@ PROFILES = {
     "primary": "tld-heldout-primary-v0.2.1",
     "specificity": "tld-heldout-specificity-v0.2.1",
     "combined": "tld-heldout-combined-v0.2.1",
+    "forensic": "tld-heldout-v021-forensic-v0.2.2",
 }
 
 
@@ -399,6 +400,73 @@ def export_heldout_bundle(
     manifest = {
         "tbx_version": "1.0.0",
         "profile": PROFILES[profile],
+        "run_id": run_id,
+        "claim_level": "COMPUTED_DYNAMICAL",
+        "kernel_id": kernel_id,
+        "specification_sha256": content_hash(specification),
+        "statistics": statistics,
+        "files": [
+            {"path": name, "sha256": _sha256(payload), "bytes": len(payload)}
+            for name, payload in sorted(members.items())
+        ],
+    }
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(destination, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for name, payload in [("manifest.json", canonical_json(manifest, pretty=True))] + sorted(
+            members.items()
+        ):
+            info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
+            info.create_system = 3
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o100644 << 16
+            archive.writestr(info, payload)
+    audit = audit_bundle(destination)
+    return destination, audit.to_dict()
+
+
+def export_forensic_bundle(
+    study: Path,
+    materialized: Path,
+    scored: Path,
+    verification: Path,
+    adjudication: Path,
+    publication: Path,
+    forensic: Path,
+    destination: Path,
+) -> tuple[Path, dict[str, Any]]:
+    """Package the immutable v0.2.1 result with additive v0.2.2 diagnostics."""
+    members, specification, run_id, kernel_id, statistics = _members(
+        "forensic", study, materialized, scored, verification, adjudication, publication
+    )
+    for path in sorted(forensic.iterdir()):
+        if path.is_file() and path.name not in {
+            destination.name,
+            "external-replication-addon.zip",
+            "release-manifest-v0.2.2.json",
+            "SHA256SUMS-v0.2.2.txt",
+        }:
+            members[f"forensic/{path.name}"] = path.read_bytes()
+    members["forensic_profile.json"] = canonical_json(
+        {
+            "schema_version": "1.0.0",
+            "profile": PROFILES["forensic"],
+            "basis": "immutable v0.2.1 combined held-out result",
+            "diagnostic_status": "POST_HOC_DIAGNOSTIC_ONLY",
+            "V021_PRIMARY_RESULT": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES",
+            "TLD_DERIVED": "BLOCKED",
+            "EXTERNALLY_VALIDATED": False,
+        },
+        pretty=True,
+    )
+    sums = "".join(
+        f"{_sha256(payload)}  {name}\n"
+        for name, payload in sorted(members.items())
+        if name != "audit/SHA256SUMS.txt"
+    )
+    members["audit/SHA256SUMS.txt"] = sums.encode()
+    manifest = {
+        "tbx_version": "1.0.0",
+        "profile": PROFILES["forensic"],
         "run_id": run_id,
         "claim_level": "COMPUTED_DYNAMICAL",
         "kernel_id": kernel_id,

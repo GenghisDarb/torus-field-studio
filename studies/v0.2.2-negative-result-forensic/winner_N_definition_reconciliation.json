@@ -1,0 +1,11 @@
+{
+  "classification": "CONTRACT_AMBIGUITY",
+  "declared_study_winner": "mode of per-parent winner_N",
+  "declared_value": 9,
+  "endpoints_are_semantically_distinct": true,
+  "implemented_secondary_summary": "minimum study-wide median closure error",
+  "implemented_value": 9,
+  "same_value_in_v021": true,
+  "schema_version": "1.0.0",
+  "specificity_gate_uses": "study-wide median-error minimum"
+}
