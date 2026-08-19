@@ -3,6 +3,29 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses semantic versioning.
 
+## [0.2.2] - 2026-08-18
+
+### Added
+
+- Clean installed-wheel custody and exact scientific reproduction of every v0.2.1
+  claim-bearing table, with the host-path-dependent replay identity documented separately.
+- Signed and bidirectional post-hoc diagnostics, all-offset block-phase analysis, registered
+  and seven-family null-mechanism audits, parent-dependence estimates, closure-null calibration,
+  construct-validity checks, perturbation-distance analysis, and frozen forensic power fixtures.
+- An independent 30-mutation forensic critic, deterministic combined forensic TBX, external
+  replication add-on, and browser-visible v0.2.2 reconciliation.
+
+### Scientific result
+
+- The immutable result remains `HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES`.
+- Primary forensic classification: `V021_FORENSIC_RESULT_MIXED_WITH_EXACT_COMPONENTS`.
+- The coherent reverse-direction surface is post-hoc and explained by a registered null that
+  raises block-mean correlation in every station/N/phase cell; it does not reverse v0.2.1.
+- The twelve stations behave as correlated sensor projections of one city-level parent, the
+  registered operator is a narrow positive-persistence proxy, and closure-mode results are
+  null-like after implementing the declared secondary null calibration.
+- `TLD_DERIVED` remains blocked and `EXTERNALLY_VALIDATED` remains false.
+
 ## [0.2.1] - 2026-08-18
 
 ### Added
@@ -83,6 +106,7 @@ project uses semantic versioning.
   provenance, claim boundaries, synthetic parent/null fixture, and analytic sandbox.
 
 [0.2.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.2.0...v0.2.1
+[0.2.2]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.2.1...v0.2.2
 [0.2.0]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.1.0

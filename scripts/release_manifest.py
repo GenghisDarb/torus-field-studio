@@ -74,7 +74,7 @@ def verify_manifest(path: Path) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build or verify the v0.2.1 release manifest")
+    parser = argparse.ArgumentParser(description="Build or verify a release manifest")
     subparsers = parser.add_subparsers(dest="command", required=True)
     build = subparsers.add_parser("build")
     build.add_argument("directory", type=Path)
