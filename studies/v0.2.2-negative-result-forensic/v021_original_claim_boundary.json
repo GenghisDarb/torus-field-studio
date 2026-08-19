@@ -1,0 +1,9 @@
+{
+  "Beijing_future_use": "diagnostic only; never new confirmatory evidence",
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "forensic_diagnostics_may_rewrite_v021": false,
+  "immutable_primary_result": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES",
+  "maximum_project_wording": "The v0.2.1 preregistered positive-persistence projection failed on the Beijing PM2.5 dataset.",
+  "schema_version": "1.0.0"
+}

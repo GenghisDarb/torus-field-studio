@@ -1,0 +1,8 @@
+{
+  "classification": "N_SEMANTICS_COLLISION_INVALIDATES_GENERAL_CLAIM",
+  "collision": true,
+  "primary_N": "non-overlapping block width in days",
+  "recursion_depth": "not implemented",
+  "schema_version": "1.0.0",
+  "specificity_N": "lag in days for closure error"
+}

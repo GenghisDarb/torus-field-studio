@@ -1,0 +1,10 @@
+{
+  "N": 9,
+  "classification": "N9_REQUIRES_NEW_HELDOUT_TEST",
+  "is_primary_T_e_result": false,
+  "local_p_at_most_0_05_count": 0,
+  "median_closure_local_p": 0.31640625,
+  "observed_parent_winner_count": 9,
+  "schema_version": "1.0.0",
+  "status": "POST_HOC_DIAGNOSTIC_ONLY"
+}

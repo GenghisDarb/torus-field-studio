@@ -1,0 +1,7 @@
+{
+  "classification": "PHASE_SENSITIVE_BUT_DIRECTION_STABLE",
+  "negative_effect_fraction_across_station_N_phase_cells": 1.0,
+  "phase_median_effect_standard_deviation": 0.046444485136816,
+  "registered_phase_unchanged": true,
+  "schema_version": "1.0.0"
+}

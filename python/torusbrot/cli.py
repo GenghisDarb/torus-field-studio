@@ -29,6 +29,7 @@ from .tld import (
     export_tld_bundle,
     reproduce_tld_i,
 )
+from .tld.forensic import run_forensic_audit
 from .tld.heldout import authorize_scored_run, execute_scored_run
 from .tld.heldout.adjudication import adjudicate, snapshot_result
 from .tld.heldout.bundle import export_heldout_bundle_set
@@ -209,6 +210,26 @@ def _run_package_heldout(args: argparse.Namespace) -> int:
     )
     _print({"bundles": receipts})
     return 0 if all(receipt["audit"]["valid"] for receipt in receipts) else 1
+
+
+def _run_forensic_v021(args: argparse.Namespace) -> int:
+    report = run_forensic_audit(
+        Path(args.repository),
+        Path(args.materialized),
+        Path(args.scored),
+        Path(args.forensic_root),
+        Path(args.output),
+        Path(args.tld_i_targets),
+    )
+    _print(
+        {
+            "output": str(Path(args.output).resolve()),
+            "primary_result": report["V021_PRIMARY_RESULT"],
+            "forensic_classification": report["primary_forensic_classification"],
+            "next_legal_action": report["exact_next_legal_action"],
+        }
+    )
+    return 0
 
 
 def _run_reproduce_tld_i(args: argparse.Namespace) -> int:
@@ -434,6 +455,17 @@ def build_parser() -> argparse.ArgumentParser:
     heldout_package.add_argument("--publication", required=True)
     heldout_package.add_argument("--output", "-o", required=True)
     heldout_package.set_defaults(handler=_run_package_heldout)
+
+    forensic = subparsers.add_parser("forensic", help="run additive post-release audits")
+    forensic_sub = forensic.add_subparsers(dest="forensic_kind", required=True)
+    v021_forensic = forensic_sub.add_parser("v021-negative-result")
+    v021_forensic.add_argument("--repository", required=True)
+    v021_forensic.add_argument("--materialized", required=True)
+    v021_forensic.add_argument("--scored", required=True)
+    v021_forensic.add_argument("--forensic-root", required=True)
+    v021_forensic.add_argument("--tld-i-targets", required=True)
+    v021_forensic.add_argument("--output", "-o", required=True)
+    v021_forensic.set_defaults(handler=_run_forensic_v021)
 
     freeze = subparsers.add_parser("freeze", help="canonicalize and hash a run specification")
     freeze.add_argument("path")

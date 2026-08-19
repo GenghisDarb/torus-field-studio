@@ -1,0 +1,7 @@
+{
+  "classification": "CALIBRATION_INSUFFICIENT",
+  "registered_positive_fixture_phi": 0.92,
+  "schema_version": "1.0.0",
+  "secondary_classification": "DIRECTIONALLY_MISSPECIFIED",
+  "thresholds_revised": false
+}

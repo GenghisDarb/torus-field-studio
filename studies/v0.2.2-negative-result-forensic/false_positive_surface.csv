@@ -1,0 +1,4 @@
+fixture,phi,N,sample_length,missingness,parent_count,parent_correlation,replicates,upper_tail_detection_rate,sign_error_rate,median_null_minus_observed,status,type_I_error_rate
+iid_gaussian,0.0,6,1461,fixture-specific,12,0.0,24,0.041666666666666664,0.0,-0.004894770105122976,FROZEN_FORENSIC_CALIBRATION,0.041666666666666664
+iid_gaussian,0.0,10,1461,fixture-specific,12,0.0,24,0.041666666666666664,0.0,-0.013426989857052974,FROZEN_FORENSIC_CALIBRATION,0.041666666666666664
+iid_gaussian,0.0,14,1461,fixture-specific,12,0.0,24,0.0,0.0,-0.003331701676212308,FROZEN_FORENSIC_CALIBRATION,0.0

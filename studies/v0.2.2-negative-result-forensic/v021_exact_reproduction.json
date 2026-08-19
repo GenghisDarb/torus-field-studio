@@ -1,0 +1,19 @@
+{
+  "S_e": 0.0,
+  "T_e": "NOT_OBSERVED",
+  "clean_environment": true,
+  "failure_count": 0,
+  "identity_note": "run_id differs only because a recorded absolute source path is host-specific",
+  "independent_verifier_disagreements": 0,
+  "installed_artifact": "torusbrot-0.2.1-py3-none-any.whl",
+  "mutation_rejections": "25/25",
+  "primary_result": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES",
+  "registered_ladders": 12288,
+  "registered_null_children": 12192,
+  "registered_parents": 12,
+  "registered_perturbations": 96,
+  "replication_package_verified": true,
+  "schema_version": "1.0.0",
+  "scored_cells": 864,
+  "status": "EXACT_SCIENTIFIC_REPRODUCTION"
+}

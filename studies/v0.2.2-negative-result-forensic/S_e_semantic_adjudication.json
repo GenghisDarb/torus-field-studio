@@ -1,0 +1,10 @@
+{
+  "classification": "S_E_GATE_REQUIRES_REDESIGN",
+  "component_classifications": [
+    "PERTURBATIONS_PARTIALLY_REDUNDANT",
+    "CALIBRATION_SCALING_EFFECTIVELY_INVARIANT"
+  ],
+  "schema_version": "1.0.0",
+  "v021_S_e": 0.0,
+  "v021_S_e_rewritten": false
+}

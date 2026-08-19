@@ -1,0 +1,18 @@
+{
+  "Beijing_confirmatory_use": "FORBIDDEN",
+  "channels": [
+    "signed bidirectional separation",
+    "closure null calibration",
+    "canonical TLD construct channel"
+  ],
+  "dataset": "NOT_SELECTED",
+  "requirements": [
+    "null-family adequacy controls",
+    "block-phase marginalization",
+    "nested-parent inference",
+    "historical and synthetic construct benchmarks",
+    "semantic T_e/S_e mapping"
+  ],
+  "schema_version": "1.0.0",
+  "status": "DRAFT_NOT_EXECUTED"
+}

@@ -1,0 +1,10 @@
+{
+  "download_sha256": "88ee6d113950641204e28694f2be51d97ad3e96d1f52c25d1808bab33f8a311e",
+  "expected_sha256": "88ee6d113950641204e28694f2be51d97ad3e96d1f52c25d1808bab33f8a311e",
+  "hash_matches": true,
+  "https_enforced": true,
+  "pages_public": true,
+  "pages_url": "https://genghisdarb.github.io/torus-field-studio/",
+  "schema_version": "1.0.0",
+  "tbx_audit_valid": true
+}

@@ -1,0 +1,7 @@
+{
+  "N_is_block_width_days": true,
+  "N_is_iterated_recursion_count": false,
+  "classification": "T_E_IS_COARSE_GRAINING_SCALE_NOT_TIME",
+  "recommended_future_name": "first separating coarse-graining scale",
+  "schema_version": "1.0.0"
+}

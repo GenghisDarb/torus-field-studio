@@ -1,0 +1,27 @@
+{
+  "equivalence": "not established",
+  "operators": [
+    {
+      "lineage": "TLD I",
+      "operator": "canonical_TLD_I_chi_RMS_closure",
+      "role": "historical closure/escape construct"
+    },
+    {
+      "lineage": "new domain translation",
+      "operator": "v021_block_mean_lag1_correlation",
+      "role": "positive-persistence projection"
+    },
+    {
+      "lineage": "domain-specific diagnostic",
+      "operator": "v021_normalized_lag_closure_error",
+      "role": "secondary closure-mode label"
+    },
+    {
+      "lineage": "forensic extension",
+      "operator": "signed_parent_null_separation",
+      "role": "v0.2.2 post-hoc diagnostic"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "v021_role": "narrow positive-persistence proxy"
+}

@@ -9,7 +9,8 @@ export interface TORUSBundleExchangeManifest {
     | "tld-i-modern-v21"
     | "tld-heldout-primary-v0.2.1"
     | "tld-heldout-specificity-v0.2.1"
-    | "tld-heldout-combined-v0.2.1";
+    | "tld-heldout-combined-v0.2.1"
+    | "tld-heldout-v021-forensic-v0.2.2";
   run_id: string;
   claim_level: string;
   kernel_id: string;

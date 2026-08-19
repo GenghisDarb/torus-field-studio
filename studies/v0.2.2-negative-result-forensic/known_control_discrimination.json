@@ -1,0 +1,6 @@
+{
+  "all_exact_TLD_I_controls_eligible": false,
+  "issue_code": "TLD_I_LADDER_TOO_SHORT_FOR_V021_OPERATOR",
+  "known_distinctions_recovered": false,
+  "schema_version": "1.0.0"
+}

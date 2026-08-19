@@ -1,0 +1,40 @@
+{
+  "AR1_phi": [
+    -0.9,
+    -0.6,
+    -0.3,
+    0,
+    0.3,
+    0.6,
+    0.8,
+    0.92,
+    0.95
+  ],
+  "N": [
+    6,
+    10,
+    14
+  ],
+  "design": "balanced core phi-by-fixture-by-N surface plus separately published null, phase, missingness, common-factor, and effective-parent sensitivity audits",
+  "dimensions": [
+    "sample length",
+    "missingness",
+    "parent count",
+    "parent correlation",
+    "effect heterogeneity",
+    "burst frequency",
+    "oscillation",
+    "seasonality",
+    "common factor",
+    "null family",
+    "block phase",
+    "N"
+  ],
+  "frozen_before_forensic_simulation": true,
+  "limitation": "not a full Cartesian product; gate-level UI/NSS/SEP power requires a future nested-parent calibration",
+  "null_children_per_replicate": 31,
+  "replicates_per_cell": 24,
+  "schema_version": "1.0.0",
+  "seed": 20260818,
+  "threshold_selection_from_Beijing": false
+}

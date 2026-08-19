@@ -1,0 +1,13 @@
+{
+  "changes_v021_SEP": false,
+  "changes_v021_S_e": false,
+  "changes_v021_T_e": false,
+  "changes_v021_outcome": false,
+  "forbidden": [
+    "call reverse direction preregistered",
+    "promote post-hoc p-values",
+    "claim a reversed result"
+  ],
+  "schema_version": "1.0.0",
+  "status": "POST_HOC_DIAGNOSTIC_ONLY"
+}

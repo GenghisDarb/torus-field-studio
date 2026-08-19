@@ -1,0 +1,95 @@
+{
+  "asset_count": 16,
+  "assets": [
+    {
+      "bytes": 10195,
+      "name": "heldout-tld-byN.png",
+      "sha256": "d9d74129fcc092e23d49efcde4efe10cc5127da500ea2d7ef33bfc1ff9e81e7b"
+    },
+    {
+      "bytes": 5665,
+      "name": "heldout-tld-byN.svg",
+      "sha256": "58ba56347dc1a5fb7770e8d79a63f2833f645b9e763a1c2776a8b651d616e8dc"
+    },
+    {
+      "bytes": 1311732,
+      "name": "heldout-tld-study-combined.tbx.zip",
+      "sha256": "88ee6d113950641204e28694f2be51d97ad3e96d1f52c25d1808bab33f8a311e"
+    },
+    {
+      "bytes": 1311715,
+      "name": "heldout-tld-study-primary.tbx.zip",
+      "sha256": "6a2d73986c8fe149ccc46eb949aca1f84ddd0f82f6345eec4dc128947ef43cf0"
+    },
+    {
+      "bytes": 1311717,
+      "name": "heldout-tld-study-specificity-audit.tbx.zip",
+      "sha256": "f26db0763b8874c4573dfee183a14c379d1bfd2d789b2226d4e0f34bdf3c8c99"
+    },
+    {
+      "bytes": 1012,
+      "name": "plain-language-summary.md",
+      "sha256": "c35f28453041ed6d962457ed23470a5d0face502842e5dcb31e55a79b27aa9f5"
+    },
+    {
+      "bytes": 2387,
+      "name": "preregistration.json",
+      "sha256": "221c8322c67d9635be7c56e9949ce3cabc62f9db42f951bc6018fb90c1f63555"
+    },
+    {
+      "bytes": 2664,
+      "name": "release-manifest-v0.2.1.json",
+      "sha256": "df6c0a0a73b3e069aef02e5d2b4144ceeae7207d94cabda849d588fe45334e73"
+    },
+    {
+      "bytes": 1840,
+      "name": "result_manifest.json",
+      "sha256": "ee101229cb455d651b8f80a44f7ddea476b61f54de1c07751d08ddd509d3333a"
+    },
+    {
+      "bytes": 270807,
+      "name": "sbom.spdx.json",
+      "sha256": "89c6ad6c171825168a89476b030a61d2d22f93ca3d96fb2e8cbb952770f147d8"
+    },
+    {
+      "bytes": 564,
+      "name": "scientific_adjudication.json",
+      "sha256": "6efba4d5937213fbf5030d4afbfc604f9b783edac4dc15e843465f20cbaeba57"
+    },
+    {
+      "bytes": 1402,
+      "name": "SHA256SUMS-v0.2.1.txt",
+      "sha256": "e39dbbdcfd7900c47a1aa41ee97ff4ab8e7d475e5db52a41741ba6d0011d1d6f"
+    },
+    {
+      "bytes": 2108,
+      "name": "technical-report.md",
+      "sha256": "5bf88d0e452f2d9ee84cef210e18c67aa481d31e7b69be34a500805732d37c73"
+    },
+    {
+      "bytes": 12404,
+      "name": "torus-field-studio-v0.2.1-replication.zip",
+      "sha256": "25c2c73468f786d8fed5e8c715624c050e0a3c4f4a96cbffe8f3de3d2f9d2ae2"
+    },
+    {
+      "bytes": 110053,
+      "name": "torusbrot-0.2.1-py3-none-any.whl",
+      "sha256": "f6a3339ef5fea2d20278dc3deb50a58989e279ebc2ee66a8d0c8eb45ded73a59"
+    },
+    {
+      "bytes": 99908,
+      "name": "torusbrot-0.2.1.tar.gz",
+      "sha256": "648cbb4cca06cf94ab43c4eff1d050c0208dae26544ab8ad34a4f78fa2914315"
+    }
+  ],
+  "release_manifest_verified": true,
+  "repository": "GenghisDarb/torus-field-studio",
+  "schema_version": "1.0.0",
+  "sdist_verified": true,
+  "sha256sums_verified": true,
+  "tag": "v0.2.1",
+  "tag_commit": "d83ad298179c6e03319a772f7785e992e45299cf",
+  "tbx_audits_valid": true,
+  "visibility": "PUBLIC",
+  "wheel_install_verified": true
+}

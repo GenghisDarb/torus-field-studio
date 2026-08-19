@@ -1,0 +1,16 @@
+{
+  "classification": "ONE_CITY_LEVEL_PARENT_WITH_SENSOR_REPLICATES",
+  "evidence": {
+    "city_level_cluster_count": 1,
+    "eigenvalue_effective_rank": 1.1205951220123929,
+    "equal_correlation_design_effect_effective_n": 1.0591830774179407,
+    "interpretation": "one city-level parent with twelve correlated sensor projections",
+    "mean_pairwise_canonical_correlation": 0.9390441949463547,
+    "registered_parent_count_unchanged": 12,
+    "schema_version": "1.0.0"
+  },
+  "population_sign_p_scope": "descriptive until a nested parent model or multi-city design is used",
+  "schema_version": "1.0.0",
+  "secondary_classification": "NESTED_PARENT_MODEL_REQUIRED",
+  "v021_registered_parent_count_rewritten": false
+}

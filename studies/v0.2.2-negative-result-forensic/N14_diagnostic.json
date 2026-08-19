@@ -1,0 +1,10 @@
+{
+  "N": 14,
+  "classification": "NO_CLOSURE_MODE_EVIDENCE",
+  "is_primary_T_e_result": false,
+  "local_p_at_most_0_05_count": 0,
+  "median_closure_local_p": 0.4921875,
+  "observed_parent_winner_count": 1,
+  "schema_version": "1.0.0",
+  "status": "POST_HOC_DIAGNOSTIC_ONLY"
+}

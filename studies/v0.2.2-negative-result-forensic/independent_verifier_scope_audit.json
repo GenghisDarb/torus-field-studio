@@ -1,0 +1,7 @@
+{
+  "code_agreement_verified": true,
+  "construct_validity_verified": false,
+  "null_adequacy_verified": false,
+  "schema_version": "1.0.0",
+  "scope": "independent recomputation of frozen v0.2.1 code semantics"
+}
