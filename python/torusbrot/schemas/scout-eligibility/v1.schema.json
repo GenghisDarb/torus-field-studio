@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/scout-eligibility/v1.schema.json",
+  "title": "Geometry Scout eligibility",
+  "type": "object",
+  "required": ["schema_version", "scout_id", "domain_id", "checks", "materialized_fraction", "effective_parent_count", "orbit_length_summary", "closure_authorized", "status", "failure_codes"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "scout_id": {"type": "string", "minLength": 1},
+    "domain_id": {"type": "string", "minLength": 1},
+    "checks": {"type": "object", "required": ["materialized", "coordinates_complete", "nondegenerate", "null_ensemble_complete", "independent_parent_support", "mask_valid", "support_sufficient", "units_resolved", "sensitivity_adequate"], "properties": {"materialized": {"type": "boolean"}, "coordinates_complete": {"type": "boolean"}, "nondegenerate": {"type": "boolean"}, "null_ensemble_complete": {"type": "boolean"}, "independent_parent_support": {"type": "boolean"}, "mask_valid": {"type": "boolean"}, "support_sufficient": {"type": "boolean"}, "units_resolved": {"type": "boolean"}, "sensitivity_adequate": {"enum": ["PASS", "FAIL", "NOT_APPLICABLE"]}}, "additionalProperties": false},
+    "materialized_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+    "effective_parent_count": {"type": "number", "minimum": 0},
+    "orbit_length_summary": {"type": ["object", "null"]},
+    "closure_authorized": {"type": "boolean"},
+    "status": {"enum": ["ELIGIBLE", "INELIGIBLE", "INCONCLUSIVE"]},
+    "failure_codes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

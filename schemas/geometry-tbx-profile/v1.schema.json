@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/geometry-tbx-profile/v1.schema.json",
+  "title": "Geometry TBX profile",
+  "type": "object",
+  "required": ["schema_version", "profile_id", "required_member_roles", "forbidden_claims", "independent_verifier_required", "raw_arrays_required", "registry_hashes_required"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "profile_id": {"const": "geometry-tbx-v1"},
+    "required_member_roles": {"type": "array", "minItems": 8, "items": {"type": "string"}, "uniqueItems": true},
+    "forbidden_claims": {"type": "array", "items": {"type": "string"}},
+    "independent_verifier_required": {"const": true},
+    "raw_arrays_required": {"const": true},
+    "registry_hashes_required": {"const": true}
+  },
+  "additionalProperties": false
+}

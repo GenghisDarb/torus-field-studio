@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "status": "FROZEN_BEFORE_CALIBRATION",
+  "seed": 300,
+  "fixture_ids": ["SYN-01", "SYN-02", "SYN-03", "SYN-04", "SYN-05", "SYN-06", "SYN-07", "SYN-08", "SYN-09", "SYN-10", "SYN-11", "SYN-12", "SYN-13", "SYN-14", "SYN-15", "SYN-16", "SYN-17", "SYN-18", "SYN-19", "SYN-20", "SYN-21", "SYN-22", "SYN-23", "SYN-24", "SYN-25"],
+  "parent_count_per_fixture": 12,
+  "null_children_per_parent": 127,
+  "minimum_effective_parents": 8,
+  "family_alpha": 0.05,
+  "minimum_absolute_robust_effect": 1.0,
+  "n_values": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+  "curvature": {
+    "transform": "natural_log",
+    "sign_convention": "positive = downward knee in log(trace)",
+    "eligible_indices": [7, 8, 9, 10, 11, 12, 13],
+    "absolute_prominence_threshold": null,
+    "null_standardization": "median and 1.4826*MAD",
+    "bootstrap_samples": 256
+  },
+  "projections": {
+    "array_fields": ["neighbor_coherence", "spectral_concentration"],
+    "graph_fields": ["graph_spectral_gap", "graph_triangle_clustering"]
+  },
+  "null_candidates_used_in_calibration": [
+    "coordinate_permutation_preserving_values_and_shape",
+    "edge_count_preserving_graph_rewire"
+  ],
+  "perturbations": [
+    "measurement_noise",
+    "coordinate_or_edge_shuffle",
+    "orientation_rotation",
+    "mask_dropout",
+    "resolution_reduction"
+  ],
+  "historical_adapter": "canonical-tld-i-sequence-adapter-v1",
+  "historical_source": "fresh exact TLD I replay only",
+  "candidate_field_search_allowed": false,
+  "external_heldout_field_values_allowed": false,
+  "Beijing_role": "diagnostic-only regression after method evaluation; no threshold or operator selection"
+}

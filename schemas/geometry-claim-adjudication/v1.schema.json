@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/geometry-claim-adjudication/v1.schema.json",
+  "title": "Geometry claim adjudication",
+  "type": "object",
+  "required": ["schema_version", "run_id", "method_id", "method_mode", "scout_status", "channel_results", "scientific_outcome", "T_e", "S_e", "winner_N", "geometric_scale", "TLD_DERIVED", "EXTERNALLY_VALIDATED", "claim_ceiling", "blockers"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "method_id": {"type": "string", "minLength": 1},
+    "method_mode": {"enum": ["BINARY_STRICT", "BINARY_HIERARCHICAL", "NONBINARY_EVIDENCE_VECTOR"]},
+    "scout_status": {"enum": ["ELIGIBLE", "INELIGIBLE", "INCONCLUSIVE"]},
+    "channel_results": {"type": "object", "minProperties": 1},
+    "scientific_outcome": {"enum": ["V030_GEOMETRY_INDEXED_METHOD_NOT_ESTABLISHED", "GEOMETRY_INDEXED_TLD_HELDOUT_POSITIVE_UNDER_FROZEN_GATES", "GEOMETRY_INDEXED_TLD_HELDOUT_NEGATIVE_UNDER_FROZEN_GATES", "GEOMETRY_INDEXED_TLD_HELDOUT_MIXED_WITH_EXACT_COMPONENTS", "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED", "GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL", "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY"]},
+    "T_e": {"type": ["integer", "string", "null"]},
+    "S_e": {"type": ["number", "string", "null"]},
+    "winner_N": {"type": ["integer", "string", "null"]},
+    "geometric_scale": {"type": ["number", "string", "null"]},
+    "TLD_DERIVED": {"enum": ["SUPPORTED", "BLOCKED", "NOT_APPLICABLE"]},
+    "EXTERNALLY_VALIDATED": {"const": false},
+    "claim_ceiling": {"enum": ["DESCRIPTIVE", "COMPUTED_DYNAMICAL", "CALIBRATED_ASSAY"]},
+    "blockers": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/nested-replicate-registry/v1.schema.json",
+  "title": "Geometry nested replicate registry",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "nested_replicate_key", "replicates"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "nested_replicate_key": {"type": ["string", "null"]},
+    "replicates": {"type": "array", "items": {"type": "object", "required": ["replicate_id", "parent_id", "acquisition_identity"], "properties": {"replicate_id": {"type": "string"}, "parent_id": {"type": "string"}, "acquisition_identity": {"type": "string"}}, "additionalProperties": false}}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/representation-agreement/v1.schema.json",
+  "title": "Geometry representation agreement",
+  "type": "object",
+  "required": ["schema_version", "agreement_id", "projection_ids", "faithful_projection_count", "effect_direction_agreement", "rank_agreement", "mode_agreement", "tolerance_rule", "status"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "agreement_id": {"type": "string", "minLength": 1},
+    "projection_ids": {"type": "array", "minItems": 2, "items": {"type": "string"}, "uniqueItems": true},
+    "faithful_projection_count": {"type": "integer", "minimum": 2},
+    "effect_direction_agreement": {"type": "boolean"},
+    "rank_agreement": {"type": ["number", "null"], "minimum": -1, "maximum": 1},
+    "mode_agreement": {"type": ["boolean", "null"]},
+    "tolerance_rule": {"type": "string", "minLength": 1},
+    "status": {"enum": ["PASS", "FAIL", "INCONCLUSIVE"]}
+  },
+  "additionalProperties": false
+}

@@ -12,7 +12,25 @@ from typing import Any
 ROOT = Path(__file__).parents[1]
 SCHEMA_ROOT = ROOT / "schemas"
 OUTPUT = ROOT / "python" / "torusbrot" / "tld" / "generated_types.py"
-PREFIXES = ("tld-", "independent-verification")
+PREFIXES = (
+    "boundary-condition",
+    "coordinate-system",
+    "effective-parent-audit",
+    "field-component",
+    "field-observation",
+    "geometric-scale-registry",
+    "geometry-",
+    "independent-verification",
+    "mask-contract",
+    "nested-replicate-registry",
+    "operation-depth-registry",
+    "parent-registry",
+    "projection-registry",
+    "representation-agreement",
+    "scout-eligibility",
+    "structure-channel-registry",
+    "tld-",
+)
 
 
 def class_name(title: str) -> str:

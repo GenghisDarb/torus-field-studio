@@ -1,0 +1,21 @@
+31956fffc82711c555de6249396ba681fe1369cf72ef224dc593be6b68669b99  v030_protocol  <ATTACHMENT>/6205e578.../pasted-text.txt
+1e01588384729d921145a3694fc08f2fc579983e78ac04798c7e30f8df17843c  added_outside_advice  <ATTACHMENT>/e8ef4787.../pasted-text.txt
+c32609066a7d86934a9a6e8b62d57fd335e51a14c8fdebcb95bb7d1584c6438b  tld_source_bundle  <LOCAL_DOWNLOADS>/ControllerGate_TLD_1-44_Historical_Architecture_Recovery_Source_Bundle_2026-07-17.zip
+0647bf37cb735cf70e9dffd449624435ba13ec46b1253fd9763820394d80e5b8  formal_lexicon  <TLD_SOURCE_BUNDLE>::sources/Formal Lexicon of TORUS Ladder Dynamics.txt
+258ebb5ee662ef3defbde4e42e1e5452c6b72fa4514f1c8a9dbaa7bbe1c1bbb3  errata_map  <TLD_SOURCE_BUNDLE>::sources/Mislabeling & Notation History (Errata Map).txt
+0b525a3da659cda048fac4a8e062252872ca7ac97c46620345aea6bbf9d03a29  technical_standards_v21  <TLD_SOURCE_BUNDLE>::sources/Technical Standards and Input Protocol for TORUS Ladder Dynamics Notebooks v2.1.docx
+c657e4da46f628cfe1353f1e3b4107dc9bbe93aba62ddb390df939e9da51e5ec  tld_history_1_11  <TLD_SOURCE_BUNDLE>::sources/Detailed Breakdown of Notebooks 1–11 (Pre-Torus Ladder Dynamics I notebooks).txt
+25000196642117477739922cbeaf69e7b823b1bd3a0c84916084fe6578c0d4d2  tld_history_12_14  <TLD_SOURCE_BUNDLE>::sources/Detailed Breakdown of Notebooks 12-14 (Pre- and Torus Ladder Dynamics I notebooks)(1).txt
+8979107a9564a2c768d05917455e573dee233bf94e70cb1757a72dff9d8a3bbc  outside_study_ledger  <TLD_SOURCE_BUNDLE>::sources/ControllerGate Development Chats 3-5 plus Outside Study Assessments(3).txt
+5bae9af506bd65e74225fc91f869931d70fcd89505cbc672b3538abdfd4b446e  tld_i_public_release  <REPOSITORY_IGNORED>/external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip
+1cb0b9508a2cc560a88d5a78e559b56e157dd12656bf9a8ba073a6f099ce812d  tfs_v022_release  <REPOSITORY_IGNORED>/results/v0.3.0/preflight/fresh-v022-release-20260819/release-manifest-v0.2.2.json
+40f6772eb555eaeeb604803b933961c9ecae4df402f5f66d592fa52e317df94b  v021_exact_replay  <REPOSITORY_IGNORED>/results/v0.3.0/preflight/v021-replay-20260819/adjudication/scientific_adjudication.json
+404d24a4a345bb7a1017212878369ae1106e81b07bec9180a2976f3e48d571df  controllergate_claim_envelope  <CONTROLLERGATE_READ_ONLY>/docs/CLAIM_ENVELOPE.md
+e14935e749014d38bfaf9a372c81f78aa371dbf40f874bce26d180248e7e9524  batch103_contract  <CONTROLLERGATE_READ_ONLY>/configs/batch103_prompt_contract.json
+098869b255b5c21e86447b77ab13867a579056a9489e5e8111467f8af0d0d65b  controllergate_closure_mode  <CONTROLLERGATE_READ_ONLY>/controllergate/topology/tld_closure_mode.py
+e8c5d932cb3e1e1ed2a8e023655a5ad5fc4b49129e42e14e343d6d83ade0f353  controllergate_clean_track  <CONTROLLERGATE_READ_ONLY>/controllergate/topology/tld_clean_track.py
+b790e3f0fb8865c681af9516f7590f6e77af0f6cc94c1d058fa733a4ea0a81a7  program_family_audit  <LOCAL_DOWNLOADS>/TORUS Program Family Audit and Lexicon.docx
+54d08ae75d6ed66c45ae9f32ffb220d24ad41c836ced8f15674736e6466231c7  brot_plan_summary  <LOCAL_DOWNLOADS>/TB_03_TB_04_TORUS_Brot_ToT_BROT_plan_summary_with_TB_01_TB_02_Unified_breakdown.txt
+eb71b670a68b9518f14e08084d443033c85fc589161c1603d549f41481fc64ab  brot_notebook_notes  <LOCAL_DOWNLOADS>/TORUS_BROT_-_ToT_BROT notebooks.txt
+4af64343cd55301206f13477d5a9af023e961a6ff0c3a0d324441629d7f5da25  brot_development_rules  <LOCAL_DOWNLOADS>/TORUS-Brot and ToT-Brot development rules and tips.txt
+9f2c98c549dfc22c72ae0e76d48ff194cb7fa8f227ea20b49fe5717e75a838e8  advanced_chat_part1  <LOCAL_DOWNLOADS>/...advanced_development_chat_archive_part_1.txt

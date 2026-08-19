@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/mask-contract/v1.schema.json",
+  "title": "Geometry mask contract",
+  "type": "object",
+  "required": ["schema_version", "mask_id", "semantics", "true_means", "mask_sha256", "selection_timing", "mutable_after_freeze"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "mask_id": {"type": "string", "minLength": 1},
+    "semantics": {"enum": ["VALID_SUPPORT", "INVALID_SUPPORT", "REGION_OF_INTEREST", "NOT_APPLICABLE"]},
+    "true_means": {"enum": ["INCLUDE", "EXCLUDE", "NOT_APPLICABLE"]},
+    "mask_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "selection_timing": {"enum": ["SOURCE_DEFINED", "PRE_OUTCOME_REGISTERED", "NOT_APPLICABLE"]},
+    "mutable_after_freeze": {"const": false}
+  },
+  "additionalProperties": false
+}
