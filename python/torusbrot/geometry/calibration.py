@@ -25,6 +25,7 @@ class FixtureEvaluation:
     ground_truth_present: bool
     expected_direction: str
     scout_status: str
+    scout_receipt: dict[str, Any]
     projection_results: dict[str, dict[str, Any]]
     representation_status: str
     closure: dict[str, Any]
@@ -202,6 +203,7 @@ def evaluate_fixture(fixture: SyntheticFixture, *, seed: int = 300) -> FixtureEv
         ground_truth_present=fixture.binary_target_present,
         expected_direction=fixture.expected_direction,
         scout_status=scout.status.value,
+        scout_receipt=scout.to_dict(),
         projection_results=projection_results,
         representation_status=representation_status,
         closure=closure,

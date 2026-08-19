@@ -25,6 +25,12 @@
     "coordinate_permutation_preserving_values_and_shape",
     "edge_count_preserving_graph_rewire"
   ],
+  "null_selection_rule": {
+    "requires_parent_matching": true,
+    "requires_finite_children": true,
+    "requires_registered_target_destruction": true,
+    "maximum_family_false_positive_rate": 0.05
+  },
   "perturbations": [
     "measurement_noise",
     "coordinate_or_edge_shuffle",
@@ -32,6 +38,12 @@
     "mask_dropout",
     "resolution_reduction"
   ],
+  "perturbation_selection_rule": {
+    "response_statistic": "median relative change across registered projections",
+    "maximum_absolute_pairwise_correlation": 0.9,
+    "selection": "greedy in preregistered list order",
+    "minimum_nonredundant_count_for_S_e": 3
+  },
   "historical_adapter": "canonical-tld-i-sequence-adapter-v1",
   "historical_source": "fresh exact TLD I replay only",
   "candidate_field_search_allowed": false,
