@@ -1,0 +1,32 @@
+{
+  "channel_threshold": 0.75,
+  "directions": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      -1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "estimator": "finite-grid directional line occupancy",
+  "finite_sample_theorem_authority": false,
+  "schema_version": "2.0.0"
+}

@@ -1,0 +1,50 @@
+{"mutation_id": "M001", "name": "null pooling", "rejected": true, "status": "PASS", "violations": ["global_null_pool"]}
+{"mutation_id": "M002", "name": "midpoint penalty insertion", "rejected": true, "status": "PASS", "violations": ["midpoint_penalty"]}
+{"mutation_id": "M003", "name": "vector rotation without component rotation", "rejected": true, "status": "PASS", "violations": ["vector_components_rotated"]}
+{"mutation_id": "M004", "name": "silent magnitude conversion", "rejected": true, "status": "PASS", "violations": ["silent_vector_magnitude"]}
+{"mutation_id": "M005", "name": "silent time averaging", "rejected": true, "status": "PASS", "violations": ["silent_time_average"]}
+{"mutation_id": "M006", "name": "fake nested parents", "rejected": true, "status": "PASS", "violations": ["nested_samples_as_parents"]}
+{"mutation_id": "M007", "name": "fixed eight-parent threshold without power", "rejected": true, "status": "PASS", "violations": ["universal_fixed_eight"]}
+{"mutation_id": "M008", "name": "unknown parent count awarded full selection score", "rejected": true, "status": "PASS", "violations": ["unknown_parent_full_score"]}
+{"mutation_id": "M009", "name": "S_e set to geometric scale", "rejected": true, "status": "PASS", "violations": ["S_e_is_geometric_scale"]}
+{"mutation_id": "M010", "name": "T_e set to elbow", "rejected": true, "status": "PASS", "violations": ["T_e_is_elbow"]}
+{"mutation_id": "M011", "name": "winner_N set to T_e", "rejected": true, "status": "PASS", "violations": ["winner_N_is_T_e"]}
+{"mutation_id": "M012", "name": "graph weights discarded", "rejected": true, "status": "PASS", "violations": ["graph_weights_retained"]}
+{"mutation_id": "M013", "name": "mask replaced with mean", "rejected": true, "status": "PASS", "violations": ["mask_mean_fill"]}
+{"mutation_id": "M014", "name": "anti-alias omitted", "rejected": true, "status": "PASS", "violations": ["anti_aliasing"]}
+{"mutation_id": "M015", "name": "parent/campaign hierarchy hidden", "rejected": true, "status": "PASS", "violations": ["hierarchy_visible"]}
+{"mutation_id": "M016", "name": "closure null children flattened", "rejected": true, "status": "PASS", "violations": ["null_children_flattened"]}
+{"mutation_id": "M017", "name": "summary-only verifier", "rejected": true, "status": "PASS", "violations": ["raw_independent_verifier"]}
+{"mutation_id": "M018", "name": "hard negative deleted", "rejected": true, "status": "PASS", "violations": ["hard_negatives_present"]}
+{"mutation_id": "M019", "name": "operation depth added after freeze", "rejected": true, "status": "PASS", "violations": ["operation_depth_frozen"]}
+{"mutation_id": "M020", "name": "geometry N grid inherited without semantics", "rejected": true, "status": "PASS", "violations": ["geometry_N_semantics_inherited"]}
+{"mutation_id": "M021", "name": "wind farm used to tune thresholds", "rejected": true, "status": "PASS", "violations": ["wind_threshold_tuning"]}
+{"mutation_id": "M022", "name": "analytic TORUS-BROT used as evidence", "rejected": true, "status": "PASS", "violations": ["analytic_image_as_evidence"]}
+{"mutation_id": "M023", "name": "single field called ToT-BROT", "rejected": true, "status": "PASS", "violations": ["single_field_ToT"]}
+{"mutation_id": "M024", "name": "FUP used without conjugate support", "rejected": true, "status": "PASS", "violations": ["FUP_conjugate_support_required"]}
+{"mutation_id": "M025", "name": "claim quarantine removed", "rejected": true, "status": "PASS", "violations": ["claim_quarantine_present"]}
+{"mutation_id": "M026", "name": "joint null replicate count reduced", "rejected": true, "status": "PASS", "violations": ["joint_null_replicates"]}
+{"mutation_id": "M027", "name": "nested resampling crosses parents", "rejected": true, "status": "PASS", "violations": ["nested_resampling_within_parent"]}
+{"mutation_id": "M028", "name": "directed graph symmetrized", "rejected": true, "status": "PASS", "violations": ["directed_graph_symmetrized"]}
+{"mutation_id": "M029", "name": "correlation matrix rasterized", "rejected": true, "status": "PASS", "violations": ["correlation_as_raster"]}
+{"mutation_id": "M030", "name": "point cloud rasterized", "rejected": true, "status": "PASS", "violations": ["point_cloud_as_raster"]}
+{"mutation_id": "M031", "name": "components averaged", "rejected": true, "status": "PASS", "violations": ["component_average"]}
+{"mutation_id": "M032", "name": "mask discarded", "rejected": true, "status": "PASS", "violations": ["mask_preserved"]}
+{"mutation_id": "M033", "name": "ties hidden", "rejected": true, "status": "PASS", "violations": ["ties_reported"]}
+{"mutation_id": "M034", "name": "boundary minima hidden", "rejected": true, "status": "PASS", "violations": ["boundaries_reported"]}
+{"mutation_id": "M035", "name": "elbow labeled winner", "rejected": true, "status": "PASS", "violations": ["elbow_is_winner"]}
+{"mutation_id": "M036", "name": "weighted graph binarized", "rejected": true, "status": "PASS", "violations": ["graph_binarized"]}
+{"mutation_id": "M037", "name": "unit provenance declared exact", "rejected": true, "status": "PASS", "violations": ["unit_provenance_uncertainty"]}
+{"mutation_id": "M038", "name": "FUP labeled TORUS confirmation", "rejected": true, "status": "PASS", "violations": ["FUP_is_TORUS_confirmation"]}
+{"mutation_id": "M039", "name": "external validation asserted", "rejected": true, "status": "PASS", "violations": ["externally_validated"]}
+{"mutation_id": "M040", "name": "wind farm made confirmatory", "rejected": true, "status": "PASS", "violations": ["wind_confirmatory"]}
+{"mutation_id": "M041", "name": "Beijing used for method tuning", "rejected": true, "status": "PASS", "violations": ["Beijing_method_tuning"]}
+{"mutation_id": "M042", "name": "universal binary truth imposed", "rejected": true, "status": "PASS", "violations": ["universal_binary_truth"]}
+{"mutation_id": "M043", "name": "population claim from one field", "rejected": true, "status": "PASS", "violations": ["population_claim_n1"]}
+{"mutation_id": "M044", "name": "intervention conditions assumed exchangeable", "rejected": true, "status": "PASS", "violations": ["conditions_exchangeable_default"]}
+{"mutation_id": "M045", "name": "unknown hierarchy receives inferential credit", "rejected": true, "status": "PASS", "violations": ["unknown_hierarchy_credit"]}
+{"mutation_id": "M046", "name": "domain baseline removed", "rejected": true, "status": "PASS", "violations": ["domain_baseline_required"]}
+{"mutation_id": "M047", "name": "failures deleted", "rejected": true, "status": "PASS", "violations": ["failures_preserved"]}
+{"mutation_id": "M048", "name": "generic geometry statistic called TLD", "rejected": true, "status": "PASS", "violations": ["generic_geometry_called_TLD"]}
+{"mutation_id": "M049", "name": "reflection omits signed component", "rejected": true, "status": "PASS", "violations": ["reflection_signed_component"]}
+{"mutation_id": "M050", "name": "nearest-neighbor downsampling substituted", "rejected": true, "status": "PASS", "violations": ["downsample_nearest_neighbor"]}

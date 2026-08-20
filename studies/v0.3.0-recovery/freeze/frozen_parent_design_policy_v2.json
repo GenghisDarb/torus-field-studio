@@ -1,0 +1,54 @@
+{
+  "condition_exchangeability_default": false,
+  "medium_effect_population_support": {
+    "claim_tier": 3,
+    "minimum_independent_parents": null,
+    "post_outcome_relaxation_forbidden": true,
+    "scenario": "effect=0.8 ICC=0.3 nested=10 heterogeneity=0.4 family=3"
+  },
+  "nested_samples": "MEASUREMENT_UNCERTAINTY_ONLY",
+  "old_v1_eight_parent_gate": "PRESERVED_UNMODIFIED_HISTORICAL_ONLY",
+  "policy": "DESIGN_AND_ENDPOINT_SPECIFIC",
+  "schema_version": "2.0.0",
+  "single_instance_execution": "TIER_1_DESCRIPTIVE_WITH_MATCHED_SURROGATES_NO_POPULATION_GENERALIZATION",
+  "tiers": [
+    {
+      "maximum_claim": "NO_SCIENTIFIC_METRIC",
+      "minimum_structure": "source identity and custody",
+      "name": "SOURCE_CUSTODY_ONLY",
+      "population_generalization": false,
+      "tier": 0
+    },
+    {
+      "TLD_DERIVED_default": "BLOCKED",
+      "maximum_claim": "COMPUTED_SINGLE_INSTANCE",
+      "minimum_structure": "one independently acquired field",
+      "name": "SINGLE_FIELD_INSTANCE_ASSAY",
+      "population_generalization": false,
+      "tier": 1
+    },
+    {
+      "maximum_claim": "CALIBRATED_CAMPAIGN_ASSAY",
+      "minimum_structure": "multiple separately acquired runs plus frozen cluster model",
+      "name": "WITHIN_CAMPAIGN_REPEATED_ACQUISITION_ASSAY",
+      "population_generalization": false,
+      "tier": 2
+    },
+    {
+      "maximum_claim": "CALIBRATED_POPULATION_ASSAY",
+      "minimum_structure": "power-justified independent campaigns, specimens, or systems",
+      "name": "CROSS_CAMPAIGN_OR_SAMPLE_POPULATION_ASSAY",
+      "population_generalization": true,
+      "tier": 3
+    },
+    {
+      "maximum_claim": "EXTERNAL_REPLICATION_ONLY_IF_DOCUMENTED",
+      "minimum_structure": "genuinely independent outside team",
+      "name": "EXTERNAL_REPLICATION",
+      "population_generalization": true,
+      "tier": 4
+    }
+  ],
+  "universal_minimum_parent_count": null,
+  "unknown_hierarchy_credit": "NONE"
+}

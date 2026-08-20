@@ -1,0 +1,27 @@
+{
+  "bootstrap_samples": 999,
+  "bootstrap_stability": 1.0,
+  "bootstrap_unit": "PARENT",
+  "candidate_elbows": [
+    3,
+    5,
+    6
+  ],
+  "curvature": [
+    -0.3559400036481682,
+    0.07267446333917171,
+    -0.120198753762923,
+    0.04338709460334589,
+    -0.05613296998110173
+  ],
+  "elbow_is_T_e": false,
+  "elbow_is_winner_N": false,
+  "first_interior_pinning": false,
+  "last_interior_pinning": false,
+  "multiple_elbows_reported": true,
+  "null_standardized_prominence": 0.0,
+  "relative_prominence": 0.11724071928516769,
+  "selected_elbow": 3,
+  "status": "COMPUTED_INTERIOR_ONLY",
+  "tied_peak": false
+}

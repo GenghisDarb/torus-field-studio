@@ -1,0 +1,9 @@
+{
+  "boundary_minima_visible": true,
+  "general_field_operator": "MODAL_RESIDUAL_DIAGNOSTIC_NOT_TLD_CLOSURE",
+  "midpoint_penalty": null,
+  "path_compatible_operator": "CANONICAL_TLD_CHI_RMS_CLOSURE_VIA_LOSSLESS_PATH_PROJECTION",
+  "schema_version": "2.0.0",
+  "ties_visible": true,
+  "winner_N_scope": "CANONICAL_PATH_CHANNEL_ONLY"
+}

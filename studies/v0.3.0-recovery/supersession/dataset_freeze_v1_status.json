@@ -1,0 +1,15 @@
+{
+  "claim_metrics_executed_at_v1": false,
+  "condition_acquisitions_exchangeable": false,
+  "doi": "10.5281/zenodo.18731994",
+  "freeze_commit": "70fa574350ecff8c021ed61ad121c07edb3d581f",
+  "schema_version": "2.0.0",
+  "statuses": [
+    "STRUCTURE_EXPOSED_NO_CLAIM_METRICS",
+    "NONCONFIRMATORY_METHOD_DEVELOPMENT_PILOT_ONLY",
+    "BEIJING_STYLE_CONFIRMATORY_REUSE_FORBIDDEN",
+    "SOURCE_CUSTODY_REUSABLE",
+    "PIPELINE_ENGINEERING_REUSABLE",
+    "THRESHOLD_CALIBRATION_FORBIDDEN"
+  ]
+}

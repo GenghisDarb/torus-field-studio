@@ -1,0 +1,13 @@
+{
+  "claim_unit": "independent acquisition/campaign/specimen as preregistered",
+  "cluster_formula": "n_effective = n_clusters / (1 + (mean_cluster_size - 1) * ICC)",
+  "condition_exchangeability_requires_model": true,
+  "nested_sample_role": "measurement uncertainty; never promoted to parent",
+  "schema_version": "2.0.0",
+  "sensitivity_dimensions": [
+    "ICC",
+    "heterogeneity",
+    "missingness",
+    "projection disagreement"
+  ]
+}

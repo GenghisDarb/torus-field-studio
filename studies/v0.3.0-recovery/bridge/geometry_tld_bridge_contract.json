@@ -1,0 +1,13 @@
+{
+  "admissible_representations": [
+    "ONE_DIMENSIONAL_COORDINATE_FIELD",
+    "ONE_BY_M_SCALAR_FIELD",
+    "PATH_GRAPH"
+  ],
+  "canonical_operator": "historical chi/RMS score_ladder",
+  "commutative_requirement": "extract_path_sequence then canonical score equals direct canonical score exactly",
+  "contract": "GeometryTLDBridgeV2",
+  "failure_label": "NEW_GEOMETRY_STATISTIC_NOT_TLD_BRIDGE",
+  "general_geometry_channels": "NON_TLD_INSTRUMENTED_EVIDENCE_VECTOR",
+  "schema_version": "2.0.0"
+}

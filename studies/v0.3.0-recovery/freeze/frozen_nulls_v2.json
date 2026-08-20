@@ -1,0 +1,10 @@
+{
+  "aggregate_rule": "draw one registered child per parent and recompute same population statistic",
+  "cluster_dependence": "EXPLICIT_DESIGN_INPUT",
+  "global_child_pool": "FORBIDDEN",
+  "irregular_geometry_null_bias_required": true,
+  "joint_aggregate_replicates_minimum": 999,
+  "parent_matching_required": true,
+  "schema_version": "2.0.0",
+  "source_specific_nulls_frozen_before_claim_metrics": true
+}

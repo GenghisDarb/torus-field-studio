@@ -1,0 +1,9 @@
+{
+  "coordinate_native": true,
+  "rasterization_used": false,
+  "scores": {
+    "coordinate_anisotropy": 27.098560322486072,
+    "nearest_neighbor_value_coherence": -0.1923076923076923
+  },
+  "status": "PASS"
+}

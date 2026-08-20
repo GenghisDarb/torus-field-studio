@@ -1,0 +1,10 @@
+{
+  "adjacent_boundaries_reported": true,
+  "children_flattened": false,
+  "curvature_bootstrap_unit": "PARENT",
+  "elbow_is_T_e": false,
+  "elbow_is_winner_N": false,
+  "joint_null_replicates": 999,
+  "midpoint_penalty": null,
+  "status": "PASS"
+}

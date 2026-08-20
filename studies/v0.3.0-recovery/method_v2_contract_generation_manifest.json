@@ -1,0 +1,175 @@
+{
+  "Beijing_outcomes_used": false,
+  "ControllerGate_modified": false,
+  "external_validation_claimed": false,
+  "file_count": 41,
+  "files": [
+    {
+      "path": "studies/v0.3.0-recovery/bridge/geometry_tld_bridge_contract.json",
+      "sha256": "c9991448ec4a0f1fa061f58129b58c72a3416ad3b1c0118b2430c887baf4960c"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/bridge/projection_information_loss.jsonl",
+      "sha256": "c40cce774f031e4c2c79c6e429d940d3b2f8ec649b84899340b1fdd11800a6ee"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/bridge/sequence_path_embedding_registry.jsonl",
+      "sha256": "c40cce774f031e4c2c79c6e429d940d3b2f8ec649b84899340b1fdd11800a6ee"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/claim_tier_registry_v2.json",
+      "sha256": "5f19bc702fed104ba0a3a15359ea7c9dbc737b3955c7d7ab1c58345ece2a2afd"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/design_specific_power_contract_v2.json",
+      "sha256": "5c28a456f31b6238824c89a718a20980234379f875b57aeae217e13ebe7eace9"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/effective_sample_size_contract_v2.json",
+      "sha256": "c4665c87758d37b5c24d5ab2015f082c7da3b68f742a025e8d82f8defd41e892"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/ICC_power_surface.csv",
+      "sha256": "65f78ed9639ccf7ede857609a27098a2cdd4b8e7d8b1b7d378698c30a0f448b8"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/minimum_support_by_claim_tier.json",
+      "sha256": "2390fc481349d089f02cdf0647c89aaf8fd0b3f46c7387ae3b2792e26a4b7f6e"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/minimum_support_by_endpoint.json",
+      "sha256": "189b018eb83bc521f36e4954443bb50d3f8e2cc8adeb651ef498c2f85225eaf0"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/nested_replicate_contract_v2.json",
+      "sha256": "648238bdee472c026c70a324526355fae3283c49229260a9851706c613c79329"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/parent_count_power_surface.csv",
+      "sha256": "7255a1b7671f9d94b4395a49166a8ff2ef3ae143481fc37ed30322ea129d4abd"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/parent_hierarchy_schema_v2.json",
+      "sha256": "629a0c81b0e425ddc8ab6dbefd61033042e7f3abcae4aed996cdd21cd281b6b6"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/design/statistical_unit_contract_v2.json",
+      "sha256": "75317c5010767ccb884ba5d3e2a16687d85c6368d8f074447af0283e41daf945"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/fup/dual_space_operator_contract.json",
+      "sha256": "492ab895a43ac02350ccf9aa0f45640acb9f63bc11c01de4076cd311b57d22b7"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/fup/fup_applicability_gate.json",
+      "sha256": "944c5b54c99d71778eec352c1e180ebe33af88fd647b93eb7c32dbf1e6620bc8"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/fup/fup_calibration_results.json",
+      "sha256": "f36a9b0b0046c2c034d38ddc33e14e40222a67625c3ccf0c541dbddaa92f6d64"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/fup/fup_channel_contract.json",
+      "sha256": "ec74da7ad91f7e04d9a3f550a8daa84c07d715da62794c7b356a2543b667fc5b"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/fup/fup_synthetic_controls.jsonl",
+      "sha256": "442e0d544ef590115134e9c66601f3c43a7b1d5e4389a675e81fd194055a01af"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/fup/line_porosity_estimator.json",
+      "sha256": "85522a556a01b23a90f9338856ff7692193ead589b9ef3a50d03f32db2e7017b"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/geometry/dimensional_collapse_negative_controls.jsonl",
+      "sha256": "4e13fa5bc1d95606c4bb5a5c7a8a0ad176ae0e9bc1d1c52884450d3370af5885"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/geometry/graph_type_tests.json",
+      "sha256": "96599b8140863f6bddfe08934b560567ba4a9d31366e96c2a316fb1e20a006b1"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/geometry/irregular_field_projection_tests.json",
+      "sha256": "71084fe43ebfe72a63e128135d42ec9ec012ca35f910d822a772d9dedcc64c88"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/geometry/mask_preservation_tests.json",
+      "sha256": "9762220ca2e0af01541d526f3513cf13c1e3e91e5db1556af3db333f4c6b3e79"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/geometry/projection_contracts_v2.jsonl",
+      "sha256": "f1308e35fa275b7fd63dcdb0c29790b784f3a5b6e86086778fad7efe8e474d1a"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/geometry/typed_geometry_handler_registry.jsonl",
+      "sha256": "10e394ccc461d414a0c21b18e893a954020c219574938bb25ababbf7e93cf4cc"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/geometry/vector_equivariance_tests.json",
+      "sha256": "78cb2cd46548faa73a1acef8f72da50f273faf3ea373ecbc22fa416abab2b5d4"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/boundary_and_tie_audit_v2.json",
+      "sha256": "d9794d441206be1babef9b50f36459d67be0f755b45e8db6b001f4666321fc23"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/closure_null_calibration_v2.json",
+      "sha256": "f44e4a9289a6d77e6e104b579afa83d08790432e106e467ea0adf269b0dca2f8"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/closure_operator_v2_contract.json",
+      "sha256": "d931df5275b53f970705be1307ad8b009d6c2a5e73a4122c7f16028d7f3202b9"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/curvature_bootstrap_v2.json",
+      "sha256": "e4f1d2edb1736e66698c94c02a13e381b9dfefb2181ac95fe3dde4535883b437"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/domain_baseline_contract_v2.json",
+      "sha256": "66937f6d0dde6126d189af01ca87859de33446d075fc92f25deeb07b7e3c9ec8"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/fragility_fingerprint_v2.json",
+      "sha256": "b426e4f375d23d8cce4af0b0217716625e99cf660f2916033bc78ca3d685a041"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/joint_parent_null_contract_v2.json",
+      "sha256": "53ed7c3efda1efd9890beb21680ec85d9bec6e6a7dd87920501da89e822db2c8"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/representation_agreement_v2.json",
+      "sha256": "c8b10700ca06d06f01b1890d2a6073f5cc22b7eef104ae2e98f25ddb7cdaad8f"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/signed_separation_v2_receipts.jsonl",
+      "sha256": "683d9f28a4a56a4c52374ddaa6c5a71c9c435ff2e051ac3f4435316bbf4b5b8d"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/statistics/statistical_regression_tests_v2.json",
+      "sha256": "70e6cb404ad444496b1fd44c74f6c22ee8a49bdc52b91f8a1cee1c525ea8b707"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/supersession/claim_source_quarantine.jsonl",
+      "sha256": "b9f898bc2898b66e0cf8902631bd10cf5b0b40ed25176828f81cf77fd2fcdabd"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/supersession/dataset_freeze_v1_status.json",
+      "sha256": "c0706231d63018851202bc3016c04e19ba621b06075d8264eb84b6746c7df073"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/supersession/historical_overclaim_registry.jsonl",
+      "sha256": "7fb9c2675e14f0757784e35481a6b3bc35c1bc19e4f0b82e0c23b7033060705c"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/supersession/method_freeze_v1_status.json",
+      "sha256": "8d404e41021c6b41cb2f18af640a339343a31e0e0f797a5d783b17ff197b265b"
+    },
+    {
+      "path": "studies/v0.3.0-recovery/supersession/supersession_ledger.jsonl",
+      "sha256": "c260df28ef166715786fba0934d8fcfdebadd98d7cd6423429bc227b45862926"
+    }
+  ],
+  "generator": "scripts/generate_geometry_method_v2_contracts.py",
+  "schema_version": "2.0.0",
+  "wind_farm_outcomes_used": false
+}

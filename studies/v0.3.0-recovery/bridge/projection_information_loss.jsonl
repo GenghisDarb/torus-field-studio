@@ -1,0 +1,3 @@
+{"loses": [], "preserves": ["sequence values", "order", "coordinates"], "projection": "identity", "representation": "ONE_DIMENSIONAL_COORDINATE_FIELD"}
+{"loses": [], "preserves": ["sequence values", "order", "single-row adjacency"], "projection": "row extraction", "representation": "ONE_BY_M_SCALAR_FIELD"}
+{"loses": [], "preserves": ["sequence values", "path adjacency", "endpoint order convention"], "projection": "endpoint-start path traversal", "representation": "PATH_GRAPH"}

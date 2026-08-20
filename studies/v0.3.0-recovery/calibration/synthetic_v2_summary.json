@@ -1,0 +1,12 @@
+{
+  "adversarial_family_count": 7,
+  "bridge_status": "PASS_LOSSLESS_PATH_CHANNEL_ONLY",
+  "family_count": 31,
+  "historical_construct_recovery": true,
+  "negative_family_count": 12,
+  "outcome_exposed_field_used": false,
+  "positive_family_count": 12,
+  "raw_seed_realization_count": 620,
+  "representation_disagreement_count": 0,
+  "universal_binary_truth_used": false
+}

@@ -1,0 +1,32 @@
+{
+  "binary_failures": [
+    "No universal binary TLD truth was assigned to generic structured fields",
+    "Family type-I upper confidence bounds do not establish the frozen 0.05 family bound",
+    "Generic field channels are not predictive TLD discriminators"
+  ],
+  "binary_pass": false,
+  "evidence_vector_checks": {
+    "curvature_semantic_firewall": true,
+    "external_validation_not_claimed": true,
+    "historical_construct_recovery_pass": true,
+    "joint_parent_null": true,
+    "lossless_path_bridge_pass": true,
+    "midpoint_penalty_absent": true,
+    "outcome_exposed_calibration_absent": true,
+    "raw_independent_recomputation_pass": true,
+    "representation_disagreements_zero": true,
+    "scientific_mutations_rejected": true,
+    "typed_handler_registry_complete": true,
+    "unexplained_disagreements_zero": true
+  },
+  "evidence_vector_pass": true,
+  "hierarchical_failures": [
+    "No calibrated universal multi-channel adjudication rule exists",
+    "Medium-effect population support was not established within the parent grid",
+    "T_e and S_e are not calibrated for the general geometry evidence vector",
+    "Claim-bearing domain baselines remain domain-specific and cannot be synthetic-generic"
+  ],
+  "hierarchical_pass": false,
+  "method_established": true,
+  "schema_version": "2.0.0"
+}

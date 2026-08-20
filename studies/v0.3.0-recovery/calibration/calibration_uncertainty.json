@@ -1,0 +1,31 @@
+{
+  "Beijing_use": "NONE_IN_METHOD_SELECTION",
+  "confidence_interval": "Wilson 95% for binomial rates",
+  "external_validation": false,
+  "family_counts": {
+    "adversarial_near_null": 7,
+    "positive_channel_control": 12,
+    "true_negative": 12
+  },
+  "hierarchical_multi_channel_TLD_calibrated": false,
+  "instrumented_evidence_vector_supported": true,
+  "joint_null_replicates_per_family": 999,
+  "predictive_binary_TLD_calibrated": false,
+  "realizations_per_family": 20,
+  "schema_version": "2.0.0",
+  "type_I_family_upper_bounds": {
+    "N01": 0.23613119344674205,
+    "N02": 0.23613119344674205,
+    "N03": 0.16112515805281938,
+    "N04": 0.23613119344674205,
+    "N05": 0.3010336452284873,
+    "N06": 0.16112515805281938,
+    "N07": 0.23613119344674205,
+    "N08": 0.23613119344674205,
+    "N09": 0.16112515805281938,
+    "N10": 0.16112515805281938,
+    "N11": 0.23613119344674205,
+    "N13": 0.16112515805281938
+  },
+  "wind_farm_outcomes_used": false
+}

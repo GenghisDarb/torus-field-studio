@@ -1,0 +1,61 @@
+{
+  "first_interior_reported": true,
+  "last_interior_reported": true,
+  "per_parent": [
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    }
+  ],
+  "population": {
+    "boundary_minimum": true,
+    "first_interior_pinning": false,
+    "last_interior_pinning": false,
+    "minimum_coordinates": [
+      7
+    ],
+    "tie": false
+  },
+  "ties_reported": true
+}

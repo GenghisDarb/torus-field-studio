@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acquisitions": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "campaigns": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "conditions": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "field_components": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "nested_samples": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "same_condition_replicates": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sensor_views": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "systems": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "campaigns",
+    "systems",
+    "acquisitions",
+    "conditions",
+    "nested_samples"
+  ],
+  "title": "ParentHierarchyV2",
+  "type": "object"
+}

@@ -1,0 +1,110 @@
+{
+  "coordinates": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "joint_null_trace_count": 999,
+  "joint_null_trace_quantiles": {
+    "0.025": [
+      0.5701434537390188,
+      0.31578690747803717,
+      0.24968179487543993,
+      0.18357668227284263,
+      0.15221232203158108,
+      0.12084796179031951,
+      0.10148622258011908
+    ],
+    "0.5": [
+      0.6915020663905624,
+      0.3830041327811245,
+      0.30282813205026066,
+      0.22265213131939676,
+      0.1846116701413961,
+      0.1465712089633954,
+      0.12308820203774296
+    ],
+    "0.975": [
+      0.8031796501126381,
+      0.44485930022527603,
+      0.3517348753763777,
+      0.25861045052747933,
+      0.21442645486923156,
+      0.17024245921098374,
+      0.14296694666683843
+    ]
+  },
+  "joint_null_traces_sha256": "9e576f08fbfafb1cb7d166a77c02e4f7e8893f915fdbc9255046e8c8f69847c9",
+  "midpoint_penalty": null,
+  "null_children_flattened": false,
+  "observed_population_trace": [
+    0.6915020663905624,
+    0.3830041327811245,
+    0.30282813205026066,
+    0.22265213131939676,
+    0.1846116701413961,
+    0.1465712089633954,
+    0.12308820203774296
+  ],
+  "operator": "MODAL_RESIDUAL_DIAGNOSTIC_NOT_TLD_CLOSURE",
+  "per_parent_minimum_audits": [
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    },
+    {
+      "boundary_minimum": true,
+      "first_interior_pinning": false,
+      "last_interior_pinning": false,
+      "minimum_coordinates": [
+        7
+      ],
+      "tie": false
+    }
+  ],
+  "population_minimum_audit": {
+    "boundary_minimum": true,
+    "first_interior_pinning": false,
+    "last_interior_pinning": false,
+    "minimum_coordinates": [
+      7
+    ],
+    "tie": false
+  }
+}
