@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "common_complete_count": 126406,
+      "native_unit_attribute_present": false,
+      "parent_id": "PARENT_TEST_1",
+      "planar_z_span_mm": 124.0,
+      "test_matrix_plane_reference_mm": 925,
+      "units_resolved": true,
+      "x": {
+        "finite_count": 126648,
+        "maximum": 7785.918277140991,
+        "median": 1170.0186684858622,
+        "minimum": -5648.544209977661,
+        "missing_count": 23352,
+        "size": 150000
+      },
+      "y": {
+        "finite_count": 126648,
+        "maximum": 3793.0,
+        "median": -196.58745430700003,
+        "minimum": -3779.8459985107957,
+        "missing_count": 23352,
+        "size": 150000
+      },
+      "z": {
+        "finite_count": 126648,
+        "maximum": 1033.0,
+        "median": 928.0,
+        "minimum": 909.0,
+        "missing_count": 23352,
+        "size": 150000
+      }
+    },
+    {
+      "common_complete_count": 125708,
+      "native_unit_attribute_present": false,
+      "parent_id": "PARENT_TEST_2",
+      "planar_z_span_mm": 124.68570981266976,
+      "test_matrix_plane_reference_mm": 925,
+      "units_resolved": true,
+      "x": {
+        "finite_count": 126033,
+        "maximum": 7785.0,
+        "median": 1172.0,
+        "minimum": -5648.94220499445,
+        "missing_count": 23967,
+        "size": 150000
+      },
+      "y": {
+        "finite_count": 126033,
+        "maximum": 3792.0,
+        "median": -226.61816550366407,
+        "minimum": -3779.2806262230565,
+        "missing_count": 23967,
+        "size": 150000
+      },
+      "z": {
+        "finite_count": 126033,
+        "maximum": 1033.0,
+        "median": 928.0,
+        "minimum": 908.3142901873302,
+        "missing_count": 23967,
+        "size": 150000
+      }
+    },
+    {
+      "common_complete_count": 125863,
+      "native_unit_attribute_present": false,
+      "parent_id": "PARENT_TEST_3",
+      "planar_z_span_mm": 124.43445089052852,
+      "test_matrix_plane_reference_mm": 925,
+      "units_resolved": true,
+      "x": {
+        "finite_count": 126051,
+        "maximum": 7785.373863780558,
+        "median": 1170.2401893226186,
+        "minimum": -5648.838213773157,
+        "missing_count": 23949,
+        "size": 150000
+      },
+      "y": {
+        "finite_count": 126051,
+        "maximum": 3791.960139435172,
+        "median": -251.25814332260845,
+        "minimum": -3780.951215788453,
+        "missing_count": 23949,
+        "size": 150000
+      },
+      "z": {
+        "finite_count": 126051,
+        "maximum": 1032.6410047481563,
+        "median": 928.0,
+        "minimum": 908.2065538576278,
+        "missing_count": 23949,
+        "size": 150000
+      }
+    },
+    {
+      "common_complete_count": 125191,
+      "native_unit_attribute_present": false,
+      "parent_id": "PARENT_TEST_4",
+      "planar_z_span_mm": 123.95432777414999,
+      "test_matrix_plane_reference_mm": 925,
+      "units_resolved": true,
+      "x": {
+        "finite_count": 125244,
+        "maximum": 7785.38397167087,
+        "median": 1143.3280486873327,
+        "minimum": -5648.725436480584,
+        "missing_count": 24756,
+        "size": 150000
+      },
+      "y": {
+        "finite_count": 125244,
+        "maximum": 3791.9788696946976,
+        "median": -258.90199763168124,
+        "minimum": -3780.4471717454016,
+        "missing_count": 24756,
+        "size": 150000
+      },
+      "z": {
+        "finite_count": 125244,
+        "maximum": 1032.0,
+        "median": 928.0,
+        "minimum": 908.04567222585,
+        "missing_count": 24756,
+        "size": 150000
+      }
+    }
+  ],
+  "interpolation_performed": false,
+  "native_unit_attributes": false,
+  "rendered_pixels_used": false,
+  "status": "PASS_WITH_CROSS_SOURCE_UNIT_PROVENANCE",
+  "units": "mm"
+}

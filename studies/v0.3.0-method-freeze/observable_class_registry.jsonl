@@ -1,0 +1,6 @@
+{"authorized_runs": 1, "comparison": "exact_or_semantic", "duplicate_clean_replay": true, "observable_class": "DETERMINISTIC_SEMANTIC", "timing_average_claim_bearing": false}
+{"adaptive_stopping": false, "observable_class": "STOCHASTIC_SEMANTIC", "registered_seeds_required": true, "trial_count_preregistered": true, "uncertainty_required": true}
+{"confidence_interval": true, "observable_class": "NOISY_NUMERIC", "repetitions_preregistered": true, "robust_location": true, "variance_floor_analysis": true}
+{"causal_authority": false, "cold_warm_cache_separated": true, "observable_class": "TIMING_OR_RESOURCE", "paired_comparisons": true, "randomized_order": true, "warmup_policy": true}
+{"failure_frequency": true, "observable_class": "FLAKINESS_DIAGNOSTIC", "repeated_clean_replay": true, "single_run_causal_attribution": false}
+{"environment_strata": true, "observable_class": "ENVIRONMENT_DEPENDENT", "pooling_requires_hierarchical_model": true}

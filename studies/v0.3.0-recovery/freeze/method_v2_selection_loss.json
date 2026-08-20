@@ -1,0 +1,18 @@
+{
+  "candidate_losses": {
+    "METHOD_V2_A_CALIBRATED_BINARY": 3,
+    "METHOD_V2_B_HIERARCHICAL_MULTI_CHANNEL": 4,
+    "METHOD_V2_C_EVIDENCE_VECTOR": 0,
+    "NO_METHOD_ESTABLISHED": 1
+  },
+  "loss_order": [
+    "unsupported predictive claim",
+    "family error uncertainty",
+    "sign/representation error",
+    "null inadequacy",
+    "semantic collision",
+    "instrumentation incompleteness"
+  ],
+  "schema_version": "2.0.0",
+  "selected": "METHOD_V2_C_EVIDENCE_VECTOR"
+}

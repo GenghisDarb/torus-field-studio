@@ -1,0 +1,31 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED_default": "BLOCKED",
+  "candidate_id": "actuated_fluidic_pinball_piv",
+  "candidate_substitution_after_freeze_commit": "FORBIDDEN",
+  "doi": "10.5281/zenodo.20794709",
+  "field_statistics_computed": false,
+  "license": "CC-BY-4.0",
+  "maximum_claim": "CALIBRATED_WITHIN_CAMPAIGN_ASSAY_WITHOUT_POPULATION_GENERALIZATION",
+  "metadata_readme_and_zip_directory_bytes_only": true,
+  "method_freeze_commit": "dcaeb72b29fc0d32b002d9b5de0809b13f2ed272",
+  "method_id": "METHOD_V2_C_EVIDENCE_VECTOR",
+  "method_implementation_commit_after_nonconfirmatory_pilot_audit": "dd17f1f922dea81db474a8c52347a80580d7eead",
+  "method_mode": "INSTRUMENTED_EVIDENCE_VECTOR",
+  "outcome_data_used_for_selection": false,
+  "raw_measurement_archive_accessed": false,
+  "schema_version": "2.0.0",
+  "selected_design_tier": 2,
+  "selected_design_tier_name": "WITHIN_CAMPAIGN_REPEATED_ACQUISITION_ASSAY",
+  "selected_score": 94,
+  "selection_basis": "highest eligible separated-dimension score with verified repeated-acquisition hierarchy",
+  "selection_commit": "RECORDED_IN_POST_PUSH_RECEIPT",
+  "selection_commit_subject": "Freeze structurally eligible geometry field candidate",
+  "source_acquisition_authorized_only_after_freeze_commit": true,
+  "source_archive": {
+    "md5": "6629a8e110b1682b9361de37d8be4afb",
+    "name": "ExperimentalDataset.zip",
+    "size_bytes": 1333197134
+  },
+  "title": "Dataset of: On the turbulent wake of the actuated fluidic pinball: Dynamics, bifurcations and control authority"
+}

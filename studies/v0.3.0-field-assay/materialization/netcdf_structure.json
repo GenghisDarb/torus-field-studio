@@ -1,0 +1,5447 @@
+{
+  "archive_inventory": [
+    {
+      "compressed_size": 151846708,
+      "compression": 8,
+      "crc32": "37d44723",
+      "extraction": "extracted",
+      "is_directory": false,
+      "member": "DATA_test_4.nc",
+      "sha256": "64e2263f0ff0e6ff36fdabf345cbd15adfbd7efd44986de65a1c5a21fb279235",
+      "uncompressed_size": 221244620
+    },
+    {
+      "compressed_size": 152335733,
+      "compression": 8,
+      "crc32": "0918aea0",
+      "extraction": "extracted",
+      "is_directory": false,
+      "member": "DATA_test_1.nc",
+      "sha256": "1f76a95ce4889f5ffa0b21220b1dcf7989ccd0e3f66b1ab74c306fa980e8eb85",
+      "uncompressed_size": 221244516
+    },
+    {
+      "compressed_size": 151602142,
+      "compression": 8,
+      "crc32": "205a01c5",
+      "extraction": "extracted",
+      "is_directory": false,
+      "member": "DATA_test_2.nc",
+      "sha256": "98abae9f3dd7d669d5bc2574ad7328a1d3149932878d16a1dd5bdf6d717a8e48",
+      "uncompressed_size": 221244620
+    },
+    {
+      "compressed_size": 151703365,
+      "compression": 8,
+      "crc32": "1678f78a",
+      "extraction": "extracted",
+      "is_directory": false,
+      "member": "DATA_test_3.nc",
+      "sha256": "d5b440a74b7a826465829f8d1ec64fe895fa0623aaac68dff01bebb897239cf0",
+      "uncompressed_size": 221244620
+    }
+  ],
+  "inspection_mode": "STRUCTURE_AND_DOMAIN_METADATA_ONLY_NO_CLAIM_METRICS",
+  "netcdf": [
+    {
+      "format": "NETCDF4",
+      "member": "DATA_test_1.nc",
+      "sha256": "1f76a95ce4889f5ffa0b21220b1dcf7989ccd0e3f66b1ab74c306fa980e8eb85",
+      "size_bytes": 221244516,
+      "structure": {
+        "attributes": {},
+        "dimensions": {
+          "dim_Time": {
+            "size": 1499999,
+            "unlimited": false
+          }
+        },
+        "groups": [
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_ux_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_uy_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_AvgPosition_x_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_y_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_z_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [],
+                "path": "/LidarData/AvgPosition",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_x_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/x",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_y_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/y",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_z_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/z",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D2_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D2/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D2_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D2/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D3_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D3/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D3_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D3/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/LidarData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_ux_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/ux",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_uy_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/uy",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          },
+          {
+            "attributes": {},
+            "dimensions": {},
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT1": {
+                    "size": 1499999,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT1": {
+                        "size": 1499999,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT1": {
+                        "size": 1499999,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT1": {
+                        "size": 1499999,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Nodding",
+                        "shape": [
+                          1499999
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Torque",
+                        "shape": [
+                          1499999
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Yawing",
+                        "shape": [
+                          1499999
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT1",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Azimuth",
+                    "shape": [
+                      1499999
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT2": {
+                    "size": 1499999,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT2": {
+                        "size": 1499999,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT2": {
+                        "size": 1499999,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT2": {
+                        "size": 1499999,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Nodding",
+                        "shape": [
+                          1499999
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Torque",
+                        "shape": [
+                          1499999
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Yawing",
+                        "shape": [
+                          1499999
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Azimuth",
+                    "shape": [
+                      1499999
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT3": {
+                    "size": 1499999,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT3": {
+                        "size": 1499999,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT3": {
+                        "size": 1499999,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT3": {
+                        "size": 1499999,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Nodding",
+                        "shape": [
+                          1499999
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Torque",
+                        "shape": [
+                          1499999
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Yawing",
+                        "shape": [
+                          1499999
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Azimuth",
+                    "shape": [
+                      1499999
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/WTsData",
+            "variables": []
+          },
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_AirDensity_WindTunnel": {
+                "size": 1,
+                "unlimited": false
+              },
+              "dim_PitotVelocity_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_TurntableAngle_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [],
+            "path": "/WindTunnelData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_AirDensity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/AirDensity",
+                "shape": [
+                  1
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_PitotVelocity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/PitotVelocity",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_TurntableAngle_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/TurntableAngle",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          }
+        ],
+        "path": "/",
+        "variables": [
+          {
+            "attributes": {},
+            "dimensions": [
+              "dim_Time"
+            ],
+            "dtype": "float64",
+            "path": "/Time",
+            "shape": [
+              1499999
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "format": "NETCDF4",
+      "member": "DATA_test_2.nc",
+      "sha256": "98abae9f3dd7d669d5bc2574ad7328a1d3149932878d16a1dd5bdf6d717a8e48",
+      "size_bytes": 221244620,
+      "structure": {
+        "attributes": {},
+        "dimensions": {
+          "dim_Time": {
+            "size": 1500000,
+            "unlimited": false
+          }
+        },
+        "groups": [
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_ux_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_uy_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_AvgPosition_x_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_y_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_z_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [],
+                "path": "/LidarData/AvgPosition",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_x_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/x",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_y_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/y",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_z_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/z",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D2_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D2/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D2_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D2/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D3_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D3/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D3_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D3/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/LidarData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_ux_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/ux",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_uy_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/uy",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          },
+          {
+            "attributes": {},
+            "dimensions": {},
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT1": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT1",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT2": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT3": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/WTsData",
+            "variables": []
+          },
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_AirDensity_WindTunnel": {
+                "size": 1,
+                "unlimited": false
+              },
+              "dim_PitotVelocity_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_TurntableAngle_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [],
+            "path": "/WindTunnelData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_AirDensity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/AirDensity",
+                "shape": [
+                  1
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_PitotVelocity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/PitotVelocity",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_TurntableAngle_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/TurntableAngle",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          }
+        ],
+        "path": "/",
+        "variables": [
+          {
+            "attributes": {},
+            "dimensions": [
+              "dim_Time"
+            ],
+            "dtype": "float64",
+            "path": "/Time",
+            "shape": [
+              1500000
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "format": "NETCDF4",
+      "member": "DATA_test_3.nc",
+      "sha256": "d5b440a74b7a826465829f8d1ec64fe895fa0623aaac68dff01bebb897239cf0",
+      "size_bytes": 221244620,
+      "structure": {
+        "attributes": {},
+        "dimensions": {
+          "dim_Time": {
+            "size": 1500000,
+            "unlimited": false
+          }
+        },
+        "groups": [
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_ux_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_uy_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_AvgPosition_x_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_y_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_z_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [],
+                "path": "/LidarData/AvgPosition",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_x_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/x",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_y_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/y",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_z_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/z",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D2_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D2/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D2_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D2/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D3_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D3/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D3_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D3/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/LidarData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_ux_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/ux",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_uy_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/uy",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          },
+          {
+            "attributes": {},
+            "dimensions": {},
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT1": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT1",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT2": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT3": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/WTsData",
+            "variables": []
+          },
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_AirDensity_WindTunnel": {
+                "size": 1,
+                "unlimited": false
+              },
+              "dim_PitotVelocity_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_TurntableAngle_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [],
+            "path": "/WindTunnelData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_AirDensity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/AirDensity",
+                "shape": [
+                  1
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_PitotVelocity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/PitotVelocity",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_TurntableAngle_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/TurntableAngle",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          }
+        ],
+        "path": "/",
+        "variables": [
+          {
+            "attributes": {},
+            "dimensions": [
+              "dim_Time"
+            ],
+            "dtype": "float64",
+            "path": "/Time",
+            "shape": [
+              1500000
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "format": "NETCDF4",
+      "member": "DATA_test_4.nc",
+      "sha256": "64e2263f0ff0e6ff36fdabf345cbd15adfbd7efd44986de65a1c5a21fb279235",
+      "size_bytes": 221244620,
+      "structure": {
+        "attributes": {},
+        "dimensions": {
+          "dim_Time": {
+            "size": 1500000,
+            "unlimited": false
+          }
+        },
+        "groups": [
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_ux_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_uy_LidarData": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_AvgPosition_x_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_y_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_AvgPosition_z_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [],
+                "path": "/LidarData/AvgPosition",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_x_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/x",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_y_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/y",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_AvgPosition_z_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/AvgPosition/z",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D2_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D2_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D2/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D2_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D2/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D2_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D2/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_vLOS_R2D3_LidarData": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pos_x_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_y_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pos_z_R2D3_LidarData": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/LidarData/R2D3/Position",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_x_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/x",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_y_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/y",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pos_z_R2D3_LidarData"
+                        ],
+                        "dtype": "float64",
+                        "path": "/LidarData/R2D3/Position/z",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/LidarData/R2D3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_vLOS_R2D3_LidarData"
+                    ],
+                    "dtype": "float64",
+                    "path": "/LidarData/R2D3/vLOS",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/LidarData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_ux_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/ux",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_uy_LidarData"
+                ],
+                "dtype": "float64",
+                "path": "/LidarData/uy",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          },
+          {
+            "attributes": {},
+            "dimensions": {},
+            "groups": [
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT1": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT1": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT1": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT1": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT1": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT1/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT1"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT1/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT1",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT1"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT1/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT2": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT2": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT2": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT2": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT2": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT2/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT2"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT2/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT2",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT2"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT2/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": {
+                  "dim_Azimuth_WT3": {
+                    "size": 1500000,
+                    "unlimited": false
+                  },
+                  "dim_RotorSpeed_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_YawDem_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  },
+                  "dim_Yaw_WT3": {
+                    "size": 150000,
+                    "unlimited": false
+                  }
+                },
+                "groups": [
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Hub_Nodding_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Torque_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      },
+                      "dim_Hub_Yawing_WT3": {
+                        "size": 1500000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Hub",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Nodding_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Nodding",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Torque_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Torque",
+                        "shape": [
+                          1500000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Hub_Yawing_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Hub/Yawing",
+                        "shape": [
+                          1500000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Pitch_Blade1Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade1_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade2_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3Dem_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Pitch_Blade3_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Pitch",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade1Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade1Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade2Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade2Dem",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Pitch_Blade3Dem_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Pitch/Blade3Dem",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Power_Meas_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefAbs_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      },
+                      "dim_Power_RefRel_WT3": {
+                        "size": 75000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Power",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_Meas_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/Meas",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefAbs_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefAbs",
+                        "shape": [
+                          75000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Power_RefRel_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Power/RefRel",
+                        "shape": [
+                          75000
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": {
+                      "dim_Tower_EW_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      },
+                      "dim_Tower_NS_WT3": {
+                        "size": 150000,
+                        "unlimited": false
+                      }
+                    },
+                    "groups": [],
+                    "path": "/WTsData/WT3/Tower",
+                    "variables": [
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_EW_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/EW",
+                        "shape": [
+                          150000
+                        ]
+                      },
+                      {
+                        "attributes": {},
+                        "dimensions": [
+                          "dim_Tower_NS_WT3"
+                        ],
+                        "dtype": "float64",
+                        "path": "/WTsData/WT3/Tower/NS",
+                        "shape": [
+                          150000
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "path": "/WTsData/WT3",
+                "variables": [
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Azimuth_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Azimuth",
+                    "shape": [
+                      1500000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_RotorSpeed_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/RotorSpeed",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_Yaw_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/Yaw",
+                    "shape": [
+                      150000
+                    ]
+                  },
+                  {
+                    "attributes": {},
+                    "dimensions": [
+                      "dim_YawDem_WT3"
+                    ],
+                    "dtype": "float64",
+                    "path": "/WTsData/WT3/YawDem",
+                    "shape": [
+                      150000
+                    ]
+                  }
+                ]
+              }
+            ],
+            "path": "/WTsData",
+            "variables": []
+          },
+          {
+            "attributes": {},
+            "dimensions": {
+              "dim_AirDensity_WindTunnel": {
+                "size": 1,
+                "unlimited": false
+              },
+              "dim_PitotVelocity_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              },
+              "dim_TurntableAngle_WindTunnel": {
+                "size": 150000,
+                "unlimited": false
+              }
+            },
+            "groups": [],
+            "path": "/WindTunnelData",
+            "variables": [
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_AirDensity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/AirDensity",
+                "shape": [
+                  1
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_PitotVelocity_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/PitotVelocity",
+                "shape": [
+                  150000
+                ]
+              },
+              {
+                "attributes": {},
+                "dimensions": [
+                  "dim_TurntableAngle_WindTunnel"
+                ],
+                "dtype": "float64",
+                "path": "/WindTunnelData/TurntableAngle",
+                "shape": [
+                  150000
+                ]
+              }
+            ]
+          }
+        ],
+        "path": "/",
+        "variables": [
+          {
+            "attributes": {},
+            "dimensions": [
+              "dim_Time"
+            ],
+            "dtype": "float64",
+            "path": "/Time",
+            "shape": [
+              1500000
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_custody": [
+    {
+      "md5": "4b5dac56b6af4b437f77f2cd1757c6d8",
+      "name": "LICENSE.txt",
+      "sha256": "20e04eb730ba649492b07836f1debb7445b65727af0fa7dc0d9fea49344c55f2",
+      "size_bytes": 1033
+    },
+    {
+      "md5": "78b1f3923739af43156b5eccc99cd391",
+      "name": "README.md",
+      "sha256": "eb2e0d012241c14ab0c72a7d071b8d9549250ebb0e4f634146f18a2ef8b7b26b",
+      "size_bytes": 4486
+    },
+    {
+      "md5": "e5a4ab27620b89e01f4a5eb953cbe026",
+      "name": "TestMatrix.xlsx",
+      "sha256": "6dd713fbf87ba5ae43290f0e0d3adac5878cd304ba531b683e873aa1e59ecb13",
+      "size_bytes": 14113
+    },
+    {
+      "md5": "fe1ccca62ad418f682b0dfae4f97a515",
+      "name": "Multiple Wake.zip",
+      "sha256": "02d36a05c223a3fe9decb9449ea0e4dc3d8d01877acca18cc0e201c915b1b461",
+      "size_bytes": 607488674
+    }
+  ],
+  "test_matrix": {
+    "sheets": [
+      {
+        "headers": [
+          "TEST_ID",
+          "Testesd_CTRL",
+          "Data_nc_file",
+          "Test_Start_Data_Time",
+          "Duration_sec",
+          "ABL_type",
+          "Turntable_angle_deg",
+          "Pitot_Pos_x_mm",
+          "Pitot_Pos_y_mm",
+          "Pitot_wind_speed_ms-1",
+          "N_WTs",
+          "WT1_Pos_x_mm",
+          "WT1_Pos_y_mm",
+          "WT1_yaw_mis_deg",
+          "WT1_power_PD_W",
+          "WT1_power_Pd_pc",
+          "WT1_IPC_OnOff_Type",
+          "WT1_Pulse_OnOff_Type",
+          "WT2_Pos_x_mm",
+          "WT2_Pos_y_mm",
+          "WT2_yaw_mis_deg",
+          "WT2_power_PD_W",
+          "WT2_power_Pd_pc",
+          "WT2_IPC_OnOff_Type",
+          "WT2_Pulse_OnOff_Type",
+          "WT3_Pos_x_mm",
+          "WT3_Pos_y_mm",
+          "WT3_yaw_mis_deg",
+          "WT3_power_PD_W",
+          "WT3_power_Pd_pc",
+          "WT3_IPC_OnOff_Type",
+          "WT3_Pulse_OnOff_Type",
+          "Flow_Meas_Type",
+          "Flow_Meas_Loc_D_mm",
+          "Important_Info",
+          "Publication"
+        ],
+        "max_column": 36,
+        "max_row": 6,
+        "rows": [
+          {
+            "ABL_type": "Mod-TI",
+            "Data_nc_file": "DATA_test_1.nc",
+            "Duration_sec": 600,
+            "Flow_Meas_Loc_D_mm": "@y= 0.82D (925 mm )",
+            "Flow_Meas_Type": "lidars, horizontal plane",
+            "Important_Info": null,
+            "N_WTs": 3,
+            "Pitot_Pos_x_mm": -8647,
+            "Pitot_Pos_y_mm": -662.7,
+            "Pitot_wind_speed_ms-1": 5.67,
+            "Publication": null,
+            "TEST_ID": 1,
+            "Test_Start_Data_Time": "27/1/2016  15:00:16 PM",
+            "Testesd_CTRL": "Greedy",
+            "Turntable_angle_deg": -7.12,
+            "WT1_IPC_OnOff_Type": "OFF",
+            "WT1_Pos_x_mm": -5305.8,
+            "WT1_Pos_y_mm": -662.7,
+            "WT1_Pulse_OnOff_Type": "OFF",
+            "WT1_power_PD_W": 46,
+            "WT1_power_Pd_pc": 100,
+            "WT1_yaw_mis_deg": 0,
+            "WT2_IPC_OnOff_Type": "OFF",
+            "WT2_Pos_x_mm": -940,
+            "WT2_Pos_y_mm": -117,
+            "WT2_Pulse_OnOff_Type": "OFF",
+            "WT2_power_PD_W": 46,
+            "WT2_power_Pd_pc": 100,
+            "WT2_yaw_mis_deg": 0,
+            "WT3_IPC_OnOff_Type": "OFF",
+            "WT3_Pos_x_mm": 3426,
+            "WT3_Pos_y_mm": 428,
+            "WT3_Pulse_OnOff_Type": "OFF",
+            "WT3_power_PD_W": 46,
+            "WT3_power_Pd_pc": 100,
+            "WT3_yaw_mis_deg": 0
+          },
+          {
+            "ABL_type": "Mod-TI",
+            "Data_nc_file": "DATA_test_2.nc",
+            "Duration_sec": 600,
+            "Flow_Meas_Loc_D_mm": "@y= 0.82D (925 mm )",
+            "Flow_Meas_Type": "lidars, horizontal plane",
+            "Important_Info": null,
+            "N_WTs": 3,
+            "Pitot_Pos_x_mm": -8647,
+            "Pitot_Pos_y_mm": -662.7,
+            "Pitot_wind_speed_ms-1": 5.69,
+            "Publication": null,
+            "TEST_ID": 2,
+            "Test_Start_Data_Time": "27/1/2016  15:13:04 PM",
+            "Testesd_CTRL": "Yaw Mis.",
+            "Turntable_angle_deg": -7.12,
+            "WT1_IPC_OnOff_Type": "OFF",
+            "WT1_Pos_x_mm": -5305.8,
+            "WT1_Pos_y_mm": -662.7,
+            "WT1_Pulse_OnOff_Type": "OFF",
+            "WT1_power_PD_W": 46,
+            "WT1_power_Pd_pc": 100,
+            "WT1_yaw_mis_deg": 7,
+            "WT2_IPC_OnOff_Type": "OFF",
+            "WT2_Pos_x_mm": -940,
+            "WT2_Pos_y_mm": -117,
+            "WT2_Pulse_OnOff_Type": "OFF",
+            "WT2_power_PD_W": 46,
+            "WT2_power_Pd_pc": 100,
+            "WT2_yaw_mis_deg": 5,
+            "WT3_IPC_OnOff_Type": "OFF",
+            "WT3_Pos_x_mm": 3426,
+            "WT3_Pos_y_mm": 428,
+            "WT3_Pulse_OnOff_Type": "OFF",
+            "WT3_power_PD_W": 46,
+            "WT3_power_Pd_pc": 100,
+            "WT3_yaw_mis_deg": 0
+          },
+          {
+            "ABL_type": "Mod-TI",
+            "Data_nc_file": "DATA_test_3.nc",
+            "Duration_sec": 600,
+            "Flow_Meas_Loc_D_mm": "@y= 0.82D (925 mm )",
+            "Flow_Meas_Type": "lidars, horizontal plane",
+            "Important_Info": null,
+            "N_WTs": 3,
+            "Pitot_Pos_x_mm": -8647,
+            "Pitot_Pos_y_mm": -662.7,
+            "Pitot_wind_speed_ms-1": 5.68,
+            "Publication": null,
+            "TEST_ID": 3,
+            "Test_Start_Data_Time": "27/1/2016  15:23:44 PM",
+            "Testesd_CTRL": "Yaw Mis.",
+            "Turntable_angle_deg": -7.12,
+            "WT1_IPC_OnOff_Type": "OFF",
+            "WT1_Pos_x_mm": -5305.8,
+            "WT1_Pos_y_mm": -662.7,
+            "WT1_Pulse_OnOff_Type": "OFF",
+            "WT1_power_PD_W": 46,
+            "WT1_power_Pd_pc": 100,
+            "WT1_yaw_mis_deg": 14,
+            "WT2_IPC_OnOff_Type": "OFF",
+            "WT2_Pos_x_mm": -940,
+            "WT2_Pos_y_mm": -117,
+            "WT2_Pulse_OnOff_Type": "OFF",
+            "WT2_power_PD_W": 46,
+            "WT2_power_Pd_pc": 100,
+            "WT2_yaw_mis_deg": 11,
+            "WT3_IPC_OnOff_Type": "OFF",
+            "WT3_Pos_x_mm": 3426,
+            "WT3_Pos_y_mm": 428,
+            "WT3_Pulse_OnOff_Type": "OFF",
+            "WT3_power_PD_W": 46,
+            "WT3_power_Pd_pc": 100,
+            "WT3_yaw_mis_deg": 0
+          },
+          {
+            "ABL_type": "Mod-TI",
+            "Data_nc_file": "DATA_test_4.nc",
+            "Duration_sec": 600,
+            "Flow_Meas_Loc_D_mm": "@y= 0.82D (925 mm )",
+            "Flow_Meas_Type": "lidars, horizontal plane",
+            "Important_Info": null,
+            "N_WTs": 3,
+            "Pitot_Pos_x_mm": -8647,
+            "Pitot_Pos_y_mm": -662.7,
+            "Pitot_wind_speed_ms-1": 5.69,
+            "Publication": null,
+            "TEST_ID": 4,
+            "Test_Start_Data_Time": "27/1/2016  15:34:24 PM",
+            "Testesd_CTRL": "Yaw Mis.",
+            "Turntable_angle_deg": -7.12,
+            "WT1_IPC_OnOff_Type": "OFF",
+            "WT1_Pos_x_mm": -5305.8,
+            "WT1_Pos_y_mm": -662.7,
+            "WT1_Pulse_OnOff_Type": "OFF",
+            "WT1_power_PD_W": 46,
+            "WT1_power_Pd_pc": 100,
+            "WT1_yaw_mis_deg": 20,
+            "WT2_IPC_OnOff_Type": "OFF",
+            "WT2_Pos_x_mm": -940,
+            "WT2_Pos_y_mm": -117,
+            "WT2_Pulse_OnOff_Type": "OFF",
+            "WT2_power_PD_W": 46,
+            "WT2_power_Pd_pc": 100,
+            "WT2_yaw_mis_deg": 16,
+            "WT3_IPC_OnOff_Type": "OFF",
+            "WT3_Pos_x_mm": 3426,
+            "WT3_Pos_y_mm": 428,
+            "WT3_Pulse_OnOff_Type": "OFF",
+            "WT3_power_PD_W": 46,
+            "WT3_power_Pd_pc": 100,
+            "WT3_yaw_mis_deg": 0
+          }
+        ],
+        "title": "Sheet1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "selection_timing": "BEFORE_SYNTHETIC_CALIBRATION",
+  "lower_is_better": true,
+  "penalties": {
+    "false_positive": 10,
+    "sign_error": 8,
+    "construct_failure": 10,
+    "null_inadequacy": 8,
+    "representation_disagreement": 7,
+    "parent_dependence_overclaim": 10,
+    "T_e_semantic_misuse": 15,
+    "S_e_redundancy": 15,
+    "boundary_pinning": 4,
+    "absolute_threshold_dependence": 20,
+    "channel_cherry_picking": 15
+  },
+  "binary_acceptance": {
+    "family_type_I_error_max": 0.05,
+    "supported_fixture_power_min": 0.8,
+    "sign_error_max": 0.05,
+    "construct_recovery_required": true,
+    "null_adequacy_required": true,
+    "representation_agreement_required": true,
+    "nested_parent_correction_required": true,
+    "absolute_threshold_audit_required": true,
+    "Scout_required": true,
+    "T_e_S_e_semantics_required": true,
+    "perturbation_nonredundancy_required": true,
+    "independent_verifier_required": true
+  },
+  "nonbinary_acceptance": {
+    "all_25_fixtures_required": true,
+    "finite_calibrated_channel_statistics_required": true,
+    "canonical_construct_recovery_required": true,
+    "no_binary_output": true,
+    "no_numeric_cross_channel_pooling": true,
+    "independent_verifier_required": true
+  }
+}

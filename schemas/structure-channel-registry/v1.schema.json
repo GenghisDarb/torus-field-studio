@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/structure-channel-registry/v1.schema.json",
+  "title": "Geometry structure channel registry",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "channels", "fusion_policy"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "channels": {"type": "array", "minItems": 4, "items": {"type": "object", "required": ["channel_id", "estimand", "direction_policy", "claim_role"], "properties": {"channel_id": {"enum": ["SIGNED_BIDIRECTIONAL_SEPARATION", "CLOSURE_NULL_CALIBRATION", "CANONICAL_TLD_CONSTRUCT_RECOVERY", "STRUCTURED_FRAGILITY", "REPRESENTATION_AGREEMENT", "DOMAIN_BASELINE_EXCLUSION", "GEOMETRY_TOPOLOGY_INVARIANT"]}, "estimand": {"type": "string"}, "direction_policy": {"enum": ["BIDIRECTIONAL", "UPPER", "LOWER", "NON_DIRECTIONAL"]}, "claim_role": {"enum": ["PRIMARY", "SUPPORTING", "DESCRIPTIVE_ONLY"]}}, "additionalProperties": false}},
+    "fusion_policy": {"enum": ["STRICT_CONJUNCTION", "HIERARCHICAL_GATE", "EVIDENCE_VECTOR_NO_NUMERIC_POOLING"]}
+  },
+  "additionalProperties": false
+}

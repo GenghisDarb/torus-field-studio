@@ -1,0 +1,38 @@
+{
+  "population_inference_v1": {
+    "binary_sign_resolution_used_against_nonbinary_method": true,
+    "claim_tier_separation": "ABSENT",
+    "derivation": "FIXED_NOT_POWER_DERIVED",
+    "minimum_effective_parents": 8
+  },
+  "schema_version": "1.0.0",
+  "synthetic_v1": {
+    "construction": "one deterministic field plus independent additive noise; graph parents exact copies",
+    "effective_sample_method": "array count only",
+    "fixture_families": 25,
+    "nested_fixture_executed_hierarchically": false,
+    "nominal_parents_per_fixture": 12,
+    "null_children_per_nominal_parent": 127,
+    "true_acquisition_hierarchy": "ABSENT"
+  },
+  "wind_farm_v1": {
+    "campaigns": 1,
+    "condition_level_acquisitions": 4,
+    "conditions": [
+      "Greedy control",
+      "yaw intervention 1",
+      "yaw intervention 2",
+      "yaw intervention 3"
+    ],
+    "exchangeable_acquisition_pool": false,
+    "interacting_turbines": 3,
+    "maximum_current_role": "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT_AFTER_METHOD_V2_FREEZE",
+    "nested_synchronized_samples": 600000,
+    "physical_systems": 1,
+    "same_condition_replicates": 0,
+    "samples_promotable_to_parents": false,
+    "sensor_views_per_acquisition": 2,
+    "sensor_views_promotable_to_parents": false,
+    "turbines_promotable_to_parents": false
+  }
+}

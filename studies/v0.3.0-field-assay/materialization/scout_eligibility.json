@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "binary_sensitivity": false,
+    "control_materialized": true,
+    "coordinates_and_units_frozen": true,
+    "domain_baseline_available": true,
+    "effective_independent_evidence": false,
+    "incident_materialized": true,
+    "projection_justified": true,
+    "source_provider_harness_boundaries": true,
+    "target_outcome_leakage": false
+  },
+  "claim_ceiling": "DESCRIPTIVE_SOURCE_CUSTODY_ONLY",
+  "closure_authorized": false,
+  "effective_parent_count": 4.0,
+  "failure_codes": [
+    "INDEPENDENT_PARENT_SUPPORT_INSUFFICIENT"
+  ],
+  "frozen_minimum_effective_parent_count": 8,
+  "materialized_fraction": 1.0,
+  "schema_version": "1.0.0",
+  "scout_id": "SCOUT_ZENODO_18731994",
+  "status": "INELIGIBLE_PARENT_SUPPORT"
+}

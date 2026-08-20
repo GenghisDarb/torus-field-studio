@@ -1,0 +1,19 @@
+{
+  "execution_authorized": false,
+  "method_id": "METHOD_V2_C_EVIDENCE_VECTOR",
+  "method_mode": "INSTRUMENTED_EVIDENCE_VECTOR",
+  "outcome_data_used_during_preregistration": false,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "run_identity": {
+    "candidate_id": "actuated_fluidic_pinball_piv",
+    "method_freeze_commit": "dcaeb72b29fc0d32b002d9b5de0809b13f2ed272",
+    "method_implementation_commit": "dd17f1f922dea81db474a8c52347a80580d7eead",
+    "pair_registry_sha256": "5c5bf465a3f1550ffc7d5a6fcf87ab599775d038f37dcd7c70ddfabb7521f5d1",
+    "root_seed": 20260820,
+    "selection_commit": "590f6ea5896d3813c3a0a673e108381a4e3d87da",
+    "source_sha256": "5819f9071c3b3b0b856934602b5e7b487852abe0e0a3a5b1b62eae17720d822f"
+  },
+  "schema_version": "1.0.0",
+  "scored_execution_limit": 1,
+  "scored_executions_completed": 0
+}

@@ -1,0 +1,22 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "S_e": "NOT_APPLICABLE_UNLESS_SEPARATELY_CALIBRATED_AND_PREREGISTERED",
+  "TLD_DERIVED_default": "BLOCKED",
+  "TLD_bridge_authority": "LOSSLESS_SEQUENCE_PATH_CHANNEL_ONLY",
+  "T_e": "NOT_APPLICABLE_UNLESS_SEPARATELY_CALIBRATED_AND_PREREGISTERED",
+  "binary_positive_negative_authority": false,
+  "forbidden_names": [
+    "predictive TLD discriminator",
+    "ToT-BROT",
+    "TORUS confirmation",
+    "external validation"
+  ],
+  "general_geometry_authority": "NAMED_NONPOOLED_EVIDENCE_CHANNELS",
+  "geometric_scale_symbol": "ell",
+  "method_id": "METHOD_V2_C_EVIDENCE_VECTOR",
+  "predictive_TLD_discriminator": false,
+  "required_name": "INSTRUMENTED_EVIDENCE_VECTOR",
+  "schema_version": "2.0.0",
+  "status": "ESTABLISHED_FOR_INSTRUMENTED_NONPREDICTIVE_USE",
+  "winner_N": "CANONICAL_PATH_CLOSURE_LABEL_ONLY_WHERE_APPLICABLE"
+}

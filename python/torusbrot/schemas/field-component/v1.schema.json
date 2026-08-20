@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/field-component/v1.schema.json",
+  "title": "Geometry field component",
+  "type": "object",
+  "required": ["schema_version", "component_id", "name", "unit", "role", "orientation", "value_semantics"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "component_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "unit": {"type": "string", "minLength": 1},
+    "role": {"enum": ["SCALAR", "VECTOR_COMPONENT", "TENSOR_COMPONENT", "CATEGORY", "WEIGHT"]},
+    "orientation": {"type": ["string", "null"]},
+    "value_semantics": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

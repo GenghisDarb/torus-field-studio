@@ -3,6 +3,34 @@
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses semantic versioning.
 
+## [0.3.0] - 2026-08-20
+
+### Added
+
+- Geometry Method V2 with typed geometry handlers, explicit projection and mask contracts,
+  component-aware vector equivariance, parent-matched joint nulls, boundary/tie diagnostics,
+  scale-relative metrology, structured fragility, and claim-tier-specific support policies.
+- Synthetic Geometry Suite V2: 31 families, 620 raw realizations, 999 joint null replicates per
+  family, lossless historical path-bridge tests, independent raw recomputation, and a 50-mutation
+  fail-closed suite.
+- A nonconfirmatory wind-farm engineering pilot and a prospectively preregistered, single-execution
+  held-out fluidic-pinball assay over 28 paired blocks.
+- Five audited geometry TBX artifacts, including the browser-importable combined v0.3.0 result,
+  plus a read-only ControllerGate shadow-transfer package.
+- A post-freeze numerical erratum that counts floating-point-equivalent null statistics as ties
+  and makes verifier-only receipt hashes portable across supported operating systems, without
+  changing the held-out execution or claim.
+
+### Scientific result
+
+- Accepted method: `METHOD_V2_C_EVIDENCE_VECTOR`, publicly named
+  `INSTRUMENTED_EVIDENCE_VECTOR`; binary and hierarchical predictive gates did not pass.
+- Held-out outcome: `GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY`.
+- The independent raw verifier recomputed 56 acquisitions, 7,112 null children, 28 paired blocks,
+  and 999 joint summaries per channel with zero disagreements.
+- `ell = {1, 2, 4}` native PIV grid cells is geometric scale. `T_e`, `S_e`, and `winner_N` are not
+  applicable. `TLD_DERIVED` remains blocked and `EXTERNALLY_VALIDATED` remains false.
+
 ## [0.2.2] - 2026-08-18
 
 ### Added
@@ -106,6 +134,7 @@ project uses semantic versioning.
   provenance, claim boundaries, synthetic parent/null fixture, and analytic sandbox.
 
 [0.2.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.2.0...v0.2.1
+[0.3.0]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.2.2...v0.3.0
 [0.2.2]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.2.1...v0.2.2
 [0.2.0]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/GenghisDarb/torus-field-studio/compare/v0.1.0...v0.1.1

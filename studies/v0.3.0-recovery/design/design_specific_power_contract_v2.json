@@ -1,0 +1,52 @@
+{
+  "decision_rule": "two-sided parent-level standardized mean; multiplicity critical value",
+  "family_alpha": 0.05,
+  "grids": {
+    "ICC": [
+      0.0,
+      0.3,
+      0.6,
+      0.9
+    ],
+    "effect_size": [
+      0.0,
+      0.4,
+      0.8,
+      1.2
+    ],
+    "heterogeneity": [
+      0.0,
+      0.4
+    ],
+    "missingness": [
+      0.0,
+      0.2
+    ],
+    "multiple_testing_family_size": [
+      1,
+      3,
+      6
+    ],
+    "nested_replicates": [
+      1,
+      10
+    ],
+    "parent_count": [
+      1,
+      2,
+      4,
+      6,
+      8,
+      12,
+      20
+    ],
+    "projection_disagreement": [
+      0.0,
+      0.15
+    ]
+  },
+  "known_limitation": "simulation supports planning, not post-outcome sample-size repair",
+  "schema_version": "2.0.0",
+  "simulation_replicates_per_cell": 2500,
+  "target_power": 0.8
+}

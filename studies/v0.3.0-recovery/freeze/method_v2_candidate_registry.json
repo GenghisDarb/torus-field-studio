@@ -1,0 +1,40 @@
+{
+  "candidates": [
+    {
+      "accepted": false,
+      "failures": [
+        "No universal binary TLD truth was assigned to generic structured fields",
+        "Family type-I upper confidence bounds do not establish the frozen 0.05 family bound",
+        "Generic field channels are not predictive TLD discriminators"
+      ],
+      "method_id": "METHOD_V2_A_CALIBRATED_BINARY",
+      "mode": "PREDICTIVE_BINARY"
+    },
+    {
+      "accepted": false,
+      "failures": [
+        "No calibrated universal multi-channel adjudication rule exists",
+        "Medium-effect population support was not established within the parent grid",
+        "T_e and S_e are not calibrated for the general geometry evidence vector",
+        "Claim-bearing domain baselines remain domain-specific and cannot be synthetic-generic"
+      ],
+      "method_id": "METHOD_V2_B_HIERARCHICAL_MULTI_CHANNEL",
+      "mode": "HIERARCHICAL_PREDICTIVE"
+    },
+    {
+      "accepted": true,
+      "failures": [],
+      "method_id": "METHOD_V2_C_EVIDENCE_VECTOR",
+      "mode": "INSTRUMENTED_EVIDENCE_VECTOR"
+    },
+    {
+      "accepted": false,
+      "failures": [
+        "Evidence-vector instrumentation passed"
+      ],
+      "method_id": "NO_METHOD_ESTABLISHED",
+      "mode": "STOP"
+    }
+  ],
+  "schema_version": "2.0.0"
+}

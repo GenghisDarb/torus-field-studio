@@ -1,0 +1,107 @@
+{
+  "candidate_dataset_search_performed": false,
+  "external_heldout_field_outcomes_used": false,
+  "independent_verification": {
+    "disagreement_count": 0,
+    "mutation_rejections": "20/20",
+    "status": "verified"
+  },
+  "methods": {
+    "METHOD_A_STRICT_CONJUNCTIVE": {
+      "accepted": false,
+      "binary": true,
+      "blockers": [
+        "family_type_I_error",
+        "representation_agreement",
+        "phase-randomized negative challenge was falsely classified; family error 0.25",
+        "closure winner boundary pinning rate 0.200000 remains descriptive"
+      ],
+      "gate_checks": {
+        "Scout": true,
+        "TLD_I_construct_recovery": true,
+        "T_e_S_e_semantics": true,
+        "absolute_threshold_audit": true,
+        "family_type_I_error": false,
+        "independent_verifier": true,
+        "nested_parent_correction": true,
+        "null_adequacy": true,
+        "perturbation_nonredundancy": true,
+        "representation_agreement": false,
+        "sign_error": true,
+        "supported_fixture_power": true
+      },
+      "loss": 3.8238095238095244,
+      "metrics": {
+        "false_positive": 1,
+        "family_type_I_error_strict_nulls": 0.0,
+        "negative_fixture_count": 4,
+        "positive_fixture_count": 21,
+        "power": 0.9523809523809523,
+        "strict_null_count": 2,
+        "strict_null_false_positive": 0,
+        "true_positive": 20,
+        "type_I_error_all_negative_challenges": 0.25
+      }
+    },
+    "METHOD_B_HIERARCHICAL": {
+      "accepted": false,
+      "binary": true,
+      "blockers": [
+        "family_type_I_error",
+        "representation_agreement",
+        "phase-randomized negative challenge was falsely classified; family error 0.25",
+        "closure winner boundary pinning rate 0.200000 remains descriptive"
+      ],
+      "gate_checks": {
+        "Scout": true,
+        "TLD_I_construct_recovery": true,
+        "T_e_S_e_semantics": true,
+        "absolute_threshold_audit": true,
+        "family_type_I_error": false,
+        "independent_verifier": true,
+        "nested_parent_correction": true,
+        "null_adequacy": true,
+        "perturbation_nonredundancy": true,
+        "representation_agreement": false,
+        "sign_error": true,
+        "supported_fixture_power": true
+      },
+      "loss": 3.8238095238095244,
+      "metrics": {
+        "false_positive": 1,
+        "family_type_I_error_strict_nulls": 0.0,
+        "negative_fixture_count": 4,
+        "positive_fixture_count": 21,
+        "power": 0.9523809523809523,
+        "strict_null_count": 2,
+        "strict_null_false_positive": 0,
+        "true_positive": 20,
+        "type_I_error_all_negative_challenges": 0.25
+      }
+    },
+    "METHOD_C_EVIDENCE_VECTOR_NONBINARY": {
+      "accepted": true,
+      "binary": false,
+      "blockers": [],
+      "gate_checks": {
+        "Scout": true,
+        "all_25_fixtures": true,
+        "canonical_construct_recovery": true,
+        "finite_calibrated_channel_statistics": true,
+        "independent_verifier": true,
+        "no_binary_output": true,
+        "no_numeric_cross_channel_pooling": true,
+        "null_adequacy": true,
+        "semantic_integrity": true
+      },
+      "loss": 0.8,
+      "retained_disagreements": {
+        "closure_boundary_pinning_rate": 0.2,
+        "negative_challenge_binary_false_positive_rate_if_conjoined": 0.25,
+        "supported_fixture_representation_disagreement_rate": 0.04761904761904767
+      }
+    }
+  },
+  "schema_version": "1.0.0",
+  "selected_method": "METHOD_C_EVIDENCE_VECTOR_NONBINARY"
+}

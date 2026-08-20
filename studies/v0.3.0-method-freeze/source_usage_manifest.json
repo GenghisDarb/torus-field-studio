@@ -1,0 +1,34 @@
+{
+  "adjudicated_statement_count": 28,
+  "authority_order": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "candidate_dataset_search_performed": false,
+  "candidate_raw_values_inspected": false,
+  "formal_lexicon_body_available": true,
+  "historical_claim_count": 6,
+  "limitations": [
+    "The outside Program Family Audit is Level E and was not substituted for the Level B formal lexicon.",
+    "Development-chat pilot percentages are scoped to their recorded pilot only.",
+    "No new field candidate was searched, selected, or inspected during this audit."
+  ],
+  "method_freeze_commit_pushed": false,
+  "schema_version": "1.0.0",
+  "source_bundle_members_read": [
+    "sources/Formal Lexicon of TORUS Ladder Dynamics.txt",
+    "sources/Mislabeling & Notation History (Errata Map).txt",
+    "sources/Technical Standards and Input Protocol for TORUS Ladder Dynamics Notebooks v2.1.docx",
+    "sources/Detailed Breakdown of Notebooks 1\u201311 (Pre-Torus Ladder Dynamics I notebooks).txt",
+    "sources/Detailed Breakdown of Notebooks 12-14 (Pre- and Torus Ladder Dynamics I notebooks)(1).txt",
+    "sources/ControllerGate Development Chats 3-5 plus Outside Study Assessments(3).txt"
+  ],
+  "source_count": 22,
+  "source_selection": "filename and relevant-section search before content reads; no blind bulk archive loading",
+  "technical_standard_v21_body_available": true,
+  "unsupported_statement_count": 17
+}

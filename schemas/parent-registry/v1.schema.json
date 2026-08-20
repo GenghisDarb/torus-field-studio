@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/parent-registry/v1.schema.json",
+  "title": "Geometry parent registry",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "independent_parent_key", "parents"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "independent_parent_key": {"type": "string", "minLength": 1},
+    "parents": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["parent_id", "source_acquisition_identity", "eligible"], "properties": {"parent_id": {"type": "string", "minLength": 1}, "source_acquisition_identity": {"type": "string", "minLength": 1}, "eligible": {"type": "boolean"}, "exclusion_reason": {"type": ["string", "null"]}}, "additionalProperties": false}}
+  },
+  "additionalProperties": false
+}

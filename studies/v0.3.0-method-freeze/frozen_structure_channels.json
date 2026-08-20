@@ -1,0 +1,14 @@
+{
+  "channels": [
+    "SIGNED_BIDIRECTIONAL_SEPARATION",
+    "CLOSURE_NULL_CALIBRATION",
+    "CANONICAL_TLD_CONSTRUCT_RECOVERY",
+    "STRUCTURED_FRAGILITY",
+    "REPRESENTATION_AGREEMENT",
+    "DOMAIN_BASELINE_EXCLUSION",
+    "OPTIONAL_DOMAIN_COMPATIBLE_GEOMETRY_TOPOLOGY"
+  ],
+  "disagreement_policy": "retain exact components; do not average",
+  "fusion": "EVIDENCE_VECTOR_NO_NUMERIC_POOLING",
+  "schema_version": "1.0.0"
+}

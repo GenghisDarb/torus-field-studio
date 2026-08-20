@@ -1,0 +1,17 @@
+{
+  "deterministic_equivariance": {
+    "claim_tier": 1,
+    "minimum_independent_fields": 1
+  },
+  "medium_effect_population_separation": {
+    "claim_tier": 3,
+    "minimum_independent_parents": null,
+    "post_outcome_relaxation_forbidden": true,
+    "scenario": "effect=0.8 ICC=0.3 nested=10 heterogeneity=0.4 family=3"
+  },
+  "schema_version": "2.0.0",
+  "within_instance_matched_surrogate": {
+    "claim_tier": 1,
+    "minimum_independent_fields": 1
+  }
+}

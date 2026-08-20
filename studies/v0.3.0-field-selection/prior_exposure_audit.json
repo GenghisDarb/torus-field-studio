@@ -1,0 +1,26 @@
+{
+  "audit_scope": [
+    "repository working tree",
+    "repository git history",
+    "provided Codex text attachments",
+    "v0.2.1 held-out selection artifacts"
+  ],
+  "generic_domain_discussion_is_not_counted_as_exact_outcome_exposure": true,
+  "known_prior_exposure": [
+    {
+      "candidate_id": "nanograv_15yr_pair_geometry",
+      "classification": "PRIOR_EXPOSED_DIAGNOSTIC_CANDIDATE",
+      "evidence": "studies/heldout-v0.2.1 contains NANOGrav GEO01-GEO10 and registered assay references",
+      "prior_outcome_exposure": true
+    }
+  ],
+  "other_exact_candidate_sources_found_in_prior_program": [],
+  "schema_version": "1.0.0",
+  "search_mode": "exact DOI, record ID, and title fragments; no candidate raw data",
+  "selected_candidate": {
+    "candidate_id": "wind_farm_scanning_lidar_wakes",
+    "eligible_as_fresh_heldout": true,
+    "exact_source_found_in_prior_program": false,
+    "prior_outcome_exposure": false
+  }
+}

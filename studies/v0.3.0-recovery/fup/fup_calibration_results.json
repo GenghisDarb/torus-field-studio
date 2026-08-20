@@ -1,0 +1,7 @@
+{
+  "all_finite": true,
+  "claim": "OPTIONAL_DIAGNOSTIC_ONLY",
+  "control_count": 6,
+  "scale_dependence_reported": true,
+  "status": "PASS_SYNTHETIC_ENGINEERING_CONTROLS"
+}

@@ -1,0 +1,12 @@
+{"description":"increase the scored execution count to two","detected":true,"detected_issue_codes":["V002_EXECUTION_COUNT"],"mutation_id":"M01_SECOND_SCORED_EXECUTION"}
+{"description":"replace the nonbinary outcome with a TLD-positive label","detected":true,"detected_issue_codes":["V011_CLAIM_OUTCOME","V012_BINARY_LABEL"],"mutation_id":"M02_BINARY_POSITIVE_LABEL"}
+{"description":"promote the blocked TLD_DERIVED field","detected":true,"detected_issue_codes":["V013_TLD_DERIVED"],"mutation_id":"M03_TLD_DERIVED"}
+{"description":"replace the inapplicable T_e endpoint with a numeric value","detected":true,"detected_issue_codes":["V015_T_E_FIREWALL"],"mutation_id":"M04_MANUFACTURE_T_E"}
+{"description":"replace the inapplicable S_e endpoint with geometric scale","detected":true,"detected_issue_codes":["V016_S_E_FIREWALL"],"mutation_id":"M05_MANUFACTURE_S_E"}
+{"description":"replace the inapplicable winner_N endpoint with a numeric value","detected":true,"detected_issue_codes":["V017_WINNER_N_FIREWALL"],"mutation_id":"M06_MANUFACTURE_WINNER_N"}
+{"description":"mark a joint channel as a hypothesis-test p-value","detected":true,"detected_issue_codes":["V035_JOINT_BINARY_FIELD:curl_coherence"],"mutation_id":"M07_ENABLE_P_VALUE"}
+{"description":"remove one frozen pair from the reported evidence","detected":true,"detected_issue_codes":["V008_PAIR_COUNT","V023_PAIR_UNIQUENESS","V032_JOINT_INPUT_SHAPE:curl_coherence","V032_JOINT_INPUT_SHAPE:curl_energy","V032_JOINT_INPUT_SHAPE:divergence_energy","V032_JOINT_INPUT_SHAPE:signed_mean_curl","V032_JOINT_INPUT_SHAPE:u_neighbor_coherence","V032_JOINT_INPUT_SHAPE:v_neighbor_coherence"],"mutation_id":"M08_DROP_PAIR"}
+{"description":"change a reported P01 pair delta","detected":true,"detected_issue_codes":["V026_P01_PAIR_DELTA:PAIR_01:curl_coherence"],"mutation_id":"M09_CORRUPT_PAIR_DELTA"}
+{"description":"remove one acquisition-local null child","detected":true,"detected_issue_codes":["V028_NULL_CHILD_COUNT:PAIR_01:curl_coherence","V032_JOINT_INPUT_SHAPE:curl_coherence"],"mutation_id":"M10_DROP_NULL_CHILD"}
+{"description":"replace the frozen source SHA-256","detected":true,"detected_issue_codes":["V006_SOURCE_SHA256"],"mutation_id":"M11_CORRUPT_SOURCE_HASH"}
+{"description":"replace the registered equivariance pass with failure","detected":true,"detected_issue_codes":["V030_ROTATION_FAILURE:PAIR_01"],"mutation_id":"M12_FAIL_ROTATION"}

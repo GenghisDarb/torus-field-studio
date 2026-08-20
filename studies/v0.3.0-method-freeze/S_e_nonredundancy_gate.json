@@ -1,0 +1,7 @@
+{
+  "S_e": "NOT_APPLICABLE",
+  "nonredundant_count_gate": true,
+  "operation_depth_persistence_available": false,
+  "reason": "synthetic perturbation channels calibrate fragility but do not create cumulative operation-depth persistence",
+  "schema_version": "1.0.0"
+}

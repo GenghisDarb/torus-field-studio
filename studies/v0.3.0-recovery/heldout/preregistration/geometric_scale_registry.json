@@ -1,0 +1,25 @@
+{
+  "S_e": "NOT_APPLICABLE_GEOMETRIC_SCALE_IS_NOT_S_E",
+  "geometric_scale_symbol": "ell",
+  "physical_coordinate_conversion": {
+    "diameter_m": 0.03,
+    "resolution_m_per_px": 0.00029076921
+  },
+  "views": [
+    {
+      "ell": 1,
+      "transform": "identity",
+      "units": "native PIV grid cell"
+    },
+    {
+      "ell": 2,
+      "transform": "mask-aware anti-aliased factor-two downsample",
+      "units": "native PIV grid cells"
+    },
+    {
+      "ell": 4,
+      "transform": "two successive mask-aware anti-aliased factor-two downsamples",
+      "units": "native PIV grid cells"
+    }
+  ]
+}

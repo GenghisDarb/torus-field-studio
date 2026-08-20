@@ -1,0 +1,335 @@
+{
+  "allowed_classifications": [
+    "SUPPORTED",
+    "SUPPORTED_WITH_SCOPE_CORRECTION",
+    "PLAUSIBLE_UNVERIFIED",
+    "CONTRADICTED",
+    "NOT_FOUND",
+    "NON_EXECUTABLE_METAPHOR",
+    "ALREADY_IMPLEMENTED",
+    "IMPLEMENTED_BUT_NOT_VALIDATED",
+    "REQUIRES_PROSPECTIVE_TEST"
+  ],
+  "authority_rule": "Level E advice cannot enter an executable contract without scoped support from higher authority or prospective calibration.",
+  "schema_version": "1.0.0",
+  "statements": [
+    {
+      "authority_source_ids": [
+        "v030_protocol",
+        "controllergate_claim_envelope"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "Implement as an authority firewall and never treat lane agreement as physical validation.",
+      "finding": "Separate custody, metrology, adjudication, and action authority; the labels are a new governance design, not a recovered law.",
+      "statement": "Four-lane separation is a valid governance architecture.",
+      "statement_id": "four_lane_separation"
+    },
+    {
+      "authority_source_ids": [
+        "formal_lexicon",
+        "brot_plan_summary",
+        "v030_protocol"
+      ],
+      "classification": "SUPPORTED",
+      "executable_disposition": "Exclude TORUS-BROT presets from confirmatory evidence channels.",
+      "finding": "The constructed analytic family may aid navigation and sensitivity visualization but cannot establish a physical 14-fold law.",
+      "statement": "TORUS-BROT is navigation or visualization rather than physical evidence by itself.",
+      "statement_id": "torus_brot_navigation"
+    },
+    {
+      "authority_source_ids": [
+        "formal_lexicon",
+        "brot_plan_summary",
+        "brot_notebook_notes"
+      ],
+      "classification": "SUPPORTED",
+      "executable_disposition": "Do not label a geometry pack ToT-BROT without registered coupled invariants and null tests.",
+      "finding": "ToT-BROT requires explicit coupled-system or inter-projection invariants; multiple views of one field are insufficient.",
+      "statement": "TORUS-BROT and ToT-BROT are distinct.",
+      "statement_id": "torus_tot_brot_distinction"
+    },
+    {
+      "authority_source_ids": [
+        "technical_standards_v21",
+        "v030_protocol"
+      ],
+      "classification": "CONTRADICTED",
+      "executable_disposition": "Create a new versioned standard and preserve v2.1 unchanged.",
+      "finding": "v2.1 is one-dimensional; geometry-indexed packs are a new v3 extension with a documented migration boundary.",
+      "statement": "Geometry-indexed domain packs are already part of canonical TLD v2.1.",
+      "statement_id": "geometry_indexed_domain_packs"
+    },
+    {
+      "authority_source_ids": [
+        "tfs_v022_release",
+        "v030_codex_inference"
+      ],
+      "classification": "NOT_FOUND",
+      "executable_disposition": "Do not import 1e-9; retain a mutation that rejects any future claim-bearing absolute threshold.",
+      "finding": "The repository audit found 1e-9 only as numerical denominator/variance floors, not a claim-bearing curvature prominence gate.",
+      "statement": "A claim-bearing absolute 1e-9 curvature threshold is currently active in TFS.",
+      "statement_id": "absolute_1e9_current_failure"
+    },
+    {
+      "authority_source_ids": [
+        "controllergate_closure_mode",
+        "controllergate_clean_track",
+        "v030_protocol"
+      ],
+      "classification": "REQUIRES_PROSPECTIVE_TEST",
+      "executable_disposition": "Calibrate a small candidate family on synthetic and historical controls before any freeze.",
+      "finding": "The current ControllerGate elbow is explicitly noncanonical and the historical formula was not recovered.",
+      "statement": "Scale-relative or null-standardized curvature is preferable to an uncalibrated absolute prominence.",
+      "statement_id": "scale_relative_prominence"
+    },
+    {
+      "authority_source_ids": [
+        "v030_protocol",
+        "added_outside_advice"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "Route only NOISY_NUMERIC measurements through registered variance-floor analysis.",
+      "finding": "Variance-floor analysis is relevant to noisy numeric observables, not deterministic semantic assertions.",
+      "statement": "Shot-noise or variance-floor analysis is required for every observable.",
+      "statement_id": "shot_noise_floor"
+    },
+    {
+      "authority_source_ids": [
+        "outside_study_ledger",
+        "v030_protocol"
+      ],
+      "classification": "PLAUSIBLE_UNVERIFIED",
+      "executable_disposition": "Keep out of method calibration and claim-bearing baselines.",
+      "finding": "Historical discussion supports the claim, but no raw bytes, executable code, and verified result artifact were admitted into this audit.",
+      "statement": "A 50 MB /dev/urandom run established a negative result and exposed whitening concerns.",
+      "statement_id": "dev_urandom_whitening"
+    },
+    {
+      "authority_source_ids": [
+        "outside_study_ledger",
+        "v030_protocol",
+        "added_outside_advice"
+      ],
+      "classification": "NOT_FOUND",
+      "executable_disposition": "Prohibit the claim until a complete custody chain and independent verification exist.",
+      "finding": "Only a proposed retry was located; no exact raw dataset, code, hashes, or verified result artifact was found.",
+      "statement": "A positive 200 MB CPU-jitter 1/14 result was completed and verified.",
+      "statement_id": "cpu_jitter_200mb_positive"
+    },
+    {
+      "authority_source_ids": [
+        "added_outside_advice",
+        "outside_study_ledger"
+      ],
+      "classification": "NOT_FOUND",
+      "executable_disposition": "Exclude from all contracts and publications.",
+      "finding": "No source file, raw data, hash, executable result, normalization definition, or independent verification was found.",
+      "statement": "A 10 MB entropy_drift_pure.py run verified normalized autocorrelation rho(lag 18)=106.9%.",
+      "statement_id": "cpu_jitter_10mb_1069"
+    },
+    {
+      "authority_source_ids": [
+        "v030_protocol",
+        "added_outside_advice"
+      ],
+      "classification": "CONTRADICTED",
+      "executable_disposition": "Use clean replay plus duplicate clean replay for deterministic semantic assertions.",
+      "finding": "Repeated randomized probes are conditional on noise, flakiness, stochastic behavior, timing, resources, or a registered perturbation family.",
+      "statement": "All probes should be ensemble averaged.",
+      "statement_id": "ensemble_averaged_probes"
+    },
+    {
+      "authority_source_ids": [
+        "advanced_chat_part1",
+        "added_outside_advice"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "Detect flat/tied traces and report boundary rate; do not treat N=6 as a structural scale.",
+      "finding": "A pilot record reports nine-way minimum ties for 74% of evaluated ladders, which can pin naive argmin to N=6; this is pilot-specific degeneracy evidence.",
+      "statement": "N=6 boundary attraction is a universal structural finding.",
+      "statement_id": "n6_boundary_attraction"
+    },
+    {
+      "authority_source_ids": [
+        "advanced_chat_part1",
+        "added_outside_advice"
+      ],
+      "classification": "PLAUSIBLE_UNVERIFIED",
+      "executable_disposition": "Measure orbit length in Scout; do not hardcode two.",
+      "finding": "Short orbits are discussed, but an exact universal orbit-length distribution was not recovered.",
+      "statement": "Every N=6 winner has orbit length exactly two.",
+      "statement_id": "every_n6_orbit_two"
+    },
+    {
+      "authority_source_ids": [
+        "advanced_chat_part1",
+        "v030_protocol"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "Report it and calibrate any threshold on synthetic/historical controls.",
+      "finding": "Orbit length can diagnose degeneracy but has no historically validated universal cutoff.",
+      "statement": "Orbit length is a useful pre-closure eligibility diagnostic.",
+      "statement_id": "orbit_length_scout"
+    },
+    {
+      "authority_source_ids": [
+        "technical_standards_v21",
+        "v030_protocol"
+      ],
+      "classification": "SUPPORTED",
+      "executable_disposition": "Make GeometryScoutV1 a hard upstream gate.",
+      "finding": "Unmaterialized, degenerate, ambiguous, under-supported, or null-incomplete fields cannot support closure claims.",
+      "statement": "Eligibility must be established before closure or emergence is computed.",
+      "statement_id": "eligibility_before_closure"
+    },
+    {
+      "authority_source_ids": [
+        "controllergate_claim_envelope",
+        "added_outside_advice",
+        "v030_protocol"
+      ],
+      "classification": "CONTRADICTED",
+      "executable_disposition": "Export shadow evidence only; preserve the ControllerGate authority firewall.",
+      "finding": "Structured fragility may support metrology, but topology/metrology has no source ownership, patch, count, or terminal authority.",
+      "statement": "Structured fragility can directly validate or authorize a ControllerGate repair.",
+      "statement_id": "structured_fragility_repair_validation"
+    },
+    {
+      "authority_source_ids": [
+        "outside_study_ledger",
+        "controllergate_claim_envelope",
+        "v030_protocol"
+      ],
+      "classification": "NOT_FOUND",
+      "executable_disposition": "Do not encode 21.43%; report actual eligible support and calibrated requirements.",
+      "finding": "No calibrated universal threshold was found; materialization is domain- and cohort-specific.",
+      "statement": "21.43 percent materialization is a universal pass threshold or bottleneck constant.",
+      "statement_id": "materialization_2143"
+    },
+    {
+      "authority_source_ids": [
+        "controllergate_claim_envelope",
+        "batch103_contract",
+        "added_outside_advice"
+      ],
+      "classification": "NOT_FOUND",
+      "executable_disposition": "No AMDS threshold may enter the TFS method or ControllerGate transfer as validated.",
+      "finding": "AMDS prospective effectiveness is NOT_ESTABLISHED and no cross-domain geometry-TLD confidence calibration was found.",
+      "statement": "Static AMDS confidence thresholds are established for geometry-TLD evidence.",
+      "statement_id": "static_amds_confidence"
+    },
+    {
+      "authority_source_ids": [
+        "v030_protocol",
+        "added_outside_advice",
+        "controllergate_claim_envelope"
+      ],
+      "classification": "CONTRADICTED",
+      "executable_disposition": "Keep timing non-authoritative and require causal evidence through the owning domain contract.",
+      "finding": "Timing is telemetry requiring randomized repeated measurement and still cannot establish source ownership by itself.",
+      "statement": "A single timing or resource run can establish causal attribution.",
+      "statement_id": "single_run_timing_attribution"
+    },
+    {
+      "authority_source_ids": [
+        "program_family_audit",
+        "v030_protocol",
+        "added_outside_advice"
+      ],
+      "classification": "NON_EXECUTABLE_METAPHOR",
+      "executable_disposition": "Use the executable five-part support rule, never the slogan.",
+      "finding": "Arbitrary destruction can remove valid structure; support requires matched nulls, registered fragility, meaningful perturbations, faithful representations, and baseline exclusion.",
+      "statement": "Real structure survives its own destruction.",
+      "statement_id": "destruction_slogan"
+    },
+    {
+      "authority_source_ids": [
+        "controllergate_closure_mode",
+        "controllergate_clean_track",
+        "added_outside_advice"
+      ],
+      "classification": "CONTRADICTED",
+      "executable_disposition": "Treat interior-only relative curvature as a new candidate subject to calibration.",
+      "finding": "Current code labels the proposal noncanonical and historical recovery NOT_ESTABLISHED/NOT_RECOVERED.",
+      "statement": "winner_N_elbow is a recovered canonical historical formula.",
+      "statement_id": "winner_n_elbow"
+    },
+    {
+      "authority_source_ids": [
+        "added_outside_advice",
+        "v030_codex_inference"
+      ],
+      "classification": "CONTRADICTED",
+      "executable_disposition": "Exclude endpoints and mutation-test against padding leakage.",
+      "finding": "A centered second difference requires both neighbors, so only N=7..13 are eligible without a separately justified boundary model.",
+      "statement": "Endpoint-padded curvature on N=6..14 is valid for elbow selection.",
+      "statement_id": "endpoint_curvature"
+    },
+    {
+      "authority_source_ids": [
+        "added_outside_advice",
+        "v030_codex_inference"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "Provide an optional domain-specific sensitivity contract; import no -45/-25 dB constants.",
+      "finding": "The metrological principle is sound when units, response, noise floor, and target band are registered; the supplied PAT/Talbot/TCXO numbers were not independently verified.",
+      "statement": "Insufficient registered instrument sensitivity should yield INCONCLUSIVE rather than NEGATIVE.",
+      "statement_id": "instrument_sensitivity_gate"
+    },
+    {
+      "authority_source_ids": [
+        "added_outside_advice"
+      ],
+      "classification": "NOT_FOUND",
+      "executable_disposition": "Exclude the exact interval from the geometry method.",
+      "finding": "No authoritative source, instrument calibration, or executable contract for these numbers was located.",
+      "statement": "The -45 dB to -25 dB PAT sideband interval is an established TFS-wide standard.",
+      "statement_id": "pat_db_thresholds"
+    },
+    {
+      "authority_source_ids": [
+        "added_outside_advice",
+        "v030_codex_inference"
+      ],
+      "classification": "CONTRADICTED",
+      "executable_disposition": "Report an evidence vector unless a registered cross-modal calibration or hierarchical model is validated.",
+      "finding": "Incomparable scores lack a common estimand and calibration.",
+      "statement": "Numerically averaging uncalibrated modalities yields a valid global confidence score.",
+      "statement_id": "uncalibrated_modality_average"
+    },
+    {
+      "authority_source_ids": [
+        "added_outside_advice",
+        "v030_codex_inference"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "Freeze separate evidence channels for v0.3.0 and forbid uncalibrated numeric pooling.",
+      "finding": "Logical intersection is a safe default, not a universal theorem; calibrated hierarchical models may later be valid.",
+      "statement": "Different modalities may interface only through logical intersection.",
+      "statement_id": "logical_intersection_only"
+    },
+    {
+      "authority_source_ids": [
+        "controllergate_claim_envelope",
+        "batch103_contract",
+        "added_outside_advice"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "State only the current scoped promotion requirement and preserve downstream count/repair gates.",
+      "finding": "Current canonical promotion requires a ControllerAudit receipt; the broader universal wording was not exhaustively proven across all historical states.",
+      "statement": "ControllerAudit is the sole writer of every ControllerGate terminal success state.",
+      "statement_id": "controlleraudit_only_writer"
+    },
+    {
+      "authority_source_ids": [
+        "v030_protocol",
+        "added_outside_advice"
+      ],
+      "classification": "SUPPORTED_WITH_SCOPE_CORRECTION",
+      "executable_disposition": "Implement observable classes with registered repeat, randomization, and replay policies.",
+      "finding": "The partition is sound, but deterministic semantics require an authorized run and duplicate clean replay when claim-bearing, not necessarily a literal sterile container in every local test.",
+      "statement": "MeasurementRepeatPolicyV1 should separate stochastic/resource observables from deterministic semantics.",
+      "statement_id": "measurement_repeat_policy_v1"
+    }
+  ]
+}

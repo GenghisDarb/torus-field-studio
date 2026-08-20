@@ -1,0 +1,24 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED_BY_DEFAULT",
+  "allowed": [
+    "typed finite channel outputs",
+    "within-instance matched-surrogate evidence",
+    "deterministic invariant/equivariant checks",
+    "source-specific geometry descriptions"
+  ],
+  "forbidden": [
+    "predictive TLD discrimination",
+    "binary TLD positive/negative from the general vector",
+    "population generalization without design-specific support",
+    "T_e from elbow",
+    "S_e from geometric scale",
+    "winner_N as time or physical scale",
+    "TORUS confirmation",
+    "ToT-BROT from one system",
+    "external validation"
+  ],
+  "maximum_method_claim": "INSTRUMENTED_EVIDENCE_VECTOR",
+  "schema_version": "2.0.0",
+  "wind_farm_role": "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT_ONLY"
+}

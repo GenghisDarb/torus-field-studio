@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/geometry-perturbation-registry/v1.schema.json",
+  "title": "Geometry perturbation registry",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "selection_timing", "perturbations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "selection_timing": {"const": "PRE_OUTCOME_REGISTERED"},
+    "perturbations": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["perturbation_id", "target_relation", "nuisances_preserved", "strengths", "expected_fragility", "independently_meaningful", "seed_policy"], "properties": {"perturbation_id": {"type": "string"}, "target_relation": {"type": "string"}, "nuisances_preserved": {"type": "array", "items": {"type": "string"}}, "strengths": {"type": "array", "minItems": 2, "items": {"type": "number", "minimum": 0}}, "expected_fragility": {"enum": ["MONOTONE_DECREASE", "BANDED_DECREASE", "INVARIANT_CONTROL", "REGISTERED_OTHER"]}, "independently_meaningful": {"const": true}, "seed_policy": {"type": "string"}}, "additionalProperties": false}}
+  },
+  "additionalProperties": false
+}

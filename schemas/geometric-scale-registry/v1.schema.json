@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/geometric-scale-registry/v1.schema.json",
+  "title": "Geometry scale registry",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "symbol", "unit", "scales", "selection_rule"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "symbol": {"const": "ell"},
+    "unit": {"type": "string", "minLength": 1},
+    "scales": {"type": "array", "minItems": 3, "items": {"type": "number", "exclusiveMinimum": 0}, "uniqueItems": true},
+    "selection_rule": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

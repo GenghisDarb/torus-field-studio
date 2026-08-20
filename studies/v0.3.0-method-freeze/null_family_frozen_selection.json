@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "selected": [
+    "coordinate_label_permutation_for_array_fields",
+    "edge_count_preserving_rewire_for_graph_fields"
+  ],
+  "selection_used_only_synthetic_controls": true,
+  "strict_null_false_positive_rate": 0.0
+}

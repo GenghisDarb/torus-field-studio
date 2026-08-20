@@ -1,0 +1,8 @@
+{
+  "S_e_definition": "registered persistence/nonredundancy endpoint only",
+  "S_e_is_geometric_scale": false,
+  "general_geometry_S_e_status": "NOT_APPLICABLE",
+  "geometric_scale_symbol": "ell",
+  "schema_version": "2.0.0",
+  "unit_provenance_uncertainty_required": true
+}

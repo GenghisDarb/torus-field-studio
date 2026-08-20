@@ -1,0 +1,50 @@
+{"expected": "REJECT", "field": "global_null_pool", "mutated_value": true, "mutation_id": "M001", "name": "null pooling"}
+{"expected": "REJECT", "field": "midpoint_penalty", "mutated_value": 0.0015, "mutation_id": "M002", "name": "midpoint penalty insertion"}
+{"expected": "REJECT", "field": "vector_components_rotated", "mutated_value": false, "mutation_id": "M003", "name": "vector rotation without component rotation"}
+{"expected": "REJECT", "field": "silent_vector_magnitude", "mutated_value": true, "mutation_id": "M004", "name": "silent magnitude conversion"}
+{"expected": "REJECT", "field": "silent_time_average", "mutated_value": true, "mutation_id": "M005", "name": "silent time averaging"}
+{"expected": "REJECT", "field": "nested_samples_as_parents", "mutated_value": true, "mutation_id": "M006", "name": "fake nested parents"}
+{"expected": "REJECT", "field": "universal_fixed_eight", "mutated_value": true, "mutation_id": "M007", "name": "fixed eight-parent threshold without power"}
+{"expected": "REJECT", "field": "unknown_parent_full_score", "mutated_value": true, "mutation_id": "M008", "name": "unknown parent count awarded full selection score"}
+{"expected": "REJECT", "field": "S_e_is_geometric_scale", "mutated_value": true, "mutation_id": "M009", "name": "S_e set to geometric scale"}
+{"expected": "REJECT", "field": "T_e_is_elbow", "mutated_value": true, "mutation_id": "M010", "name": "T_e set to elbow"}
+{"expected": "REJECT", "field": "winner_N_is_T_e", "mutated_value": true, "mutation_id": "M011", "name": "winner_N set to T_e"}
+{"expected": "REJECT", "field": "graph_weights_retained", "mutated_value": false, "mutation_id": "M012", "name": "graph weights discarded"}
+{"expected": "REJECT", "field": "mask_mean_fill", "mutated_value": true, "mutation_id": "M013", "name": "mask replaced with mean"}
+{"expected": "REJECT", "field": "anti_aliasing", "mutated_value": false, "mutation_id": "M014", "name": "anti-alias omitted"}
+{"expected": "REJECT", "field": "hierarchy_visible", "mutated_value": false, "mutation_id": "M015", "name": "parent/campaign hierarchy hidden"}
+{"expected": "REJECT", "field": "null_children_flattened", "mutated_value": true, "mutation_id": "M016", "name": "closure null children flattened"}
+{"expected": "REJECT", "field": "raw_independent_verifier", "mutated_value": false, "mutation_id": "M017", "name": "summary-only verifier"}
+{"expected": "REJECT", "field": "hard_negatives_present", "mutated_value": false, "mutation_id": "M018", "name": "hard negative deleted"}
+{"expected": "REJECT", "field": "operation_depth_frozen", "mutated_value": false, "mutation_id": "M019", "name": "operation depth added after freeze"}
+{"expected": "REJECT", "field": "geometry_N_semantics_inherited", "mutated_value": true, "mutation_id": "M020", "name": "geometry N grid inherited without semantics"}
+{"expected": "REJECT", "field": "wind_threshold_tuning", "mutated_value": true, "mutation_id": "M021", "name": "wind farm used to tune thresholds"}
+{"expected": "REJECT", "field": "analytic_image_as_evidence", "mutated_value": true, "mutation_id": "M022", "name": "analytic TORUS-BROT used as evidence"}
+{"expected": "REJECT", "field": "single_field_ToT", "mutated_value": true, "mutation_id": "M023", "name": "single field called ToT-BROT"}
+{"expected": "REJECT", "field": "FUP_conjugate_support_required", "mutated_value": false, "mutation_id": "M024", "name": "FUP used without conjugate support"}
+{"expected": "REJECT", "field": "claim_quarantine_present", "mutated_value": false, "mutation_id": "M025", "name": "claim quarantine removed"}
+{"expected": "REJECT", "field": "joint_null_replicates", "mutated_value": 99, "mutation_id": "M026", "name": "joint null replicate count reduced"}
+{"expected": "REJECT", "field": "nested_resampling_within_parent", "mutated_value": false, "mutation_id": "M027", "name": "nested resampling crosses parents"}
+{"expected": "REJECT", "field": "directed_graph_symmetrized", "mutated_value": true, "mutation_id": "M028", "name": "directed graph symmetrized"}
+{"expected": "REJECT", "field": "correlation_as_raster", "mutated_value": true, "mutation_id": "M029", "name": "correlation matrix rasterized"}
+{"expected": "REJECT", "field": "point_cloud_as_raster", "mutated_value": true, "mutation_id": "M030", "name": "point cloud rasterized"}
+{"expected": "REJECT", "field": "component_average", "mutated_value": true, "mutation_id": "M031", "name": "components averaged"}
+{"expected": "REJECT", "field": "mask_preserved", "mutated_value": false, "mutation_id": "M032", "name": "mask discarded"}
+{"expected": "REJECT", "field": "ties_reported", "mutated_value": false, "mutation_id": "M033", "name": "ties hidden"}
+{"expected": "REJECT", "field": "boundaries_reported", "mutated_value": false, "mutation_id": "M034", "name": "boundary minima hidden"}
+{"expected": "REJECT", "field": "elbow_is_winner", "mutated_value": true, "mutation_id": "M035", "name": "elbow labeled winner"}
+{"expected": "REJECT", "field": "graph_binarized", "mutated_value": true, "mutation_id": "M036", "name": "weighted graph binarized"}
+{"expected": "REJECT", "field": "unit_provenance_uncertainty", "mutated_value": false, "mutation_id": "M037", "name": "unit provenance declared exact"}
+{"expected": "REJECT", "field": "FUP_is_TORUS_confirmation", "mutated_value": true, "mutation_id": "M038", "name": "FUP labeled TORUS confirmation"}
+{"expected": "REJECT", "field": "externally_validated", "mutated_value": true, "mutation_id": "M039", "name": "external validation asserted"}
+{"expected": "REJECT", "field": "wind_confirmatory", "mutated_value": true, "mutation_id": "M040", "name": "wind farm made confirmatory"}
+{"expected": "REJECT", "field": "Beijing_method_tuning", "mutated_value": true, "mutation_id": "M041", "name": "Beijing used for method tuning"}
+{"expected": "REJECT", "field": "universal_binary_truth", "mutated_value": true, "mutation_id": "M042", "name": "universal binary truth imposed"}
+{"expected": "REJECT", "field": "population_claim_n1", "mutated_value": true, "mutation_id": "M043", "name": "population claim from one field"}
+{"expected": "REJECT", "field": "conditions_exchangeable_default", "mutated_value": true, "mutation_id": "M044", "name": "intervention conditions assumed exchangeable"}
+{"expected": "REJECT", "field": "unknown_hierarchy_credit", "mutated_value": true, "mutation_id": "M045", "name": "unknown hierarchy receives inferential credit"}
+{"expected": "REJECT", "field": "domain_baseline_required", "mutated_value": false, "mutation_id": "M046", "name": "domain baseline removed"}
+{"expected": "REJECT", "field": "failures_preserved", "mutated_value": false, "mutation_id": "M047", "name": "failures deleted"}
+{"expected": "REJECT", "field": "generic_geometry_called_TLD", "mutated_value": true, "mutation_id": "M048", "name": "generic geometry statistic called TLD"}
+{"expected": "REJECT", "field": "reflection_signed_component", "mutated_value": false, "mutation_id": "M049", "name": "reflection omits signed component"}
+{"expected": "REJECT", "field": "downsample_nearest_neighbor", "mutated_value": true, "mutation_id": "M050", "name": "nearest-neighbor downsampling substituted"}

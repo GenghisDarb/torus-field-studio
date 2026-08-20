@@ -1,0 +1,14 @@
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "measurement_noise", "selected_for_calibration": true, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "coordinate_jitter", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "mask_dropout", "selected_for_calibration": true, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "resolution_reduction", "selected_for_calibration": true, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "orientation_rotation", "selected_for_calibration": true, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "translation", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "boundary_crop", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "NEGATIVE_OR_ADVERSARIAL", "perturbation_id": "component_dropout", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "temporal_gap", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "phase_shift", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "NEGATIVE_OR_ADVERSARIAL", "perturbation_id": "local_order_mutation", "selected_for_calibration": true, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "NEGATIVE_OR_ADVERSARIAL", "perturbation_id": "topology_mutation", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "common_factor_removal", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}
+{"control_role": "GRADED_OR_INVARIANCE_CONTROL", "perturbation_id": "domain_specific_physical_parameter_change", "selected_for_calibration": false, "selection_timing": "PRE_OUTCOME_REGISTERED"}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/effective-parent-audit/v1.schema.json",
+  "title": "Geometry effective parent audit",
+  "type": "object",
+  "required": ["schema_version", "audit_id", "nominal_parent_count", "eligible_parent_count", "effective_parent_count", "nested_replicate_count", "dependence_method", "minimum_required", "status"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "audit_id": {"type": "string", "minLength": 1},
+    "nominal_parent_count": {"type": "integer", "minimum": 0},
+    "eligible_parent_count": {"type": "integer", "minimum": 0},
+    "effective_parent_count": {"type": "number", "minimum": 0},
+    "nested_replicate_count": {"type": "integer", "minimum": 0},
+    "dependence_method": {"type": "string", "minLength": 1},
+    "minimum_required": {"type": "number", "exclusiveMinimum": 0},
+    "status": {"enum": ["PASS", "FAIL", "INCONCLUSIVE"]}
+  },
+  "additionalProperties": false
+}

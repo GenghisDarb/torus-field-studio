@@ -1,0 +1,13 @@
+{
+  "branch": "agent/v0.3.0-geometry-indexed-tld",
+  "field_values_read_before_freeze": false,
+  "local_remote_match": true,
+  "preregistration_commit": "a8e3cba766bd8b160fc9b8074086a48fb7aceceb",
+  "preregistration_commit_subject": "Preregister first valid geometry-indexed held-out field assay",
+  "preregistration_manifest_sha256": "63a84b477183f57f9149728779917c151c1a428b02c6ea48749fe4bef9e909b3",
+  "preregistration_tree": "ff0b2316bdf6993b42e4ddabe0e55c90e356de12",
+  "remote": "https://github.com/GenghisDarb/torus-field-studio.git",
+  "schema_version": "1.0.0",
+  "scored_executions_completed_at_freeze": 0,
+  "status": "PREREGISTRATION_FROZEN_AND_PUSHED"
+}

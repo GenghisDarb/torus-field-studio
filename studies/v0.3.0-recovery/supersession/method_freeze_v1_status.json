@@ -1,0 +1,13 @@
+{
+  "files_preserved": true,
+  "freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "future_authority": "HISTORICAL_REPRODUCTION_ONLY",
+  "historical_method": "METHOD_C_EVIDENCE_VECTOR_NONBINARY",
+  "schema_version": "2.0.0",
+  "statuses": [
+    "SUPERSEDED_FOR_FUTURE_CONFIRMATORY_USE",
+    "PRESERVED_FOR_REPRODUCTION",
+    "NOT_DELETED",
+    "NOT_REWRITTEN"
+  ]
+}

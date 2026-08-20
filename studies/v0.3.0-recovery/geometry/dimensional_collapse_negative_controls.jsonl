@@ -1,0 +1,6 @@
+{"control": "vector_to_magnitude_without_contract", "expected": "REJECT", "status": "PASS"}
+{"control": "time_axis_average_without_contract", "expected": "REJECT", "status": "PASS"}
+{"control": "modality_axis_average_without_contract", "expected": "REJECT", "status": "PASS"}
+{"control": "point_cloud_rasterization_without_contract", "expected": "REJECT", "status": "PASS"}
+{"control": "weighted_graph_binarization", "expected": "REJECT", "status": "PASS"}
+{"control": "directed_graph_symmetrization", "expected": "REJECT", "status": "PASS"}

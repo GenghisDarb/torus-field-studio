@@ -15,7 +15,7 @@ import tldProfileSchema from "../../../schemas/tld-tbx-profile/v1.schema.json";
 import tldReleaseSourceSchema from "../../../schemas/tld-release-source/v1.schema.json";
 import tldTrajectorySchema from "../../../schemas/tld-trajectory-trace/v1.schema.json";
 import type { TORUSBundleExchangeManifest } from "./generated/manifest";
-import type { FieldTable, HeldoutBundleMetadata, TldBundleMetadata } from "./types";
+import type { FieldTable, GeometryBundleMetadata, HeldoutBundleMetadata, TldBundleMetadata } from "./types";
 
 const REQUIRED_MEMBERS = new Set([
   "run_spec.json",
@@ -82,6 +82,31 @@ const HELDOUT_REQUIRED_MEMBERS = new Set([
   "visualization/byN_surface.png",
 ]);
 
+const GEOMETRY_REQUIRED_MEMBERS = new Set([
+  "geometry_profile.json",
+  "source_registry.json",
+  "ontology.json",
+  "claim_boundary.json",
+  "visual_encoding.json",
+  "scene_recipe.json",
+  "provenance/sources.jsonl",
+  "provenance/transformations.jsonl",
+  "provenance/verification_receipts.jsonl",
+  "provenance/raw_array_custody.json",
+  "arrays/registered_binned_fields.npz",
+  "registry/parent_registry.jsonl",
+  "registry/projection_registry.jsonl",
+  "registry/null_registry.jsonl",
+  "tables/geometry_channel_results.json",
+  "tables/scale_behavior.json",
+  "tables/domain_baseline.json",
+  "audit/independent_verification.json",
+  "audit/claim_adjudication.json",
+  "audit/forbidden_claims.json",
+  "audit/failure_ledger.jsonl",
+  "audit/SHA256SUMS.txt",
+]);
+
 const TLD_I_INPUT_HASHES: Record<string, string> = {
   "targets_baseline.csv": "856f102a4f58d53d67fdb1ac5982de12ca18a9c78efe13097f23879e262cb683",
   "targets_metadata_addon.csv": "dfba2dc563706d284313f27e679132d028ea77c49a8816cff944baef13dd135f",
@@ -112,6 +137,7 @@ export interface TbxAuditResult {
   table?: FieldTable;
   tld?: TldBundleMetadata;
   heldout?: HeldoutBundleMetadata;
+  geometry?: GeometryBundleMetadata;
 }
 
 function issue(errors: string[], code: string, detail: string) {
@@ -701,11 +727,183 @@ function auditHeldoutSemantics(
   };
 }
 
+async function auditGeometrySemantics(
+  members: Record<string, Uint8Array>,
+  manifest: Manifest,
+  errors: string[],
+): Promise<{ table?: FieldTable; geometry?: GeometryBundleMetadata }> {
+  const profile = parseJson(members, "geometry_profile.json", errors);
+  const source = parseJson(members, "source_registry.json", errors);
+  const custody = parseJson(members, "provenance/raw_array_custody.json", errors);
+  const results = parseJson(members, "tables/geometry_channel_results.json", errors);
+  const scales = parseJson(members, "tables/scale_behavior.json", errors);
+  const baseline = parseJson(members, "tables/domain_baseline.json", errors);
+  const independent = parseJson(members, "audit/independent_verification.json", errors);
+  const adjudication = parseJson(members, "audit/claim_adjudication.json", errors);
+  const forbidden = parseJson(members, "audit/forbidden_claims.json", errors);
+  const parents = parseJsonl(members, "registry/parent_registry.jsonl", errors);
+  const projections = parseJsonl(members, "registry/projection_registry.jsonl", errors);
+  const nulls = parseJsonl(members, "registry/null_registry.jsonl", errors);
+  const failures = parseJsonl(members, "audit/failure_ledger.jsonl", errors);
+  const receipts = parseJsonl(members, "provenance/verification_receipts.jsonl", errors);
+  if (
+    !isRecord(profile)
+    || !isRecord(source)
+    || !isRecord(custody)
+    || !isRecord(results)
+    || !isRecord(scales)
+    || !isRecord(baseline)
+    || !isRecord(independent)
+    || !isRecord(adjudication)
+    || !isRecord(forbidden)
+  ) return {};
+  if (profile.profile_id !== "geometry-tbx-v1" || profile.raw_arrays_required !== true) {
+    issue(errors, "GEOMETRY_PROFILE_INVALID", "profile or raw-array contract");
+  }
+  const arrayMember = typeof custody.bundle_member === "string" ? custody.bundle_member : "";
+  const arrayPayload = members[arrayMember];
+  if (!arrayPayload || custody.sha256 !== await sha256(arrayPayload)) {
+    issue(errors, "GEOMETRY_RAW_ARRAY_HASH_MISMATCH", arrayMember || "missing member");
+  }
+  if (source.pilot_role !== "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT") {
+    issue(errors, "GEOMETRY_PILOT_ROLE_INVALID", "source registry");
+  }
+  if (source.condition_acquisitions_exchangeable !== false) {
+    issue(errors, "GEOMETRY_CONDITION_POOLING_FORBIDDEN", "source registry");
+  }
+  if (parents.length !== 4 || parents.filter((row) => row.role === "DOMAIN_CONTROL_BASELINE").length !== 1) {
+    issue(errors, "GEOMETRY_PARENT_HIERARCHY_INVALID", "expected four conditions and one control");
+  }
+  if (!projections.length || !nulls.length) issue(errors, "GEOMETRY_REGISTRY_INCOMPLETE", "projection/null registry");
+  const conditions = Array.isArray(results.conditions) ? results.conditions : [];
+  if (conditions.length !== 4 || conditions.some((row) => !isRecord(row) || row.population_aggregate !== null)) {
+    issue(errors, "GEOMETRY_CHANNEL_RESULTS_INVALID", "four separate unpooled condition rows required");
+  }
+  const scaleRows = Array.isArray(scales.rows) ? scales.rows : [];
+  if (!scaleRows.length || scaleRows.some((row) => !isRecord(row) || row.geometric_scale_symbol !== "ell" || "S_e" in row)) {
+    issue(errors, "GEOMETRY_SCALE_SE_COLLISION", "scale rows");
+  }
+  if (baseline.numeric_pooling_with_TLD_channels !== false) {
+    issue(errors, "GEOMETRY_BASELINE_POOLING_INVALID", "domain baseline");
+  }
+  if (independent.status !== "VERIFIED" || independent.disagreements !== 0) {
+    issue(errors, "GEOMETRY_INDEPENDENT_VERIFICATION_FAILED", "receipt");
+  }
+  const verifiedReceipt = receipts.some((row) => row.run_id === manifest.run_id && row.status === "verified" && Boolean(row.verifier));
+  if (!verifiedReceipt) issue(errors, "VERIFIER_RECEIPT_MISSING", "geometry pilot");
+  if (
+    adjudication.run_id !== manifest.run_id
+    || adjudication.method_mode !== "INSTRUMENTED_EVIDENCE_VECTOR"
+    || adjudication.scientific_outcome !== "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT"
+  ) issue(errors, "GEOMETRY_ADJUDICATION_INVALID", "run, method, or outcome");
+  if (adjudication.TLD_DERIVED !== "BLOCKED" || adjudication.EXTERNALLY_VALIDATED !== false) {
+    issue(errors, "GEOMETRY_CLAIM_ESCALATION", "TLD or external-validation boundary");
+  }
+  if (["T_e", "S_e", "winner_N"].some((name) => !String(adjudication[name] ?? "").startsWith("NOT_APPLICABLE"))) {
+    issue(errors, "GEOMETRY_SEMANTIC_ENDPOINT_INVALID", "T_e/S_e/winner_N");
+  }
+  const forbiddenValues = Array.isArray(forbidden.claims) ? forbidden.claims.map(String) : [];
+  for (const claim of ["TLD confirmation", "ToT-BROT", "external validation", "population generalization"]) {
+    if (!forbiddenValues.includes(claim)) issue(errors, "GEOMETRY_FORBIDDEN_CLAIMS_INCOMPLETE", claim);
+  }
+  if (
+    manifest.statistics.point_count !== 4
+    || !equalCounts(manifest.statistics.classification_counts, { NONCONFIRMATORY_CONDITION: 4 })
+    || manifest.statistics.mean_UI !== null
+    || manifest.statistics.mean_NSS !== null
+    || manifest.statistics.mean_S_e !== null
+  ) issue(errors, "STATISTICS_MISMATCH", "geometry pilot");
+  if (manifest.statistics.failure_count !== failures.length) issue(errors, "FAILURE_COUNT_MISMATCH", "geometry failure ledger");
+  const expectedSums = (await Promise.all(Object.entries(members)
+    .filter(([name]) => name !== "manifest.json" && name !== "audit/SHA256SUMS.txt")
+    .sort(([left], [right]) => compareCodePoints(left, right))
+    .map(async ([name, payload]) => `${await sha256(payload)}  ${name}\n`))).join("");
+  if (new TextDecoder().decode(members["audit/SHA256SUMS.txt"]) !== expectedSums) {
+    issue(errors, "SHA256SUMS_MISMATCH", "audit/SHA256SUMS.txt");
+  }
+  const points = conditions.filter(isRecord).map((row, index) => {
+    const yaw = Array.isArray(row.yaw_degrees) ? row.yaw_degrees.map(Number) : [0, 0, 0];
+    const channels = isRecord(row.P01_vector_channels) ? row.P01_vector_channels : {};
+    const coherence = finiteNumber(channels.curl_coherence) ? channels.curl_coherence : 0;
+    return {
+      index,
+      grid_x: index % 2,
+      grid_y: Math.floor(index / 2),
+      x: yaw[0] ?? 0,
+      y: yaw[1] ?? 0,
+      classification: "UNRESOLVED" as const,
+      eligible: true,
+      emerged: false,
+      separated_from_null: false,
+      closed: false,
+      survived: false,
+      escaped_from_reference: false,
+      recovered: null,
+      winner_N: null,
+      T_e: null,
+      S_e: null,
+      UI: null,
+      NSS: null,
+      SEP: null,
+      rms_to_parent: null,
+      iterations: 0,
+      parent_id: String(row.parent_id ?? `condition-${index + 1}`),
+      null_policy_id: "N03_PARENT_LOCAL_MASK_PRESERVING_JOINT_CELL_PERMUTATION",
+      trace: [{ step: 0, stage: "descriptive curl coherence", coherence }],
+      observed: true,
+      phase: String(row.condition_role ?? "condition"),
+    };
+  });
+  const table: FieldTable = { schema_version: "1.0.0", width: 2, height: 2, points };
+  return {
+    table,
+    geometry: {
+      doi: String(source.doi),
+      sourceId: String(source.source_id),
+      profile: String(manifest.profile),
+      pilotRole: String(source.pilot_role),
+      studyRole: String(source.study_role ?? source.pilot_role),
+      statisticalUnit: String(source.statistical_unit ?? "condition acquisition"),
+      rawObservationRole: String(custody.content_role ?? "registered arrays"),
+      coordinateContract: String(source.coordinate_contract ?? "registered source coordinates"),
+      unitContract: String(source.unit_contract ?? "source units with provenance"),
+      maskPolicy: String(source.mask_policy ?? "explicit mask"),
+      nestedReplicates: String(source.nested_replicates ?? "not promoted"),
+      modalities: String(source.modalities ?? "registered typed geometry"),
+      registeredObservationCount: Number(source.registered_observation_count ?? conditions.length),
+      projectionContract: String(source.projection_contract ?? "registered projections"),
+      nullContract: String(source.null_contract ?? "registered structure-preserving nulls"),
+      closureNullCalibration: String(source.closure_null_calibration ?? "registered separately"),
+      projectionCount: projections.length,
+      nullCount: nulls.length,
+      operationDepth: String(source.operation_depth ?? "NOT_APPLICABLE"),
+      claimTier: String(source.claim_tier ?? adjudication.claim_ceiling),
+      domainBaseline: String(baseline.baseline_id ?? "registered separately"),
+      structuredFragility: String(source.structured_fragility ?? "registered perturbation panel"),
+      representationAgreement: String(source.representation_agreement ?? independent.status),
+      methodId: String(adjudication.method_id),
+      methodMode: String(adjudication.method_mode),
+      scientificOutcome: String(adjudication.scientific_outcome),
+      conditionCount: conditions.length,
+      campaignCount: Number(source.campaign_count),
+      geometricScale: String(adjudication.geometric_scale),
+      T_e: String(adjudication.T_e),
+      S_e: String(adjudication.S_e),
+      winnerN: String(adjudication.winner_N),
+      tldDerivedStatus: String(adjudication.TLD_DERIVED),
+      externallyValidated: false,
+      verificationStatus: String(independent.status),
+      failureCount: failures.length,
+      forbiddenClaims: forbiddenValues,
+    },
+  };
+}
+
 async function auditSemantics(
   members: Record<string, Uint8Array>,
   manifest: Manifest,
   errors: string[],
-): Promise<{ specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata; heldout?: HeldoutBundleMetadata }> {
+): Promise<{ specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata; heldout?: HeldoutBundleMetadata; geometry?: GeometryBundleMetadata }> {
   const specification = parseJson(members, "run_spec.json", errors);
   const ontology = parseJson(members, "ontology.json", errors);
   const claim = parseJson(members, "claim_boundary.json", errors);
@@ -884,17 +1082,25 @@ export async function auditTbx(bytes: Uint8Array): Promise<TbxAuditResult> {
   if (paths.some((path, index) => index > 0 && compareCodePoints(paths[index - 1], path) > 0)) issue(errors, "MANIFEST_ORDER_INVALID", "file entries must be sorted");
   const extras = Object.keys(members).filter((name) => name !== "manifest.json" && !listed.has(name)).sort();
   if (extras.length) issue(errors, "MANIFEST_UNLISTED_MEMBER", extras.join(", "));
-  const required = new Set(REQUIRED_MEMBERS);
-  if (typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-")) {
+  const geometryProfile = typeof manifest.profile === "string" && manifest.profile.startsWith("geometry-");
+  const required = new Set(geometryProfile ? GEOMETRY_REQUIRED_MEMBERS : REQUIRED_MEMBERS);
+  if (!geometryProfile && typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-")) {
     TLD_REQUIRED_MEMBERS.forEach((name) => required.add(name));
   }
-  if (typeof manifest.profile === "string" && manifest.profile.startsWith("tld-heldout-")) {
+  if (!geometryProfile && typeof manifest.profile === "string" && manifest.profile.startsWith("tld-heldout-")) {
     HELDOUT_REQUIRED_MEMBERS.forEach((name) => required.add(name));
   }
   const requiredMissing = [...required].filter((name) => !listed.has(name)).sort();
   if (requiredMissing.length) issue(errors, "REQUIRED_MEMBER_MISSING", requiredMissing.join(", "));
-  let semantics: { specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata; heldout?: HeldoutBundleMetadata } = {};
-  if (!errors.length) semantics = await auditSemantics(members, manifest, errors);
+  let semantics: { specification?: JsonRecord; table?: FieldTable; tld?: TldBundleMetadata; heldout?: HeldoutBundleMetadata; geometry?: GeometryBundleMetadata } = {};
+  if (!errors.length) {
+    if (geometryProfile) {
+      const geometryAudit = await import("./geometryTbxAudit");
+      semantics = await geometryAudit.auditGeometrySemantics(members, manifest, errors);
+    } else {
+      semantics = await auditSemantics(members, manifest, errors);
+    }
+  }
   const issueCodes = [...new Set(errors.map((error) => error.split(":", 1)[0]))];
   return { valid: errors.length === 0, issueCodes, errors, checkedFiles, manifest, ...semantics };
 }

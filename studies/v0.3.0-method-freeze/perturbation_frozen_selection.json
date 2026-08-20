@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "selected": [
+    "measurement_noise",
+    "coordinate_or_edge_shuffle",
+    "orientation_rotation",
+    "mask_dropout",
+    "resolution_reduction"
+  ],
+  "selection_rule": "greedy preregistered order with pairwise correlation ceiling",
+  "selection_used_external_field_outcomes": false
+}

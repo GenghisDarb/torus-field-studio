@@ -1,0 +1,8 @@
+{
+  "NaN_as_zero": false,
+  "ineligible_acquisition_action": "preserve failure and block its pair; no selective substitution",
+  "interpolation": false,
+  "mask_rule": "observed only where X,Y and every U,V snapshot required by P01 are finite",
+  "mean_fill": false,
+  "minimum_observed_cells": 16
+}

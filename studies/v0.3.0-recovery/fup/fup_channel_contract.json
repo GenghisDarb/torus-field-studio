@@ -1,0 +1,14 @@
+{
+  "channel": "OPTIONAL_HIGHER_DIMENSIONAL_FUP_DIAGNOSTIC",
+  "claim_authority": "NOT_TORUS_CONFIRMATION",
+  "force_into_incompatible_domain": false,
+  "requirements": [
+    "X_h",
+    "Y_h",
+    "registered transform",
+    "registered h",
+    "porosity estimate",
+    "domain justification"
+  ],
+  "schema_version": "2.0.0"
+}

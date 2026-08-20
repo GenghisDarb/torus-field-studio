@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "torusbrot"
-version = "0.2.2"
+version = "0.3.0"
 description = "Local-first, provenance-forward scientific field workbench"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -19,7 +19,14 @@ classifiers = [
 dependencies = ["jsonschema>=4.23,<5", "numpy>=1.26,<3"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.3", "ruff>=0.9"]
+dev = [
+  "h5py>=3.12,<4",
+  "netCDF4>=1.7,<2",
+  "openpyxl>=3.1,<4",
+  "pytest>=8.3",
+  "ruff>=0.9",
+]
+field = ["h5py>=3.12,<4", "netCDF4>=1.7,<2", "openpyxl>=3.1,<4"]
 
 [project.scripts]
 torusbrot = "torusbrot.cli:main"
@@ -50,3 +57,4 @@ select = ["E", "F", "I", "UP"]
 "python/torusbrot/tld/heldout/publication.py" = ["E501"]
 "python/torusbrot/tld/forensic.py" = ["E501"]
 "tests/test_forensic.py" = ["E501"]
+"scripts/generate_v030_source_audit.py" = ["E501"]

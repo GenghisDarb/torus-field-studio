@@ -1,0 +1,19 @@
+{
+  "S_e_computed": false,
+  "T_e_computed": false,
+  "all_28_pair_deltas_reported": true,
+  "all_frozen_channels_reported": true,
+  "binary_threshold_applied": false,
+  "null_completeness": "PASS",
+  "p_value_computed": false,
+  "pair_hierarchy": "PASS",
+  "projection_completeness": "PASS",
+  "rotation_equivariance": "PASS",
+  "rotation_failures": [],
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "second_scored_execution_attempted": false,
+  "source_custody": "PASS",
+  "winner_N_computed": false,
+  "winner_selection_performed": false
+}

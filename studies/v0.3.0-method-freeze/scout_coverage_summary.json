@@ -1,0 +1,8 @@
+{
+  "fixture_count": 25,
+  "schema_version": "1.0.0",
+  "status_counts": {
+    "ELIGIBLE": 25
+  },
+  "universal_materialization_threshold_used": false
+}

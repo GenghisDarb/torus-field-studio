@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 const fixtures = path.resolve(import.meta.dirname, "../../../tests/generated-fixtures");
+const windPilot = path.resolve(import.meta.dirname, "../../../studies/v0.3.0-recovery/wind_pilot/wind_farm_pilot.tbx.zip");
 
 async function waitForField(page: Page) {
   await expect(page.locator(".busy-overlay")).toHaveCount(0, { timeout: 20_000 });
@@ -68,6 +69,53 @@ test("browser export can be re-imported through the strict auditor", async ({ pa
   await expect(page.locator(".source-pill")).toHaveText("TBX AUDIT PASSED", { timeout: 20_000 });
 });
 
+test("geometry pilot TBX stays descriptive and keeps endpoint firewalls visible", async ({ page }) => {
+  await page.goto("/");
+  await waitForField(page);
+  await page.locator('input[type="file"]').setInputFiles(windPilot);
+  await expect(page.locator(".source-pill")).toHaveText("GEOMETRY PILOT · AUDIT PASSED", { timeout: 30_000 });
+  const source = page.getByTestId("geometry-source-panel");
+  await expect(source).toContainText("10.5281/zenodo.18731994");
+  await expect(source).toContainText("1 system/campaign · 4 nonexchangeable conditions");
+  await expect(source).toContainText("Tₑ / Sₑ / winner_N");
+  await expect(source).toContainText("NOT APPLICABLE");
+  await expect(source).toContainText("BLOCKED");
+  const evidence = page.getByTestId("geometry-evidence-summary");
+  await expect(evidence).toContainText("no population aggregate");
+  await expect(evidence).toContainText("external validation: NO");
+});
+
+test("v0.3.0 held-out field assay exposes raw custody and nonbinary firewalls", async ({ page }) => {
+  const consoleErrors: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  await page.goto("/");
+  await waitForField(page);
+  await page.getByRole("button", { name: "Load v0.3.0 field assay" }).click();
+  await expect(page.locator(".source-pill")).toHaveText("GEOMETRY HELD-OUT · AUDIT PASSED", {
+    timeout: 30_000,
+  });
+  const source = page.getByTestId("geometry-source-panel");
+  await expect(source).toBeVisible({ timeout: 30_000 });
+  await expect(source).toContainText("10.5281/zenodo.20794709");
+  await expect(source).toContainText("28 paired blocks");
+  await expect(source).toContainText("56 · REGISTERED_OBSERVATION_OR_FROZEN_RAW_INPUT_ARRAYS");
+  await expect(source).toContainText("joint finite mask");
+  await expect(source).toContainText("127 local joint spatial cell permutations");
+  await expect(source).toContainText("999 frozen joint within-campaign replicates");
+  await expect(source).toContainText("parent-matched aggregate nulls");
+  await expect(source).toContainText("NOT_APPLICABLE");
+  await expect(source).toContainText("BLOCKED");
+  await expect(source).toContainText("NONBINARY EVIDENCE VECTOR ONLY");
+  const evidence = page.getByTestId("geometry-evidence-summary");
+  await expect(evidence).toContainText("28 paired block deltas");
+  await expect(evidence).toContainText("no population aggregate");
+  await expect(evidence).toContainText("external validation: NO");
+  await expect(evidence).toContainText("ToT-BROT");
+  expect(consoleErrors).toEqual([]);
+});
+
 test("published TLD I result exposes audited evidence without claim escalation", async ({ page }) => {
   const consoleErrors: string[] = [];
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
@@ -118,7 +166,7 @@ test("held-out Beijing PM2.5 TBX exposes the frozen negative result", async ({ p
   await expect(evidence).toContainText("external validation: NO");
   await page.getByRole("button", { name: "Surface" }).click();
   await expect(page.locator("canvas").first()).toBeVisible();
-  await page.getByRole("button", { name: "Field" }).click();
+  await page.getByRole("button", { name: "Field", exact: true }).click();
   await expect(page.getByText("Interpolated pixels are never counted as observations.")).toBeVisible();
   expect(consoleErrors).toEqual([]);
 });

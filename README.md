@@ -3,7 +3,7 @@
 > Every beautiful structure should trace back to a frozen computation.
 
 TORUS Field Studio is a local-first scientific workbench for generating, inspecting, and
-auditing geometric field artifacts. The v0.2.2 release deliberately separates four lanes:
+auditing geometric field artifacts. The v0.3.0 release deliberately separates five lanes:
 
 - **Analytic Sandbox** — reproducible `z -> z^p + c` fields with an explicit
   `ILLUSTRATIVE_ANALYTIC` claim badge.
@@ -15,14 +15,18 @@ auditing geometric field artifacts. The v0.2.2 release deliberately separates fo
   `COMPUTED_DYNAMICAL`.
 - **Held-out Beijing PM2.5 study** — a prospectively frozen, parent-matched test on 12 UCI
   monitoring stations. Its valid negative result is capped at `COMPUTED_DYNAMICAL`.
+- **Geometry Method V2 field assay** — a prospectively frozen, within-campaign assay of 28
+  actuated/reference fluidic-pinball pairs. Its valid result is a nonbinary
+  `INSTRUMENTED_EVIDENCE_VECTOR`, not a predictive TLD classification.
 
 The image is downstream of the artifact: classification is computed before rendering,
 interpolation never creates observations, and every exported bundle includes a SHA-256
 manifest, run specification, visual encoding, provenance, claim boundary, and failure ledger.
 
 [Open the browser studio](https://genghisdarb.github.io/torus-field-studio/) or download the
-[v0.2.2 release](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.2.2).
-Choose **Load v0.2.2 forensic audit** to inspect the immutable v0.2.1 result with its additive
+[v0.3.0 release](https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.3.0).
+Choose **Load v0.3.0 field assay** to inspect the final geometry bundle,
+**Load v0.2.2 forensic audit** to inspect the immutable v0.2.1 result with its additive
 forensic reconciliation, or **Load TLD I result** to inspect the
 preserved historical reproduction.
 
@@ -109,6 +113,26 @@ None of those findings rewrites the original endpoint: `T_e = NOT_OBSERVED`, `S_
 broader than: “The v0.2.1 preregistered positive-persistence projection failed on the Beijing
 PM2.5 dataset.” See the
 [forensic report](studies/v0.2.2-negative-result-forensic/v021-negative-result-forensic-report.md).
+
+## Geometry Method V2 and first held-out field assay
+
+Method V2 replaces a universal parent-count rule with a claim-tier-, hierarchy-, dependence-,
+effect-size-, and power-specific support policy. It preserves typed geometry, masks, coordinates,
+units, modalities, nesting, component-aware transforms, parent-matched joint nulls, boundary/tie
+diagnostics, and graded fragility. The accepted method is deliberately nonpredictive: 31 synthetic
+and historical families supported an `INSTRUMENTED_EVIDENCE_VECTOR`, while the frozen binary and
+hierarchical acceptance gates did not pass.
+
+The first held-out field used the public actuated fluidic-pinball PIV archive at DOI
+`10.5281/zenodo.20794709`. One authorized execution scored 56 acquisitions as 28 paired blocks.
+An independently frozen verifier recomputed P01, P02, 7,112 null children, all pair deltas,
+perturbations, scale views, the domain baseline, and joint summaries from the raw HDF5 files with
+zero disagreements. The result is
+`GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY`: `T_e`, `S_e`, and `winner_N` are
+not applicable, `ell` is geometric scale, `TLD_DERIVED` is blocked, and external validation is
+false. See the [technical report](studies/v0.3.0-recovery/publication/technical-report.md),
+[plain-language report](studies/v0.3.0-recovery/publication/plain-language-report.md), and
+[Method V2 specification](docs/geometry_method_v2.md).
 
 ## Reproduce the published TLD I result
 
@@ -208,7 +232,7 @@ negative result under the prospectively frozen gates. A successful internal inde
 does not constitute an outside replication, so the external-validation badge remains forbidden.
 
 ToT-BROT, ToT-BULB, and Dual-Space contracts are included as forward-compatible schemas only.
-They are not represented as validated engines in v0.2.
+They are not represented as validated engines in v0.3.
 
 Read [the scientific contract](docs/scientific_contract.md),
 [the TLD workbench](docs/tld_workbench.md), [the TBX format](docs/tbx_spec.md),

@@ -1,0 +1,7 @@
+{
+  "downsampling_rule": "OBSERVED_CELL_BLOCK_AVERAGE_ANTI_ALIAS",
+  "mean_replacement": false,
+  "missingness_representation": "BOOLEAN_MASK",
+  "rotation_mask_exact": true,
+  "status": "PASS"
+}

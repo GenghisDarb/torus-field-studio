@@ -1,0 +1,8 @@
+{
+  "reflection_signed_normal_component": true,
+  "rotation_components_transformed": true,
+  "rotation_coordinates_transformed": true,
+  "rotation_mask_transformed": true,
+  "rotation_orientation_transformed": true,
+  "status": "PASS"
+}

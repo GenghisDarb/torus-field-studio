@@ -10,7 +10,12 @@ export interface TORUSBundleExchangeManifest {
     | "tld-heldout-primary-v0.2.1"
     | "tld-heldout-specificity-v0.2.1"
     | "tld-heldout-combined-v0.2.1"
-    | "tld-heldout-v021-forensic-v0.2.2";
+    | "tld-heldout-v021-forensic-v0.2.2"
+    | "geometry-pilot-v0.3.0"
+    | "geometry-method-v2-v0.3.0"
+    | "geometry-representation-v0.3.0"
+    | "geometry-heldout-v0.3.0"
+    | "geometry-combined-v0.3.0";
   run_id: string;
   claim_level: string;
   kernel_id: string;

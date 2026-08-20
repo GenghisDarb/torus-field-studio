@@ -1,0 +1,7 @@
+{
+  "adaptive_stopping": false,
+  "resampling_unit": "matched null trace",
+  "samples": 256,
+  "schema_version": "1.0.0",
+  "seed": 300
+}

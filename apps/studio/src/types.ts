@@ -100,6 +100,46 @@ export interface HeldoutBundleMetadata {
   forbiddenClaims: string[];
 }
 
+export interface GeometryBundleMetadata {
+  doi: string;
+  sourceId: string;
+  profile: string;
+  pilotRole: string;
+  studyRole: string;
+  statisticalUnit: string;
+  rawObservationRole: string;
+  coordinateContract: string;
+  unitContract: string;
+  maskPolicy: string;
+  nestedReplicates: string;
+  modalities: string;
+  registeredObservationCount: number;
+  projectionContract: string;
+  nullContract: string;
+  closureNullCalibration: string;
+  projectionCount: number;
+  nullCount: number;
+  operationDepth: string;
+  claimTier: string;
+  domainBaseline: string;
+  structuredFragility: string;
+  representationAgreement: string;
+  methodId: string;
+  methodMode: string;
+  scientificOutcome: string;
+  conditionCount: number;
+  campaignCount: number;
+  geometricScale: string;
+  T_e: string;
+  S_e: string;
+  winnerN: string;
+  tldDerivedStatus: string;
+  externallyValidated: boolean;
+  verificationStatus: string;
+  failureCount: number;
+  forbiddenClaims: string[];
+}
+
 export interface FieldTable {
   schema_version: string;
   width: number;
@@ -112,6 +152,7 @@ export interface FieldTable {
   auditCheckedFiles?: number;
   tld?: TldBundleMetadata;
   heldout?: HeldoutBundleMetadata;
+  geometry?: GeometryBundleMetadata;
 }
 
 export interface GenerateRequest {

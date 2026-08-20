@@ -1,0 +1,16 @@
+{
+  "comparison_unit": "complete parent/null ensemble",
+  "dropout": "mask-native",
+  "noise_scale": "relative robust MAD with numerical epsilon only",
+  "required_output": "effect sizes and uncertainty intervals per perturbation",
+  "resolution": "anti-aliased block average",
+  "response_classes": [
+    "INVARIANT",
+    "EQUIVARIANT",
+    "GRADED",
+    "DESTRUCTIVE",
+    "INCONCLUSIVE"
+  ],
+  "schema_version": "2.0.0",
+  "single_boolean_rule": false
+}

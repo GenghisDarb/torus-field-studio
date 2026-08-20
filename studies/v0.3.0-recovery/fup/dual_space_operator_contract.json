@@ -1,0 +1,8 @@
+{
+  "norm_estimator": "power iteration",
+  "normalization": "orthonormal FFT",
+  "operator": "P_X Fourier^-1 P_Y Fourier P_X",
+  "scale_dependence_required": true,
+  "schema_version": "2.0.0",
+  "uncertainty_required": true
+}

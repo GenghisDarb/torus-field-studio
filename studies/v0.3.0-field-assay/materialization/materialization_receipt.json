@@ -1,0 +1,26 @@
+{
+  "blockers": [
+    "FROZEN_MINIMUM_EFFECTIVE_PARENT_SUPPORT_NOT_MET"
+  ],
+  "candidate_substitution": "FORBIDDEN",
+  "claim_metrics_computed": false,
+  "coordinate_integrity": "PASS_WITH_CROSS_SOURCE_UNIT_PROVENANCE",
+  "domain_id": "ZENODO_18731994_WIND_TUNNEL_LIDAR_WAKE",
+  "faithful_projection_count": 2,
+  "field_integrity": "PASS",
+  "nested_replicate_count": 600000,
+  "parent_count": 4,
+  "preregistration_authorized": false,
+  "protocol_outcome": "V030_GEOMETRY_FIELD_ASSAY_EXECUTION_BLOCKED",
+  "registered_null_family_count": 2,
+  "registered_perturbation_count": 5,
+  "scientific_outcome": "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED",
+  "scored_execution_authorized": false,
+  "source_custody": "PASS",
+  "status": "MATERIALIZED_ASSAY_EXECUTION_BLOCKED",
+  "warnings": [
+    "DOCUMENTATION_ARCHIVE_NAME_MISMATCH",
+    "NATIVE_NETCDF_UNIT_ATTRIBUTES_ABSENT",
+    "FOUR_PARENT_BINARY_SENSITIVITY_INADEQUATE"
+  ]
+}

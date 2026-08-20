@@ -1,0 +1,25 @@
+{
+  "default_field_status": "NOT_APPLICABLE_UNTIL_ALL_CHECKS_FROZEN",
+  "fully_registered_control": {
+    "applicable": true,
+    "checks": {
+      "domain_justified": true,
+      "scale_registered": true,
+      "spatial_support_defined": true,
+      "spectral_support_defined": true,
+      "transform_registered": true
+    },
+    "claim_authority": "OPTIONAL_DIAGNOSTIC_NOT_TORUS_CONFIRMATION"
+  },
+  "missing_conjugate_support_control": {
+    "applicable": false,
+    "checks": {
+      "domain_justified": true,
+      "scale_registered": true,
+      "spatial_support_defined": true,
+      "spectral_support_defined": false,
+      "transform_registered": true
+    },
+    "claim_authority": "OPTIONAL_DIAGNOSTIC_NOT_TORUS_CONFIRMATION"
+  }
+}

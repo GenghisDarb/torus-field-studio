@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://torus-field-studio.dev/schemas/projection-registry/v1.schema.json",
+  "title": "Geometry projection registry",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "projections"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "projections": {"type": "array", "minItems": 2, "items": {"type": "object", "required": ["projection_id", "rule", "justification", "coordinate_order", "invertibility", "information_loss", "null_compatibility", "faithful"], "properties": {"projection_id": {"type": "string"}, "rule": {"type": "string"}, "justification": {"type": "string"}, "coordinate_order": {"type": "string"}, "invertibility": {"enum": ["INVERTIBLE", "NONINVERTIBLE", "CONDITIONALLY_INVERTIBLE"]}, "information_loss": {"type": "string"}, "null_compatibility": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "faithful": {"type": "boolean"}}, "additionalProperties": false}}
+  },
+  "additionalProperties": false
+}

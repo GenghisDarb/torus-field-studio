@@ -1,0 +1,8 @@
+{
+  "diagnostic_projection_count": 1,
+  "faithful_projection_count": 2,
+  "interpolation_allowed": false,
+  "numeric_modality_averaging": false,
+  "outcome_selected_projection": false,
+  "status": "PASS"
+}

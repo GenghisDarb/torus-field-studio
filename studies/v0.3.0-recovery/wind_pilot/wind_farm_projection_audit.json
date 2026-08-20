@@ -1,0 +1,280 @@
+{
+  "all_coordinates_registered": true,
+  "all_masks_explicit": true,
+  "all_rotation_equivariance_passed": true,
+  "conditions": [
+    {
+      "P01": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 13,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 126406,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1471
+      },
+      "P02": {
+        "R2D2": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 13,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 126425,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1471
+        },
+        "R2D3": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 13,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 126626,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1471
+        }
+      },
+      "coordinate_aware": true,
+      "mask_preserved": true,
+      "numeric_modality_pooling": false,
+      "parent_id": "PARENT_TEST_1",
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 1.3010426069826053e-18,
+          "curl_energy_invariant": 1.1102230246251565e-16,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 6.938893903907228e-18,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 1.1102230246251565e-16
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "P01": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 13,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 125708,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1467
+      },
+      "P02": {
+        "R2D2": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 13,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 125738,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1467
+        },
+        "R2D3": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 13,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 126001,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1467
+        }
+      },
+      "coordinate_aware": true,
+      "mask_preserved": true,
+      "numeric_modality_pooling": false,
+      "parent_id": "PARENT_TEST_2",
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 4.336808689942018e-19,
+          "curl_energy_invariant": 1.1102230246251565e-16,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 0.0,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 5.551115123125783e-17
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "P01": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 12,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 125863,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1467
+      },
+      "P02": {
+        "R2D2": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 12,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 125875,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1467
+        },
+        "R2D3": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 12,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 126039,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1467
+        }
+      },
+      "coordinate_aware": true,
+      "mask_preserved": true,
+      "numeric_modality_pooling": false,
+      "parent_id": "PARENT_TEST_3",
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 3.903127820947816e-18,
+          "curl_energy_invariant": 0.0,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 3.469446951953614e-17,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 0.0
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "P01": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 11,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 125191,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1467
+      },
+      "P02": {
+        "R2D2": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 11,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 125194,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1467
+        },
+        "R2D3": {
+          "cell_width_mm": 250.0,
+          "discarded_under_minimum_cell_count": 11,
+          "grid_shape_yx": [
+            32,
+            55
+          ],
+          "input_sample_count": 150000,
+          "interpolation_performed": false,
+          "jointly_finite_sample_count": 125241,
+          "minimum_samples_per_cell": 8,
+          "missing_cells_are_zero": false,
+          "occupied_cell_count": 1467
+        }
+      },
+      "coordinate_aware": true,
+      "mask_preserved": true,
+      "numeric_modality_pooling": false,
+      "parent_id": "PARENT_TEST_4",
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 4.336808689942018e-19,
+          "curl_energy_invariant": 1.1102230246251565e-16,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 6.938893903907228e-18,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 1.1102230246251565e-16
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      }
+    }
+  ],
+  "interpolation_performed": false,
+  "lidar_modalities_pooled": false,
+  "preserved_engineering_failures": [
+    {
+      "correction": "proper Cartesian rotation now moves the raster clockwise in index space before applying (u, v) -> (-v, u)",
+      "first_attempt_status": "FAILED_BEFORE_ARTIFACT_PUBLICATION",
+      "issue_code": "PILOT_EXPOSED_ROTATION_RASTER_DIRECTION_DEFECT",
+      "post_correction_regression": "PASS_ALL_FOUR_SOURCE_CONDITIONS_AND_SYNTHETIC_METHOD_V2_RECALIBRATION",
+      "threshold_or_method_component_changed": false
+    }
+  ],
+  "schema_version": "1.0.0",
+  "vector_magnitude_scalarization": false
+}

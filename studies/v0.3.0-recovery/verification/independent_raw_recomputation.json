@@ -1,0 +1,93 @@
+{
+  "family_count": 31,
+  "historical_bridge": {
+    "all_pass": true,
+    "direct": {
+      "chi": 0.6253020625644651,
+      "margin": 0.05108693012191823,
+      "winner_N": 10
+    },
+    "raw_source_sha256": "856f102a4f58d53d67fdb1ac5982de12ca18a9c78efe13097f23879e262cb683",
+    "representations": [
+      {
+        "chi_agreement": true,
+        "margin_agreement": true,
+        "raw_sequence_extraction": "EXACT_IDENTITY",
+        "representation": "ONE_DIMENSIONAL_COORDINATE_FIELD",
+        "winner_agreement": true
+      },
+      {
+        "chi_agreement": true,
+        "margin_agreement": true,
+        "raw_sequence_extraction": "EXACT_IDENTITY",
+        "representation": "ONE_BY_M_SCALAR_FIELD",
+        "winner_agreement": true
+      },
+      {
+        "chi_agreement": true,
+        "margin_agreement": true,
+        "raw_sequence_extraction": "EXACT_IDENTITY",
+        "representation": "PATH_GRAPH",
+        "winner_agreement": true
+      }
+    ]
+  },
+  "mutation_count": 50,
+  "mutations_rejected": 50,
+  "primary_inputs": [
+    "raw deterministic synthetic seeds and generator registry",
+    "raw TLD I targets_baseline.csv",
+    "frozen Method V2 contracts"
+  ],
+  "production_comparison_performed_after_raw_recomputation": true,
+  "production_endpoint_CSV_used_as_primary_evidence": false,
+  "raw_realizations_recomputed": 620,
+  "representation_disagreement_count": 0,
+  "schema_version": "2.0.0",
+  "scientific_components": {
+    "claim_adjudication": {
+      "EXTERNALLY_VALIDATED": false,
+      "TLD_DERIVED": "BLOCKED_BY_DEFAULT",
+      "method": "METHOD_V2_C_EVIDENCE_VECTOR",
+      "mode": "INSTRUMENTED_EVIDENCE_VECTOR",
+      "predictive_TLD_discriminator": false
+    },
+    "closure": {
+      "joint_trace_semantic_sha256": "18d94cdff22a8da057c8692fa5ee15ee7c81656480a354bb9f829c49e39e47ab",
+      "midpoint_penalty": null,
+      "production_agreement": true
+    },
+    "curvature": {
+      "adjacent_boundaries_reported": true,
+      "bootstrap_unit": "PARENT",
+      "elbow_is_T_e": false,
+      "elbow_is_winner_N": false,
+      "interior_only": true
+    },
+    "fragility": {
+      "absolute_unit_noise_floor_used": false,
+      "anti_aliased_downsample": -0.042311412922513725,
+      "baseline": 0.949320147154512,
+      "mask_dropout": -0.011662145717997174,
+      "mean_fill_used": false,
+      "relative_noise": -0.003423120758693221,
+      "rotation": -2.220446049250313e-16
+    },
+    "parent_effective_sample_audit": {
+      "nested_samples_promoted": false,
+      "status": "PASS",
+      "tier_count": 5,
+      "universal_parent_threshold": null
+    },
+    "signed_separation": {
+      "children_flattened": false,
+      "joint_null_replicates": 999,
+      "parent_matching": true
+    }
+  },
+  "semantic_hash_float_decimal_places": 10,
+  "semantic_recomputation_sha256": "6e9bd8e9bfb07a70f5adb414940ea3c2be112c29fc2de0a4cbb1c7e8aa95b235",
+  "status": "PASS",
+  "synthetic_disagreement_count": 0,
+  "unexplained_disagreement_count": 0
+}

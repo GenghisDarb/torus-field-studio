@@ -1,0 +1,13 @@
+{
+  "adaptive_stopping": false,
+  "allowed_for": [
+    "STOCHASTIC_SEMANTIC",
+    "NOISY_NUMERIC",
+    "TIMING_OR_RESOURCE",
+    "FLAKINESS_DIAGNOSTIC"
+  ],
+  "forbidden_as_support_for": [
+    "single deterministic AST or semantic truth"
+  ],
+  "schema_version": "1.0.0"
+}

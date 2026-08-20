@@ -1,0 +1,7 @@
+{"condition":"archive size, MD5, SHA256, inventory, or member count changes","falsifier_id":"F01_SOURCE_CUSTODY","outcome":"GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL"}
+{"condition":"not exactly 28 unique actuated/reference pairs or any reference reuse","falsifier_id":"F02_PAIR_HIERARCHY","outcome":"GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL"}
+{"condition":"U/V or X/Y shapes disagree, components absent, or coordinates nonfinite","falsifier_id":"F03_FIELD_STRUCTURE","outcome":"GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED"}
+{"condition":"any pair lacks 127 finite acquisition-local null children","falsifier_id":"F04_NULL_COMPLETENESS","outcome":"GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED"}
+{"condition":"registered 90-degree vector rotation disagrees beyond 1e-10","falsifier_id":"F05_EQUIVARIANCE","outcome":"GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL"}
+{"condition":"projection, null, seed, pairs, channels, or scale views change after authorization","falsifier_id":"F06_PROTOCOL_MUTATION","outcome":"GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL"}
+{"condition":"a second scored execution is attempted","falsifier_id":"F07_SELECTIVE_RERUN","outcome":"GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL"}

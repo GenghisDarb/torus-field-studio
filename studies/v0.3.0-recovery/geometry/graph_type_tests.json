@@ -1,0 +1,21 @@
+{
+  "directed": {
+    "maximum_normalized_return_trace": 0.9999999999999973,
+    "normalized_three_cycle_trace": 0.06997084548104957,
+    "signed_three_cycle_trace": 3.0,
+    "spectral_radius": 1.0000000000000009,
+    "total_absolute_edge_weight": 3.5,
+    "weighted_reciprocity": 0.0
+  },
+  "direction_retained": true,
+  "status": "PASS",
+  "weighted": {
+    "maximum_normalized_return_trace": 0.6666666666666669,
+    "normalized_three_cycle_trace": 0.0,
+    "signed_three_cycle_trace": 0.0,
+    "spectral_radius": 0.7280109889280517,
+    "total_absolute_edge_weight": 1.7999999999999998,
+    "weighted_reciprocity": 1.0
+  },
+  "weights_retained": true
+}

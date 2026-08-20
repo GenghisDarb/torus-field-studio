@@ -1,0 +1,53 @@
+{
+  "artifacts": [
+    {
+      "name": "calibration_uncertainty.json",
+      "sha256": "c0275834dd0b50aa8deb60e620bee65b16fb3b2847c631520f44b3e9d6ab7ea7"
+    },
+    {
+      "name": "geometry_tld_bridge_results.csv",
+      "sha256": "c600d2df08b2eb7ce0472523d9e33b9bb9e12e54a8453ff2dede8682a15bf8c8"
+    },
+    {
+      "name": "historical_construct_results_v2.csv",
+      "sha256": "25cc7a6538814338299fbcca10501753dd6c0750bbd781aef95cfd7319ee13fc"
+    },
+    {
+      "name": "null_bias_by_family.csv",
+      "sha256": "9296a0ba975333f6d46f66883b48381b17e208a6e86946f83fc0a157ec2e9d74"
+    },
+    {
+      "name": "power_by_effect_and_parent_count.csv",
+      "sha256": "bf24f9540dd6cdbbf80db6c1300131b0a0d0e287ef5e90e548f54537c802ebf9"
+    },
+    {
+      "name": "representation_agreement_by_family.csv",
+      "sha256": "62b1b4181a782ff2d0d04554855e46684a89d464fcaa35224191bde9117ffbcb"
+    },
+    {
+      "name": "sign_error_by_family.csv",
+      "sha256": "69c367a823647b45055ad4b930db98376ea4bd6eaef231435cd020a8b16529e9"
+    },
+    {
+      "name": "synthetic_v2_ground_truth.jsonl",
+      "sha256": "3ab0dc7931774b3c360c23e0d9d68ec3d45f5cbd572d5ec4e47c25fa6b366e0a"
+    },
+    {
+      "name": "synthetic_v2_registry.jsonl",
+      "sha256": "a6fb634c043b7561601e3828515178cc0a1ae33b522c411b6f8e06d9b8b63fe7"
+    },
+    {
+      "name": "synthetic_v2_results.csv",
+      "sha256": "b9ccba0c32ccb139240263543833c6a24449af67a36591c3db6ca779c3cdb5bb"
+    },
+    {
+      "name": "synthetic_v2_summary.json",
+      "sha256": "0e2438aca1c0d82bfa2a2d9e4b6ff67f505cf0a2ee837e4e3e112e57734a7c30"
+    },
+    {
+      "name": "type_I_error_by_family.csv",
+      "sha256": "d7e62feb3e1ced47ef788f9e58804017453bbd01b67608a36c462dc9fb2d6095"
+    }
+  ],
+  "generator": "scripts/calibrate_geometry_method_v2.py"
+}

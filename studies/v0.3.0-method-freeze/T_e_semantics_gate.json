@@ -1,0 +1,12 @@
+{
+  "historical_TLD_I": "T_e_NOT_APPLICABLE",
+  "requirements": [
+    "genuine cumulative operation depth",
+    "r+1 applies after r",
+    "operator family frozen",
+    "axis is not width, lag, resolution, or scale",
+    "semantics audit passes"
+  ],
+  "schema_version": "1.0.0",
+  "synthetic_suite": "T_e_NOT_APPLICABLE"
+}

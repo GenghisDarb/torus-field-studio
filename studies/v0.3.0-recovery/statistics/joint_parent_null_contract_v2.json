@@ -1,0 +1,9 @@
+{
+  "aggregate_replicate": "one registered child per parent then same population statistic",
+  "campaign_and_parent_estimands": "SEPARATE",
+  "global_child_pool": "FORBIDDEN",
+  "minimum_joint_replicates": 999,
+  "nested_samples_as_parents": false,
+  "population_statistic": "median across independent parents",
+  "schema_version": "2.0.0"
+}

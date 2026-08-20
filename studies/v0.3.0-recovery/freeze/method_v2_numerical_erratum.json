@@ -1,0 +1,19 @@
+{
+  "affected_scope": "synthetic parent-matched and aggregate null tail diagnostics",
+  "claim_change": false,
+  "discovered_by": "cross-platform independent-verifier CI",
+  "effective_rule": {
+    "absolute_tolerance": 1e-10,
+    "lower_tail_includes": "null <= observed + tolerance",
+    "relative_tolerance": 1e-10,
+    "tolerance": "max(absolute_tolerance, abs(observed) * relative_tolerance)",
+    "upper_tail_includes": "null >= observed - tolerance"
+  },
+  "heldout_execution_changed": false,
+  "heldout_execution_rerun": false,
+  "original_freeze_commit": "dcaeb72b29fc0d32b002d9b5de0809b13f2ed272",
+  "reason": "Mathematically tied relabeling statistics differed by platform-dependent floating-point roundoff and received different exact tail ranks.",
+  "schema_version": "1.0.0",
+  "status": "POST_FREEZE_NUMERICAL_CLARIFICATION",
+  "threshold_change": false
+}

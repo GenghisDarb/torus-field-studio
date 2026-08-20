@@ -1,0 +1,49 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "S_e": "NOT_APPLICABLE",
+  "TLD_DERIVED": "BLOCKED",
+  "T_e": "NOT_APPLICABLE",
+  "confirmatory_classification": false,
+  "geometric_scale": {
+    "is_S_e": false,
+    "symbol": "ell",
+    "values_mm": [
+      250,
+      500,
+      1000
+    ]
+  },
+  "hierarchy": {
+    "baseline_conditions": 1,
+    "condition_acquisitions_exchangeable": false,
+    "condition_level_acquisitions": 4,
+    "coupled_lidar_modalities": 2,
+    "facility_campaigns": 1,
+    "interacting_turbines": 3,
+    "nested_synchronized_samples": true,
+    "same_yaw_repeated_acquisitions": 0,
+    "yaw_interventions": 3
+  },
+  "method_component_selection": false,
+  "method_id": "METHOD_V2_C_EVIDENCE_VECTOR",
+  "method_name": "INSTRUMENTED_EVIDENCE_VECTOR",
+  "null": {
+    "children_per_condition": 127,
+    "component_pairing_preserved": true,
+    "condition_pooling": "FORBIDDEN",
+    "mask_preserved": true,
+    "null_id": "N03_PARENT_LOCAL_MASK_PRESERVING_JOINT_CELL_PERMUTATION",
+    "purpose": "engineering null-generation and null-bias diagnostic; no threshold or confirmatory p-value"
+  },
+  "operation_depth": "NOT_APPLICABLE_NO_FROZEN_GENERAL_GEOMETRY_OPERATION_DEPTH",
+  "pilot_role": "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT",
+  "population_aggregation": false,
+  "projection": {
+    "P01": "componentwise median on fixed 250 mm source x/y Cartesian bins; minimum eight jointly finite samples; no interpolation",
+    "P02": "R2D2 and R2D3 binned independently on native coordinates; never numerically pooled"
+  },
+  "schema_version": "1.0.0",
+  "source_id": "ZENODO_18731994_WIND_TUNNEL_LIDAR_WAKE",
+  "threshold_tuning": false,
+  "winner_N": "NOT_APPLICABLE"
+}

@@ -1,0 +1,46 @@
+{
+  "absolute_local_path_redacted_from_tracked_artifact": true,
+  "audit_date": "2026-08-20",
+  "authenticated_account": "GenghisDarb",
+  "authoritative_local_path": "<workspace>/work/torus-field-studio",
+  "controllergate": {
+    "expected_head": "38897b79588f3ff4b1b9002eedc299a9bcf05140",
+    "mode": "READ_ONLY",
+    "modified": false,
+    "repository": "GenghisDarb/controllergate-research"
+  },
+  "ignored_outputs_present": [
+    ".venv/",
+    "external_cache/",
+    "results/",
+    "node_modules/",
+    "apps/studio/dist/",
+    "apps/studio/test-results/",
+    "tests/generated-fixtures/"
+  ],
+  "origin": "https://github.com/GenghisDarb/torus-field-studio.git",
+  "pages": {
+    "http_status": 200,
+    "title": "TORUS Field Studio",
+    "url": "https://genghisdarb.github.io/torus-field-studio/"
+  },
+  "pr": {
+    "base": "9dfeb016738d01cdf5796c039fab2f88b3a2b5ee",
+    "draft": true,
+    "head": "0d5a31609283af5e76fcb02205f618e0edb19fab",
+    "mergeable": true,
+    "number": 5,
+    "state": "OPEN",
+    "url": "https://github.com/GenghisDarb/torus-field-studio/pull/5"
+  },
+  "remote_head": "0d5a31609283af5e76fcb02205f618e0edb19fab",
+  "repository": "GenghisDarb/torus-field-studio",
+  "schema_version": "1.0.0",
+  "starting_branch": "agent/v0.3.0-geometry-indexed-tld",
+  "starting_head": "0d5a31609283af5e76fcb02205f618e0edb19fab",
+  "starting_main": "9dfeb016738d01cdf5796c039fab2f88b3a2b5ee",
+  "v0.2.2_peeled_commit": "9dfeb016738d01cdf5796c039fab2f88b3a2b5ee",
+  "v0.2.2_tag_object": "b7c579da37ebff32cc2b5cc899662876959d3043",
+  "visibility": "PUBLIC",
+  "working_tree_at_start": "CLEAN"
+}

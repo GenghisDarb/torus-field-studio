@@ -1,0 +1,20 @@
+{
+  "candidate_substitution": "FORBIDDEN",
+  "claim_metrics_computed": false,
+  "dataset_freeze_commit": "70fa574350ecff8c021ed61ad121c07edb3d581f",
+  "frozen_minimum_effective_parents": 8,
+  "issue_code": "FROZEN_MINIMUM_EFFECTIVE_PARENT_SUPPORT_NOT_MET",
+  "lidars_promoted_to_parents": 0,
+  "materialized_effective_parents": 4,
+  "method_freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+  "nested_lidar_samples": 600000,
+  "nested_samples_promoted": 0,
+  "next_legal_action": "design a future version with a new prospectively frozen candidate-selection policy; v0.3.0 may not substitute this dataset",
+  "preregistration_created": false,
+  "protocol_outcome": "V030_GEOMETRY_FIELD_ASSAY_EXECUTION_BLOCKED",
+  "schema_version": "1.0.0",
+  "scientific_outcome": "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED",
+  "scored_execution_count": 0,
+  "status": "BLOCKED_BEFORE_PREREGISTRATION_AND_SCORING",
+  "turbines_promoted_to_parents": 0
+}

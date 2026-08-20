@@ -1,0 +1,17 @@
+{
+  "aggregate_joint_null": true,
+  "claim_adjudication": true,
+  "closure_traces": true,
+  "curvature": true,
+  "fragility": true,
+  "imports_production_calibrator": false,
+  "imports_production_geometry_v2": false,
+  "null_generation": true,
+  "parent_effective_sample_audit": true,
+  "production_comparison_stage": "AFTER_RAW_RECOMPUTATION",
+  "raw_generation": true,
+  "representation_agreement": true,
+  "schema_version": "2.0.0",
+  "signed_separation": true,
+  "typed_projection": true
+}

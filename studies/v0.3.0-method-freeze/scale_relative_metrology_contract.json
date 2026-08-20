@@ -1,0 +1,9 @@
+{
+  "claim_bearing_absolute_threshold": null,
+  "elbow_repair_authority": false,
+  "null_form": "(peak - median(null peak)) / max(1.4826*MAD(null peak), machine epsilon)",
+  "relative_form": "peak curvature / max(1.4826*MAD(log trace), machine epsilon)",
+  "schema_version": "1.0.0",
+  "selection_status": "CALIBRATION_CANDIDATE",
+  "trace_transform": "natural_log"
+}

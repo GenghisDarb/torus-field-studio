@@ -1,0 +1,70 @@
+{
+  "blocked_materialization": {
+    "EXTERNALLY_VALIDATED": false,
+    "TLD_DERIVED": "BLOCKED",
+    "acquisition_count": 4,
+    "campaign_count": 1,
+    "claim_metrics_computed": false,
+    "condition_roles": [
+      "one greedy control",
+      "three distinct yaw interventions"
+    ],
+    "field_assay_blocker_sha256": "a8613ef6903cc9f550353237752eff2c342efed6657759b30b5e216d9481c6e6",
+    "interacting_turbines": 3,
+    "lidar_views_per_acquisition": 2,
+    "nested_lidar_samples": 600000,
+    "preregistration_created": false,
+    "scientific_outcome": "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED",
+    "scored_execution_count": 0
+  },
+  "dataset_v1": {
+    "archive_sha256": "02d36a05c223a3fe9decb9449ea0e4dc3d8d01877acca18cc0e201c915b1b461",
+    "doi": "10.5281/zenodo.18731994",
+    "freeze_commit": "70fa574350ecff8c021ed61ad121c07edb3d581f",
+    "selected_candidate_receipt_sha256": "3661b761429b98383e11d2906592ed49276e5e93dbf5a1611c4e9e11d25a93c4",
+    "selected_source": "Wind Tunnel Experimental Dataset for Wind Farm Control with Scanning Lidar Wake Measurements"
+  },
+  "method_v1": {
+    "freeze_commit": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c",
+    "frozen_method_sha256": "00fcec47ab4c65f97a446548aadfb51b062b3ac1348a7f26d405cd2cba7d1fb1",
+    "independent_disagreements": 0,
+    "independent_verification_sha256": "bbe83c1c951e3aa4f7f16aab581c7323f2e9d76a9027837b43a0a15ae3aaa2ae",
+    "method_manifest_sha256": "47c1210ff3d923b8bf9eaf4dcdba644911241228dc727e76c62ce03c56a27c19",
+    "mutations_rejected": "20/20",
+    "replay_after_canonical_LF_normalization": "BYTE_IDENTICAL",
+    "selected_method": "METHOD_C_EVIDENCE_VECTOR_NONBINARY"
+  },
+  "pr5_local_validation": {
+    "browser_tests": "6/6 PASS",
+    "python_tests": "62/62 PASS",
+    "ruff": "PASS",
+    "schema_sync": "PASS",
+    "security_and_dependency_audits": "PASS",
+    "typecheck_build_budget": "PASS",
+    "wheel_smoke": "PASS"
+  },
+  "schema_version": "1.0.0",
+  "starting_head": "0d5a31609283af5e76fcb02205f618e0edb19fab",
+  "status": "EXACT_REPRODUCTION",
+  "tld_i": {
+    "TLD_DERIVED": "BLOCKED",
+    "claim_level": "COMPUTED_DYNAMICAL",
+    "result": "FIRST_PUBLISHED_TLD_RESULT_EXACTLY_REPRODUCED",
+    "source_sha256": "5bae9af506bd65e74225fc91f869931d70fcd89505cbc672b3538abdfd4b446e",
+    "tbx_profiles_valid": "3/3"
+  },
+  "v0.2.1": {
+    "EXTERNALLY_VALIDATED": false,
+    "S_e_contiguous": 0.0,
+    "TLD_DERIVED": "BLOCKED",
+    "T_e": "NOT_OBSERVED",
+    "eligible_parent_count": 12,
+    "failure_count": 0,
+    "fourteen_specificity_passed": false,
+    "independent_disagreements": 0,
+    "mutations_rejected": "25/25",
+    "scientific_outcome": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES",
+    "source_sha256": "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8",
+    "winner_N": 9
+  }
+}

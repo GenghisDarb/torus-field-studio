@@ -1,0 +1,20 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "baseline_disagreements": [],
+  "disagreement_count": 0,
+  "joint_999_replicate_summaries_independently_recomputed": true,
+  "mutation_count": 12,
+  "mutations_detected": 12,
+  "null_child_pair_deltas_independently_recomputed": true,
+  "pair_deltas_independently_recomputed": true,
+  "production_runner_imported": false,
+  "raw_hdf5_field_values_reopened": false,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "scientific_outcome_unchanged": "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY",
+  "scored_execution_count": 1,
+  "second_scored_execution_performed": false,
+  "status": "PASS",
+  "verification_inputs": "saved acquisition channels, null children, pair evidence, manifests, contracts, and claim artifacts"
+}

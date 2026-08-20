@@ -1,0 +1,6 @@
+{
+  "comparison": "exact or registered semantic",
+  "deterministic_claim_bearing": "one authorized run plus duplicate clean replay",
+  "schema_version": "1.0.0",
+  "timing_average_substitution": false
+}

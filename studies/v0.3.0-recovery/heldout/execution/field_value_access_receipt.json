@@ -1,0 +1,8 @@
+{
+  "attempt_number": 1,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "source_sha256": "5819f9071c3b3b0b856934602b5e7b487852abe0e0a3a5b1b62eae17720d822f",
+  "status": "AUTHORIZED_FIELD_VALUE_ACCESS_STARTED",
+  "values_previously_read_for_scoring": false
+}

@@ -1,0 +1,12 @@
+{
+  "edge_bias": "AUDITED_BY_BOUNDARY_TRUNCATION",
+  "maximum_binary_strict_null_false_positive_rate": 0.0,
+  "phase_bias": "AUDITED_BY_PHASE_RANDOMIZED_CHALLENGE",
+  "resolution_bias": "AUDITED_BY_RESOLUTION_DEGRADED_CHALLENGE",
+  "schema_version": "1.0.0",
+  "smoothing_bias": "AUDITED_BY_COLORED_FIELD_AND_RESOLUTION_CONTROLS",
+  "strict_null_direction_counts": {
+    "LOWER": 2,
+    "UPPER": 2
+  }
+}

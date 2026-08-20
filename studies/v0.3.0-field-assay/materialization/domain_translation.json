@@ -1,0 +1,49 @@
+{
+  "S_e": "geometric bin scale only; never closure depth or winner_N",
+  "T_e": "conditionally applicable only to a null-calibrated interior operation-depth elbow",
+  "adversarial_perturbations": [
+    "PERT05_DROP_ONE_LIDAR"
+  ],
+  "binary_claim_sensitivity": "INSUFFICIENT_BY_DESIGN; four independent parents have minimum exact two-sided sign resolution 0.125",
+  "boundary_conditions": "finite open measured footprint; NaN is missing, never zero or interpolation; no periodic spatial boundary",
+  "claim_bearing_execution_authorized": false,
+  "compatible_nulls": [
+    "N01_PARENT_LOCAL_CYCLIC_FIELD_SHIFT",
+    "N02_PARENT_LOCAL_CONTIGUOUS_BLOCK_PERMUTATION"
+  ],
+  "coordinates": "x/y/z in mm; 2D horizontal measurement plane with measured z variation retained",
+  "diagnostic_only_projections": [
+    "P03_OCCUPIED_CELL_GRAPH"
+  ],
+  "domain_baseline": "conventional yaw-induced wake deflection, with Test 1 as control",
+  "domain_id": "ZENODO_18731994_WIND_TUNNEL_LIDAR_WAKE",
+  "equivariants": [
+    "y-directed signs under y reflection",
+    "coordinate values under unit-preserving transforms"
+  ],
+  "execution_blocker": "frozen minimum effective parent count is eight; materialized count is four",
+  "faithful_projections": [
+    "P01_SOURCE_RECONSTRUCTED_VECTOR_GRID",
+    "P02_DUAL_NATIVE_LOS_EVIDENCE_VECTOR"
+  ],
+  "geometric_scale_axis": "Cartesian bin width in mm",
+  "independent_parent": "one separately timestamped 600 s DATA_test_X.nc acquisition",
+  "invalidates_protocol": "source mismatch, unresolved units, parent leakage, null/projection selection after outcomes, or hidden failure",
+  "invariants": [
+    "source hashes",
+    "parent identity",
+    "missing mask",
+    "unpooled modality identity"
+  ],
+  "nested_replicate": "synchronized samples within an acquisition; never independent parents",
+  "neutral_result": "mixed nonbinary evidence or inadequate sensitivity under the frozen four-parent support",
+  "physical_perturbations": [
+    "PERT02_REFLECT_Y_AND_FLIP_UY",
+    "PERT03_COORDINATE_JITTER_12_5_MM"
+  ],
+  "raw_field": "R2D2 and R2D3 line-of-sight velocities at their measured x/y/z positions",
+  "recursive_operation": "graph diffusion over occupied spatial cells",
+  "schema_version": "1.0.0",
+  "source_derived_field": "source-reconstructed ux and uy at AvgPosition",
+  "weakens_method": "registered channels fail to separate from adequate matched nulls or lack registered fragility/representation support"
+}

@@ -1,0 +1,18 @@
+{
+  "eligible_N": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "endpoints_excluded": [
+    6,
+    14
+  ],
+  "formula": "-(log S[N+1] - 2 log S[N] + log S[N-1])",
+  "positive": "downward knee in log trace",
+  "schema_version": "1.0.0"
+}

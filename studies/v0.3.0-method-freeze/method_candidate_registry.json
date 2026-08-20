@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "selection_timing": "BEFORE_SYNTHETIC_CALIBRATION",
+  "candidates": [
+    {
+      "method_id": "METHOD_A_STRICT_CONJUNCTIVE",
+      "binary": true,
+      "requirements": [
+        "Scout eligibility",
+        "null adequacy",
+        "two significant bidirectional signed projections",
+        "canonical TLD I construct recovery",
+        "structured fragility",
+        "representation agreement",
+        "domain baseline exclusion"
+      ]
+    },
+    {
+      "method_id": "METHOD_B_HIERARCHICAL",
+      "binary": true,
+      "requirements": [
+        "Scout eligibility",
+        "null adequacy",
+        "at least one significant primary signed projection",
+        "at least one of closure-null support or structured fragility",
+        "representation agreement",
+        "domain baseline exclusion"
+      ]
+    },
+    {
+      "method_id": "METHOD_C_EVIDENCE_VECTOR_NONBINARY",
+      "binary": false,
+      "requirements": [
+        "Scout eligibility reported",
+        "all calibrated channels retained separately",
+        "no uncalibrated numerical pooling",
+        "canonical TLD I construct recovery",
+        "representation disagreement retained",
+        "no binary TLD-positive classification"
+      ]
+    }
+  ],
+  "candidate_expansion_after_calibration": "FORBIDDEN"
+}

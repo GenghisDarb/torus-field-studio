@@ -1,0 +1,3 @@
+{"classification": "NUMERICAL_FLOOR_NON_CLAIM_BEARING", "line": 123, "literal": "1e-9", "path": "python/torusbrot/kernels.py"}
+{"classification": "NUMERICAL_FLOOR_NON_CLAIM_BEARING", "line": 296, "literal": "1e-9", "path": "python/torusbrot/kernels.py"}
+{"classification": "NUMERICAL_FLOOR_NON_CLAIM_BEARING", "line": 1096, "literal": "1e-9", "path": "python/torusbrot/tld/forensic.py"}

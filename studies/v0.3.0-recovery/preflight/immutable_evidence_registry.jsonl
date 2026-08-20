@@ -1,0 +1,8 @@
+{"evidence_id": "MAIN_V022", "identity": "9dfeb016738d01cdf5796c039fab2f88b3a2b5ee", "kind": "git_commit", "status": "IMMUTABLE_PRESERVED"}
+{"evidence_id": "TAG_V022", "identity": "b7c579da37ebff32cc2b5cc899662876959d3043", "kind": "annotated_tag", "peeled_commit": "9dfeb016738d01cdf5796c039fab2f88b3a2b5ee", "status": "IMMUTABLE_PRESERVED"}
+{"evidence_id": "TLD_I_SOURCE", "identity": "10.5281/zenodo.18080090", "kind": "source_archive", "sha256": "5bae9af506bd65e74225fc91f869931d70fcd89505cbc672b3538abdfd4b446e", "status": "EXACT_REPLAY"}
+{"evidence_id": "V021_SOURCE", "identity": "10.24432/C5RK5G", "kind": "source_archive", "sha256": "d1b9261c54132f04c374f762f1e5e512af19f95c95fd6bfa1e8ac7e927e3b0b8", "status": "EXACT_REPLAY"}
+{"evidence_id": "METHOD_FREEZE_V1", "identity": "827b3394c0ce8ed414ca57d8e77ef1aaf1a72b1c", "kind": "git_commit", "status": "APPEND_ONLY_PRESERVED"}
+{"evidence_id": "DATASET_FREEZE_V1", "identity": "70fa574350ecff8c021ed61ad121c07edb3d581f", "kind": "git_commit", "status": "APPEND_ONLY_PRESERVED"}
+{"evidence_id": "WIND_SOURCE_V1", "identity": "10.5281/zenodo.18731994", "kind": "source_archive", "sha256": "02d36a05c223a3fe9decb9449ea0e4dc3d8d01877acca18cc0e201c915b1b461", "status": "STRUCTURE_EXPOSED_NO_CLAIM_METRICS"}
+{"evidence_id": "PR5_START", "identity": "0d5a31609283af5e76fcb02205f618e0edb19fab", "kind": "git_commit", "status": "RECOVERY_BASELINE_PRESERVED"}

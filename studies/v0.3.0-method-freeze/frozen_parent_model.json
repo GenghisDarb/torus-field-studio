@@ -1,0 +1,8 @@
+{
+  "calibration_parent_count": 12,
+  "inference_unit": "independent parent",
+  "minimum_effective_parents": 8,
+  "nested_replicates": "modeled within parent; never promoted to independent parents",
+  "null_child_or_pixel_pseudoreplication": "FORBIDDEN",
+  "schema_version": "1.0.0"
+}

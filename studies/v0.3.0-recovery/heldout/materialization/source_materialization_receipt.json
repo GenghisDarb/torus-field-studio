@@ -1,0 +1,11 @@
+{
+  "archive_inventory_exact": true,
+  "hdf5_headers_inspected": true,
+  "hdf5_values_read": false,
+  "paired_acquisition_count": 28,
+  "preregistration_authorized": true,
+  "scored_execution_authorized": false,
+  "source_hash_verified": true,
+  "status": "PASS_STRUCTURE_ONLY",
+  "unpaired_upward_auxiliary_count": 1
+}

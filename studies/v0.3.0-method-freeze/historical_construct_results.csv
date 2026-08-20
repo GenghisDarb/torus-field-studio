@@ -1,0 +1,8 @@
+construct,pass
+baseline_closed_at_N10,True
+baseline_margin_exact,True
+escape_distinguished,True
+unhealed_return_low,True
+healed_return_high,True
+order_controls_change_closure,True
+value_noise_robustness,True

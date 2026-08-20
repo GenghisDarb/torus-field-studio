@@ -84,6 +84,41 @@ HELDOUT_REQUIRED_MEMBERS = frozenset(
         "visualization/byN_surface.png",
     }
 )
+GEOMETRY_REQUIRED_MEMBERS = frozenset(
+    {
+        "geometry_profile.json",
+        "source_registry.json",
+        "ontology.json",
+        "claim_boundary.json",
+        "visual_encoding.json",
+        "scene_recipe.json",
+        "provenance/sources.jsonl",
+        "provenance/transformations.jsonl",
+        "provenance/verification_receipts.jsonl",
+        "provenance/raw_array_custody.json",
+        "arrays/registered_binned_fields.npz",
+        "registry/parent_registry.jsonl",
+        "registry/projection_registry.jsonl",
+        "registry/null_registry.jsonl",
+        "tables/geometry_channel_results.json",
+        "tables/scale_behavior.json",
+        "tables/domain_baseline.json",
+        "audit/independent_verification.json",
+        "audit/claim_adjudication.json",
+        "audit/forbidden_claims.json",
+        "audit/failure_ledger.jsonl",
+        "audit/SHA256SUMS.txt",
+    }
+)
+GEOMETRY_PROFILES = frozenset(
+    {
+        "geometry-pilot-v0.3.0",
+        "geometry-method-v2-v0.3.0",
+        "geometry-representation-v0.3.0",
+        "geometry-heldout-v0.3.0",
+        "geometry-combined-v0.3.0",
+    }
+)
 TLD_I_INPUT_HASHES = {
     "targets_baseline.csv": "856f102a4f58d53d67fdb1ac5982de12ca18a9c78efe13097f23879e262cb683",
     "targets_metadata_addon.csv": (
@@ -360,12 +395,15 @@ def _audit_manifest(
     extras = sorted(set(members) - expected)
     if extras:
         errors.append(_issue("MANIFEST_UNLISTED_MEMBER", ", ".join(extras)))
-    required = set(REQUIRED_MEMBERS)
     profile = str(manifest.get("profile", ""))
-    if profile.startswith("tld-i-"):
-        required.update(TLD_REQUIRED_MEMBERS)
-    if profile.startswith("tld-heldout-"):
-        required.update(HELDOUT_REQUIRED_MEMBERS)
+    if profile in GEOMETRY_PROFILES:
+        required = set(GEOMETRY_REQUIRED_MEMBERS)
+    else:
+        required = set(REQUIRED_MEMBERS)
+        if profile.startswith("tld-i-"):
+            required.update(TLD_REQUIRED_MEMBERS)
+        if profile.startswith("tld-heldout-"):
+            required.update(HELDOUT_REQUIRED_MEMBERS)
     required_missing = sorted(required - set(paths))
     if required_missing:
         errors.append(_issue("REQUIRED_MEMBER_MISSING", ", ".join(required_missing)))
@@ -928,6 +966,198 @@ def _audit_semantics(
         errors.append(_issue("SHA256SUMS_MISMATCH", "audit/SHA256SUMS.txt"))
 
 
+def _audit_geometry_semantics(
+    members: dict[str, bytes],
+    manifest: dict[str, Any],
+    errors: list[str],
+    policy: BundlePolicy,
+) -> None:
+    profile = _load_json(members, "geometry_profile.json", errors, policy)
+    source = _load_json(members, "source_registry.json", errors, policy)
+    claim = _load_json(members, "claim_boundary.json", errors, policy)
+    custody = _load_json(members, "provenance/raw_array_custody.json", errors, policy)
+    channels = _load_json(members, "tables/geometry_channel_results.json", errors, policy)
+    scales = _load_json(members, "tables/scale_behavior.json", errors, policy)
+    baseline = _load_json(members, "tables/domain_baseline.json", errors, policy)
+    independent = _load_json(members, "audit/independent_verification.json", errors, policy)
+    adjudication = _load_json(members, "audit/claim_adjudication.json", errors, policy)
+    forbidden = _load_json(members, "audit/forbidden_claims.json", errors, policy)
+    parents = _load_jsonl(members, "registry/parent_registry.jsonl", errors, policy)
+    projections = _load_jsonl(members, "registry/projection_registry.jsonl", errors, policy)
+    nulls = _load_jsonl(members, "registry/null_registry.jsonl", errors, policy)
+    failures = _load_jsonl(members, "audit/failure_ledger.jsonl", errors, policy)
+    receipts = _load_jsonl(members, "provenance/verification_receipts.jsonl", errors, policy)
+    objects = [
+        profile,
+        source,
+        claim,
+        custody,
+        channels,
+        scales,
+        baseline,
+        independent,
+        adjudication,
+        forbidden,
+    ]
+    if not all(isinstance(value, dict) for value in objects):
+        return
+    for validation_error in validate_with_schema("geometry-tbx-profile", profile):
+        errors.append(_issue("GEOMETRY_PROFILE_SCHEMA_INVALID", validation_error))
+    for validation_error in validate_with_schema("geometry-claim-adjudication", adjudication):
+        errors.append(_issue("GEOMETRY_CLAIM_SCHEMA_INVALID", validation_error))
+    if profile.get("profile_id") != "geometry-tbx-v1":
+        errors.append(_issue("GEOMETRY_PROFILE_INVALID", "profile_id"))
+    if profile.get("raw_arrays_required") is not True:
+        errors.append(_issue("GEOMETRY_RAW_ARRAY_REQUIREMENT_INVALID", "profile"))
+    array_member = custody.get("bundle_member")
+    array_payload = members.get(array_member) if isinstance(array_member, str) else None
+    if array_payload is None or custody.get("sha256") != _sha256(array_payload):
+        errors.append(_issue("GEOMETRY_RAW_ARRAY_HASH_MISMATCH", repr(array_member)))
+    profile_name = str(manifest.get("profile", ""))
+    study_role = source.get("study_role", source.get("pilot_role"))
+    expected_roles = {
+        "geometry-pilot-v0.3.0": "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT",
+        "geometry-method-v2-v0.3.0": "METHOD_V2_SYNTHETIC_AND_HISTORICAL_CALIBRATION",
+        "geometry-representation-v0.3.0": "METHOD_V2_REPRESENTATION_EQUIVARIANCE_AUDIT",
+        "geometry-heldout-v0.3.0": "PROSPECTIVE_HELDOUT_FIELD_ASSAY",
+        "geometry-combined-v0.3.0": "METHOD_V2_WITH_FIRST_HELDOUT_FIELD",
+    }
+    if study_role != expected_roles.get(profile_name):
+        errors.append(_issue("GEOMETRY_STUDY_ROLE_INVALID", "source registry"))
+    if source.get("condition_acquisitions_exchangeable") is not False:
+        errors.append(_issue("GEOMETRY_CONDITION_POOLING_FORBIDDEN", "source registry"))
+    expected_parent_count = source.get(
+        "registered_parent_count",
+        4 if profile_name == "geometry-pilot-v0.3.0" else None,
+    )
+    if (
+        not isinstance(expected_parent_count, int)
+        or expected_parent_count < 1
+        or len(parents) != expected_parent_count
+    ):
+        errors.append(
+            _issue(
+                "GEOMETRY_PARENT_HIERARCHY_INVALID",
+                "parent registry does not match source hierarchy",
+            )
+        )
+    if profile_name == "geometry-pilot-v0.3.0":
+        control_count = sum(row.get("role") == "DOMAIN_CONTROL_BASELINE" for row in parents)
+        if len(parents) != 4 or control_count != 1:
+            errors.append(
+                _issue(
+                    "GEOMETRY_PARENT_HIERARCHY_INVALID",
+                    "expected four conditions and one control",
+                )
+            )
+    if profile_name in {"geometry-heldout-v0.3.0", "geometry-combined-v0.3.0"} and (
+        len(parents) != 28
+        or any(row.get("statistical_unit") != "PAIRED_ACQUISITION_BLOCK" for row in parents)
+        or source.get("population_generalization") is not False
+        or source.get("registered_observation_count") != 56
+        or "P01 temporal mean vector" not in str(source.get("projection_contract", ""))
+        or "P02 full spatiotemporal fluctuations" not in str(source.get("projection_contract", ""))
+        or "127 local joint spatial cell permutations" not in str(source.get("null_contract", ""))
+        or "999 frozen joint within-campaign replicates" not in str(source.get("null_contract", ""))
+        or "parent-matched aggregate nulls" not in str(source.get("closure_null_calibration", ""))
+    ):
+        errors.append(
+            _issue(
+                "GEOMETRY_HELDOUT_HIERARCHY_INVALID",
+                "expected 28 paired blocks, 56 observations, and frozen P01/P02 null "
+                "contracts on one nonpopulation system",
+            )
+        )
+    if not projections or not nulls:
+        errors.append(_issue("GEOMETRY_REGISTRY_INCOMPLETE", "projection/null registry"))
+    condition_rows = channels.get("conditions")
+    expected_condition_count = source.get(
+        "display_condition_count",
+        4 if profile_name == "geometry-pilot-v0.3.0" else None,
+    )
+    if (
+        not isinstance(condition_rows, list)
+        or not isinstance(expected_condition_count, int)
+        or len(condition_rows) != expected_condition_count
+    ):
+        errors.append(_issue("GEOMETRY_CHANNEL_RESULTS_INVALID", "condition rows"))
+    elif any(row.get("population_aggregate") is not None for row in condition_rows):
+        errors.append(_issue("GEOMETRY_CONDITION_POOLING_FORBIDDEN", "channel results"))
+    scale_rows = scales.get("rows")
+    if not isinstance(scale_rows, list) or not scale_rows:
+        errors.append(_issue("GEOMETRY_SCALE_ROWS_INVALID", "scale behavior"))
+    elif any(row.get("geometric_scale_symbol") != "ell" or "S_e" in row for row in scale_rows):
+        errors.append(_issue("GEOMETRY_SCALE_SE_COLLISION", "scale rows"))
+    if baseline.get("numeric_pooling_with_TLD_channels") is not False:
+        errors.append(_issue("GEOMETRY_BASELINE_POOLING_INVALID", "domain baseline"))
+    if independent.get("status") != "VERIFIED" or independent.get("disagreements") != 0:
+        errors.append(_issue("GEOMETRY_INDEPENDENT_VERIFICATION_FAILED", "audit receipt"))
+    if not any(
+        row.get("run_id") == manifest.get("run_id")
+        and row.get("status") == "verified"
+        and bool(row.get("verifier"))
+        for row in receipts
+    ):
+        errors.append(_issue("VERIFIER_RECEIPT_MISSING", "geometry pilot"))
+    if adjudication.get("run_id") != manifest.get("run_id"):
+        errors.append(_issue("GEOMETRY_RUN_ID_MISMATCH", "claim adjudication"))
+    if adjudication.get("method_mode") != "INSTRUMENTED_EVIDENCE_VECTOR":
+        errors.append(_issue("GEOMETRY_METHOD_MODE_INVALID", "claim adjudication"))
+    expected_outcome = (
+        "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT"
+        if profile_name == "geometry-pilot-v0.3.0"
+        else "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY"
+    )
+    if adjudication.get("scientific_outcome") != expected_outcome:
+        errors.append(_issue("GEOMETRY_OUTCOME_INVALID", "claim adjudication"))
+    if (
+        adjudication.get("TLD_DERIVED") != "BLOCKED"
+        or adjudication.get("EXTERNALLY_VALIDATED") is not False
+    ):
+        errors.append(_issue("GEOMETRY_CLAIM_ESCALATION", "claim adjudication"))
+    if any(
+        not str(adjudication.get(name, "")).startswith("NOT_APPLICABLE")
+        for name in ("T_e", "S_e", "winner_N")
+    ):
+        errors.append(_issue("GEOMETRY_SEMANTIC_ENDPOINT_INVALID", "T_e/S_e/winner_N"))
+    forbidden_values = forbidden.get("claims")
+    required_forbidden = {
+        "TLD confirmation",
+        "ToT-BROT",
+        "external validation",
+        "population generalization",
+    }
+    if not isinstance(forbidden_values, list) or not required_forbidden.issubset(
+        set(forbidden_values)
+    ):
+        errors.append(_issue("GEOMETRY_FORBIDDEN_CLAIMS_INCOMPLETE", "audit list"))
+    statistics = manifest.get("statistics", {})
+    classification_counts: Counter[str] = (
+        Counter(
+            str(row.get("classification", "UNSPECIFIED"))
+            for row in condition_rows
+            if isinstance(row, dict)
+        )
+        if isinstance(condition_rows, list)
+        else Counter()
+    )
+    if statistics.get("point_count") != expected_condition_count or statistics.get(
+        "classification_counts"
+    ) != dict(sorted(classification_counts.items())):
+        errors.append(_issue("STATISTICS_MISMATCH", "geometry condition rows"))
+    if any(statistics.get(key) is not None for key in ("mean_UI", "mean_NSS", "mean_S_e")):
+        errors.append(_issue("GEOMETRY_UNCOMPUTED_STATISTIC_POPULATED", "manifest"))
+    if statistics.get("failure_count") != len(failures):
+        errors.append(_issue("FAILURE_COUNT_MISMATCH", "geometry failure ledger"))
+    expected_sums = "".join(
+        f"{_sha256(payload)}  {name}\n"
+        for name, payload in sorted(members.items())
+        if name not in {"manifest.json", "audit/SHA256SUMS.txt"}
+    ).encode()
+    if members.get("audit/SHA256SUMS.txt") != expected_sums:
+        errors.append(_issue("SHA256SUMS_MISMATCH", "audit/SHA256SUMS.txt"))
+
+
 def audit_bundle(
     source: str | Path,
     policy: BundlePolicy = DEFAULT_POLICY,
@@ -951,7 +1181,10 @@ def audit_bundle(
         return AuditReport(False, "unknown", 0, tuple(errors))
     checked = _audit_manifest(members, manifest, errors)
     if not errors:
-        _audit_semantics(members, manifest, errors, policy)
+        if manifest.get("profile") in GEOMETRY_PROFILES:
+            _audit_geometry_semantics(members, manifest, errors, policy)
+        else:
+            _audit_semantics(members, manifest, errors, policy)
     return AuditReport(
         valid=not errors,
         run_id=str(manifest.get("run_id", "unknown")),

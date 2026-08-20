@@ -1,0 +1,7 @@
+{
+  "nested_resampling": "WITHIN_PARENT_ONLY",
+  "population_denominator": "INDEPENDENT_TOP_LEVEL_UNITS",
+  "pseudoreplication_forbidden": true,
+  "resampling_unit": "PARENT_OR_CAMPAIGN",
+  "schema_version": "2.0.0"
+}

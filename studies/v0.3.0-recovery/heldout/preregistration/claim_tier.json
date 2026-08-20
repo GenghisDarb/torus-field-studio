@@ -1,0 +1,8 @@
+{
+  "TLD_DERIVED_default": "BLOCKED",
+  "external_replication": false,
+  "maximum_claim": "CALIBRATED_WITHIN_CAMPAIGN_NONBINARY_EVIDENCE_VECTOR",
+  "name": "WITHIN_CAMPAIGN_REPEATED_ACQUISITION_ASSAY",
+  "population_generalization": false,
+  "tier": 2
+}

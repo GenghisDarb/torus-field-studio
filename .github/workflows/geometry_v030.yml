@@ -1,0 +1,158 @@
+name: Geometry Method V2 and v0.3.0 field assay
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/geometry_v030.yml"
+      - "python/**"
+      - "schemas/**"
+      - "scripts/**"
+      - "tests/**"
+      - "apps/studio/**"
+      - "docs/**"
+      - "studies/v0.3.0-recovery/**"
+      - "replication/controllergate-transfer-v0.3.0/**"
+      - "replication/v0.3.0/**"
+      - "pyproject.toml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+
+permissions:
+  contents: read
+
+env:
+  TLD_ARCHIVE: external_cache/zenodo/18080090/TORUS_Zenodo_v1.zip
+  PINBALL_ARCHIVE: external_cache/v0.3.0-field-20794709/ExperimentalDataset.full.zip
+
+jobs:
+  method-v2:
+    name: Synthetic V2, historical bridge, and mutations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e ".[dev]"
+      - run: torusbrot fetch tld-release --doi 10.5281/zenodo.18080090 --output "$TLD_ARCHIVE"
+      - run: torusbrot validate tld-release "$TLD_ARCHIVE"
+      - name: Materialize the validated historical raw table
+        run: python -m zipfile -e "$TLD_ARCHIVE" external_cache/zenodo/18080090/quarantine
+      - name: Recompute Method V2 from raw synthetic seeds and historical input
+        run: python scripts/verify_geometry_method_v2.py
+      - name: Require byte-stable verifier evidence
+        run: git diff --exit-code -- studies/v0.3.0-recovery/verification studies/v0.3.0-recovery/bridge
+      - name: Run Method V2, bridge, pilot, and mutation regressions
+        run: >-
+          python -m pytest
+          tests/test_geometry_v2.py
+          tests/test_geometry_v2_freeze.py
+          tests/test_wind_farm_method_v2_pilot.py
+          tests/test_v030_geometry_tbx.py
+
+  heldout-evidence:
+    name: Candidate preflight and immutable held-out evidence
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e ".[dev]"
+      - name: Verify preflight, preregistration, one-shot result, mutations, and raw receipt
+        run: >-
+          python -m pytest
+          tests/test_v030_candidate_structural_preflight_v2.py
+          tests/test_v030_pinball_preregistration.py
+          tests/test_v030_pinball_execution.py
+          tests/test_v030_pinball_heldout_result.py
+          tests/test_v030_pinball_raw_verifier.py
+          tests/test_v030_geometry_tbx.py
+      - name: Audit every published geometry TBX
+        run: |
+          for artifact in studies/v0.3.0-recovery/tbx/*.tbx.zip studies/v0.3.0-recovery/wind_pilot/wind_farm_pilot.tbx.zip; do
+            torusbrot audit "$artifact"
+          done
+      - name: Forbid a second held-out scorer in CI
+        run: '! grep -R "run_v030_pinball_heldout[.]py" .github/workflows'
+
+  raw-heldout-reverification:
+    name: Raw HDF5 independent reverification
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e ".[field]"
+      - name: Restore the immutable Zenodo archive cache
+        id: pinball-cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.PINBALL_ARCHIVE }}
+          key: zenodo-20794709-5819f9071c3b3b0b856934602b5e7b487852abe0e0a3a5b1b62eae17720d822f
+      - name: Download the frozen 1.33 GB source archive
+        if: steps.pinball-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p "$(dirname "$PINBALL_ARCHIVE")"
+          curl --fail --location --retry 8 --retry-all-errors --continue-at - \
+            "https://zenodo.org/records/20794709/files/ExperimentalDataset.zip?download=1" \
+            --output "$PINBALL_ARCHIVE"
+      - name: Verify custody and extract structures without scoring
+        run: >-
+          python scripts/materialize_v030_pinball_source.py
+          --archive "$PINBALL_ARCHIVE"
+          --extracted external_cache/v0.3.0-field-20794709/extracted
+          --output "$RUNNER_TEMP/pinball-materialization"
+      - name: Independently recompute from all raw HDF5 fields
+        run: python scripts/verify_v030_pinball_raw.py
+      - name: Require byte-stable raw-verifier evidence
+        run: git diff --exit-code -- studies/v0.3.0-recovery/heldout/raw_verification
+
+  security:
+    name: Security and dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - uses: pnpm/action-setup@v6
+        with: {version: 11.19.0}
+      - uses: actions/setup-node@v7
+        with: {node-version: 24, cache: pnpm}
+      - run: python scripts/scan_tracked_content.py
+      - run: python -m pip install -e . pip-audit
+      - run: python -m pip_audit
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm audit --audit-level high
+
+  release-staging:
+    name: SBOM and v0.3.0 release manifest
+    needs: [method-v2, heldout-evidence, raw-heldout-reverification, security]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install --upgrade build && python -m pip install -e .
+      - run: python -m build --wheel --sdist --outdir dist
+      - uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: spdx-json
+          output-file: sbom.spdx.json
+          upload-artifact: false
+      - name: Stage and verify all release assets
+        run: |
+          python scripts/stage_v030_release.py --output staged --dist dist --sbom sbom.spdx.json --commit "${{ github.sha }}"
+          python scripts/release_manifest.py verify staged/release-manifest-v0.3.0.json
+          python -m pip install --force-reinstall staged/torusbrot-0.3.0-py3-none-any.whl
+          for artifact in staged/*.tbx.zip; do torusbrot audit "$artifact"; done
+          mkdir replication-check
+          python -m zipfile -e staged/v0.3.0-replication-package.zip replication-check
+          python replication-check/verify.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: v0.3.0-release-staging
+          path: staged
+          if-no-files-found: error
+          retention-days: 14

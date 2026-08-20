@@ -1,0 +1,5 @@
+{"forbidden": "unregistered leading-axis average", "inputs": ["ScalarField2D", "ScalarVolume3D", "SpatiotemporalScalarField"], "outputs": "named spatial and temporal diagnostics", "projection_family": "scalar-grid"}
+{"forbidden": "implicit magnitude conversion", "inputs": ["VectorField2D", "VectorVolume3D", "SpatiotemporalVectorField"], "outputs": "signed component, curl, divergence, and coherence diagnostics", "projection_family": "vector-grid"}
+{"forbidden": "undeclared rasterization", "inputs": ["IrregularPointField", "ManifoldPointCloud"], "outputs": "coordinate-native anisotropy and nearest-neighbor coherence", "projection_family": "point-coordinate"}
+{"forbidden": "binarization or symmetrization", "inputs": ["WeightedGraphGeometry", "DirectedGraphGeometry"], "outputs": "weight/direction-preserving spectral and cycle diagnostics", "projection_family": "graph-native"}
+{"forbidden": "component averaging", "inputs": ["MultiComponentSingleSystemField", "CoupledMultiSystemField"], "outputs": "component-labeled metrics and cross-component relations", "projection_family": "multi-component"}

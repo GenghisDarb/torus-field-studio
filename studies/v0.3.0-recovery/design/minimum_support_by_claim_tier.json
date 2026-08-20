@@ -1,0 +1,11 @@
+{
+  "fixed_eight_parent_rule": "RETIRED_FOR_V2_NOT_MODIFIED_IN_V1",
+  "schema_version": "2.0.0",
+  "tier_0": "custody only",
+  "tier_1": "one independent field; no population generalization",
+  "tier_2": "endpoint-specific simulation plus multiple same-estimand acquisitions",
+  "tier_3": {
+    "minimum_for_registered_medium_effect_scenario": null
+  },
+  "tier_4": "outside-team independence; no numerical shortcut"
+}

@@ -1,0 +1,8 @@
+{
+  "exact_commutative_pass_count": 3,
+  "general_geometry_channel_status": "NON_TLD_INSTRUMENTED_EVIDENCE_VECTOR",
+  "historical_construct_recovery": true,
+  "path_representation_count": 3,
+  "schema_version": "2.0.0",
+  "status": "PASS_LOSSLESS_PATH_CHANNEL_ONLY"
+}

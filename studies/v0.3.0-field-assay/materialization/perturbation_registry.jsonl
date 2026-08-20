@@ -1,0 +1,5 @@
+{"class":"REPRESENTATION_INVARIANCE","expected":"fixed spatial projection and evidence vector invariant","perturbation_id":"PERT01_REVERSE_SAMPLE_ORDER"}
+{"class":"PHYSICAL_EQUIVARIANCE","expected":"scalar channel evidence invariant and signed y-directed quantities equivariant","perturbation_id":"PERT02_REFLECT_Y_AND_FLIP_UY"}
+{"class":"METROLOGY_ROBUSTNESS","expected":"bounded degradation without claim reversal","perturbation_id":"PERT03_COORDINATE_JITTER_12_5_MM"}
+{"class":"PROJECTION_ROBUSTNESS","expected":"representation result retained or exact disagreement reported","perturbation_id":"PERT04_GRID_ORIGIN_HALF_CELL"}
+{"class":"ADVERSARIAL_MISSING_MODALITY","expected":"P02 ineligible; never silently reconstructed or called robust","perturbation_id":"PERT05_DROP_ONE_LIDAR"}

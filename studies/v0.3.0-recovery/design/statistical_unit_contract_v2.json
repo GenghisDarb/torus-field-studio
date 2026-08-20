@@ -1,0 +1,48 @@
+{
+  "condition_levels_exchangeable_by_default": false,
+  "contract": "StatisticalUnitContractV2",
+  "exact_sign_resolution": "p_min_two_sided(n) = 2 / 2^n",
+  "exact_sign_resolution_is_universal_sample_rule": false,
+  "nested_samples": "WITHIN_PARENT_MEASUREMENT_UNCERTAINTY_ONLY",
+  "schema_version": "2.0.0",
+  "tiers": [
+    {
+      "maximum_claim": "NO_SCIENTIFIC_METRIC",
+      "minimum_structure": "source identity and custody",
+      "name": "SOURCE_CUSTODY_ONLY",
+      "population_generalization": false,
+      "tier": 0
+    },
+    {
+      "TLD_DERIVED_default": "BLOCKED",
+      "maximum_claim": "COMPUTED_SINGLE_INSTANCE",
+      "minimum_structure": "one independently acquired field",
+      "name": "SINGLE_FIELD_INSTANCE_ASSAY",
+      "population_generalization": false,
+      "tier": 1
+    },
+    {
+      "maximum_claim": "CALIBRATED_CAMPAIGN_ASSAY",
+      "minimum_structure": "multiple separately acquired runs plus frozen cluster model",
+      "name": "WITHIN_CAMPAIGN_REPEATED_ACQUISITION_ASSAY",
+      "population_generalization": false,
+      "tier": 2
+    },
+    {
+      "maximum_claim": "CALIBRATED_POPULATION_ASSAY",
+      "minimum_structure": "power-justified independent campaigns, specimens, or systems",
+      "name": "CROSS_CAMPAIGN_OR_SAMPLE_POPULATION_ASSAY",
+      "population_generalization": true,
+      "tier": 3
+    },
+    {
+      "maximum_claim": "EXTERNAL_REPLICATION_ONLY_IF_DOCUMENTED",
+      "minimum_structure": "genuinely independent outside team",
+      "name": "EXTERNAL_REPLICATION",
+      "population_generalization": true,
+      "tier": 4
+    }
+  ],
+  "universal_minimum_parent_count": null,
+  "unknown_parent_count_credit": "NONE"
+}

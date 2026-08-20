@@ -1,0 +1,273 @@
+{
+  "condition_pooling": "FORBIDDEN",
+  "conditions": [
+    {
+      "channels": [
+        {
+          "channel": "u_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.0029899063500731307,
+          "null_q025": -0.040431490369954456,
+          "null_q975": 0.040881165735214824,
+          "observed": 0.9548778560394615,
+          "observed_minus_null_median": 0.9578677623895346
+        },
+        {
+          "channel": "v_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.00033676758799184523,
+          "null_q025": -0.041745698201008374,
+          "null_q975": 0.039947499322981146,
+          "observed": 0.3236696976463987,
+          "observed_minus_null_median": 0.32400646523439053
+        },
+        {
+          "channel": "signed_mean_curl",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.04612437809669369,
+          "null_q025": -0.05808420894793504,
+          "null_q975": -0.02809885943433403,
+          "observed": -0.03740880827451687,
+          "observed_minus_null_median": 0.008715569822176819
+        },
+        {
+          "channel": "curl_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 1.0810426187920938,
+          "null_q025": 1.0317482723042628,
+          "null_q975": 1.1423906312646057,
+          "observed": 0.661418940348119,
+          "observed_minus_null_median": -0.41962367844397486
+        },
+        {
+          "channel": "curl_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 0.0019214812277422893,
+          "null_q025": 0.0007150625156840787,
+          "null_q975": 0.00320139455828284,
+          "observed": 0.0021157829798206526,
+          "observed_minus_null_median": 0.00019430175207836337
+        },
+        {
+          "channel": "divergence_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 2.089004201657837,
+          "null_q025": 2.0053318758661307,
+          "null_q975": 2.163289966051393,
+          "observed": 1.4921730062254224,
+          "observed_minus_null_median": -0.5968311954324148
+        }
+      ],
+      "children": 127,
+      "component_pairing_preserved": true,
+      "confirmatory_p_value_computed": false,
+      "mask_preserved": true,
+      "null_id": "N03_PARENT_LOCAL_MASK_PRESERVING_JOINT_CELL_PERMUTATION",
+      "parent_id": "PARENT_TEST_1",
+      "parent_pooling": "FORBIDDEN",
+      "threshold_selected": false
+    },
+    {
+      "channels": [
+        {
+          "channel": "u_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 0.0032152756369836486,
+          "null_q025": -0.034414551784934785,
+          "null_q975": 0.034437757138815396,
+          "observed": 0.9551453475632705,
+          "observed_minus_null_median": 0.9519300719262869
+        },
+        {
+          "channel": "v_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 0.0011462660973097837,
+          "null_q025": -0.03753170189250612,
+          "null_q975": 0.04252055413194902,
+          "observed": 0.4352340496506412,
+          "observed_minus_null_median": 0.43408778355333144
+        },
+        {
+          "channel": "signed_mean_curl",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.04690511131518807,
+          "null_q025": -0.06511702936013239,
+          "null_q975": -0.03206736806601326,
+          "observed": -0.037775109244070515,
+          "observed_minus_null_median": 0.009130002071117554
+        },
+        {
+          "channel": "curl_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 1.112170440450513,
+          "null_q025": 1.055736016986269,
+          "null_q975": 1.1673958916121416,
+          "observed": 0.6811167373849966,
+          "observed_minus_null_median": -0.4310537030655165
+        },
+        {
+          "channel": "curl_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 0.0020203055749644437,
+          "null_q025": 0.0009004985858124153,
+          "null_q975": 0.003674917004746721,
+          "observed": 0.0020950283557558255,
+          "observed_minus_null_median": 7.472278079138179e-05
+        },
+        {
+          "channel": "divergence_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 2.1118960299209553,
+          "null_q025": 2.0456170696261213,
+          "null_q975": 2.170224547021793,
+          "observed": 1.4993243974693606,
+          "observed_minus_null_median": -0.6125716324515946
+        }
+      ],
+      "children": 127,
+      "component_pairing_preserved": true,
+      "confirmatory_p_value_computed": false,
+      "mask_preserved": true,
+      "null_id": "N03_PARENT_LOCAL_MASK_PRESERVING_JOINT_CELL_PERMUTATION",
+      "parent_id": "PARENT_TEST_2",
+      "parent_pooling": "FORBIDDEN",
+      "threshold_selected": false
+    },
+    {
+      "channels": [
+        {
+          "channel": "u_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.0013566026877367102,
+          "null_q025": -0.04334908031532738,
+          "null_q975": 0.041541756635270474,
+          "observed": 0.9562628691493196,
+          "observed_minus_null_median": 0.9576194718370563
+        },
+        {
+          "channel": "v_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.0031528140014549727,
+          "null_q025": -0.03164604926041794,
+          "null_q975": 0.032386115724792525,
+          "observed": 0.5457230139898511,
+          "observed_minus_null_median": 0.5488758279913061
+        },
+        {
+          "channel": "signed_mean_curl",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.047235062349093145,
+          "null_q025": -0.06324565423386984,
+          "null_q975": -0.02818686876009203,
+          "observed": -0.04089805243349751,
+          "observed_minus_null_median": 0.006337009915595632
+        },
+        {
+          "channel": "curl_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 1.1176837611835297,
+          "null_q025": 1.059868394860113,
+          "null_q975": 1.1698218505806948,
+          "observed": 0.7041981810516622,
+          "observed_minus_null_median": -0.41348558013186754
+        },
+        {
+          "channel": "curl_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 0.0019670070975244705,
+          "null_q025": 0.0007072760050405855,
+          "null_q975": 0.003505951490543994,
+          "observed": 0.0023752556281175638,
+          "observed_minus_null_median": 0.0004082485305930933
+        },
+        {
+          "channel": "divergence_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 2.1060889266264633,
+          "null_q025": 2.036388724449517,
+          "null_q975": 2.180377595310081,
+          "observed": 1.4907042884397448,
+          "observed_minus_null_median": -0.6153846381867185
+        }
+      ],
+      "children": 127,
+      "component_pairing_preserved": true,
+      "confirmatory_p_value_computed": false,
+      "mask_preserved": true,
+      "null_id": "N03_PARENT_LOCAL_MASK_PRESERVING_JOINT_CELL_PERMUTATION",
+      "parent_id": "PARENT_TEST_3",
+      "parent_pooling": "FORBIDDEN",
+      "threshold_selected": false
+    },
+    {
+      "channels": [
+        {
+          "channel": "u_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.003630912982781521,
+          "null_q025": -0.04399259898777589,
+          "null_q975": 0.03123266063091108,
+          "observed": 0.94393783738754,
+          "observed_minus_null_median": 0.9475687503703215
+        },
+        {
+          "channel": "v_neighbor_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.0028126307531615566,
+          "null_q025": -0.03901090389281123,
+          "null_q975": 0.03695620336754912,
+          "observed": 0.5217590220872296,
+          "observed_minus_null_median": 0.5245716528403911
+        },
+        {
+          "channel": "signed_mean_curl",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": -0.04854201157894923,
+          "null_q025": -0.06208781988320784,
+          "null_q975": -0.03396884231836807,
+          "observed": -0.04191418664289834,
+          "observed_minus_null_median": 0.006627824936050894
+        },
+        {
+          "channel": "curl_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 1.094969382137429,
+          "null_q025": 1.0363554617115642,
+          "null_q975": 1.1460427173350245,
+          "observed": 0.712058641329897,
+          "observed_minus_null_median": -0.38291074080753185
+        },
+        {
+          "channel": "curl_coherence",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 0.0021648917022986922,
+          "null_q025": 0.0010405992554309957,
+          "null_q975": 0.0035415539454698537,
+          "observed": 0.0024672111817287696,
+          "observed_minus_null_median": 0.00030231947943007735
+        },
+        {
+          "channel": "divergence_energy",
+          "interpretation": "DESCRIPTIVE_PARENT_LOCAL_ONLY",
+          "null_median": 2.0824434880624914,
+          "null_q025": 2.000835601064901,
+          "null_q975": 2.168647318678151,
+          "observed": 1.4960697401677312,
+          "observed_minus_null_median": -0.5863737478947602
+        }
+      ],
+      "children": 127,
+      "component_pairing_preserved": true,
+      "confirmatory_p_value_computed": false,
+      "mask_preserved": true,
+      "null_id": "N03_PARENT_LOCAL_MASK_PRESERVING_JOINT_CELL_PERMUTATION",
+      "parent_id": "PARENT_TEST_4",
+      "parent_pooling": "FORBIDDEN",
+      "threshold_selected": false
+    }
+  ],
+  "confirmatory_inference": false,
+  "population_aggregate": null,
+  "schema_version": "1.0.0",
+  "threshold_selected": false
+}

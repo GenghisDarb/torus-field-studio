@@ -1,0 +1,8 @@
+{
+  "patch_authority": false,
+  "repair_count_authority": false,
+  "schema_version": "1.0.0",
+  "single_run_causal_attribution": false,
+  "source_ownership_authority": false,
+  "timing_is_telemetry": true
+}

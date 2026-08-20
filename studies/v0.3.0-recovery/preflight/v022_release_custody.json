@@ -1,0 +1,125 @@
+{
+  "assets": [
+    {
+      "name": "external-replication-addon.zip",
+      "sha256": "15704d7f6d61bb745890f695ca3928e9d5f68068e6733acf2abd7048cd79f8bd",
+      "size_bytes": 2016,
+      "verified": true
+    },
+    {
+      "name": "release-manifest-v0.2.2.json",
+      "sha256": "1cb0b9508a2cc560a88d5a78e559b56e157dd12656bf9a8ba073a6f099ce812d",
+      "size_bytes": 2563,
+      "verified": true
+    },
+    {
+      "name": "sbom.spdx.json",
+      "sha256": "c01741ea3b01922fe2856cccbecd77d94a6484b0fc0b7cf6c199f5b115d63211",
+      "size_bytes": 270807,
+      "verified": true
+    },
+    {
+      "name": "SHA256SUMS-v0.2.2.txt",
+      "sha256": "4c5a6ad136a8e78a2efd9d9019e0854e1be0d88f9b3f685564debff9ab37d63f",
+      "size_bytes": 1371,
+      "verified": true
+    },
+    {
+      "name": "torusbrot-0.2.2-py3-none-any.whl",
+      "sha256": "eeb191ffe3d53c4f47c05383a28ef45e29b24675216607ec40e41d2b61178e47",
+      "size_bytes": 131283,
+      "verified": true
+    },
+    {
+      "name": "torusbrot-0.2.2.tar.gz",
+      "sha256": "8b73d46dc6df3c53ceb7cdb6ada687fc3a90d3cd8400d61d777fe1e8770297f7",
+      "size_bytes": 122685,
+      "verified": true
+    },
+    {
+      "name": "v021-block-phase-diagnostics.csv",
+      "sha256": "76005bddbc724f29f26070d8f6df7838ac2b33cfcd74ab3d08809dc72c108366",
+      "size_bytes": 127986,
+      "verified": true
+    },
+    {
+      "name": "v021-closure-null-calibration.csv",
+      "sha256": "1c7bf885a6cdc93d33ab89a0bd0726746b0998405b2a92ca318c603b2286eee0",
+      "size_bytes": 22557,
+      "verified": true
+    },
+    {
+      "name": "v021-forensic-combined.tbx.zip",
+      "sha256": "186ad2c0e051e027f4b4df4e85fd72eead7c6a44129aa35df5df60572535955c",
+      "size_bytes": 1952453,
+      "verified": true
+    },
+    {
+      "name": "v021-negative-result-forensic-report.json",
+      "sha256": "d1590dde732d8e89c62305261e0b5617ec7a00cc900cc590f6709189373a2d46",
+      "size_bytes": 1923,
+      "verified": true
+    },
+    {
+      "name": "v021-negative-result-forensic-report.md",
+      "sha256": "7ddda0513a01e4b1ce94c700237f4f7bb1017e52daeb7aa7988f1e32d1337e6c",
+      "size_bytes": 1628,
+      "verified": true
+    },
+    {
+      "name": "v021-null-mechanism-diagnostics.csv",
+      "sha256": "73d4716f7b2b2c3b66150ae0f99e61bb64f6420a6e42f889f463d8b283365c40",
+      "size_bytes": 560524,
+      "verified": true
+    },
+    {
+      "name": "v021-parent-dependence-diagnostics.csv",
+      "sha256": "27a70bae7d85063041c6737dfcf2185642997dd066fa2f9aea7f59faf5083bde",
+      "size_bytes": 23607,
+      "verified": true
+    },
+    {
+      "name": "v021-power-surface.csv",
+      "sha256": "cdcb352c1dd5ebb80c62b21ca9a2b83b5eefce1135211f265443428ffcaa532b",
+      "size_bytes": 35809,
+      "verified": true
+    },
+    {
+      "name": "v021-signed-direction-diagnostics.csv",
+      "sha256": "2b5a30e7d13e95489d0fd95d3a04f762d27a831a06500914fafb1bdea9865848",
+      "size_bytes": 171654,
+      "verified": true
+    }
+  ],
+  "forensic_bundle_audit": {
+    "asset": "v021-forensic-combined.tbx.zip",
+    "checked_files": 124,
+    "errors": 0,
+    "valid": true,
+    "warnings": 0
+  },
+  "fresh_wheel_install": {
+    "import": "PASS",
+    "isolated_environment": true,
+    "version": "0.2.2"
+  },
+  "main_local_validation": {
+    "browser_tests": "6/6 PASS",
+    "bundle_budget": "PASS",
+    "pip_audit": "NO_KNOWN_VULNERABILITIES",
+    "pnpm_audit": "NO_KNOWN_VULNERABILITIES",
+    "production_build": "PASS",
+    "python_tests": "44/44 PASS",
+    "ruff": "PASS",
+    "schema_sync": "PASS",
+    "tracked_content_scan": "PASS",
+    "typecheck": "PASS",
+    "wheel_smoke": "PASS"
+  },
+  "published_SHA256SUMS_verified": true,
+  "published_asset_count": 15,
+  "release": "v0.2.2",
+  "release_url": "https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.2.2",
+  "schema_version": "1.0.0",
+  "tag_commit": "9dfeb016738d01cdf5796c039fab2f88b3a2b5ee"
+}

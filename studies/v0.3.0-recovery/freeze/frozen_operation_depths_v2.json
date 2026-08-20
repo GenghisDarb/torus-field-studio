@@ -1,0 +1,8 @@
+{
+  "T_e_current_general_geometry_status": "NOT_APPLICABLE",
+  "T_e_definition": "first preregistered operation depth where observed/null separation emerges",
+  "elbow_is_T_e": false,
+  "general_geometry_operation_depths": [],
+  "post_freeze_depth_addition": "FORBIDDEN",
+  "schema_version": "2.0.0"
+}

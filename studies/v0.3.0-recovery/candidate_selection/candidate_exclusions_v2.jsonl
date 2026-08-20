@@ -1,0 +1,12 @@
+{"automatic":true,"candidate_id":"wind_farm_scanning_lidar_wakes","exclusion":"NONCONFIRMATORY_OUTCOME_EXPOSED_SOURCE"}
+{"automatic":true,"candidate_id":"cylinder_array_piv","exclusion":"CURRENT_COMPUTE_FEASIBILITY_BOUND_EXCEEDED"}
+{"automatic":true,"candidate_id":"nbse2_4dstem_temperature_series","exclusion":"CURRENT_COMPUTE_FEASIBILITY_BOUND_EXCEEDED"}
+{"automatic":true,"candidate_id":"nanograv_15yr_pair_geometry","exclusion":"PRIOR_OUTCOME_EXPOSURE"}
+{"automatic":true,"candidate_id":"rotating_quantum_wave_turbulence","exclusion":"RAW_GEOMETRY_DATA_UNAVAILABLE"}
+{"automatic":true,"candidate_id":"rotating_quantum_wave_turbulence","exclusion":"METHOD_INCOMPATIBLE"}
+{"automatic":true,"candidate_id":"second_sound_attenuation","exclusion":"RAW_GEOMETRY_DATA_UNAVAILABLE"}
+{"automatic":true,"candidate_id":"second_sound_attenuation","exclusion":"NO_INDEPENDENT_PARENT_MODEL"}
+{"automatic":true,"candidate_id":"atmospheric_turbulence_wavefront_tiff","exclusion":"NO_INDEPENDENT_PARENT_MODEL"}
+{"automatic":true,"candidate_id":"atmospheric_turbulence_wavefront_tiff","exclusion":"CURRENT_COMPUTE_FEASIBILITY_BOUND_EXCEEDED"}
+{"automatic":true,"candidate_id":"mit_2024_direct_second_sound_imaging","exclusion":"RAW_NUMERIC_DATA_UNAVAILABLE"}
+{"automatic":true,"candidate_id":"mit_2024_direct_second_sound_imaging","exclusion":"LICENSE_UNRESOLVED"}

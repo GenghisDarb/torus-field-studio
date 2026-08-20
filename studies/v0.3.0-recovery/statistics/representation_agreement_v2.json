@@ -1,0 +1,11 @@
+{
+  "comparisons": [
+    "1D vs 1xM vs path graph",
+    "vector rotation under registered law",
+    "reflection under signed component law"
+  ],
+  "disagreements_preserved": true,
+  "schema_version": "2.0.0",
+  "status": "PENDING_FULL_SUITE_RAW_RECOMPUTATION",
+  "unrelated_scalar_metric_comparison": false
+}

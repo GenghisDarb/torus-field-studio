@@ -1,0 +1,10 @@
+{
+  "campaign_ICC": "NOT_IDENTIFIABLE_FROM_ONE_SYSTEM",
+  "cluster_model": "all pairs remain in one deposit-level system cluster",
+  "effective_population_parent_count": 1,
+  "fixed_eight_parent_rule": "NOT_USED",
+  "pairwise_curve_claim_only": true,
+  "population_sign_test": "FORBIDDEN",
+  "power_claim": "NOT_MADE_FOR_POPULATION_GENERALIZATION",
+  "primary_pair_count": 28
+}

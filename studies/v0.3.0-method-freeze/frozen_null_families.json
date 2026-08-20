@@ -1,0 +1,10 @@
+{
+  "families": [
+    "coordinate_label_permutation_for_array_fields",
+    "edge_count_preserving_rewire_for_graph_fields"
+  ],
+  "parent_matching_required": true,
+  "schema_version": "1.0.0",
+  "selection_used_external_outcomes": false,
+  "strict_null_type_I_error": 0.0
+}
