@@ -24,6 +24,7 @@ NULL_CHILDREN = 127
 JOINT_REPLICATES = 999
 CONVERSION = 0.00029076921 * 120.0 / 0.31
 TOLERANCE = 1e-12
+SEMANTIC_HASH_DECIMAL_PLACES = 10
 
 FloatArray = NDArray[np.float64]
 BoolArray = NDArray[np.bool_]
@@ -52,6 +53,17 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
 
 def derived_seed(label: str) -> int:
     return int.from_bytes(hashlib.sha256(f"{ROOT_SEED}:{label}".encode()).digest()[:8], "big")
+
+
+def normalize_for_semantic_hash(value: Any) -> Any:
+    """Normalize sub-tolerance floating noise before hashing a recomputation."""
+    if isinstance(value, dict):
+        return {key: normalize_for_semantic_hash(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [normalize_for_semantic_hash(item) for item in value]
+    if isinstance(value, float):
+        return round(value, SEMANTIC_HASH_DECIMAL_PLACES)
+    return value
 
 
 def neighbor(values: FloatArray, mask: BoolArray) -> float:
@@ -291,7 +303,10 @@ def main() -> None:
                     "pair_id": pair["pair_id"],
                     "role": role,
                     "member": member,
-                    "recomputation_sha256": hashlib.sha256(canonical_json(recomputed)).hexdigest(),
+                    "semantic_recomputation_sha256": hashlib.sha256(
+                        canonical_json(normalize_for_semantic_hash(recomputed))
+                    ).hexdigest(),
+                    "semantic_hash_float_decimal_places": SEMANTIC_HASH_DECIMAL_PLACES,
                     "snapshot_count": recomputed["snapshot_count"],
                     "grid_shape_yx": recomputed["grid_shape_yx"],
                     "observed_cells": recomputed["observed_cells"],
@@ -405,6 +420,7 @@ def main() -> None:
             "primary_evidence": ["raw HDF5 U, V, X, Y arrays", "frozen pair registry", "frozen run contract"],
             "production_evidence_use": "comparison only after all 56 raw acquisitions were independently recomputed",
             "production_runner_imported": False,
+            "recomputation_hash_semantics": "FLOATS_ROUNDED_TO_10_DECIMAL_PLACES",
             "ControllerGate_modified": False,
             "second_scored_execution": False,
             "claim_authority": "NONE_VERIFICATION_ONLY",

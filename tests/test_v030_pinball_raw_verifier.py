@@ -104,4 +104,9 @@ def test_public_raw_verification_recomputes_every_frozen_component() -> None:
     assert scope["second_scored_execution"] is False
     assert len(registry) == 56
     assert len({row["member"] for row in registry}) == 56
+    assert all("semantic_recomputation_sha256" in row for row in registry)
+    assert all(row["semantic_hash_float_decimal_places"] == 10 for row in registry)
+    assert scope["recomputation_hash_semantics"] == (
+        "FLOATS_ROUNDED_TO_10_DECIMAL_PLACES"
+    )
     assert disagreements == []

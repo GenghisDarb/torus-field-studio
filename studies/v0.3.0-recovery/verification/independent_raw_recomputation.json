@@ -42,7 +42,6 @@
   "production_comparison_performed_after_raw_recomputation": true,
   "production_endpoint_CSV_used_as_primary_evidence": false,
   "raw_realizations_recomputed": 620,
-  "raw_recomputation_sha256": "fb4691df8f116a0dfca69b72aeb76c7ef0e6aab3cc665038c9e595178a60c649",
   "representation_disagreement_count": 0,
   "schema_version": "2.0.0",
   "scientific_components": {
@@ -54,7 +53,7 @@
       "predictive_TLD_discriminator": false
     },
     "closure": {
-      "joint_trace_sha256": "9e576f08fbfafb1cb7d166a77c02e4f7e8893f915fdbc9255046e8c8f69847c9",
+      "joint_trace_semantic_sha256": "18d94cdff22a8da057c8692fa5ee15ee7c81656480a354bb9f829c49e39e47ab",
       "midpoint_penalty": null,
       "production_agreement": true
     },
@@ -86,6 +85,8 @@
       "parent_matching": true
     }
   },
+  "semantic_hash_float_decimal_places": 10,
+  "semantic_recomputation_sha256": "6e9bd8e9bfb07a70f5adb414940ea3c2be112c29fc2de0a4cbb1c7e8aa95b235",
   "status": "PASS",
   "synthetic_disagreement_count": 0,
   "unexplained_disagreement_count": 0

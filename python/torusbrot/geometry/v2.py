@@ -536,8 +536,13 @@ def joint_parent_null_distribution(
     parent_indices = np.broadcast_to(np.arange(len(observed)), selections.shape)
     joint = np.median(nulls[parent_indices, selections], axis=1)
     aggregate = float(np.median(observed))
-    upper = float((1 + np.sum(joint >= aggregate)) / (replicates + 1))
-    lower = float((1 + np.sum(joint <= aggregate)) / (replicates + 1))
+    # Relabeling and path-order nulls can be mathematically identical to the
+    # observed statistic while differing by a few platform-dependent ulps.
+    # Count those numerical ties in both tails instead of letting the BLAS or
+    # transcendental implementation choose a side of the test.
+    tie_tolerance = max(1e-10, abs(aggregate) * 1e-10)
+    upper = float((1 + np.sum(joint >= aggregate - tie_tolerance)) / (replicates + 1))
+    lower = float((1 + np.sum(joint <= aggregate + tie_tolerance)) / (replicates + 1))
     two_sided = min(1.0, 2.0 * min(upper, lower))
     median_null = float(np.median(joint))
     null_scale = float(1.4826 * np.median(np.abs(joint - median_null)))

@@ -20,6 +20,11 @@ parent and applies the same aggregate statistic as the observed data. Individual
 are not flattened into a pseudo-population. Within-campaign evidence remains within-campaign and
 does not imply population generalization.
 
+Finite-sample tail comparisons include numerical ties using an absolute tolerance of `1e-10`
+and a relative tolerance of `1e-10`. This post-freeze numerical clarification prevents
+mathematically invariant relabeling nulls from receiving platform-dependent tail ranks; it does
+not change any held-out endpoint, threshold, winner, or claim.
+
 ## Geometry and representation
 
 Each source uses a typed handler. Projection contracts preserve coordinates, components, units,
@@ -61,4 +66,3 @@ Accordingly:
 - `winner_N` is available only for a justified canonical path-closure axis.
 - One system or field is never labeled ToT-BROT.
 - TORUS-BROT imagery is never evidence or proof by itself.
-

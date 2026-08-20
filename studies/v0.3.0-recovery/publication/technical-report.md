@@ -27,6 +27,11 @@ scope errors. Method V2 repairs were calibrated without Beijing or wind-farm out
 - Independent raw recomputation reported zero unexplained disagreements.
 - 50/50 registered scientific mutations were rejected.
 
+Cross-platform CI subsequently exposed exact floating-point tail comparisons in two
+mathematically tied synthetic diagnostics. The post-freeze numerical erratum counts values within
+`max(1e-10, abs(observed) * 1e-10)` as ties and normalizes verifier-only hashes to ten decimal
+places. This repair changed no held-out endpoint, threshold, winner, scored execution, or claim.
+
 The binary and hierarchical candidates failed their frozen acceptance gates. In particular, the
 family type-I upper confidence bounds did not establish a universal 0.05 family bound, no general
 multichannel adjudication rule was calibrated, and general-geometry `T_e`/`S_e` endpoints were not
@@ -68,11 +73,12 @@ The saved-evidence verifier reported zero disagreements and detected 12/12 mutat
 frozen raw verifier then reopened all 56 raw HDF5 acquisitions, recomputed P01, P02, 7,112 null
 children, all 28 pair deltas, perturbations, scale behavior, the domain baseline, and 999 joint
 summaries per channel before loading production outputs. It reported zero disagreements and did
-not create a second scored execution or a new scientific claim.
+not create a second scored execution or a new scientific claim. Its public per-acquisition
+receipts hash values rounded to ten decimal places after the strict numerical comparison, so
+those receipt identities remain reproducible across supported operating systems.
 
 ## Interpretation boundary
 
 This is a valid source-specific, within-campaign, nonbinary geometry evidence artifact from one
 deposited system. It is not a predictive TLD result, population validation, external replication,
 ToT-BROT validation, ControllerGate repair authorization, or proof of TORUS Theory.
-

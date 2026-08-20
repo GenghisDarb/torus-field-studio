@@ -84,7 +84,14 @@ jobs:
       - uses: actions/setup-python@v7
         with: {python-version: "3.12", cache: pip}
       - run: python -m pip install -e ".[field]"
+      - name: Restore the immutable Zenodo archive cache
+        id: pinball-cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.PINBALL_ARCHIVE }}
+          key: zenodo-20794709-5819f9071c3b3b0b856934602b5e7b487852abe0e0a3a5b1b62eae17720d822f
       - name: Download the frozen 1.33 GB source archive
+        if: steps.pinball-cache.outputs.cache-hit != 'true'
         run: |
           mkdir -p "$(dirname "$PINBALL_ARCHIVE")"
           curl --fail --location --retry 8 --retry-all-errors --continue-at - \

@@ -5,12 +5,12 @@
   "bundles": [
     {
       "audit_valid": true,
-      "bytes": 76933,
+      "bytes": 76833,
       "checked_files": 35,
       "filename": "method-calibration-v2.tbx.zip",
       "profile": "geometry-method-v2-v0.3.0",
-      "run_id": "run-b5d1a2e7318c50b6",
-      "sha256": "c9126539ea738ed302815b35bf249d22d6a278ae3266ae46bf5e7fd47047737d"
+      "run_id": "run-a31faf06fbf1fb7c",
+      "sha256": "5328c905614506c22828038e670d40bcd5135bede1f11e4f8256a6b4369d3200"
     },
     {
       "audit_valid": true,
@@ -23,21 +23,21 @@
     },
     {
       "audit_valid": true,
-      "bytes": 2336793,
+      "bytes": 2336898,
       "checked_files": 61,
       "filename": "heldout-fluidic-pinball-v0.3.0.tbx.zip",
       "profile": "geometry-heldout-v0.3.0",
       "run_id": "run-6d9d27248ccd6716",
-      "sha256": "815ada80907cf5691746d2e878ff266be32eb0843e8911bb29f821f57deec037"
+      "sha256": "11b1808584331829ff490db38c1294d4fdc0c616b71feb2a7e5fb0ae19d46c5d"
     },
     {
       "audit_valid": true,
-      "bytes": 2347413,
-      "checked_files": 77,
+      "bytes": 2348284,
+      "checked_files": 78,
       "filename": "geometry-method-v2-combined-v0.3.0.tbx.zip",
       "profile": "geometry-combined-v0.3.0",
       "run_id": "run-7f777ffd037e502b",
-      "sha256": "83d991ff61eef2183674e845f33deb00125f2b613eef5e861477e6faaec6a71a"
+      "sha256": "09a2015f87a91013efca575014d4ea364bb9019038d94606938423e75ba9538b"
     },
     {
       "audit_valid": true,

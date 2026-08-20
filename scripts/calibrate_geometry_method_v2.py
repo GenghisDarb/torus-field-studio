@@ -34,6 +34,8 @@ HISTORICAL_RAW = ROOT / "external_cache" / "zenodo" / "18080090" / "quarantine" 
 PARENT_COUNT = 20
 NULL_CHILD_COUNT = 31
 JOINT_NULL_REPLICATES = 999
+NULL_TIE_RTOL = 1e-10
+NULL_TIE_ATOL = 1e-10
 
 
 def family(
@@ -348,6 +350,13 @@ def wilson(successes: int, total: int) -> tuple[float, float]:
     return max(0.0, center - radius), min(1.0, center + radius)
 
 
+def parent_matched_upper_p(observed: float, null_scores: list[float]) -> float:
+    """Return a finite-sample upper-tail p-value with numerical ties included."""
+    tolerance = max(NULL_TIE_ATOL, abs(observed) * NULL_TIE_RTOL)
+    exceedances = sum(value >= observed - tolerance for value in null_scores)
+    return (1 + exceedances) / (len(null_scores) + 1)
+
+
 def representation_check(record: dict[str, Any], geometry: TypedGeometry, observed: float) -> tuple[str, float | None]:
     if geometry.kind == GeometryKind.VECTOR_FIELD_2D:
         transformed = rotate_vector_field_90(geometry)
@@ -390,7 +399,7 @@ def calibrate_suite() -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
                 project(record, make_null(record, geometry, seed * 1000 + child_index + 1))
                 for child_index in range(NULL_CHILD_COUNT)
             ]
-            upper_p = (1 + sum(value >= observed for value in null_scores)) / (NULL_CHILD_COUNT + 1)
+            upper_p = parent_matched_upper_p(observed, null_scores)
             agreement, transformed_score = representation_check(record, geometry, observed)
             row = {
                 "family_id": record["family_id"],

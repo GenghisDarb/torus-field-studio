@@ -17,6 +17,9 @@ project uses semantic versioning.
   held-out fluidic-pinball assay over 28 paired blocks.
 - Five audited geometry TBX artifacts, including the browser-importable combined v0.3.0 result,
   plus a read-only ControllerGate shadow-transfer package.
+- A post-freeze numerical erratum that counts floating-point-equivalent null statistics as ties
+  and makes verifier-only receipt hashes portable across supported operating systems, without
+  changing the held-out execution or claim.
 
 ### Scientific result
 

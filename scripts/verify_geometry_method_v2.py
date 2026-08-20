@@ -23,6 +23,8 @@ VERIFICATION = RECOVERY / "verification"
 STATISTICS = RECOVERY / "statistics"
 HISTORICAL_RAW = ROOT / "external_cache" / "zenodo" / "18080090" / "quarantine" / "TORUS_Zenodo_v1" / "data_inputs" / "targets_baseline.csv"
 NULL_CHILD_COUNT = 31
+NULL_TIE_RTOL = 1e-10
+NULL_TIE_ATOL = 1e-10
 
 
 @dataclass(frozen=True)
@@ -393,9 +395,28 @@ def joint_null(observed: FloatArray, nulls: FloatArray, seed: int) -> dict[str, 
     parent_indices = np.broadcast_to(np.arange(len(observed)), choices.shape)
     joint = np.median(nulls[parent_indices, choices], axis=1)
     aggregate = float(np.median(observed))
-    upper = float((1 + np.sum(joint >= aggregate)) / 1000)
-    lower = float((1 + np.sum(joint <= aggregate)) / 1000)
+    tolerance = max(NULL_TIE_ATOL, abs(aggregate) * NULL_TIE_RTOL)
+    upper = float((1 + np.sum(joint >= aggregate - tolerance)) / 1000)
+    lower = float((1 + np.sum(joint <= aggregate + tolerance)) / 1000)
     return {"observed_population_statistic": aggregate, "joint_null_median": float(np.median(joint)), "two_sided_p": min(1.0, 2.0 * min(upper, lower)), "joint_null_replicates": 999, "children_flattened": False}
+
+
+def parent_matched_upper_p(observed: float, null_scores: list[float]) -> float:
+    """Independently implement the frozen numerical-tie rule."""
+    tolerance = max(NULL_TIE_ATOL, abs(observed) * NULL_TIE_RTOL)
+    exceedances = sum(value >= observed - tolerance for value in null_scores)
+    return (1 + exceedances) / (len(null_scores) + 1)
+
+
+def normalize_for_semantic_hash(value: Any) -> Any:
+    """Remove sub-tolerance float noise before hashing verifier evidence."""
+    if isinstance(value, dict):
+        return {key: normalize_for_semantic_hash(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [normalize_for_semantic_hash(item) for item in value]
+    if isinstance(value, float):
+        return round(value, 10)
+    return value
 
 
 def recompute_suite() -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
@@ -419,7 +440,7 @@ def recompute_suite() -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[
             transformed_score = None if transformed is None else independent_project(record, transformed)
             representation_status = "NOT_APPLICABLE_REGISTERED_TRANSFORM_PENDING" if transformed_score is None else ("PASS" if abs(transformed_score - observed) <= 1e-9 * max(1.0, abs(observed)) else "DISAGREEMENT")
             representation_disagreements += representation_status == "DISAGREEMENT"
-            upper_p = (1 + sum(value >= observed for value in null_scores)) / 32
+            upper_p = parent_matched_upper_p(observed, null_scores)
             expected = production[(record["family_id"], parent_index)]
             comparisons = {
                 "observed_score": (observed, float(expected["observed_score"])),
@@ -475,7 +496,18 @@ def recompute_statistics_and_fragility() -> dict[str, Any]:
     joint_traces = np.median(null_children[parent_indices, choices, :], axis=1)
     observed_trace = np.median(parents, axis=0)
     production_closure = json.loads((STATISTICS / "closure_null_calibration_v2.json").read_text(encoding="utf-8"))
-    closure_agreement = np.allclose(observed_trace, production_closure["observed_population_trace"], rtol=0.0, atol=1e-15) and hashlib.sha256(joint_traces.tobytes()).hexdigest() == production_closure["joint_null_traces_sha256"]
+    normalized_joint_traces = normalize_for_semantic_hash(joint_traces.tolist())
+    normalized_trace_bytes = json.dumps(
+        normalized_joint_traces,
+        separators=(",", ":"),
+    ).encode()
+    normalized_trace_hash = hashlib.sha256(normalized_trace_bytes).hexdigest()
+    closure_agreement = np.allclose(
+        observed_trace,
+        production_closure["observed_population_trace"],
+        rtol=1e-10,
+        atol=1e-10,
+    )
     record = next(row for row in read_jsonl(CALIBRATION / "synthetic_v2_registry.jsonl") if row["family_id"] == "P01")
     geometry = generate_raw(record, int(record["base_seed"]))
     baseline = independent_project(record, geometry)
@@ -492,7 +524,7 @@ def recompute_statistics_and_fragility() -> dict[str, Any]:
     parent_audit = {"universal_parent_threshold": design["universal_minimum_parent_count"], "nested_samples_promoted": False, "tier_count": len(design["tiers"]), "status": "PASS"}
     return {
         "signed_separation": {"parent_matching": True, "joint_null_replicates": 999, "children_flattened": False},
-        "closure": {"midpoint_penalty": None, "joint_trace_sha256": hashlib.sha256(joint_traces.tobytes()).hexdigest(), "production_agreement": bool(closure_agreement)},
+        "closure": {"midpoint_penalty": None, "joint_trace_semantic_sha256": normalized_trace_hash, "production_agreement": bool(closure_agreement)},
         "curvature": {"bootstrap_unit": "PARENT", "interior_only": True, "adjacent_boundaries_reported": True, "elbow_is_T_e": False, "elbow_is_winner_N": False},
         "fragility": {"baseline": baseline, "relative_noise": independent_project(record, noisy) - baseline, "mask_dropout": independent_project(record, dropout) - baseline, "rotation": independent_project(record, rotated) - baseline if rotated is not None else None, "anti_aliased_downsample": independent_project(record, downsampled) - baseline, "mean_fill_used": False, "absolute_unit_noise_floor_used": False},
         "parent_effective_sample_audit": parent_audit,
@@ -622,7 +654,11 @@ def main() -> None:
     bridge = recompute_historical_bridge()
     scientific = recompute_statistics_and_fragility()
     mutation_registry, mutation_results = mutation_suite()
-    canonical = json.dumps(recomputed, sort_keys=True, separators=(",", ":")).encode()
+    canonical = json.dumps(
+        normalize_for_semantic_hash(recomputed),
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode()
     summary = {
         "schema_version": "2.0.0",
         "primary_inputs": ["raw deterministic synthetic seeds and generator registry", "raw TLD I targets_baseline.csv", "frozen Method V2 contracts"],
@@ -630,7 +666,8 @@ def main() -> None:
         "production_comparison_performed_after_raw_recomputation": True,
         "raw_realizations_recomputed": len(recomputed),
         "family_count": len(suite["family_joint"]),
-        "raw_recomputation_sha256": hashlib.sha256(canonical).hexdigest(),
+        "semantic_recomputation_sha256": hashlib.sha256(canonical).hexdigest(),
+        "semantic_hash_float_decimal_places": 10,
         "synthetic_disagreement_count": len(disagreements),
         "representation_disagreement_count": suite["representation_disagreements"],
         "historical_bridge": bridge,

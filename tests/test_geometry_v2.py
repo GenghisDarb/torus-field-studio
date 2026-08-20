@@ -214,6 +214,18 @@ def test_joint_null_uses_parent_matched_aggregate_replicates() -> None:
         joint_parent_null_distribution(observed, nulls, replicates=998)
 
 
+def test_joint_null_counts_numerically_equivalent_statistics_as_ties() -> None:
+    observed = np.asarray([6.0, 6.0, 6.0, 6.0])
+    roundoff = np.asarray([-4e-12, 3e-12, -2e-12, 5e-12])
+    nulls = np.repeat((observed + roundoff)[:, np.newaxis], 3, axis=1)
+
+    result = joint_parent_null_distribution(observed, nulls, replicates=999, seed=4)
+
+    assert result["upper_tail_p"] == 1.0
+    assert result["lower_tail_p"] == 1.0
+    assert result["two_sided_p"] == 1.0
+
+
 def test_modal_trace_has_no_midpoint_penalty_and_reports_boundary_ties() -> None:
     field = np.arange(64, dtype=np.float64).reshape(8, 8)
     trace = modal_residual_trace(field, [1, 2, 3, 4, 5])

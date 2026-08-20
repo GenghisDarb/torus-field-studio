@@ -8,6 +8,7 @@
   ],
   "production_evidence_use": "comparison only after all 56 raw acquisitions were independently recomputed",
   "production_runner_imported": false,
+  "recomputation_hash_semantics": "FLOATS_ROUNDED_TO_10_DECIMAL_PLACES",
   "schema_version": "1.0.0",
   "second_scored_execution": false
 }

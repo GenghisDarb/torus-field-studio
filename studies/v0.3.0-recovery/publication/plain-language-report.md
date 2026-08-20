@@ -16,6 +16,6 @@ had no canonical path-closure axis, so `winner_N` is not applicable.
 The important quality-control result is strong: the raw verifier independently reopened all 56
 acquisitions, reconstructed both registered projections, generated 7,112 null children, repeated
 the paired comparisons and perturbation checks, and found zero disagreements. That verifies the
-computation—not the larger theory. `TLD_DERIVED` remains blocked and external validation remains
-false.
-
+computation—not the larger theory. A cross-platform check also found and repaired an unstable
+floating-point tie comparison in the synthetic diagnostics; it did not change the held-out run or
+its outcome. `TLD_DERIVED` remains blocked and external validation remains false.
