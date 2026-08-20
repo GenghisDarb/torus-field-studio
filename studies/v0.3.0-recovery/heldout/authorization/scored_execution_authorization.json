@@ -1,0 +1,37 @@
+{
+  "authorization_scope": {
+    "claim_ceiling": "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY",
+    "external_validation": false,
+    "geometric_scales_ell_cells": [
+      1,
+      2,
+      4
+    ],
+    "null_ids": [
+      "N01_PARENT_LOCAL_JOINT_SPATIAL_CELL_PERMUTATION"
+    ],
+    "permitted_scored_executions": 1,
+    "perturbation_ids": [
+      "PERT01_ROTATE_90_WITH_COORDINATES_COMPONENTS_AND_MASK",
+      "PERT02_MASK_DROPOUT_5_PERCENT",
+      "PERT03_RELATIVE_COMPONENT_NOISE_1_PERCENT",
+      "PERT04_ANTI_ALIASED_SCALE_2X"
+    ],
+    "projection_ids": [
+      "P01_REGISTERED_TEMPORAL_MEAN_VECTOR_FIELD",
+      "P02_REGISTERED_SPATIOTEMPORAL_VECTOR_FLUCTUATIONS"
+    ],
+    "tld_derived": "BLOCKED"
+  },
+  "field_values_read_before_authorization": false,
+  "pair_registry_sha256": "5c5bf465a3f1550ffc7d5a6fcf87ab599775d038f37dcd7c70ddfabb7521f5d1",
+  "preregistration_commit": "a8e3cba766bd8b160fc9b8074086a48fb7aceceb",
+  "preregistration_manifest_sha256": "63a84b477183f57f9149728779917c151c1a428b02c6ea48749fe4bef9e909b3",
+  "preregistration_tree": "ff0b2316bdf6993b42e4ddabe0e55c90e356de12",
+  "root_seed": 20260820,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "second_scored_execution_action": "INVALIDATE_PROTOCOL_DO_NOT_RERUN",
+  "source_sha256": "5819f9071c3b3b0b856934602b5e7b487852abe0e0a3a5b1b62eae17720d822f",
+  "status": "AUTHORIZED_FOR_EXACTLY_ONE_SCORED_EXECUTION"
+}

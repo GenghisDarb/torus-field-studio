@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HELDOUT = ROOT / "studies" / "v0.3.0-recovery" / "heldout"
 MATERIALIZATION = HELDOUT / "materialization"
 PREREGISTRATION = HELDOUT / "preregistration"
+AUTHORIZATION = HELDOUT / "authorization"
 
 
 def load(directory: Path, name: str) -> dict[str, object]:
@@ -132,3 +133,24 @@ def test_claim_and_endpoint_firewalls_forbid_binary_tld_interpretation() -> None
     assert str(endpoints["winner_N"]).startswith("NOT_APPLICABLE")
     assert str(scales["S_e"]).startswith("NOT_APPLICABLE")
     assert closure["winner_N"] == "NOT_APPLICABLE"
+
+
+def test_post_push_authorization_is_exactly_one_execution() -> None:
+    receipt = load(PREREGISTRATION, "preregistration_post_push_receipt.json")
+    authorization = load(AUTHORIZATION, "scored_execution_authorization.json")
+    assert receipt["status"] == "PREREGISTRATION_FROZEN_AND_PUSHED"
+    assert receipt["local_remote_match"] is True
+    assert receipt["preregistration_commit"] == (
+        "a8e3cba766bd8b160fc9b8074086a48fb7aceceb"
+    )
+    assert authorization["status"] == "AUTHORIZED_FOR_EXACTLY_ONE_SCORED_EXECUTION"
+    assert authorization["preregistration_commit"] == receipt["preregistration_commit"]
+    assert authorization["field_values_read_before_authorization"] is False
+    scope = authorization["authorization_scope"]
+    assert isinstance(scope, dict)
+    assert scope["permitted_scored_executions"] == 1
+    assert scope["tld_derived"] == "BLOCKED"
+    assert scope["external_validation"] is False
+    assert authorization["second_scored_execution_action"] == (
+        "INVALIDATE_PROTOCOL_DO_NOT_RERUN"
+    )
