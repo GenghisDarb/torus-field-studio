@@ -1,0 +1,13 @@
+{
+  "ControllerGate_modified": false,
+  "claim_authority": "NONE_VERIFICATION_ONLY",
+  "primary_evidence": [
+    "raw HDF5 U, V, X, Y arrays",
+    "frozen pair registry",
+    "frozen run contract"
+  ],
+  "production_evidence_use": "comparison only after all 56 raw acquisitions were independently recomputed",
+  "production_runner_imported": false,
+  "schema_version": "1.0.0",
+  "second_scored_execution": false
+}
