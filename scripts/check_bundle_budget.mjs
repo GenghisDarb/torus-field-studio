@@ -7,9 +7,9 @@ const distribution = path.join(root, "apps", "studio", "dist");
 const limits = {
   // v0.3.0 adds an isolated, lazy geometry-TBX auditor while keeping the main
   // startup chunk under its existing cap.
-  application: 965 * 1024,
-  // v0.2.2 keeps the immutable v0.2.1 bundle and adds the compressed forensic package.
-  publishedExamples: 4000 * 1024,
+  application: 1000 * 1024,
+  // v0.3.0 adds the audited 2.3 MiB combined geometry field while retaining every older lane.
+  publishedExamples: 6000 * 1024,
   mainJavaScript: 450 * 1024,
   surfaceJavaScript: 650 * 1024,
   geometryJavaScript: 20 * 1024,

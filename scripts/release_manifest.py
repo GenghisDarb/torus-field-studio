@@ -23,11 +23,16 @@ def build_manifest(directory: Path, version: str, commit: str) -> Path:
     assets = [
         path for path in sorted(directory.iterdir()) if path.is_file() and path.name not in excluded
     ]
+    v030 = version == "v0.3.0"
     manifest: dict[str, Any] = {
         "schema_version": "1.0.0",
         "release": version,
         "commit": commit,
-        "scientific_outcome": "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES",
+        "scientific_outcome": (
+            "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY"
+            if v030
+            else "HELDOUT_TLD_STUDY_NEGATIVE_UNDER_FROZEN_GATES"
+        ),
         "claim_level": "COMPUTED_DYNAMICAL",
         "TLD_DERIVED_status": "BLOCKED",
         "EXTERNALLY_VALIDATED": False,
@@ -36,6 +41,15 @@ def build_manifest(directory: Path, version: str, commit: str) -> Path:
             for path in assets
         ],
     }
+    if v030:
+        manifest["method_id"] = "METHOD_V2_C_EVIDENCE_VECTOR"
+        manifest["method_mode"] = "INSTRUMENTED_EVIDENCE_VECTOR"
+        manifest["predictive_TLD_discriminator"] = False
+        manifest["population_generalization"] = False
+        manifest["T_e"] = "NOT_APPLICABLE_NO_OPERATION_DEPTH_AXIS"
+        manifest["S_e"] = "NOT_APPLICABLE_NO_CALIBRATED_PERSISTENCE_ENDPOINT"
+        manifest["winner_N"] = "NOT_APPLICABLE_NO_CANONICAL_PATH_CLOSURE_AXIS"
+        manifest["geometric_scale"] = "ell in {1, 2, 4} native PIV grid cells"
     manifest_path.write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
@@ -55,6 +69,24 @@ def verify_manifest(path: Path) -> None:
         raise ValueError("release manifest may not self-assert external validation")
     if manifest.get("TLD_DERIVED_status") != "BLOCKED":
         raise ValueError("release manifest claim boundary mismatch")
+    if manifest.get("release") == "v0.3.0":
+        if manifest.get("scientific_outcome") != (
+            "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY"
+        ):
+            raise ValueError("v0.3.0 scientific outcome mismatch")
+        if manifest.get("method_mode") != "INSTRUMENTED_EVIDENCE_VECTOR":
+            raise ValueError("v0.3.0 method mode mismatch")
+        if manifest.get("predictive_TLD_discriminator") is not False:
+            raise ValueError("v0.3.0 may not assert predictive TLD discrimination")
+        if manifest.get("population_generalization") is not False:
+            raise ValueError("v0.3.0 may not assert population generalization")
+        if any(
+            not str(manifest.get(key, "")).startswith("NOT_APPLICABLE")
+            for key in ("T_e", "S_e", "winner_N")
+        ):
+            raise ValueError("v0.3.0 endpoint firewall mismatch")
+        if not str(manifest.get("geometric_scale", "")).startswith("ell "):
+            raise ValueError("v0.3.0 geometric scale must use ell")
     declared = {item["name"]: item for item in manifest.get("assets", [])}
     if len(declared) != len(manifest.get("assets", [])):
         raise ValueError("duplicate release asset declaration")

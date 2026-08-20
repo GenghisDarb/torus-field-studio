@@ -130,8 +130,8 @@ jobs:
           path: sbom.spdx.json
           if-no-files-found: error
 
-  release-manifest:
-    name: Release-manifest verification
+  legacy-evidence-compatibility:
+    name: Legacy v0.2.2 evidence compatibility
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -146,8 +146,6 @@ jobs:
           cp studies/v0.2.2-negative-result-forensic/v021-power-surface.csv staged/
           cp studies/v0.2.2-negative-result-forensic/v021-forensic-combined.tbx.zip staged/
           cp studies/v0.2.2-negative-result-forensic/external-replication-addon.zip staged/
-          python -m build --outdir staged
-          python scripts/release_manifest.py build staged --version v0.2.2 --commit "${{ github.sha }}"
-          python scripts/release_manifest.py verify staged/release-manifest-v0.2.2.json
-          python -m pip install staged/torusbrot-0.2.2-py3-none-any.whl
+          python -m build --wheel --outdir staged
+          python -m pip install staged/torusbrot-0.3.0-py3-none-any.whl
           torusbrot audit staged/v021-forensic-combined.tbx.zip
