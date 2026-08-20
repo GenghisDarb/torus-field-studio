@@ -1,0 +1,21 @@
+{
+  "archive_inventory_sha256": "261b255b3a9dce8ef69b5d5621b77c0333a9d6c5c98a942c0cc9b4a19c01b652",
+  "archive_name": "ExperimentalDataset.zip",
+  "archive_safe": true,
+  "candidate_id": "actuated_fluidic_pinball_piv",
+  "candidate_substitution": false,
+  "doi": "10.5281/zenodo.20794709",
+  "entry_count": 59,
+  "field_statistics_computed": false,
+  "hdf5_acquisition_count": 57,
+  "license": "CC-BY-4.0",
+  "paired_block_count": 28,
+  "published_md5": "6629a8e110b1682b9361de37d8be4afb",
+  "published_size_bytes": 1333197134,
+  "raw_field_values_read": false,
+  "schema_version": "1.0.0",
+  "selection_commit": "590f6ea5896d3813c3a0a673e108381a4e3d87da",
+  "status": "PASS",
+  "verified_md5": "6629a8e110b1682b9361de37d8be4afb",
+  "verified_sha256": "5819f9071c3b3b0b856934602b5e7b487852abe0e0a3a5b1b62eae17720d822f"
+}

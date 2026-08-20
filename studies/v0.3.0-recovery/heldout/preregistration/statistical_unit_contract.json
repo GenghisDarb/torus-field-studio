@@ -1,0 +1,11 @@
+{
+  "campaign_independence": "UNKNOWN_NO_POPULATION_CREDIT",
+  "components_are_independent_parents": false,
+  "paired_block_count": 28,
+  "primary_statistical_unit": "one paired acquisition block: one actuated PIV HDF5 acquisition and its uniquely matched immediately preceding unactuated _zero_ HDF5 acquisition",
+  "reference_reuse": "FORBIDDEN",
+  "schema_version": "1.0.0",
+  "snapshot_role": "NESTED_WITHIN_ACQUISITION",
+  "spatial_cell_role": "NESTED_WITHIN_SNAPSHOT_AND_ACQUISITION",
+  "system_count": 1
+}

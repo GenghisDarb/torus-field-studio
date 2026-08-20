@@ -1,0 +1,8 @@
+{
+  "baseline_id": "B01_PAIRED_UNACTUATED_REFERENCE_FLOW",
+  "comparison": "actuated minus its immediately preceding reference, retained by p and pair",
+  "estimator": "per acquisition median abs(v_mean)/max(abs(u_mean), registered numerical floor) on the P01 observed mask",
+  "numeric_pooling_with_geometry_channels": false,
+  "population_generalization": false,
+  "reference_members": "the 28 uniquely matched _zero_ acquisitions"
+}

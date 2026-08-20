@@ -1,0 +1,9 @@
+{
+  "absolute_noise_floor_claim": "FORBIDDEN",
+  "cylinder_diameter_m": 0.03,
+  "field_specific_uncertainty_array": "NOT_DEPOSITED_IN_EACH_HDF5_FIELD",
+  "resolution_m_per_px": 0.00029076921,
+  "sampling_frequency_hz": 120,
+  "sensitivity_action": "PERT03 relative 1% component noise and exact unit-provenance disclosure",
+  "stream_velocity_m_per_s": 0.31
+}

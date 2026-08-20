@@ -1,0 +1,7 @@
+{
+  "binary_hypothesis_tests": 0,
+  "familywise_claim": "NONE",
+  "post_hoc_channel_selection": "FORBIDDEN",
+  "reporting_rule": "all frozen named channels, all 28 pair deltas, null medians/intervals, scale views, perturbations, and failures are reported without winner selection",
+  "thresholded_channels": 0
+}

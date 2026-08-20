@@ -1,0 +1,27 @@
+{
+  "acquisition_files": 56,
+  "auxiliary_claim_role": "STRUCTURAL_AUDIT_ONLY_NOT_PRIMARY_SCORED_PARENT",
+  "auxiliary_member": "ExperimentalDataset/Case_p_m1p4_upward.h5",
+  "auxiliary_unpaired_acquisitions": 1,
+  "campaign_cluster": "DEPOSIT_LEVEL_SINGLE_SYSTEM_CLUSTER",
+  "campaign_count": "UNKNOWN_NO_SCORE",
+  "cross_file_cell_alignment": "FORBIDDEN",
+  "grid_mismatch_handling": "score each acquisition on its own deposited coordinate grid, then compare acquisition-level named channels within the pair",
+  "nested_snapshots": "axis 0 of U and V, cross-checked against the frozen dataset shape and Nsnapshots attribute at execution; never promoted",
+  "paired_acquisition_blocks": 28,
+  "spatial_grid_shape_mismatch_pairs": [
+    {
+      "p": 2.0,
+      "pair_id": "PAIR_25"
+    },
+    {
+      "p": 2.2,
+      "pair_id": "PAIR_26"
+    },
+    {
+      "p": 2.6,
+      "pair_id": "PAIR_28"
+    }
+  ],
+  "system": "one fluidic-pinball apparatus"
+}

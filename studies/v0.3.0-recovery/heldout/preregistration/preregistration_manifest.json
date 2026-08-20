@@ -1,0 +1,87 @@
+{
+  "artifacts": [
+    {
+      "name": "claim_boundary.json",
+      "sha256": "d89fcf050ebbef8f833d9e42087e1b4cd40ececa9fea9cabdb92a40eb1133802"
+    },
+    {
+      "name": "claim_tier.json",
+      "sha256": "88942bf68122de12a68d4ed212837c5e4832a09f3b7ea04d9fdbd7062dab9fb8"
+    },
+    {
+      "name": "closure_objective.json",
+      "sha256": "c4591e935669f34bd66c06a133db625646259674744b103969a657010b1d9df8"
+    },
+    {
+      "name": "domain_baseline.json",
+      "sha256": "00ad3803e594a10f06f8890087407d5e4bb68083408d0c5d9569ed0b9a8530b7"
+    },
+    {
+      "name": "effective_sample_method.json",
+      "sha256": "8a5492600f9e6cd1cf2a1ae49fd6e8d29e0f137e64be4bac279459e19c0fc93a"
+    },
+    {
+      "name": "endpoint_applicability.json",
+      "sha256": "9c637e3843f78fb2af0ed7c0ddd84f5ec3d4855bcd919ec82076a94061b12a88"
+    },
+    {
+      "name": "falsifier_registry.jsonl",
+      "sha256": "f3ecb64b751ab6b13605356ee5247fb09bf04bd8a75059fd1acc0df9c368c581"
+    },
+    {
+      "name": "geometric_scale_registry.json",
+      "sha256": "b773baa52c1af6546892e076f1637e1fcfcf44b072d038c39404419e0cfa104a"
+    },
+    {
+      "name": "instrument_sensitivity.json",
+      "sha256": "241b06146a16e9f7af763fc2224bdec6de2fa431d5ebbbcf17732f55d3d53633"
+    },
+    {
+      "name": "missingness_contract.json",
+      "sha256": "c01ea78085332221b54b67686bae9682b339fe6b9e97f843d8d16c4008e1fbb1"
+    },
+    {
+      "name": "multiple_testing.json",
+      "sha256": "3445ec817c8a03c9d0cb41ad0a4c69737ff8fd62e17b5a2a0485edb604331052"
+    },
+    {
+      "name": "null_registry.jsonl",
+      "sha256": "62a6c279b02cbc66924aebbfa11978cdf6d485bc4e0aed32797783416e3e333f"
+    },
+    {
+      "name": "operation_depth_registry.json",
+      "sha256": "2d401e2a165f1b3207aa543871b7a2b2877957c07e90b8892b477ea056a5d708"
+    },
+    {
+      "name": "parent_campaign_hierarchy.json",
+      "sha256": "4f979218107505941d74e722a8b890efde7dc98b281cd4a3b477e3bcf226e69e"
+    },
+    {
+      "name": "perturbation_registry.jsonl",
+      "sha256": "26bfd5e52420ba3b044257d25af75f23f6e67b717d990b27ca6a06c1d52f4c0d"
+    },
+    {
+      "name": "projection_registry.jsonl",
+      "sha256": "f999ba9d8b6c576592f0399741ffc389dcd3643325b037dd4730e5285a6842e0"
+    },
+    {
+      "name": "run_contract.json",
+      "sha256": "fc00a79189169a17080f753c873157e6d06c8c3f99931fb574fbfded336033e8"
+    },
+    {
+      "name": "source_registry.json",
+      "sha256": "708af6aece5fcab537c7f77132b251f74064ba91ae0166ae910efdac40e0b63c"
+    },
+    {
+      "name": "statistical_unit_contract.json",
+      "sha256": "7a5858c41f032808561574410f3e89d417d2dd13a312505fe29b8d3bcaa12bc5"
+    }
+  ],
+  "field_values_read": false,
+  "method_freeze_commit": "dcaeb72b29fc0d32b002d9b5de0809b13f2ed272",
+  "outcome_data_used": false,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "selection_commit": "590f6ea5896d3813c3a0a673e108381a4e3d87da",
+  "status": "FROZEN_PENDING_COMMIT_AND_PUSH"
+}

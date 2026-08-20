@@ -1,0 +1,15 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "TORUS_confirmation": "FORBIDDEN",
+  "ToT_BROT": "FORBIDDEN",
+  "causal_actuation_claim": false,
+  "maximum_scientific_outcome": "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY",
+  "permitted_outcomes": [
+    "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY",
+    "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED",
+    "GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL"
+  ],
+  "population_generalization": false,
+  "positive_negative_TLD_classification": "FORBIDDEN_METHOD_NOT_CALIBRATED_FOR_BINARY_DISCRIMINATION"
+}

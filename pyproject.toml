@@ -20,12 +20,13 @@ dependencies = ["jsonschema>=4.23,<5", "numpy>=1.26,<3"]
 
 [project.optional-dependencies]
 dev = [
+  "h5py>=3.12,<4",
   "netCDF4>=1.7,<2",
   "openpyxl>=3.1,<4",
   "pytest>=8.3",
   "ruff>=0.9",
 ]
-field = ["netCDF4>=1.7,<2", "openpyxl>=3.1,<4"]
+field = ["h5py>=3.12,<4", "netCDF4>=1.7,<2", "openpyxl>=3.1,<4"]
 
 [project.scripts]
 torusbrot = "torusbrot.cli:main"
