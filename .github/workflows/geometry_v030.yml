@@ -71,7 +71,7 @@ jobs:
             torusbrot audit "$artifact"
           done
       - name: Forbid a second held-out scorer in CI
-        run: '! grep -R "run_v030_pinball_heldout.py" .github/workflows'
+        run: '! grep -R "run_v030_pinball_heldout[.]py" .github/workflows'
 
   raw-heldout-reverification:
     name: Raw HDF5 independent reverification
