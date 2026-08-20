@@ -1,0 +1,205 @@
+{
+  "checked_at": "2026-08-20",
+  "dimensions_separated": true,
+  "method_freeze_commit": "dcaeb72b29fc0d32b002d9b5de0809b13f2ed272",
+  "outcome_data_used": false,
+  "schema_version": "2.0.0",
+  "score_dimension_maxima": {
+    "compute_feasibility": 10,
+    "geometry_quality": 20,
+    "inferential_design": 30,
+    "method_compatibility": 20,
+    "source_quality": 20
+  },
+  "scores": [
+    {
+      "automatic_exclusions": [],
+      "candidate_id": "actuated_fluidic_pinball_piv",
+      "dimensions": {
+        "compute_feasibility": 9,
+        "geometry_quality": 19,
+        "inferential_design": 27,
+        "method_compatibility": 19,
+        "source_quality": 20
+      },
+      "eligible": true,
+      "subtotal": 94,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [],
+      "candidate_id": "single_cylinder_piv_re413",
+      "dimensions": {
+        "compute_feasibility": 8,
+        "geometry_quality": 20,
+        "inferential_design": 6,
+        "method_compatibility": 19,
+        "source_quality": 20
+      },
+      "eligible": true,
+      "subtotal": 73,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [],
+      "candidate_id": "structured_light_patterns",
+      "dimensions": {
+        "compute_feasibility": 7,
+        "geometry_quality": 16,
+        "inferential_design": 9,
+        "method_compatibility": 15,
+        "source_quality": 20
+      },
+      "eligible": true,
+      "subtotal": 67,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "NONCONFIRMATORY_OUTCOME_EXPOSED_SOURCE"
+      ],
+      "candidate_id": "wind_farm_scanning_lidar_wakes",
+      "dimensions": {
+        "compute_feasibility": 9,
+        "geometry_quality": 19,
+        "inferential_design": 6,
+        "method_compatibility": 19,
+        "source_quality": 20
+      },
+      "eligible": false,
+      "subtotal": 73,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "CURRENT_COMPUTE_FEASIBILITY_BOUND_EXCEEDED"
+      ],
+      "candidate_id": "cylinder_array_piv",
+      "dimensions": {
+        "compute_feasibility": 0,
+        "geometry_quality": 20,
+        "inferential_design": 12,
+        "method_compatibility": 18,
+        "source_quality": 20
+      },
+      "eligible": false,
+      "subtotal": 70,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "CURRENT_COMPUTE_FEASIBILITY_BOUND_EXCEEDED"
+      ],
+      "candidate_id": "nbse2_4dstem_temperature_series",
+      "dimensions": {
+        "compute_feasibility": 0,
+        "geometry_quality": 19,
+        "inferential_design": 12,
+        "method_compatibility": 17,
+        "source_quality": 17
+      },
+      "eligible": false,
+      "subtotal": 65,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "PRIOR_OUTCOME_EXPOSURE"
+      ],
+      "candidate_id": "nanograv_15yr_pair_geometry",
+      "dimensions": {
+        "compute_feasibility": 9,
+        "geometry_quality": 18,
+        "inferential_design": 0,
+        "method_compatibility": 18,
+        "source_quality": 12
+      },
+      "eligible": false,
+      "subtotal": 57,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "RAW_GEOMETRY_DATA_UNAVAILABLE",
+        "METHOD_INCOMPATIBLE"
+      ],
+      "candidate_id": "rotating_quantum_wave_turbulence",
+      "dimensions": {
+        "compute_feasibility": 10,
+        "geometry_quality": 3,
+        "inferential_design": 0,
+        "method_compatibility": 2,
+        "source_quality": 18
+      },
+      "eligible": false,
+      "subtotal": 33,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "RAW_GEOMETRY_DATA_UNAVAILABLE",
+        "NO_INDEPENDENT_PARENT_MODEL"
+      ],
+      "candidate_id": "second_sound_attenuation",
+      "dimensions": {
+        "compute_feasibility": 10,
+        "geometry_quality": 3,
+        "inferential_design": 0,
+        "method_compatibility": 2,
+        "source_quality": 18
+      },
+      "eligible": false,
+      "subtotal": 33,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "NO_INDEPENDENT_PARENT_MODEL",
+        "CURRENT_COMPUTE_FEASIBILITY_BOUND_EXCEEDED"
+      ],
+      "candidate_id": "atmospheric_turbulence_wavefront_tiff",
+      "dimensions": {
+        "compute_feasibility": 0,
+        "geometry_quality": 15,
+        "inferential_design": 0,
+        "method_compatibility": 9,
+        "source_quality": 8
+      },
+      "eligible": false,
+      "subtotal": 32,
+      "unknown_counts_awarded_full_score": false
+    },
+    {
+      "automatic_exclusions": [
+        "RAW_NUMERIC_DATA_UNAVAILABLE",
+        "LICENSE_UNRESOLVED"
+      ],
+      "candidate_id": "mit_2024_direct_second_sound_imaging",
+      "dimensions": {
+        "compute_feasibility": 0,
+        "geometry_quality": 0,
+        "inferential_design": 0,
+        "method_compatibility": 0,
+        "source_quality": 3
+      },
+      "eligible": false,
+      "subtotal": 3,
+      "unknown_counts_awarded_full_score": false
+    }
+  ],
+  "selected_candidate_id": "actuated_fluidic_pinball_piv",
+  "selection_order": [
+    "actuated_fluidic_pinball_piv",
+    "single_cylinder_piv_re413",
+    "structured_light_patterns",
+    "wind_farm_scanning_lidar_wakes",
+    "cylinder_array_piv",
+    "nbse2_4dstem_temperature_series",
+    "nanograv_15yr_pair_geometry",
+    "rotating_quantum_wave_turbulence",
+    "second_sound_attenuation",
+    "atmospheric_turbulence_wavefront_tiff",
+    "mit_2024_direct_second_sound_imaging"
+  ],
+  "unknown_counts_receive_full_score": false
+}
