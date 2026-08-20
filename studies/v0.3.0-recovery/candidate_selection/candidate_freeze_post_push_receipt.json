@@ -1,0 +1,13 @@
+{
+  "branch": "agent/v0.3.0-geometry-indexed-tld",
+  "candidate_id": "actuated_fluidic_pinball_piv",
+  "candidate_substitution": "FORBIDDEN",
+  "design_tier": 2,
+  "outcome_data_used_for_selection": false,
+  "raw_measurement_archive_access_before_freeze": false,
+  "remote_matches_selection_freeze": true,
+  "schema_version": "1.0.0",
+  "selection_commit": "590f6ea5896d3813c3a0a673e108381a4e3d87da",
+  "selection_commit_subject": "Freeze structurally eligible geometry field candidate",
+  "selection_state": "FROZEN_AND_PUSHED"
+}

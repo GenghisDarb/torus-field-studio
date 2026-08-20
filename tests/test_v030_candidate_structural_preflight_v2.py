@@ -73,3 +73,12 @@ def test_wind_farm_cannot_reenter_confirmatory_selection() -> None:
     assert wind["eligible"] is False
     assert wind["tier_name"] == "NONCONFIRMATORY_PILOT_ONLY"
     assert wind["TLD_DERIVED_default"] == "BLOCKED"
+
+
+def test_candidate_freeze_commit_is_recorded_after_remote_push() -> None:
+    receipt = load("candidate_freeze_post_push_receipt.json")
+    assert receipt["candidate_id"] == "actuated_fluidic_pinball_piv"
+    assert receipt["selection_state"] == "FROZEN_AND_PUSHED"
+    assert receipt["remote_matches_selection_freeze"] is True
+    assert receipt["selection_commit"] == "590f6ea5896d3813c3a0a673e108381a4e3d87da"
+    assert receipt["candidate_substitution"] == "FORBIDDEN"
