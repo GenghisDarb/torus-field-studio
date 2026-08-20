@@ -1,0 +1,13 @@
+{
+  "acquisition_count": 56,
+  "joint_null_replicates": 999,
+  "manifest_sha256": "12628d9b7b771f1501f4ed73e0c60a93fbf2882c2214537af435f621e38a10b2",
+  "null_children_per_acquisition": 127,
+  "paired_block_count": 28,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "scientific_outcome": "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY",
+  "scored_execution_count": 1,
+  "second_scored_execution_permitted": false,
+  "status": "PASS_ONE_SCORED_EXECUTION_PRESERVED"
+}

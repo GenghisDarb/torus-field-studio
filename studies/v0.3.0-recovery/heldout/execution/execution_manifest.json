@@ -1,0 +1,49 @@
+{
+  "artifacts": [
+    {
+      "name": "execution_attempt.json",
+      "sha256": "0c1d87943769e2c5cf516584debe1ee62395abef51861cf8f33e193285415970"
+    },
+    {
+      "name": "field_value_access_receipt.json",
+      "sha256": "a1fb8987ee222db2c5396e026e9de4691464bc1b456908db56b110e698c97bee"
+    },
+    {
+      "name": "acquisition_evidence.jsonl",
+      "sha256": "fa799efa15386b6d303ff5a81f14a660957d04e33ebf5ef5b324f9050b1664b8"
+    },
+    {
+      "name": "acquisition_null_children.jsonl",
+      "sha256": "0c74538c2e3fee59a09d9a6980bdcc52d767a1f3c2c89e23c4337cd0d3bab093"
+    },
+    {
+      "name": "pair_evidence.jsonl",
+      "sha256": "767c7af712b3f1d258df696ab648359c6a2f36019a4e58acf3f402da8a085c6b"
+    },
+    {
+      "name": "pair_null_children.jsonl",
+      "sha256": "0f36e660cb7cf2faed6bda2e6ab8aa7a8df9be880b00700905613ae870c45f07"
+    },
+    {
+      "name": "joint_null_evidence.json",
+      "sha256": "8f2e33e04b1d55359d14deb6a2560617c4ae914424d5555b0cde8f1c18e16c48"
+    },
+    {
+      "name": "protocol_audit.json",
+      "sha256": "7ad195645da410efa60840ad174e18d24d8d99bf0cc486f7024ed6034f100a6d"
+    },
+    {
+      "name": "claim_adjudication.json",
+      "sha256": "fbe8e6df090d46191485d51984d3cfdbf5ff889281dcd845e2939698fdc72b8f"
+    }
+  ],
+  "authorization_commit": "77624c6cd56fbdbe3b83a240898884ad9ab67442",
+  "implementation_commit": "a40663cfa7611af5085c40408a067fc61477f610",
+  "preregistration_commit": "a8e3cba766bd8b160fc9b8074086a48fb7aceceb",
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "scored_execution_count": 1,
+  "second_scored_execution_permitted": false,
+  "source_sha256": "5819f9071c3b3b0b856934602b5e7b487852abe0e0a3a5b1b62eae17720d822f",
+  "status": "ONE_SCORED_EXECUTION_COMPLETE"
+}

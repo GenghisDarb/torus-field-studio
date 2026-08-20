@@ -1,0 +1,19 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "S_e": "NOT_APPLICABLE_NO_CALIBRATED_PERSISTENCE_ENDPOINT",
+  "TLD_DERIVED": "BLOCKED",
+  "TORUS_confirmation": "FORBIDDEN",
+  "T_e": "NOT_APPLICABLE_NO_OPERATION_DEPTH_AXIS",
+  "ToT_BROT": "FORBIDDEN",
+  "all_named_channels_retained": true,
+  "binary_threshold_applied": false,
+  "causal_actuation_claim": false,
+  "geometric_scale": "ell in {1, 2, 4} native PIV grid cells",
+  "maximum_claim": "source-specific calibrated within-campaign nonbinary evidence vector across 28 paired acquisitions on one deposited system",
+  "population_generalization": false,
+  "positive_negative_TLD_classification": "NOT_PERFORMED_FORBIDDEN_BY_METHOD_FREEZE",
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "scientific_outcome": "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY",
+  "winner_N": "NOT_APPLICABLE_NO_CANONICAL_PATH_CLOSURE_AXIS"
+}

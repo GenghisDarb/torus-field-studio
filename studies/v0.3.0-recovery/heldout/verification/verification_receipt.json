@@ -1,0 +1,11 @@
+{
+  "disagreement_count": 0,
+  "mutation_count": 12,
+  "mutations_detected": 12,
+  "raw_hdf5_field_values_reopened": false,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "scored_execution_count": 1,
+  "second_scored_execution_performed": false,
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+{
+  "attempt_number": 1,
+  "authorization_commit": "77624c6cd56fbdbe3b83a240898884ad9ab67442",
+  "authorization_sha256": "c8703d7a61e09fcc45ddbd3a58ea5a91f01d4b83e25ed92321f943142ddb8dae",
+  "created_before_field_value_access": true,
+  "implementation_commit": "a40663cfa7611af5085c40408a067fc61477f610",
+  "permitted_attempts": 1,
+  "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+  "schema_version": "1.0.0",
+  "second_attempt_action": "INVALIDATE_PROTOCOL_DO_NOT_RERUN"
+}
