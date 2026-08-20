@@ -1,0 +1,581 @@
+{
+  "TLD_DERIVED": "BLOCKED",
+  "condition_pooling": "FORBIDDEN",
+  "conditions": [
+    {
+      "P01_vector_channels": {
+        "curl_coherence": 0.0021157829798206526,
+        "curl_energy": 0.661418940348119,
+        "divergence_energy": 1.4921730062254224,
+        "signed_mean_curl": -0.03740880827451687,
+        "u_neighbor_coherence": 0.9548778560394615,
+        "v_neighbor_coherence": 0.3236696976463987
+      },
+      "P01_vector_projection": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 13,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 126406,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1471
+      },
+      "P02_native_lidar_channels": {
+        "R2D2": {
+          "channels": {
+            "neighbor_coherence": 0.9612937561610952,
+            "spectral_concentration": 0.9060379055708765
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 13,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 126425,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1471
+          }
+        },
+        "R2D3": {
+          "channels": {
+            "neighbor_coherence": 0.9334117704896793,
+            "spectral_concentration": 0.8934183198464588
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 13,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 126626,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1471
+          }
+        }
+      },
+      "classification": "NONCONFIRMATORY_CONDITION",
+      "condition_role": "DOMAIN_CONTROL_BASELINE",
+      "parent_id": "PARENT_TEST_1",
+      "population_aggregate": null,
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 1.3010426069826053e-18,
+          "curl_energy_invariant": 1.1102230246251565e-16,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 6.938893903907228e-18,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 1.1102230246251565e-16
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      },
+      "yaw_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "P01_vector_channels": {
+        "curl_coherence": 0.0020950283557558255,
+        "curl_energy": 0.6811167373849966,
+        "divergence_energy": 1.4993243974693606,
+        "signed_mean_curl": -0.037775109244070515,
+        "u_neighbor_coherence": 0.9551453475632705,
+        "v_neighbor_coherence": 0.4352340496506412
+      },
+      "P01_vector_projection": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 13,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 125708,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1467
+      },
+      "P02_native_lidar_channels": {
+        "R2D2": {
+          "channels": {
+            "neighbor_coherence": 0.9596128446206166,
+            "spectral_concentration": 0.9027293453915562
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 13,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 125738,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1467
+          }
+        },
+        "R2D3": {
+          "channels": {
+            "neighbor_coherence": 0.930905104258161,
+            "spectral_concentration": 0.889130525657304
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 13,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 126001,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1467
+          }
+        }
+      },
+      "classification": "NONCONFIRMATORY_CONDITION",
+      "condition_role": "YAW_INTERVENTION",
+      "parent_id": "PARENT_TEST_2",
+      "population_aggregate": null,
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 4.336808689942018e-19,
+          "curl_energy_invariant": 1.1102230246251565e-16,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 0.0,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 5.551115123125783e-17
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      },
+      "yaw_degrees": [
+        7,
+        5,
+        0
+      ]
+    },
+    {
+      "P01_vector_channels": {
+        "curl_coherence": 0.0023752556281175638,
+        "curl_energy": 0.7041981810516622,
+        "divergence_energy": 1.4907042884397448,
+        "signed_mean_curl": -0.04089805243349751,
+        "u_neighbor_coherence": 0.9562628691493196,
+        "v_neighbor_coherence": 0.5457230139898511
+      },
+      "P01_vector_projection": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 12,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 125863,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1467
+      },
+      "P02_native_lidar_channels": {
+        "R2D2": {
+          "channels": {
+            "neighbor_coherence": 0.9557683380825743,
+            "spectral_concentration": 0.9002375927241761
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 12,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 125875,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1467
+          }
+        },
+        "R2D3": {
+          "channels": {
+            "neighbor_coherence": 0.945899904751328,
+            "spectral_concentration": 0.8893150289140713
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 12,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 126039,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1467
+          }
+        }
+      },
+      "classification": "NONCONFIRMATORY_CONDITION",
+      "condition_role": "YAW_INTERVENTION",
+      "parent_id": "PARENT_TEST_3",
+      "population_aggregate": null,
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 3.903127820947816e-18,
+          "curl_energy_invariant": 0.0,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 3.469446951953614e-17,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 0.0
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      },
+      "yaw_degrees": [
+        14,
+        11,
+        0
+      ]
+    },
+    {
+      "P01_vector_channels": {
+        "curl_coherence": 0.0024672111817287696,
+        "curl_energy": 0.712058641329897,
+        "divergence_energy": 1.4960697401677312,
+        "signed_mean_curl": -0.04191418664289834,
+        "u_neighbor_coherence": 0.94393783738754,
+        "v_neighbor_coherence": 0.5217590220872296
+      },
+      "P01_vector_projection": {
+        "cell_width_mm": 250.0,
+        "discarded_under_minimum_cell_count": 11,
+        "grid_shape_yx": [
+          32,
+          55
+        ],
+        "input_sample_count": 150000,
+        "interpolation_performed": false,
+        "jointly_finite_sample_count": 125191,
+        "minimum_samples_per_cell": 8,
+        "missing_cells_are_zero": false,
+        "occupied_cell_count": 1467
+      },
+      "P02_native_lidar_channels": {
+        "R2D2": {
+          "channels": {
+            "neighbor_coherence": 0.9463250422615141,
+            "spectral_concentration": 0.8903001622014007
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 11,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 125194,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1467
+          }
+        },
+        "R2D3": {
+          "channels": {
+            "neighbor_coherence": 0.9262372096136698,
+            "spectral_concentration": 0.8788856756102699
+          },
+          "projection": {
+            "cell_width_mm": 250.0,
+            "discarded_under_minimum_cell_count": 11,
+            "grid_shape_yx": [
+              32,
+              55
+            ],
+            "input_sample_count": 150000,
+            "interpolation_performed": false,
+            "jointly_finite_sample_count": 125241,
+            "minimum_samples_per_cell": 8,
+            "missing_cells_are_zero": false,
+            "occupied_cell_count": 1467
+          }
+        }
+      },
+      "classification": "NONCONFIRMATORY_CONDITION",
+      "condition_role": "YAW_INTERVENTION",
+      "parent_id": "PARENT_TEST_4",
+      "population_aggregate": null,
+      "vector_rotation_equivariance": {
+        "absolute_disagreements": {
+          "curl_coherence_invariant": 4.336808689942018e-19,
+          "curl_energy_invariant": 1.1102230246251565e-16,
+          "divergence_energy_invariant": 0.0,
+          "signed_mean_curl_invariant": 6.938893903907228e-18,
+          "u_to_v_neighbor_equivariance": 0.0,
+          "v_to_u_neighbor_equivariance": 1.1102230246251565e-16
+        },
+        "components_rotated": true,
+        "coordinates_rotated": true,
+        "mask_rotated": true,
+        "status": "PASS",
+        "tolerance": 1e-10
+      },
+      "yaw_degrees": [
+        20,
+        16,
+        0
+      ]
+    }
+  ],
+  "confirmatory_classification": "NOT_PERFORMED",
+  "pilot_role": "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT",
+  "population_aggregate": null,
+  "scale_behavior": {
+    "S_e": "NOT_APPLICABLE",
+    "operation_depth": "NOT_APPLICABLE_NO_FROZEN_GENERAL_GEOMETRY_OPERATION_DEPTH",
+    "rows": [
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0021157829798206526,
+          "curl_energy": 0.661418940348119,
+          "divergence_energy": 1.4921730062254224,
+          "signed_mean_curl": -0.03740880827451687,
+          "u_neighbor_coherence": 0.9548778560394615,
+          "v_neighbor_coherence": 0.3236696976463987
+        },
+        "ell_mm": 250,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 1471,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_1",
+        "scale_transform_count": 0
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0007154377170648623,
+          "curl_energy": 0.5532403650914276,
+          "divergence_energy": 0.10902765313436612,
+          "signed_mean_curl": 0.019894949705619815,
+          "u_neighbor_coherence": 0.8832554546107124,
+          "v_neighbor_coherence": 0.49497245719190347
+        },
+        "ell_mm": 500,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 426,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_1",
+        "scale_transform_count": 1
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0010975625349946092,
+          "curl_energy": 0.7444141541264998,
+          "divergence_energy": 0.0395250768732608,
+          "signed_mean_curl": 0.028583930557027123,
+          "u_neighbor_coherence": 0.6454069280670576,
+          "v_neighbor_coherence": 0.25527052845206744
+        },
+        "ell_mm": 1000,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 104,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_1",
+        "scale_transform_count": 2
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0020950283557558255,
+          "curl_energy": 0.6811167373849966,
+          "divergence_energy": 1.4993243974693606,
+          "signed_mean_curl": -0.037775109244070515,
+          "u_neighbor_coherence": 0.9551453475632705,
+          "v_neighbor_coherence": 0.4352340496506412
+        },
+        "ell_mm": 250,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 1467,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_2",
+        "scale_transform_count": 0
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.00044635263412570974,
+          "curl_energy": 0.5583200603068772,
+          "divergence_energy": 0.11095920784021397,
+          "signed_mean_curl": 0.015786311462884537,
+          "u_neighbor_coherence": 0.8882803222050171,
+          "v_neighbor_coherence": 0.5296649675852246
+        },
+        "ell_mm": 500,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 426,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_2",
+        "scale_transform_count": 1
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0012965126223645222,
+          "curl_energy": 0.7572386745451616,
+          "divergence_energy": 0.04496160861980177,
+          "signed_mean_curl": 0.03133320123591559,
+          "u_neighbor_coherence": 0.6628248420835304,
+          "v_neighbor_coherence": 0.31138561488731953
+        },
+        "ell_mm": 1000,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 104,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_2",
+        "scale_transform_count": 2
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0023752556281175638,
+          "curl_energy": 0.7041981810516622,
+          "divergence_energy": 1.4907042884397448,
+          "signed_mean_curl": -0.04089805243349751,
+          "u_neighbor_coherence": 0.9562628691493196,
+          "v_neighbor_coherence": 0.5457230139898511
+        },
+        "ell_mm": 250,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 1467,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_3",
+        "scale_transform_count": 0
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.00034949692682324074,
+          "curl_energy": 0.5690631090781635,
+          "divergence_energy": 0.1097217112062009,
+          "signed_mean_curl": 0.014102687963338648,
+          "u_neighbor_coherence": 0.8806953883479643,
+          "v_neighbor_coherence": 0.5773463803869547
+        },
+        "ell_mm": 500,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 426,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_3",
+        "scale_transform_count": 1
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0011613184189289136,
+          "curl_energy": 0.7341073053237329,
+          "divergence_energy": 0.04255291409445805,
+          "signed_mean_curl": 0.029198156365474907,
+          "u_neighbor_coherence": 0.663767532743739,
+          "v_neighbor_coherence": 0.3316176110480135
+        },
+        "ell_mm": 1000,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 104,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_3",
+        "scale_transform_count": 2
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0024672111817287696,
+          "curl_energy": 0.712058641329897,
+          "divergence_energy": 1.4960697401677312,
+          "signed_mean_curl": -0.04191418664289834,
+          "u_neighbor_coherence": 0.94393783738754,
+          "v_neighbor_coherence": 0.5217590220872296
+        },
+        "ell_mm": 250,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 1467,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_4",
+        "scale_transform_count": 0
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.00030427197644354175,
+          "curl_energy": 0.546113751231647,
+          "divergence_energy": 0.1110464360551552,
+          "signed_mean_curl": 0.012890582238605435,
+          "u_neighbor_coherence": 0.8726322461530986,
+          "v_neighbor_coherence": 0.5694676800343949
+        },
+        "ell_mm": 500,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 426,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_4",
+        "scale_transform_count": 1
+      },
+      {
+        "T_e": "NOT_APPLICABLE",
+        "channels": {
+          "curl_coherence": 0.0016616145265910581,
+          "curl_energy": 0.6652260013020974,
+          "divergence_energy": 0.05266965789439997,
+          "signed_mean_curl": 0.033246792134424746,
+          "u_neighbor_coherence": 0.6657226450907248,
+          "v_neighbor_coherence": 0.3214854105871257
+        },
+        "ell_mm": 1000,
+        "geometric_scale_symbol": "ell",
+        "occupied_cell_count": 104,
+        "operation_depth": "NOT_APPLICABLE",
+        "parent_id": "PARENT_TEST_4",
+        "scale_transform_count": 2
+      }
+    ],
+    "scale_symbol": "ell"
+  },
+  "schema_version": "1.0.0"
+}

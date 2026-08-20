@@ -50,11 +50,33 @@ def test_vector_rotation_transforms_coordinates_components_mask_and_metadata() -
 
     assert np.allclose(rotated.values[..., 0], 0.0)
     assert np.allclose(rotated.values[..., 1], 1.0)
-    assert np.array_equal(rotated.mask, np.rot90(mask))
-    moved_coordinates = np.rot90(_grid())
+    assert np.array_equal(rotated.mask, np.rot90(mask, k=-1))
+    moved_coordinates = np.rot90(_grid(), k=-1)
     assert np.allclose(rotated.coordinates[..., 0], -moved_coordinates[..., 1])
     assert np.allclose(rotated.coordinates[..., 1], moved_coordinates[..., 0])
     assert rotated.orientation == "rot90(east-north)"
+
+
+def test_vector_rotation_preserves_signed_curl_under_proper_rotation() -> None:
+    coordinates = _grid(7)
+    values = np.empty((7, 7, 2), dtype=np.float64)
+    values[..., 0] = -coordinates[..., 1]
+    values[..., 1] = coordinates[..., 0]
+    geometry = TypedGeometry(
+        kind=GeometryKind.VECTOR_FIELD_2D,
+        values=values,
+        coordinates=coordinates,
+        component_names=("east", "north"),
+        orientation="east-north",
+        projection_id="solid-body-rotation",
+    )
+
+    original = typed_projection_scores(geometry)
+    rotated = typed_projection_scores(rotate_vector_field_90(geometry))
+
+    assert rotated["signed_mean_curl"] == pytest.approx(original["signed_mean_curl"])
+    assert rotated["curl_energy"] == pytest.approx(original["curl_energy"])
+    assert rotated["divergence_energy"] == pytest.approx(original["divergence_energy"])
 
 
 def test_vector_reflection_changes_signed_normal_component() -> None:

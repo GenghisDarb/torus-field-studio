@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 const fixtures = path.resolve(import.meta.dirname, "../../../tests/generated-fixtures");
+const windPilot = path.resolve(import.meta.dirname, "../../../studies/v0.3.0-recovery/wind_pilot/wind_farm_pilot.tbx.zip");
 
 async function waitForField(page: Page) {
   await expect(page.locator(".busy-overlay")).toHaveCount(0, { timeout: 20_000 });
@@ -66,6 +67,22 @@ test("browser export can be re-imported through the strict auditor", async ({ pa
   const payload = await readFile(output);
   await page.locator('input[type="file"]').setInputFiles({ name: "browser-export.tbx.zip", mimeType: "application/zip", buffer: payload });
   await expect(page.locator(".source-pill")).toHaveText("TBX AUDIT PASSED", { timeout: 20_000 });
+});
+
+test("geometry pilot TBX stays descriptive and keeps endpoint firewalls visible", async ({ page }) => {
+  await page.goto("/");
+  await waitForField(page);
+  await page.locator('input[type="file"]').setInputFiles(windPilot);
+  await expect(page.locator(".source-pill")).toHaveText("GEOMETRY PILOT · AUDIT PASSED", { timeout: 30_000 });
+  const source = page.getByTestId("geometry-source-panel");
+  await expect(source).toContainText("10.5281/zenodo.18731994");
+  await expect(source).toContainText("1 campaign · 4 nonexchangeable conditions");
+  await expect(source).toContainText("Tₑ / Sₑ / winner_N");
+  await expect(source).toContainText("NOT APPLICABLE");
+  await expect(source).toContainText("BLOCKED");
+  const evidence = page.getByTestId("geometry-evidence-summary");
+  await expect(evidence).toContainText("no population aggregate");
+  await expect(evidence).toContainText("external validation: NO");
 });
 
 test("published TLD I result exposes audited evidence without claim escalation", async ({ page }) => {

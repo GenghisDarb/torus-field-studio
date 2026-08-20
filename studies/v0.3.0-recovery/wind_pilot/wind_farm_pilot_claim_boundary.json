@@ -1,0 +1,19 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "S_e": "NOT_APPLICABLE_GEOMETRIC_SCALE_ELL_IS_NOT_S_E",
+  "TLD_DERIVED": "BLOCKED",
+  "T_e": "NOT_APPLICABLE_NO_FROZEN_GENERAL_GEOMETRY_OPERATION_DEPTH",
+  "forbidden": [
+    "threshold tuning",
+    "method selection",
+    "confirmatory TLD positive/negative",
+    "population aggregation",
+    "ToT-BROT",
+    "TORUS confirmation"
+  ],
+  "geometric_scale": "ell in {250, 500, 1000} mm",
+  "maximum_claim": "source-specific descriptive engineering evidence from four nonexchangeable conditions",
+  "schema_version": "1.0.0",
+  "scientific_outcome": "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT",
+  "winner_N": "NOT_APPLICABLE_NO_TLD_CLOSURE_AXIS"
+}

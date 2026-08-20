@@ -421,17 +421,20 @@ def rotate_vector_field_90(geometry: TypedGeometry) -> TypedGeometry:
         raise ValueError("90-degree component rotation requires a 2D vector field")
     validate_typed_geometry(geometry)
     axes = (0, 1) if geometry.kind == GeometryKind.VECTOR_FIELD_2D else (1, 2)
-    moved = np.rot90(geometry.values, axes=axes)
+    # Array rows increase with registered Cartesian y.  A physical counterclockwise
+    # rotation therefore moves the raster clockwise in index space before applying
+    # the vector component law (u, v) -> (-v, u).
+    moved = np.rot90(geometry.values, k=-1, axes=axes)
     rotated = np.empty_like(moved)
     rotated[..., 0] = -moved[..., 1]
     rotated[..., 1] = moved[..., 0]
-    mask = None if geometry.mask is None else np.rot90(geometry.mask, axes=axes)
+    mask = None if geometry.mask is None else np.rot90(geometry.mask, k=-1, axes=axes)
     coordinates = None
     if geometry.coordinates is not None:
         coordinate_axes = axes
         if geometry.kind == GeometryKind.SPATIOTEMPORAL_VECTOR:
             coordinate_axes = (0, 1) if geometry.coordinates.ndim == 3 else (1, 2)
-        moved_coordinates = np.rot90(geometry.coordinates, axes=coordinate_axes)
+        moved_coordinates = np.rot90(geometry.coordinates, k=-1, axes=coordinate_axes)
         coordinates = np.empty_like(moved_coordinates)
         coordinates[..., 0] = -moved_coordinates[..., 1]
         coordinates[..., 1] = moved_coordinates[..., 0]

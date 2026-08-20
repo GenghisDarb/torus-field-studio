@@ -4,7 +4,7 @@ export interface GeometryClaimAdjudication {
   schema_version: "1.0.0";
   run_id: string;
   method_id: string;
-  method_mode: "BINARY_STRICT" | "BINARY_HIERARCHICAL" | "NONBINARY_EVIDENCE_VECTOR";
+  method_mode: "BINARY_STRICT" | "BINARY_HIERARCHICAL" | "NONBINARY_EVIDENCE_VECTOR" | "INSTRUMENTED_EVIDENCE_VECTOR";
   scout_status: "ELIGIBLE" | "INELIGIBLE" | "INCONCLUSIVE";
   channel_results: {
     [k: string]: any;
@@ -16,7 +16,8 @@ export interface GeometryClaimAdjudication {
     | "GEOMETRY_INDEXED_TLD_HELDOUT_MIXED_WITH_EXACT_COMPONENTS"
     | "GEOMETRY_INDEXED_TLD_HELDOUT_EXECUTION_BLOCKED"
     | "GEOMETRY_INDEXED_TLD_HELDOUT_INVALIDATED_BY_PROTOCOL"
-    | "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY";
+    | "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY"
+    | "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT";
   T_e: number | string | null;
   S_e: number | string | null;
   winner_N: number | string | null;

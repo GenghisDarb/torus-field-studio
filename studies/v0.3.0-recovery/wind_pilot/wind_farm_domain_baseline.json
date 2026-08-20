@@ -1,0 +1,49 @@
+{
+  "baseline_id": "B01_CONVENTIONAL_YAW_WAKE_DEFLECTION",
+  "control_parent": "PARENT_TEST_1",
+  "numeric_pooling_with_TLD_channels": false,
+  "population_inference": false,
+  "rows": [
+    {
+      "interpretation": "DESCRIPTIVE_CONDITION_LEVEL_DOMAIN_BASELINE",
+      "median_absolute_cross_stream_ratio": 0.017223448643178048,
+      "numerical_floor": 5.786483348636486e-12,
+      "parent_id": "PARENT_TEST_1",
+      "role": "DOMAIN_CONTROL_BASELINE",
+      "wt1_yaw_deg": 0,
+      "wt2_yaw_deg": 0,
+      "wt3_yaw_deg": 0
+    },
+    {
+      "interpretation": "DESCRIPTIVE_CONDITION_LEVEL_DOMAIN_BASELINE",
+      "median_absolute_cross_stream_ratio": 0.017912412837277843,
+      "numerical_floor": 5.7680004696635525e-12,
+      "parent_id": "PARENT_TEST_2",
+      "role": "YAW_INTERVENTION",
+      "wt1_yaw_deg": 7,
+      "wt2_yaw_deg": 5,
+      "wt3_yaw_deg": 0
+    },
+    {
+      "interpretation": "DESCRIPTIVE_CONDITION_LEVEL_DOMAIN_BASELINE",
+      "median_absolute_cross_stream_ratio": 0.016228102456662327,
+      "numerical_floor": 5.774872439550739e-12,
+      "parent_id": "PARENT_TEST_3",
+      "role": "YAW_INTERVENTION",
+      "wt1_yaw_deg": 14,
+      "wt2_yaw_deg": 11,
+      "wt3_yaw_deg": 0
+    },
+    {
+      "interpretation": "DESCRIPTIVE_CONDITION_LEVEL_DOMAIN_BASELINE",
+      "median_absolute_cross_stream_ratio": 0.018294975148822567,
+      "numerical_floor": 5.7736754578989136e-12,
+      "parent_id": "PARENT_TEST_4",
+      "role": "YAW_INTERVENTION",
+      "wt1_yaw_deg": 20,
+      "wt2_yaw_deg": 16,
+      "wt3_yaw_deg": 0
+    }
+  ],
+  "schema_version": "1.0.0"
+}

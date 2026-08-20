@@ -100,6 +100,27 @@ export interface HeldoutBundleMetadata {
   forbiddenClaims: string[];
 }
 
+export interface GeometryBundleMetadata {
+  doi: string;
+  sourceId: string;
+  profile: string;
+  pilotRole: string;
+  methodId: string;
+  methodMode: string;
+  scientificOutcome: string;
+  conditionCount: number;
+  campaignCount: number;
+  geometricScale: string;
+  T_e: string;
+  S_e: string;
+  winnerN: string;
+  tldDerivedStatus: string;
+  externallyValidated: boolean;
+  verificationStatus: string;
+  failureCount: number;
+  forbiddenClaims: string[];
+}
+
 export interface FieldTable {
   schema_version: string;
   width: number;
@@ -112,6 +133,7 @@ export interface FieldTable {
   auditCheckedFiles?: number;
   tld?: TldBundleMetadata;
   heldout?: HeldoutBundleMetadata;
+  geometry?: GeometryBundleMetadata;
 }
 
 export interface GenerateRequest {

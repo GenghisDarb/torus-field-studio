@@ -157,11 +157,11 @@ export async function exportBrowserBundle(table: FieldTable, request: GenerateRe
 export async function importBundle(file: File): Promise<FieldTable> {
   const bytes = new Uint8Array(await file.arrayBuffer());
   const audit = await auditTbx(bytes);
-  if (!audit.valid || !audit.table || !audit.manifest || !audit.specification) {
+  if (!audit.valid || !audit.table || !audit.manifest || (!audit.specification && !audit.geometry)) {
     const summary = audit.errors.slice(0, 3).join("; ");
     throw new Error(`TBX audit rejected [${audit.issueCodes.join(", ")}]: ${summary}`);
   }
-  const engine = audit.specification.engine;
+  const engine = audit.specification?.engine;
   return {
     ...audit.table,
     source: "tbx_import",
@@ -171,5 +171,6 @@ export async function importBundle(file: File): Promise<FieldTable> {
     auditCheckedFiles: audit.checkedFiles,
     tld: audit.tld,
     heldout: audit.heldout,
+    geometry: audit.geometry,
   };
 }

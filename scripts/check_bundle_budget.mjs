@@ -5,11 +5,14 @@ import process from "node:process";
 const root = process.cwd();
 const distribution = path.join(root, "apps", "studio", "dist");
 const limits = {
-  application: 950 * 1024,
+  // v0.3.0 adds an isolated, lazy geometry-TBX auditor while keeping the main
+  // startup chunk under its existing cap.
+  application: 965 * 1024,
   // v0.2.2 keeps the immutable v0.2.1 bundle and adds the compressed forensic package.
   publishedExamples: 4000 * 1024,
   mainJavaScript: 450 * 1024,
   surfaceJavaScript: 650 * 1024,
+  geometryJavaScript: 20 * 1024,
   css: 120 * 1024,
 };
 
@@ -28,8 +31,9 @@ const application = sizes.filter(({ file }) => !file.endsWith(".map") && !file.i
 const publishedExamples = sizes.filter(({ file }) => file.includes(`${path.sep}examples${path.sep}`)).reduce((sum, item) => sum + item.bytes, 0);
 const mainJavaScript = Math.max(0, ...sizes.filter(({ file }) => /assets[\\/]index-.*\.js$/.test(file)).map(({ bytes }) => bytes));
 const surfaceJavaScript = Math.max(0, ...sizes.filter(({ file }) => /assets[\\/]Surface3D-.*\.js$/.test(file)).map(({ bytes }) => bytes));
+const geometryJavaScript = Math.max(0, ...sizes.filter(({ file }) => /assets[\\/]geometryTbxAudit-.*\.js$/.test(file)).map(({ bytes }) => bytes));
 const css = sizes.filter(({ file }) => file.endsWith(".css")).reduce((sum, item) => sum + item.bytes, 0);
-const measurements = { application, publishedExamples, mainJavaScript, surfaceJavaScript, css };
+const measurements = { application, publishedExamples, mainJavaScript, surfaceJavaScript, geometryJavaScript, css };
 const failures = Object.entries(measurements).filter(([name, bytes]) => bytes > limits[name]);
 for (const [name, bytes] of Object.entries(measurements)) console.log(`${name}: ${bytes} / ${limits[name]} bytes`);
 if (failures.length) {
