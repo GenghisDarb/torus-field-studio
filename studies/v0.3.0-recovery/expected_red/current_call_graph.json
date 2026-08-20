@@ -1,0 +1,146 @@
+{
+  "critical_defect_paths": [
+    "evaluate -> closure -> flattened null children",
+    "modal_trace -> undocumented midpoint penalty",
+    "projection -> silent scalarization",
+    "summary_verifier -> production-generated CSV rather than raw fixtures",
+    "candidate_selection -> unknown hierarchy receives full parent score"
+  ],
+  "edges": [
+    [
+      "build_fixtures",
+      "evaluate"
+    ],
+    [
+      "evaluate",
+      "parent_nulls"
+    ],
+    [
+      "evaluate",
+      "scout"
+    ],
+    [
+      "evaluate",
+      "projection"
+    ],
+    [
+      "projection",
+      "scalarize"
+    ],
+    [
+      "evaluate",
+      "separation"
+    ],
+    [
+      "evaluate",
+      "closure"
+    ],
+    [
+      "closure",
+      "modal_trace"
+    ],
+    [
+      "closure",
+      "curvature"
+    ],
+    [
+      "evaluate",
+      "fragility"
+    ],
+    [
+      "evaluate",
+      "baseline"
+    ],
+    [
+      "summary_verifier",
+      "production_generated_CSV"
+    ],
+    [
+      "candidate_selection",
+      "metadata_scores"
+    ],
+    [
+      "materialize",
+      "frozen_parent_gate_v1"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": "build_fixtures",
+      "location": "python/torusbrot/geometry/synthetic.py:92",
+      "symbol": "build_synthetic_fixtures"
+    },
+    {
+      "id": "parent_nulls",
+      "location": "python/torusbrot/geometry/synthetic.py:386",
+      "symbol": "parent_and_null_ensembles"
+    },
+    {
+      "id": "evaluate",
+      "location": "python/torusbrot/geometry/calibration.py:159",
+      "symbol": "evaluate_fixture"
+    },
+    {
+      "id": "scout",
+      "location": "python/torusbrot/geometry/scout.py:21",
+      "symbol": "geometry_scout"
+    },
+    {
+      "id": "projection",
+      "location": "python/torusbrot/geometry/channels.py:37",
+      "symbol": "field_projection_scores"
+    },
+    {
+      "id": "scalarize",
+      "location": "python/torusbrot/geometry/channels.py:16",
+      "symbol": "_scalar_field"
+    },
+    {
+      "id": "separation",
+      "location": "python/torusbrot/geometry/channels.py:94",
+      "symbol": "signed_bidirectional_separation"
+    },
+    {
+      "id": "closure",
+      "location": "python/torusbrot/geometry/channels.py:151",
+      "symbol": "closure_null_calibration"
+    },
+    {
+      "id": "modal_trace",
+      "location": "python/torusbrot/geometry/channels.py:137",
+      "symbol": "modal_closure_trace"
+    },
+    {
+      "id": "curvature",
+      "location": "python/torusbrot/geometry/metrology.py:24",
+      "symbol": "interior_relative_curvature"
+    },
+    {
+      "id": "fragility",
+      "location": "python/torusbrot/geometry/calibration.py:64",
+      "symbol": "_fragility"
+    },
+    {
+      "id": "baseline",
+      "location": "python/torusbrot/geometry/calibration.py:127",
+      "symbol": "_baseline_exclusion"
+    },
+    {
+      "id": "summary_verifier",
+      "location": "scripts/verify_geometry_calibration.py:221",
+      "symbol": "verify_geometry_calibration.main"
+    },
+    {
+      "id": "candidate_selection",
+      "location": "scripts/generate_v030_candidate_selection.py:413",
+      "symbol": "generate_v030_candidate_selection.main"
+    },
+    {
+      "id": "materialize",
+      "location": "scripts/materialize_v030_field.py:74",
+      "symbol": "materialize_v030_field.main"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "scope": "PR5_START_HEAD"
+}

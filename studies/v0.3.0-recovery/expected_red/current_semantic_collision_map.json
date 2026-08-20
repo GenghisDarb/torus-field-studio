@@ -1,0 +1,48 @@
+{
+  "collisions": [
+    {
+      "canonical": "persistence/nonredundancy endpoint",
+      "collision": "geometric Cartesian bin scale",
+      "locations": [
+        "studies/v0.3.0-method-freeze/S_e_semantics_gate.json",
+        "studies/v0.3.0-field-assay/materialization/geometric_scale_registry.jsonl"
+      ],
+      "replacement": "ell for geometric scale",
+      "status": "CONFIRMED_CONTRACT_CODE_MISMATCH",
+      "symbol": "S_e"
+    },
+    {
+      "canonical": "first registered operation depth where observed/null separation emerges",
+      "collision": "null-calibrated interior curvature elbow",
+      "locations": [
+        "studies/v0.3.0-method-freeze/T_e_semantics_gate.json",
+        "studies/v0.3.0-field-assay/materialization/domain_translation.json"
+      ],
+      "replacement": "report elbow separately with no T_e authority",
+      "status": "CONFIRMED_CONTRACT_CODE_MISMATCH",
+      "symbol": "T_e"
+    },
+    {
+      "canonical": "closure/model-order argmin under its own operator",
+      "collision": "historical, temporal, or physical scale interpretation",
+      "locations": [
+        "studies/v0.3.0-method-freeze/N_symbol_collision_audit.json"
+      ],
+      "replacement": "retain winner_N only where its operator is justified",
+      "status": "ALREADY_GUARDED_IN_V1_BUT_REQUIRES_V2_REGRESSION",
+      "symbol": "winner_N"
+    },
+    {
+      "canonical": "independent inferential unit under a registered estimand",
+      "collision": "condition-level acquisition in one campaign",
+      "locations": [
+        "scripts/materialize_v030_field.py",
+        "studies/v0.3.0-field-assay/materialization/parent_registry.jsonl"
+      ],
+      "replacement": "campaign/condition/acquisition/nested-sample hierarchy",
+      "status": "CONFIRMED_SCOPE_ERROR",
+      "symbol": "parent"
+    }
+  ],
+  "schema_version": "1.0.0"
+}
