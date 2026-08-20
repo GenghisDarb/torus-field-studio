@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "mode": "SHADOW_ONLY_NO_PRODUCTION_WRITES",
+  "objective": "Evaluate whether Method V2 safeguards improve auditability without changing ControllerGate authority or outcomes.",
+  "entry_conditions": [
+    "isolated branch or disposable worktree",
+    "baseline outputs and hashes recorded",
+    "ControllerAudit terminal-state ownership unchanged",
+    "no Batch104 start",
+    "no claim-bearing threshold imported from TFS"
+  ],
+  "ablations": [
+    {
+      "order": 1,
+      "component": "typed Scout eligibility",
+      "comparison": "current input eligibility versus fail-closed typed coordinate/component/mask/nesting checks"
+    },
+    {
+      "order": 2,
+      "component": "parent and effective-support policy",
+      "comparison": "current support count versus hierarchy- and dependence-aware support audit"
+    },
+    {
+      "order": 3,
+      "component": "joint-null aggregation",
+      "comparison": "current null aggregation versus one-child-per-parent matched aggregate replicates"
+    },
+    {
+      "order": 4,
+      "component": "scale-relative metrology",
+      "comparison": "current perturbation scaling versus provenance-preserving relative noise and anti-aliased resolution"
+    },
+    {
+      "order": 5,
+      "component": "boundary and tie diagnostics",
+      "comparison": "current selection output versus explicit boundary, tie, flatness, and stability reporting"
+    },
+    {
+      "order": 6,
+      "component": "structured fragility",
+      "comparison": "current robustness flag versus graded ensemble perturbation fingerprint"
+    },
+    {
+      "order": 7,
+      "component": "repeat and timing firewalls",
+      "comparison": "current operational behavior versus prospective repeat authorization and non-authoritative timing telemetry"
+    }
+  ],
+  "evaluation_outputs": [
+    "baseline-preservation receipt",
+    "difference ledger",
+    "failure-preservation ledger",
+    "authority-boundary audit",
+    "rollback receipt"
+  ],
+  "automatic_stop_conditions": [
+    "production state write",
+    "terminal-state ownership change",
+    "baseline hash drift outside declared ablation",
+    "TFS evidence promoted to repair authority",
+    "timing telemetry promoted to scientific evidence"
+  ],
+  "success_meaning": "engineering evidence for maintainer review only; never automatic repair authorization"
+}

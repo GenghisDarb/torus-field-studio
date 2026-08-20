@@ -111,19 +111,50 @@ export async function auditGeometrySemantics(
   if (!arrayPayload || custody.sha256 !== await sha256(arrayPayload)) {
     issue(errors, "GEOMETRY_RAW_ARRAY_HASH_MISMATCH", arrayMember || "missing member");
   }
-  if (source.pilot_role !== "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT") {
-    issue(errors, "GEOMETRY_PILOT_ROLE_INVALID", "source registry");
+  const profileName = String(manifest.profile ?? "");
+  const studyRole = String(source.study_role ?? source.pilot_role ?? "");
+  const expectedRoles: Record<string, string> = {
+    "geometry-pilot-v0.3.0": "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT",
+    "geometry-method-v2-v0.3.0": "METHOD_V2_SYNTHETIC_AND_HISTORICAL_CALIBRATION",
+    "geometry-representation-v0.3.0": "METHOD_V2_REPRESENTATION_EQUIVARIANCE_AUDIT",
+    "geometry-heldout-v0.3.0": "PROSPECTIVE_HELDOUT_FIELD_ASSAY",
+    "geometry-combined-v0.3.0": "METHOD_V2_WITH_FIRST_HELDOUT_FIELD",
+  };
+  if (studyRole !== expectedRoles[profileName]) {
+    issue(errors, "GEOMETRY_STUDY_ROLE_INVALID", "source registry");
   }
   if (source.condition_acquisitions_exchangeable !== false) {
     issue(errors, "GEOMETRY_CONDITION_POOLING_FORBIDDEN", "source registry");
   }
-  if (parents.length !== 4 || parents.filter((row) => row.role === "DOMAIN_CONTROL_BASELINE").length !== 1) {
-    issue(errors, "GEOMETRY_PARENT_HIERARCHY_INVALID", "expected four conditions and one control");
+  const expectedParentCount = finiteNumber(source.registered_parent_count)
+    ? source.registered_parent_count
+    : profileName === "geometry-pilot-v0.3.0" ? 4 : -1;
+  if (parents.length !== expectedParentCount || expectedParentCount < 1) {
+    issue(errors, "GEOMETRY_PARENT_HIERARCHY_INVALID", "parent registry does not match source hierarchy");
   }
+  if (
+    profileName === "geometry-pilot-v0.3.0"
+    && (parents.length !== 4 || parents.filter((row) => row.role === "DOMAIN_CONTROL_BASELINE").length !== 1)
+  ) issue(errors, "GEOMETRY_PARENT_HIERARCHY_INVALID", "expected four conditions and one control");
+  if (
+    ["geometry-heldout-v0.3.0", "geometry-combined-v0.3.0"].includes(profileName)
+    && (parents.length !== 28
+      || parents.some((row) => row.statistical_unit !== "PAIRED_ACQUISITION_BLOCK")
+      || source.population_generalization !== false
+      || source.registered_observation_count !== 56
+      || !String(source.projection_contract ?? "").includes("P01 temporal mean vector")
+      || !String(source.projection_contract ?? "").includes("P02 full spatiotemporal fluctuations")
+      || !String(source.null_contract ?? "").includes("127 local joint spatial cell permutations")
+      || !String(source.null_contract ?? "").includes("999 frozen joint within-campaign replicates")
+      || !String(source.closure_null_calibration ?? "").includes("parent-matched aggregate nulls"))
+  ) issue(errors, "GEOMETRY_HELDOUT_HIERARCHY_INVALID", "expected 28 paired blocks, 56 observations, and frozen P01/P02 null contracts on one nonpopulation system");
   if (!projections.length || !nulls.length) issue(errors, "GEOMETRY_REGISTRY_INCOMPLETE", "projection/null registry");
   const conditions = Array.isArray(results.conditions) ? results.conditions : [];
-  if (conditions.length !== 4 || conditions.some((row) => !isRecord(row) || row.population_aggregate !== null)) {
-    issue(errors, "GEOMETRY_CHANNEL_RESULTS_INVALID", "four separate unpooled condition rows required");
+  const expectedConditionCount = finiteNumber(source.display_condition_count)
+    ? source.display_condition_count
+    : profileName === "geometry-pilot-v0.3.0" ? 4 : -1;
+  if (conditions.length !== expectedConditionCount || conditions.some((row) => !isRecord(row) || row.population_aggregate !== null)) {
+    issue(errors, "GEOMETRY_CHANNEL_RESULTS_INVALID", "registered unpooled condition rows required");
   }
   const scaleRows = Array.isArray(scales.rows) ? scales.rows : [];
   if (!scaleRows.length || scaleRows.some((row) => !isRecord(row) || row.geometric_scale_symbol !== "ell" || "S_e" in row)) {
@@ -137,10 +168,13 @@ export async function auditGeometrySemantics(
   }
   const verifiedReceipt = receipts.some((row) => row.run_id === manifest.run_id && row.status === "verified" && Boolean(row.verifier));
   if (!verifiedReceipt) issue(errors, "VERIFIER_RECEIPT_MISSING", "geometry pilot");
+  const expectedOutcome = profileName === "geometry-pilot-v0.3.0"
+    ? "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT"
+    : "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY";
   if (
     adjudication.run_id !== manifest.run_id
     || adjudication.method_mode !== "INSTRUMENTED_EVIDENCE_VECTOR"
-    || adjudication.scientific_outcome !== "NONCONFIRMATORY_STRUCTURE_EXPOSED_ENGINEERING_PILOT"
+    || adjudication.scientific_outcome !== expectedOutcome
   ) issue(errors, "GEOMETRY_ADJUDICATION_INVALID", "run, method, or outcome");
   if (adjudication.TLD_DERIVED !== "BLOCKED" || adjudication.EXTERNALLY_VALIDATED !== false) {
     issue(errors, "GEOMETRY_CLAIM_ESCALATION", "TLD or external-validation boundary");
@@ -154,14 +188,18 @@ export async function auditGeometrySemantics(
   }
   const statistics = isRecord(manifest.statistics) ? manifest.statistics : {};
   const counts = isRecord(statistics.classification_counts) ? statistics.classification_counts : {};
+  const recomputedCounts: Record<string, number> = {};
+  for (const row of conditions.filter(isRecord)) {
+    const classification = String(row.classification ?? "UNSPECIFIED");
+    recomputedCounts[classification] = (recomputedCounts[classification] ?? 0) + 1;
+  }
   if (
-    statistics.point_count !== 4
-    || counts.NONCONFIRMATORY_CONDITION !== 4
-    || Object.keys(counts).length !== 1
+    statistics.point_count !== expectedConditionCount
+    || JSON.stringify(counts) !== JSON.stringify(recomputedCounts)
     || statistics.mean_UI !== null
     || statistics.mean_NSS !== null
     || statistics.mean_S_e !== null
-  ) issue(errors, "STATISTICS_MISMATCH", "geometry pilot");
+  ) issue(errors, "STATISTICS_MISMATCH", "geometry condition rows");
   if (statistics.failure_count !== failures.length) issue(errors, "FAILURE_COUNT_MISMATCH", "geometry failure ledger");
   const expectedSums = (await Promise.all(Object.entries(members)
     .filter(([name]) => name !== "manifest.json" && name !== "audit/SHA256SUMS.txt")
@@ -170,16 +208,19 @@ export async function auditGeometrySemantics(
   if (new TextDecoder().decode(members["audit/SHA256SUMS.txt"]) !== expectedSums) {
     issue(errors, "SHA256SUMS_MISMATCH", "audit/SHA256SUMS.txt");
   }
+  const gridWidth = Math.max(1, Math.ceil(Math.sqrt(conditions.length)));
   const points = conditions.filter(isRecord).map((row, index) => {
     const yaw = Array.isArray(row.yaw_degrees) ? row.yaw_degrees.map(Number) : [0, 0, 0];
-    const channels = isRecord(row.P01_vector_channels) ? row.P01_vector_channels : {};
+    const channels = isRecord(row.P01_vector_channels)
+      ? row.P01_vector_channels
+      : isRecord(row.P01_pair_delta) ? row.P01_pair_delta : {};
     const coherence = finiteNumber(channels.curl_coherence) ? channels.curl_coherence : 0;
     return {
       index,
-      grid_x: index % 2,
-      grid_y: Math.floor(index / 2),
-      x: yaw[0] ?? 0,
-      y: yaw[1] ?? 0,
+      grid_x: index % gridWidth,
+      grid_y: Math.floor(index / gridWidth),
+      x: finiteNumber(row.p) ? row.p : yaw[0] ?? index,
+      y: finiteNumber(row.p) ? coherence : yaw[1] ?? 0,
       classification: "UNRESOLVED" as const,
       eligible: true,
       emerged: false,
@@ -196,21 +237,45 @@ export async function auditGeometrySemantics(
       SEP: null,
       rms_to_parent: null,
       iterations: 0,
-      parent_id: String(row.parent_id ?? `condition-${index + 1}`),
+      parent_id: String(row.pair_id ?? row.parent_id ?? `condition-${index + 1}`),
       null_policy_id: "N03_PARENT_LOCAL_MASK_PRESERVING_JOINT_CELL_PERMUTATION",
       trace: [{ step: 0, stage: "descriptive curl coherence", coherence }],
       observed: true,
-      phase: String(row.condition_role ?? "condition"),
+      phase: String(row.classification ?? row.condition_role ?? "condition"),
     };
   });
-  const table: FieldTable = { schema_version: "1.0.0", width: 2, height: 2, points };
+  const table: FieldTable = {
+    schema_version: "1.0.0",
+    width: gridWidth,
+    height: Math.max(1, Math.ceil(points.length / gridWidth)),
+    points,
+  };
   return {
     table,
     geometry: {
       doi: String(source.doi),
       sourceId: String(source.source_id),
       profile: String(manifest.profile),
-      pilotRole: String(source.pilot_role),
+      pilotRole: studyRole,
+      studyRole,
+      statisticalUnit: String(source.statistical_unit ?? "condition acquisition"),
+      rawObservationRole: String(custody.content_role ?? "registered arrays"),
+      coordinateContract: String(source.coordinate_contract ?? "registered source coordinates"),
+      unitContract: String(source.unit_contract ?? "source units with provenance"),
+      maskPolicy: String(source.mask_policy ?? "explicit mask; no fill or interpolation"),
+      nestedReplicates: String(source.nested_replicates ?? "not promoted to parents"),
+      modalities: String(source.modalities ?? "registered typed geometry"),
+      registeredObservationCount: Number(source.registered_observation_count ?? conditions.length),
+      projectionContract: String(source.projection_contract ?? "registered projections"),
+      nullContract: String(source.null_contract ?? "registered structure-preserving nulls"),
+      closureNullCalibration: String(source.closure_null_calibration ?? "registered separately"),
+      projectionCount: projections.length,
+      nullCount: nulls.length,
+      operationDepth: String(source.operation_depth ?? "NOT_APPLICABLE"),
+      claimTier: String(source.claim_tier ?? adjudication.claim_ceiling),
+      domainBaseline: String(baseline.baseline_id ?? "registered separately"),
+      structuredFragility: String(source.structured_fragility ?? "registered perturbation panel"),
+      representationAgreement: String(source.representation_agreement ?? independent.status),
       methodId: String(adjudication.method_id),
       methodMode: String(adjudication.method_mode),
       scientificOutcome: String(adjudication.scientific_outcome),

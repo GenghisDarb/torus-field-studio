@@ -862,6 +862,25 @@ async function auditGeometrySemantics(
       sourceId: String(source.source_id),
       profile: String(manifest.profile),
       pilotRole: String(source.pilot_role),
+      studyRole: String(source.study_role ?? source.pilot_role),
+      statisticalUnit: String(source.statistical_unit ?? "condition acquisition"),
+      rawObservationRole: String(custody.content_role ?? "registered arrays"),
+      coordinateContract: String(source.coordinate_contract ?? "registered source coordinates"),
+      unitContract: String(source.unit_contract ?? "source units with provenance"),
+      maskPolicy: String(source.mask_policy ?? "explicit mask"),
+      nestedReplicates: String(source.nested_replicates ?? "not promoted"),
+      modalities: String(source.modalities ?? "registered typed geometry"),
+      registeredObservationCount: Number(source.registered_observation_count ?? conditions.length),
+      projectionContract: String(source.projection_contract ?? "registered projections"),
+      nullContract: String(source.null_contract ?? "registered structure-preserving nulls"),
+      closureNullCalibration: String(source.closure_null_calibration ?? "registered separately"),
+      projectionCount: projections.length,
+      nullCount: nulls.length,
+      operationDepth: String(source.operation_depth ?? "NOT_APPLICABLE"),
+      claimTier: String(source.claim_tier ?? adjudication.claim_ceiling),
+      domainBaseline: String(baseline.baseline_id ?? "registered separately"),
+      structuredFragility: String(source.structured_fragility ?? "registered perturbation panel"),
+      representationAgreement: String(source.representation_agreement ?? independent.status),
       methodId: String(adjudication.method_id),
       methodMode: String(adjudication.method_mode),
       scientificOutcome: String(adjudication.scientific_outcome),
@@ -1063,7 +1082,7 @@ export async function auditTbx(bytes: Uint8Array): Promise<TbxAuditResult> {
   if (paths.some((path, index) => index > 0 && compareCodePoints(paths[index - 1], path) > 0)) issue(errors, "MANIFEST_ORDER_INVALID", "file entries must be sorted");
   const extras = Object.keys(members).filter((name) => name !== "manifest.json" && !listed.has(name)).sort();
   if (extras.length) issue(errors, "MANIFEST_UNLISTED_MEMBER", extras.join(", "));
-  const geometryProfile = manifest.profile === "geometry-pilot-v0.3.0";
+  const geometryProfile = typeof manifest.profile === "string" && manifest.profile.startsWith("geometry-");
   const required = new Set(geometryProfile ? GEOMETRY_REQUIRED_MEMBERS : REQUIRED_MEMBERS);
   if (!geometryProfile && typeof manifest.profile === "string" && manifest.profile.startsWith("tld-i-")) {
     TLD_REQUIRED_MEMBERS.forEach((name) => required.add(name));

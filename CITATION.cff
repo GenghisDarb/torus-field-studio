@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use TORUS Field Studio, please cite this software and the exact release artifact you audited."
 title: "TORUS Field Studio"
 type: software
-version: 0.2.2
-date-released: 2026-08-18
+version: 0.3.0
+date-released: 2026-08-20
 authors:
   - family-names: Peter
     given-names: Bradley Charles
@@ -19,7 +19,7 @@ keywords:
 preferred-citation:
   type: software
   title: "TORUS Field Studio"
-  version: 0.2.2
+  version: 0.3.0
   year: 2026
   authors:
     - family-names: Peter

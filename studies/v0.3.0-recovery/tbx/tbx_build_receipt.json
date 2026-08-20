@@ -1,0 +1,56 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "all_audits_valid": true,
+  "bundles": [
+    {
+      "audit_valid": true,
+      "bytes": 76933,
+      "checked_files": 35,
+      "filename": "method-calibration-v2.tbx.zip",
+      "profile": "geometry-method-v2-v0.3.0",
+      "run_id": "run-b5d1a2e7318c50b6",
+      "sha256": "c9126539ea738ed302815b35bf249d22d6a278ae3266ae46bf5e7fd47047737d"
+    },
+    {
+      "audit_valid": true,
+      "bytes": 14521,
+      "checked_files": 26,
+      "filename": "representation-equivariance-v2.tbx.zip",
+      "profile": "geometry-representation-v0.3.0",
+      "run_id": "run-2034e362bed66104",
+      "sha256": "22e141dcd757dd250355c3196573179cd8c16606bfc28b899970b220dbff38bb"
+    },
+    {
+      "audit_valid": true,
+      "bytes": 2336793,
+      "checked_files": 61,
+      "filename": "heldout-fluidic-pinball-v0.3.0.tbx.zip",
+      "profile": "geometry-heldout-v0.3.0",
+      "run_id": "run-6d9d27248ccd6716",
+      "sha256": "815ada80907cf5691746d2e878ff266be32eb0843e8911bb29f821f57deec037"
+    },
+    {
+      "audit_valid": true,
+      "bytes": 2347413,
+      "checked_files": 77,
+      "filename": "geometry-method-v2-combined-v0.3.0.tbx.zip",
+      "profile": "geometry-combined-v0.3.0",
+      "run_id": "run-7f777ffd037e502b",
+      "sha256": "83d991ff61eef2183674e845f33deb00125f2b613eef5e861477e6faaec6a71a"
+    },
+    {
+      "audit_valid": true,
+      "bytes": 203196,
+      "checked_files": 22,
+      "filename": "wind_farm_pilot.tbx.zip",
+      "profile": "geometry-pilot-v0.3.0",
+      "sha256": "e2be775fa9e77e1544d3202e64ed1282f4e695fbc27855b037b5159e7b549c84"
+    }
+  ],
+  "public_example": "apps/studio/public/examples/v030-geometry-combined.tbx.zip",
+  "raw_source_archives_embedded": false,
+  "registered_observation_arrays_embedded": true,
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

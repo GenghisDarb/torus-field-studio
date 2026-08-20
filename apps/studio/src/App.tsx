@@ -108,6 +108,9 @@ export default function App() {
   const isForensic = isHeldout && table?.heldout?.profile.includes("forensic");
   const isTld = isHistoricalTld || isHeldout;
   const isGeometry = table?.geometry != null;
+  const isGeometryHeldout = isGeometry && (
+    table?.geometry?.profile.includes("heldout") || table?.geometry?.profile.includes("combined")
+  );
   const claimLevel = table?.source === "tbx_import"
     ? table.claimLevel ?? "BUNDLE CLAIM UNKNOWN"
     : activeEngine === "analytic"
@@ -118,7 +121,9 @@ export default function App() {
     table?.points.forEach((point) => { counts[point.classification] = (counts[point.classification] ?? 0) + 1; });
     return counts;
   }, [table]);
-  const sourceLabel = isGeometry ? "GEOMETRY PILOT · AUDIT PASSED" : isHeldout ? "HELD-OUT SOURCE · AUDIT PASSED" : isHistoricalTld ? "PUBLISHED SOURCE · AUDIT PASSED" : table?.source === "tbx_import" ? "TBX AUDIT PASSED" : "BROWSER PREVIEW";
+  const sourceLabel = isGeometry
+    ? isGeometryHeldout ? "GEOMETRY HELD-OUT · AUDIT PASSED" : "GEOMETRY PILOT · AUDIT PASSED"
+    : isHeldout ? "HELD-OUT SOURCE · AUDIT PASSED" : isHistoricalTld ? "PUBLISHED SOURCE · AUDIT PASSED" : table?.source === "tbx_import" ? "TBX AUDIT PASSED" : "BROWSER PREVIEW";
 
   const handleImport = async (file?: File) => {
     if (!file) return;
@@ -162,6 +167,19 @@ export default function App() {
     }
   };
 
+  const loadGeometryHeldout = async () => {
+    try {
+      setBusy(true);
+      const response = await fetch(`${import.meta.env.BASE_URL}examples/v030-geometry-combined.tbx.zip`);
+      if (!response.ok) throw new Error(`v0.3.0 geometry result request failed (${response.status})`);
+      const file = new File([await response.blob()], "v030-geometry-combined.tbx.zip", { type: "application/zip" });
+      await handleImport(file);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Could not load the v0.3.0 geometry result.");
+      setBusy(false);
+    }
+  };
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -169,10 +187,11 @@ export default function App() {
           <TorusMark />
           <div>
             <div className="brand-name"><span>TORUS</span> FIELD STUDIO</div>
-            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.2.2</div>
+            <div className="brand-subtitle">LOCAL-FIRST SCIENTIFIC WORKBENCH · v0.3.0</div>
           </div>
         </div>
         <div className="header-actions">
+          <button className="quiet-button" type="button" onClick={loadGeometryHeldout}><Icon name="spark" /> Load v0.3.0 field assay</button>
           <button className="quiet-button" type="button" onClick={loadHeldoutStudy}><Icon name="shield" /> Load v0.2.2 forensic audit</button>
           <button className="quiet-button" type="button" onClick={loadPublishedTld}><Icon name="spark" /> Load TLD I result</button>
           <button className="quiet-button" type="button" onClick={() => setAuditOpen(true)}><Icon name="shield" /> Audit</button>
@@ -206,7 +225,7 @@ export default function App() {
           <section className="control-section compact">
             <label className="section-label">Dataset</label>
             <div className="select-like">
-              <span>{isGeometry ? "Wind farm · nonconfirmatory pilot" : isForensic ? "v0.2.2 forensic · Beijing PM2.5" : isHeldout ? "Held-Out TLD · Beijing PM2.5" : isHistoricalTld ? "TLD I · published-source reproduction" : activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
+              <span>{isGeometry ? isGeometryHeldout ? "Fluidic pinball · prospective paired assay" : "Wind farm · nonconfirmatory pilot" : isForensic ? "v0.2.2 forensic · Beijing PM2.5" : isHeldout ? "Held-Out TLD · Beijing PM2.5" : isHistoricalTld ? "TLD I · published-source reproduction" : activeEngine === "analytic" ? `Complex power · p=${request.power}` : "Synthetic ring · 14 rungs"}</span>
               <span className="chevron">⌄</span>
             </div>
             <div className="source-hash"><span>{isTld || isGeometry ? "DOI" : "SHA-256"}</span><code>{isGeometry ? table?.geometry?.doi : isHeldout ? table?.heldout?.doi : isHistoricalTld ? table?.tld?.doi : activeEngine === "analytic" ? "5d2b…c14e" : "8f04…a217"}</code></div>
@@ -247,19 +266,31 @@ export default function App() {
 
           {isGeometry && table?.geometry && (
             <section className="control-section tld-source-card" data-testid="geometry-source-panel">
-              <span className="eyebrow">REAL DATA · NONCONFIRMATORY ENGINEERING PILOT</span>
-              <strong>Wind-Farm Geometry Method V2 Pilot</strong>
+              <span className="eyebrow">{isGeometryHeldout ? "REAL DATA · PROSPECTIVE HELD-OUT GEOMETRY" : "REAL DATA · NONCONFIRMATORY ENGINEERING PILOT"}</span>
+              <strong>{isGeometryHeldout ? "Fluidic-Pinball Geometry Method V2 Assay" : "Wind-Farm Geometry Method V2 Pilot"}</strong>
               <p>{table.geometry.scientificOutcome.replaceAll("_", " ")}</p>
               <dl>
                 <div><dt>Source DOI</dt><dd>{table.geometry.doi}</dd></div>
-                <div><dt>Hierarchy</dt><dd>{table.geometry.campaignCount} campaign · {table.geometry.conditionCount} nonexchangeable conditions</dd></div>
+                <div><dt>Hierarchy</dt><dd>{table.geometry.campaignCount} system/campaign · {table.geometry.conditionCount} {isGeometryHeldout ? "paired blocks" : "nonexchangeable conditions"}</dd></div>
+                <div><dt>Statistical unit</dt><dd>{table.geometry.statisticalUnit}</dd></div>
+                <div><dt>Raw observations</dt><dd>{table.geometry.registeredObservationCount} · {table.geometry.rawObservationRole}</dd></div>
+                <div><dt>Coordinates / units</dt><dd>{table.geometry.coordinateContract} · {table.geometry.unitContract}</dd></div>
+                <div><dt>Mask / nesting</dt><dd>{table.geometry.maskPolicy} · {table.geometry.nestedReplicates}</dd></div>
+                <div><dt>Modalities</dt><dd>{table.geometry.modalities}</dd></div>
+                <div><dt>Projections</dt><dd>{table.geometry.projectionCount} · {table.geometry.projectionContract}</dd></div>
+                <div><dt>Nulls</dt><dd>{table.geometry.nullCount} · {table.geometry.nullContract}</dd></div>
+                <div><dt>Closure-null calibration</dt><dd>{table.geometry.closureNullCalibration}</dd></div>
                 <div><dt>Method</dt><dd>{table.geometry.methodMode}</dd></div>
                 <div><dt>Scale</dt><dd>{table.geometry.geometricScale}</dd></div>
+                <div><dt>Operation depth</dt><dd>{table.geometry.operationDepth}</dd></div>
                 <div><dt>Tₑ / Sₑ / winner_N</dt><dd>NOT APPLICABLE</dd></div>
+                <div><dt>Baseline</dt><dd>{table.geometry.domainBaseline}</dd></div>
+                <div><dt>Fragility / representation</dt><dd>{table.geometry.structuredFragility} · {table.geometry.representationAgreement}</dd></div>
+                <div><dt>Claim tier</dt><dd>{table.geometry.claimTier}</dd></div>
                 <div><dt>Verifier</dt><dd>{table.geometry.verificationStatus} · {table.geometry.failureCount} preserved ledger entries</dd></div>
                 <div><dt>TLD-derived</dt><dd>{table.geometry.tldDerivedStatus}</dd></div>
               </dl>
-              <div className="notice analytic-notice">Descriptive condition panels only. No threshold tuning, population aggregation, confirmatory TLD result, or external validation.</div>
+              <div className="notice analytic-notice">{isGeometryHeldout ? "Nonbinary evidence vector only. One scored execution; no positive/negative TLD classification, population generalization, ToT-BROT, TORUS proof, or external validation." : "Descriptive condition panels only. No threshold tuning, population aggregation, confirmatory TLD result, or external validation."}</div>
             </section>
           )}
 
@@ -315,7 +346,7 @@ export default function App() {
           <div className="claim-card">
             <div><Icon name="shield" /><span>CLAIM BOUNDARY</span></div>
             <strong>{claimLevel}</strong>
-            <p>{isGeometry ? "Nonconfirmatory, source-specific engineering pilot; TLD_DERIVED is blocked, the four conditions are not pooled, and external validation is false." : isHeldout ? "Prospective held-out negative result; TLD_DERIVED is blocked and external validation is not supplied." : isHistoricalTld ? "Exact self-reproduction of a published computational release; TLD_DERIVED is blocked and external validation is not supplied." : activeEngine === "analytic" ? "Useful for intuition and comparison; not a TLD-derived result." : "Reproducible registered computation; external validation not supplied."}</p>
+            <p>{isGeometry ? isGeometryHeldout ? "Prospective paired geometry assay; the result is a nonbinary evidence vector, TLD_DERIVED is blocked, and external validation is false." : "Nonconfirmatory, source-specific engineering pilot; TLD_DERIVED is blocked, the four conditions are not pooled, and external validation is false." : isHeldout ? "Prospective held-out negative result; TLD_DERIVED is blocked and external validation is not supplied." : isHistoricalTld ? "Exact self-reproduction of a published computational release; TLD_DERIVED is blocked and external validation is not supplied." : activeEngine === "analytic" ? "Useful for intuition and comparison; not a TLD-derived result." : "Reproducible registered computation; external validation not supplied."}</p>
           </div>
         </aside>
 
@@ -335,8 +366,8 @@ export default function App() {
             {table && viewMode === "field" && <Field2D table={table} metric={metric} selected={selected} showRaw={showRaw} onSelect={setSelected} />}
             {table && viewMode === "surface" && <Suspense fallback={<div className="busy-overlay"><span className="loader-ring" /><strong>Loading surface renderer</strong></div>}><Surface3D table={table} metric={metric} selected={selected} showRaw={showRaw} /></Suspense>}
             {busy && <div className="busy-overlay"><span className="loader-ring" /><strong>Computing frozen field</strong><small>Classification precedes rendering</small></div>}
-            <div className="axis-label axis-y">{isGeometry ? "CONDITION PANEL" : isHeldout ? "REGISTERED CONDITION" : isHistoricalTld ? "TRIAL / ENDPOINT" : activeEngine === "analytic" ? "IMAGINARY" : "ANCHORING α"}</div>
-            <div className="axis-label axis-x">{isGeometry ? "YAW INTERVENTION" : isHeldout ? "OPERATION DEPTH N" : isHistoricalTld ? "REGISTERED STEP / α" : activeEngine === "analytic" ? "REAL" : "ORDER MUTATION"}</div>
+            <div className="axis-label axis-y">{isGeometry ? isGeometryHeldout ? "EVIDENCE CHANNEL" : "CONDITION PANEL" : isHeldout ? "REGISTERED CONDITION" : isHistoricalTld ? "TRIAL / ENDPOINT" : activeEngine === "analytic" ? "IMAGINARY" : "ANCHORING α"}</div>
+            <div className="axis-label axis-x">{isGeometry ? isGeometryHeldout ? "ACTUATION p" : "YAW INTERVENTION" : isHeldout ? "OPERATION DEPTH N" : isHistoricalTld ? "REGISTERED STEP / α" : activeEngine === "analytic" ? "REAL" : "ORDER MUTATION"}</div>
             <div className="corner-readout"><span>COLOR</span><strong>{metric}</strong><span>INTERPOLATION</span><strong>VISUAL ONLY</strong></div>
           </div>
           <div className="stage-caption">
@@ -428,10 +459,11 @@ export default function App() {
             <small>{table.heldout.baselineStatus} · external validation: NO</small>
           </div>}
           {isGeometry && table?.geometry && <div className="tld-run-evidence" data-testid="geometry-evidence-summary">
-            <span>NONCONFIRMATORY PILOT</span>
-            <strong>ell 250/500/1000 mm · Tₑ N/A · Sₑ N/A · winner_N N/A</strong>
-            <small>{table.geometry.conditionCount} condition outputs retained separately · one shared campaign · no population aggregate</small>
+            <span>{isGeometryHeldout ? "FROZEN HELD-OUT NONBINARY RESULT" : "NONCONFIRMATORY PILOT"}</span>
+            <strong>{table.geometry.geometricScale} · Tₑ N/A · Sₑ N/A · winner_N N/A</strong>
+            <small>{table.geometry.conditionCount} {isGeometryHeldout ? "paired block deltas" : "condition outputs"} retained · one deposited system/campaign · no population aggregate</small>
             <small>TLD_DERIVED: {table.geometry.tldDerivedStatus} · external validation: NO · failures preserved: {table.geometry.failureCount}</small>
+            <small>Forbidden: {table.geometry.forbiddenClaims.join(" · ")}</small>
           </div>}
         </section>
       </main>

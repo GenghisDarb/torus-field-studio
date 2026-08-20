@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "source_release": "TORUS Field Studio v0.3.0",
+  "transfer_mode": "READ_ONLY_SHADOW_EVIDENCE",
+  "ControllerGate_modified": false,
+  "Batch104_started": false,
+  "repair_authority": false,
+  "terminal_state_writer": "ControllerAudit only",
+  "policies": {
+    "parent_and_effective_support": {
+      "universal_minimum_parent_count": null,
+      "rule": "derive support from the registered claim tier, estimand, independent acquisition hierarchy, dependence or ICC, effect size, sensitivity, and power surface",
+      "forbidden": [
+        "promoting nested samples, modalities, pixels, time points, or null children to independent parents",
+        "awarding full support when parent count or hierarchy is unknown"
+      ]
+    },
+    "joint_null_aggregation": {
+      "rule": "one aggregate null replicate selects one registered null child per independent parent and applies the same aggregate statistic as the observed data",
+      "forbidden": "flattening parent-local null children into a pseudo-population"
+    },
+    "scale_relative_metrology": {
+      "geometric_scale_symbol": "ell",
+      "rule": "preserve unit provenance and evaluate uncertainty using relative robust noise and registered scale perturbations",
+      "forbidden": [
+        "absolute unit floors without calibration",
+        "representing geometric scale as S_e"
+      ]
+    },
+    "boundary_and_tie_diagnostics": {
+      "required": [
+        "endpoint and adjacent-boundary pinning",
+        "ties and flat traces",
+        "multiple elbows",
+        "selection stability"
+      ],
+      "firewall": "an elbow is not T_e or winner_N and has no theory or repair authority"
+    },
+    "typed_scout_eligibility": {
+      "rule": "require a registered typed geometry handler, coordinate and unit contract, masks, projection law, nesting map, and applicable null before scoring",
+      "fail_closed_on": [
+        "silent scalarization",
+        "silent leading-dimension averaging",
+        "component-incomplete vector transforms",
+        "unknown parent hierarchy"
+      ]
+    },
+    "repeat_policy": {
+      "rule": "repeats require prospective authorization and a declared role; failed or ambiguous outcomes are preserved",
+      "forbidden": [
+        "selective reruns",
+        "parameter changes after outcome exposure",
+        "counting a verifier as a second scored assay"
+      ]
+    },
+    "structured_fragility": {
+      "required_perturbations": [
+        "component-aware rotation or registered equivariance",
+        "mask-preserving dropout",
+        "relative robust noise",
+        "anti-aliased scale change"
+      ],
+      "rule": "report graded effect sizes, uncertainty, and disagreements rather than one success Boolean"
+    },
+    "timing_non_authority": {
+      "rule": "wall-clock, CPU-jitter, latency, and throughput observations are operational telemetry only",
+      "forbidden_authority": [
+        "T_e",
+        "TLD_DERIVED",
+        "AMDS validation",
+        "ControllerGate repair",
+        "terminal success"
+      ]
+    }
+  },
+  "claim_boundary": {
+    "TLD_DERIVED": "BLOCKED",
+    "EXTERNALLY_VALIDATED": false,
+    "ToT_BROT": "FORBIDDEN",
+    "TORUS_proof": "FORBIDDEN"
+  }
+}
+
