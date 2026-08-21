@@ -1,0 +1,103 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "candidate_channel_performance": {
+    "PHASE_V3_A_SIGNED_VECTOR_BASELINE": {
+      "abstentions": 0,
+      "evaluable": 768,
+      "passed": 768,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9950229949728752,
+        1.0
+      ]
+    },
+    "PHASE_V3_B_U1_LOCAL_HOLONOMY": {
+      "abstentions": 480,
+      "evaluable": 672,
+      "passed": 672,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9943160355575149,
+        1.0
+      ]
+    },
+    "PHASE_V3_C_O2_PARITY_MONODROMY": {
+      "abstentions": 0,
+      "evaluable": 576,
+      "passed": 576,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9933749842094647,
+        0.9999999999999999
+      ]
+    },
+    "PHASE_V3_D_TEMPORAL_CROSS_SPECTRUM": {
+      "abstentions": 288,
+      "evaluable": 960,
+      "passed": 960,
+      "rate": 1.0,
+      "wilson_95": [
+        0.9960144287366574,
+        1.0
+      ]
+    }
+  },
+  "claim_boundary": "SYNTHETIC_OPERATOR_DIAGNOSTICS_ONLY",
+  "hard_gate_failures": [
+    "PHASE_V3_A lacks a frozen matched-null selective decision and formal null type-I calibration",
+    "PHASE_V3_B scalar-derived link holonomy is algebraically trivial and wrapped winding fails arbitrary local-gauge invariance",
+    "PHASE_V3_B has no frozen selective rule separating random-phase/spectrum-preserving null windings",
+    "PHASE_V3_C is valid only for explicit O2 transition data and cannot infer transitions from ordinary unannotated scalar/vector fields",
+    "PHASE_V3_D lacks a frozen phase-randomized classification null plus irregular-sampling/stationarity/instrument decision calibration",
+    "PHASE_V3_E is optional and unimplemented",
+    "no bounded combination has an independently verified selective decision rule spanning the declared representation lanes"
+  ],
+  "operator_result_count": 4224,
+  "parity": {
+    "accuracy": 1.0,
+    "correct": 576,
+    "false_parity_count": 0,
+    "trials": 576,
+    "wilson_95": [
+      0.9933749842094647,
+      0.9999999999999999
+    ]
+  },
+  "period_scan": {
+    "accuracy": 1.0,
+    "correct": 1728,
+    "periods": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      24,
+      28,
+      32
+    ],
+    "privileged_14_28_term": false,
+    "trials": 1728,
+    "wilson_95": [
+      0.9977818646151884,
+      1.0
+    ]
+  },
+  "raw_archive_count": 40,
+  "raw_total_bytes": 145589198,
+  "replicates_per_family": 96,
+  "schema_version": "tfs-v040-phase-calibration-summary-v1",
+  "selected_method": "NO_PHASE_ORIENTATION_METHOD_ESTABLISHED",
+  "synthetic_family_count": 40
+}

@@ -1,0 +1,53 @@
+{
+  "bounded_family": true,
+  "candidates": [
+    {
+      "candidate_id": "PHASE_V3_A_SIGNED_VECTOR_BASELINE",
+      "input": "registered real planar vector field",
+      "parity": "reflection pseudoscalar only; no bundle monodromy",
+      "post_calibration_status": "REJECTED_AS_COMPLETE_METHOD_NO_FROZEN_MATCHED_NULL_DECISION_OR_TYPE_I_CALIBRATION",
+      "status_before_calibration": "CANDIDATE",
+      "target": "signed local vorticity/circulation and chirality domains"
+    },
+    {
+      "candidate_id": "PHASE_V3_B_U1_LOCAL_HOLONOMY",
+      "input": "registered nonzero complex grid",
+      "parity": "not applicable",
+      "post_calibration_status": "REJECTED_PURE_VERTEX_LINK_HOLONOMY_TRIVIAL_AND_LOCAL_GAUGE_GATE_FAILS",
+      "status_before_calibration": "CANDIDATE_WITH_PURE_GAUGE_HOLONOMY_WARNING",
+      "target": "global-offset-invariant local phase winding"
+    },
+    {
+      "candidate_id": "PHASE_V3_C_O2_PARITY_MONODROMY",
+      "input": "explicit registered O2 edge/chart transitions",
+      "parity": "determinant product",
+      "post_calibration_status": "REJECTED_AS_COMPLETE_METHOD_REQUIRES_EXPLICIT_TRANSITION_DATA_AND_CANNOT_INFER_IT",
+      "status_before_calibration": "CANDIDATE_REQUIRES_TRANSITION_DATA",
+      "target": "loop reflection parity"
+    },
+    {
+      "candidate_id": "PHASE_V3_D_TEMPORAL_CROSS_SPECTRUM",
+      "input": "aligned regularly sampled component signals",
+      "parity": "not applicable",
+      "post_calibration_status": "REJECTED_AS_COMPLETE_METHOD_NULL_STATIONARITY_IRREGULAR_SAMPLING_AND_INSTRUMENT_GATES_FAIL",
+      "status_before_calibration": "CANDIDATE",
+      "target": "dominant cross-phase and period"
+    },
+    {
+      "candidate_id": "PHASE_V3_E_DISCRETE_EXTERIOR_CALCULUS_OPTIONAL",
+      "input": "oriented mesh plus discrete connection",
+      "parity": "requires separate O2 transition data",
+      "post_calibration_status": "REJECTED_UNIMPLEMENTED_OPTIONAL_CANDIDATE",
+      "status_before_calibration": "NOT_IMPLEMENTED_OPTIONAL",
+      "target": "connection curvature/holonomy"
+    },
+    {
+      "candidate_id": "NO_PHASE_METHOD_ESTABLISHED",
+      "input": null,
+      "parity": null,
+      "post_calibration_status": "SELECTED_CONSERVATIVE_STOP",
+      "status_before_calibration": "AVAILABLE_STOP",
+      "target": "conservative stop"
+    }
+  ]
+}

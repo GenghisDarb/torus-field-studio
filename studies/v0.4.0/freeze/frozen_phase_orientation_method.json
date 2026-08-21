@@ -1,0 +1,13 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "calibration_manifest_sha256": "d227ad3d456c4c9c8c579fb714861f5d6a217347d44455884921c7a941c1dea4",
+  "calibration_summary_sha256": "2e13ac9636ca0f212147f0533aa389987394f4a56198e3c879397ef1adf70fb1",
+  "method_freeze_commit": "RECORDED_BY_FOLLOWUP_RECEIPT_AFTER_ENCLOSING_COMMIT",
+  "operator_implementation_sha256": "004fa8667230dc38320051658128bfbf9bec3c89a729d9dfe7e124913afc1652",
+  "real_candidate_selected": false,
+  "scientific_outcome": "V040_PHASE_ORIENTATION_METHOD_NOT_ESTABLISHED",
+  "selected_method": "NO_PHASE_ORIENTATION_METHOD_ESTABLISHED",
+  "status": "NO_PHASE_ORIENTATION_METHOD_ESTABLISHED",
+  "untouched_heldout_phase_sensitive_outcomes_accessed": false
+}

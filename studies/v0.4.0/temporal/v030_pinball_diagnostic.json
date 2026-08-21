@@ -1,0 +1,23 @@
+{
+  "acquisition_duration_seconds": 14.941666666666666,
+  "acquisition_gap_distribution": "UNKNOWN_FROM_FROZEN_DEPOSIT",
+  "convective_time_D_over_U_seconds": 0.0967741935483871,
+  "cylinder_diameter_m": 0.03,
+  "integral_autocorrelation_time": "NOT_CALCULATED_METHOD_GATE_CLOSED",
+  "pair_temporal_overlap": "UNKNOWN_FROM_FROZEN_DEPOSIT",
+  "parent_hierarchy": {
+    "acquisitions": 56,
+    "campaign_independence": "UNKNOWN",
+    "cells": "NESTED_NEVER_POPULATION_PARENTS",
+    "paired_acquisition_blocks": 28,
+    "snapshots": "NESTED_NEVER_POPULATION_PARENTS",
+    "systems": 1
+  },
+  "reason": "the prompt permits outcome-exposed diagnostic replay only after an established method freeze; no method was established",
+  "sampling_interval_seconds": 0.008333333333333333,
+  "snapshots_per_acquisition": 1794,
+  "source_role": "OUTCOME_EXPOSED_V030_DIAGNOSTIC_ONLY",
+  "status": "NOT_EXECUTED_AFTER_NO_METHOD_GATE",
+  "stream_velocity_m_per_s": 0.31,
+  "vortex_shedding_period": "NOT_CALCULATED_METHOD_GATE_CLOSED"
+}

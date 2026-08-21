@@ -1,0 +1,9 @@
+{
+  "claim_bearing_combination": null,
+  "diagnostic_only": [
+    "registered planar vector -> local signed curl",
+    "registered complex grid -> global-offset-invariant wrapped winding",
+    "explicit O2 edge transitions -> determinant parity",
+    "regular paired time signals -> cross spectrum"
+  ]
+}

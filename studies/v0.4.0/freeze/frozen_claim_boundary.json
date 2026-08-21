@@ -1,0 +1,19 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "S_e": "NOT_APPLICABLE",
+  "TLD_DERIVED": "BLOCKED",
+  "T_e": "NOT_APPLICABLE",
+  "forbidden": [
+    "real candidate selection",
+    "heldout execution",
+    "U1 parity",
+    "Klein-bottle detection",
+    "universal 14/28 law",
+    "spinor claim from ordinary fields",
+    "TLD_DERIVED",
+    "external validation",
+    "TORUS confirmation"
+  ],
+  "maximum_claim": "BOUNDED_SYNTHETIC_OPERATOR_DIAGNOSTICS_WITH_NO_ESTABLISHED_PHASE_ORIENTATION_METHOD",
+  "winner_N": "NOT_APPLICABLE"
+}

@@ -1,0 +1,10 @@
+{
+  "forbidden": [
+    "frames -> independent acquisitions",
+    "decorrelated frames -> independent population parents",
+    "cells -> independent systems",
+    "modalities -> independent parents",
+    "paired blocks -> independent systems",
+    "one campaign -> population generalization"
+  ]
+}

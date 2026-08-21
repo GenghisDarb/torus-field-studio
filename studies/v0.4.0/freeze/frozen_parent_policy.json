@@ -1,0 +1,6 @@
+{
+  "decorrelation_never_promotes_population_parent_count": true,
+  "frames_cells_modalities_are_nested_by_default": true,
+  "highest_available_independent_unit_controls_inference": true,
+  "single_system_claim_ceiling": "SYSTEM_SPECIFIC_DESCRIPTIVE"
+}

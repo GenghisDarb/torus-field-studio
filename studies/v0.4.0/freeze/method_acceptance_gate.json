@@ -1,0 +1,87 @@
+{
+  "all_gates_pass": false,
+  "gates": [
+    {
+      "gate": "source_and_lineage_custody",
+      "status": "PASS_WITH_RECORDED_HISTORICAL_EXCEPTIONS"
+    },
+    {
+      "gate": "TLD_lineage_reconciliation",
+      "status": "FAIL_FOR_TLD_DERIVATION"
+    },
+    {
+      "gate": "mathematical_consistency",
+      "status": "FAIL_FOR_COMPLETE_BOUNDED_COMBINATION"
+    },
+    {
+      "gate": "type_I_control_with_uncertainty",
+      "status": "FAIL_NO_FROZEN_SELECTIVE_RULE"
+    },
+    {
+      "gate": "adequate_power",
+      "status": "FAIL_OPERATOR_RECOGNITION_IS_NOT_CLASSIFIER_POWER"
+    },
+    {
+      "gate": "low_false_sign_rate",
+      "status": "FAIL_NOT_NULL_CALIBRATED"
+    },
+    {
+      "gate": "low_false_parity_rate",
+      "status": "PASS_EXPLICIT_O2_SYNTHETIC_ONLY"
+    },
+    {
+      "gate": "period_specificity",
+      "status": "PASS_SYNTHETIC_BLIND_LANE_ONLY"
+    },
+    {
+      "gate": "no_14_28_privilege",
+      "status": "PASS"
+    },
+    {
+      "gate": "valid_nulls",
+      "status": "FAIL_INCOMPLETE_BY_CANDIDATE"
+    },
+    {
+      "gate": "gauge_invariance",
+      "status": "FAIL_U1_LOCAL_GAUGE"
+    },
+    {
+      "gate": "representation_equivariance",
+      "status": "PASS_FOR_TESTED_SUBSET_ONLY"
+    },
+    {
+      "gate": "temporal_dependence_policy",
+      "status": "PASS_POLICY_SYNTHETIC_VALIDATION"
+    },
+    {
+      "gate": "parent_hierarchy",
+      "status": "PASS"
+    },
+    {
+      "gate": "instrument_sensitivity",
+      "status": "FAIL_NO_POWER_OVER_DECLARED_INSTRUMENT_RANGE"
+    },
+    {
+      "gate": "mask_boundary_robustness",
+      "status": "FAIL_ABSTENTION_ONLY_NO_POWER"
+    },
+    {
+      "gate": "independent_raw_recomputation",
+      "status": "FAIL_NOT_COMPLETED_FOR_COMBINED_METHOD"
+    },
+    {
+      "gate": "mutation_rejection",
+      "status": "FAIL_NOT_COMPLETED_FOR_COMBINED_METHOD"
+    },
+    {
+      "gate": "claim_source_quarantine",
+      "status": "PASS"
+    },
+    {
+      "gate": "semantic_firewalls",
+      "status": "PASS"
+    }
+  ],
+  "heldout_legal": false,
+  "selected_method": "NO_PHASE_ORIENTATION_METHOD_ESTABLISHED"
+}

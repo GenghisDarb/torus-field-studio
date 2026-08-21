@@ -1,0 +1,9 @@
+{
+  "claim_bearing_selective_null": null,
+  "diagnostic_nulls": [
+    "amplitude/spectrum-preserving phase randomization",
+    "signed-curl noise/domain baseline",
+    "explicit O2 transition controls"
+  ],
+  "status": "NO_COMPLETE_NULL_SUITE_FROZEN"
+}

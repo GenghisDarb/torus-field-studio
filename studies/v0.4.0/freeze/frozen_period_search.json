@@ -1,0 +1,26 @@
+{
+  "blind_synthetic_accuracy": 1.0,
+  "heldout_period_search_authority": "NONE_NO_METHOD",
+  "period_family": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    18,
+    20,
+    24,
+    28,
+    32
+  ],
+  "privileged_scoring_terms": [],
+  "targeted_14_28_authority": "BLOCKED_NO_INDEPENDENT_THEORY_SOURCE"
+}
