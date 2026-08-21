@@ -1,0 +1,28 @@
+{
+  "claim_authority": "REPRODUCTION_DIAGNOSTIC_ONLY",
+  "elapsed_seconds": 210.494,
+  "error": {
+    "message": "A cell timed out while it was being executed, after 180 seconds.\nThe message was: Cell execution timed out.\nHere is a preview of the cell contents:\n-------------------\n['# Fixed dynamics parameters (Zenodo #1 compatible defaults)', 'P_SWAP_ESCAPE = 0.02', 'MAX_ESCAPE_STEPS = 60', 'MAX_HEAL_STEPS = 500', '']\n...\n['        detail_frames[(mask_name, alpha, \"null_ar1copula\")] = df3', '', 'results = pd.DataFrame(rows).sort_values([\"mask\",\"alpha\",\"condition\"])', 'display(results)', 'print(\"OK: Experiment grid complete.\")']\n-------------------\n",
+    "type": "CellTimeoutError"
+  },
+  "executed_code_cell_count": 8,
+  "generated_or_changed_outputs": [],
+  "input_count": 4,
+  "input_files_flattened": [
+    "requirements.txt",
+    "targets_baseline.csv",
+    "targets_metadata_addon.csv",
+    "targets_metadata_template.csv"
+  ],
+  "notebook": 15,
+  "outcome_exposed_release_outputs_admitted_as_inputs": false,
+  "path_change_only": true,
+  "record_id": "18080855",
+  "release": "II",
+  "replay_class": "PATH_NORMALIZED_NUMERICAL_REPLAY_NOT_EXACT_ENVIRONMENT_REPLAY",
+  "schema_version": "tfs-v040-notebook-replay-receipt-v1",
+  "source_file": "Notebook_15_CODATA_Structure_Diagnostics.ipynb",
+  "source_sha256": "a606c4ed5234d8a859bb90f71bddad40ed8bbcd8da7c2ce5dd8d4835bb8fe317",
+  "status": "BLOCKED",
+  "upload_or_install_cells_suppressed": []
+}

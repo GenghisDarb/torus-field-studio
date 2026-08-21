@@ -1,0 +1,68 @@
+{
+  "audit_date_utc": "2026-08-21",
+  "evidence_kind": "fresh_download_and_independent_recomputation",
+  "fresh_consumer_environments": {
+    "sdist": {
+      "install": "PASS",
+      "member_count": 166,
+      "reported_version": "0.3.0"
+    },
+    "wheel": {
+      "install": "PASS",
+      "reported_version": "0.3.0"
+    }
+  },
+  "frozen_identities": {
+    "authorization": "77624c6cd56fbdbe3b83a240898884ad9ab67442",
+    "candidate_freeze": "590f6ea5896d3813c3a0a673e108381a4e3d87da",
+    "method": "METHOD_V2_C_EVIDENCE_VECTOR",
+    "method_freeze": "dcaeb72b29fc0d32b002d9b5de0809b13f2ed272",
+    "preregistration": "a8e3cba766bd8b160fc9b8074086a48fb7aceceb",
+    "public_name": "INSTRUMENTED_EVIDENCE_VECTOR",
+    "run_id": "pinball-heldout-e9e3d7666b2b10cb",
+    "single_scored_execution": "4edb89d724dae0aac8b4ed15e48018a8681dbfd0"
+  },
+  "independent_raw_hdf5_verifier": {
+    "acquisition_local_null_children": 7112,
+    "acquisitions_recomputed": 56,
+    "claim_changed": false,
+    "joint_replicates_per_channel": 999,
+    "new_scored_execution": false,
+    "production_result_tables_used_as_primary_evidence": false,
+    "raw_disagreements": 0,
+    "script": "scripts/verify_v030_pinball_raw.py",
+    "unique_pairs": 28
+  },
+  "installed_wheel_replication": {
+    "new_scored_executions": 0,
+    "raw_disagreements": 0,
+    "recorded_scored_executions": 1,
+    "status": "PASS",
+    "tbx_count": 5
+  },
+  "schema_version": "tfs-v040-v030-custody-v1",
+  "status": "EXACT_WITHIN_FROZEN_NUMERICAL_TOLERANCE",
+  "tbx_audits": {
+    "failed": 0,
+    "hashes": {
+      "calibration": "5328c905614506c22828038e670d40bcd5135bede1f11e4f8256a6b4369d3200",
+      "geometry_combined": "09a2015f87a91013efca575014d4ea364bb9019038d94606938423e75ba9538b",
+      "heldout": "11b1808584331829ff490db38c1294d4fdc0c616b71feb2a7e5fb0ae19d46c5d",
+      "representation": "22e141dcd757dd250355c3196573179cd8c16606bfc28b899970b220dbff38bb",
+      "wind_pilot": "e2be775fa9e77e1544d3202e64ed1282f4e695fbc27855b037b5159e7b549c84"
+    },
+    "passed": 5
+  },
+  "tests": {
+    "browser_e2e": {
+      "collected": 8,
+      "failed": 0,
+      "passed": 8
+    },
+    "python": {
+      "collected": 118,
+      "failed": 0,
+      "passed": 118
+    }
+  }
+}

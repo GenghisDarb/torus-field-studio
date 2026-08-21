@@ -1,0 +1,27 @@
+{
+  "embedded_executable_not_immutably_published": [
+    12
+  ],
+  "large_ix_output_md5_verified": true,
+  "large_x_and_xiv_input_archives": "PUBLICLY_LOCATED_NOT_LOCALLY_DUPLICATED",
+  "pre_release_summary_only": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "public_release_count": 14,
+  "published_notebook_count": 32,
+  "published_notebook_range": [
+    13,
+    44
+  ],
+  "published_output_or_audit_assets_freshly_downloaded_and_md5_verified": 45
+}

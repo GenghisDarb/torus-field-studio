@@ -1,0 +1,13 @@
+{
+  "audit_date_utc": "2026-08-21",
+  "browser_e2e": "8/8_PASS",
+  "browser_smoke": "PASS",
+  "byte_identity": true,
+  "console_errors": 0,
+  "downloaded_combined_tbx_sha256": "09a2015f87a91013efca575014d4ea364bb9019038d94606938423e75ba9538b",
+  "evidence_kind": "fresh_download_and_independent_recomputation",
+  "pages_url": "https://genghisdarb.github.io/torus-field-studio/",
+  "release_combined_tbx_sha256": "09a2015f87a91013efca575014d4ea364bb9019038d94606938423e75ba9538b",
+  "schema_version": "tfs-v040-v030-custody-v1",
+  "tbx_audit": "PASS"
+}

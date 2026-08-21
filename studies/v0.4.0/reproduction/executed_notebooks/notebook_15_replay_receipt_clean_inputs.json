@@ -1,0 +1,36 @@
+{
+  "claim_authority": "REPRODUCTION_DIAGNOSTIC_ONLY",
+  "elapsed_seconds": 190.892,
+  "error": null,
+  "executed_code_cell_count": 11,
+  "generated_or_changed_outputs": [
+    {
+      "name": "notebook15_outputs/notebook15_config.json",
+      "sha256": "3dcb58c2300bd807596c28eedc2201ddf8bc5c30ef761050ad68a4d5784224af",
+      "size_bytes": 450
+    },
+    {
+      "name": "notebook15_outputs/notebook15_mask_and_null_summary.csv",
+      "sha256": "821196e587614158883c6b8de51a2442d8fdd75167717b606a647a6e2dda20ae",
+      "size_bytes": 1438
+    }
+  ],
+  "input_count": 4,
+  "input_files_flattened": [
+    "requirements.txt",
+    "targets_baseline.csv",
+    "targets_metadata_addon.csv",
+    "targets_metadata_template.csv"
+  ],
+  "notebook": 15,
+  "outcome_exposed_release_outputs_admitted_as_inputs": false,
+  "path_change_only": true,
+  "record_id": "18080855",
+  "release": "II",
+  "replay_class": "PATH_NORMALIZED_NUMERICAL_REPLAY_NOT_EXACT_ENVIRONMENT_REPLAY",
+  "schema_version": "tfs-v040-notebook-replay-receipt-v1",
+  "source_file": "Notebook_15_CODATA_Structure_Diagnostics.ipynb",
+  "source_sha256": "a606c4ed5234d8a859bb90f71bddad40ed8bbcd8da7c2ce5dd8d4835bb8fe317",
+  "status": "PASS",
+  "upload_or_install_cells_suppressed": []
+}

@@ -1,0 +1,140 @@
+{
+  "asset_count": 17,
+  "assets": [
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "controllergate-read-only-transfer-v0.3.0.zip",
+      "sha256": "72f2418fa41617c7e41bad6996ab8fdffd3236506c04442139371c995c888e52",
+      "size_bytes": 4171
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "geometry-method-v2-combined-v0.3.0.tbx.zip",
+      "sha256": "09a2015f87a91013efca575014d4ea364bb9019038d94606938423e75ba9538b",
+      "size_bytes": 2348284
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "geometry-method-v2-specification.md",
+      "sha256": "2443f28dfdb9faf5ef47eabcc062514533f15f7bc095ea41e63888b685c9903e",
+      "size_bytes": 3878
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "heldout-fluidic-pinball-v0.3.0.tbx.zip",
+      "sha256": "11b1808584331829ff490db38c1294d4fdc0c616b71feb2a7e5fb0ae19d46c5d",
+      "size_bytes": 2336898
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "method-calibration-v2.tbx.zip",
+      "sha256": "5328c905614506c22828038e670d40bcd5135bede1f11e4f8256a6b4369d3200",
+      "size_bytes": 76833
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "method-v2-calibration-v0.3.0.zip",
+      "sha256": "62687cc6a6e126729b98d2992ddc3c211f98c78842dbb30f3bcaecc37e733e97",
+      "size_bytes": 63104
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "release-manifest-v0.3.0.json",
+      "sha256": "4e09ce551951ea2d8cdb1e9c5757c7063bb04b4a8058455ee70da3d0aed9f58e",
+      "size_bytes": 3364
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "representation-equivariance-v2.tbx.zip",
+      "sha256": "22e141dcd757dd250355c3196573179cd8c16606bfc28b899970b220dbff38bb",
+      "size_bytes": 14521
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "sbom-v0.3.0.spdx.json",
+      "sha256": "0e0bd73fa315d1d8107309ba334200c0852c5e94217a13d3773dd02388e49031",
+      "size_bytes": 288890
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "SHA256SUMS-v0.3.0.txt",
+      "sha256": "87c15962e5f2c11ea3a738d582b57d88aef4243eac71854d9f7842918ed63b4d",
+      "size_bytes": 1588
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "torusbrot-0.3.0.tar.gz",
+      "sha256": "50b3d53bbc6bebe6cb9f43542fdb3335cdc555b057a16df42b2d33e4a3dea293",
+      "size_bytes": 171807
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "torusbrot-0.3.0-py3-none-any.whl",
+      "sha256": "644c03617d0b7e9a84cdbf7631a3d8b618db40f4bdf347efbb3ab80bd1531ad2",
+      "size_bytes": 176383
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "v0.3.0-plain-language-report.md",
+      "sha256": "56d83cdff1ffe18f40d9b91fc9556e261ff94e53372873b04b770aaa1a6316eb",
+      "size_bytes": 1511
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "v0.3.0-replication-package.zip",
+      "sha256": "ba24bc514cbca961c9532ba3891966f964a04d8e9e42d0dec8a988d2faf1868f",
+      "size_bytes": 5770215
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "v0.3.0-technical-report.md",
+      "sha256": "2fb5d1b32dbf1519769f53eee5d58b023efcfa700a4769b21cd5cbd93b29acb1",
+      "size_bytes": 5163
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "wind-farm-engineering-pilot-v0.3.0.zip",
+      "sha256": "8be8feab13e1f3edf5646f8aece03043abef1e4def8610448777999c9e8358f4",
+      "size_bytes": 210877
+    },
+    {
+      "fresh_local_digest_match": true,
+      "github_digest_match": true,
+      "name": "wind-farm-pilot-v0.3.0.tbx.zip",
+      "sha256": "e2be775fa9e77e1544d3202e64ed1282f4e695fbc27855b037b5159e7b549c84",
+      "size_bytes": 203196
+    }
+  ],
+  "audit_date_utc": "2026-08-21",
+  "evidence_kind": "fresh_download_and_independent_recomputation",
+  "fresh_download_count": 17,
+  "github_digest_matches": 17,
+  "is_draft": false,
+  "is_prerelease": false,
+  "local_sha256_matches": 17,
+  "published_at": "2026-08-20T17:25:38Z",
+  "release_manifest": "PASS",
+  "release_url": "https://github.com/GenghisDarb/torus-field-studio/releases/tag/v0.3.0",
+  "sbom": {
+    "spdx_version": "SPDX-2.3",
+    "status": "PASS"
+  },
+  "schema_version": "tfs-v040-v030-custody-v1",
+  "sha256sums_entries_verified": 16
+}

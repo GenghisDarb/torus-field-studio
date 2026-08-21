@@ -1,0 +1,436 @@
+{
+  "claim_effect": "NOTEBOOK_44_EEG_COMPOUND_INTERPRETATION_BLOCKED",
+  "comparison_fields": [
+    "UI",
+    "NSS",
+    "sep"
+  ],
+  "details": [
+    {
+      "N": 6,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 7,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 8,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 9,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 10,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 11,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 12,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 13,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 14,
+      "domain": "COSMO_CMB_TTTEEE_COMBINED",
+      "match": true,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.0",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 6,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "0.7053571428571429",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "0.9285714285714286",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 7,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "0.964",
+        "UI": "0.5892857142857143",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "0.9642857142857143",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 8,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "0.75",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.9995",
+        "UI": "0.6607142857142857",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 9,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "0.8571428571428571",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "0.00649999999999995",
+        "UI": "0.39285714285714285",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 10,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "0.7678571428571429",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.20535714285714285",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 11,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "0.875",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.20535714285714285",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 12,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "0.9985",
+        "UI": "0.6428571428571429",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.125",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 13,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.26785714285714285",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.044642857142857144",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 14,
+      "domain": "EEG_VAR_MEDIAN",
+      "match": false,
+      "notebook43": {
+        "NSS": "0.0",
+        "UI": "0.24107142857142858",
+        "sep": "False"
+      },
+      "notebook44": {
+        "NSS": "0.0",
+        "UI": "0.09821428571428571",
+        "sep": "False"
+      }
+    },
+    {
+      "N": 6,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 7,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 8,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 9,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 10,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 11,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 12,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 13,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    },
+    {
+      "N": 14,
+      "domain": "GW150914_CHIRP_MASS_POSTERIOR",
+      "match": true,
+      "notebook43": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      },
+      "notebook44": {
+        "NSS": "1.0",
+        "UI": "1.0",
+        "sep": "True"
+      }
+    }
+  ],
+  "domains": {
+    "COSMO_CMB_TTTEEE_COMBINED": {
+      "mismatches": 0,
+      "pass": true,
+      "rows": 9
+    },
+    "EEG_VAR_MEDIAN": {
+      "mismatches": 9,
+      "pass": false,
+      "rows": 9
+    },
+    "GW150914_CHIRP_MASS_POSTERIOR": {
+      "mismatches": 0,
+      "pass": true,
+      "rows": 9
+    }
+  },
+  "schema_version": "tfs-v040-tld-xiv-baseline-parity-v1",
+  "source_43_sha256": "c4e8eb8a9f65c1d3b4001f66b402eb43d67f42293130d577a466f4ee8b73b4de",
+  "source_44_sha256": "ec68f875a77cc23fdc0c91b66233f11e58070747743fe86ce7ad4e9856b76cab",
+  "status": "FAIL_EEG_ALL_N_ROWS"
+}

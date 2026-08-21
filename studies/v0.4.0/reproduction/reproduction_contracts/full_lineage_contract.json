@@ -1,0 +1,22 @@
+{
+  "TLD_DERIVED": "BLOCKED",
+  "authority_order": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "current_semantic_locks": {
+    "S_e": "persistence/survival; not winner_N",
+    "T_e": "minimum registered depth at first separation; not physical time",
+    "omega": "ordered ladder state vector only",
+    "winner_N": "harmonic/closure mode label only"
+  },
+  "fresh_replay_policy": "path changes only; no iteration/threshold/null/operator changes",
+  "no_failure_suppression": true,
+  "no_output_to_independent_reproduction_promotion": true,
+  "no_readme_to_executable_promotion": true,
+  "schema_version": "tfs-v040-full-lineage-reproduction-contract-v1"
+}

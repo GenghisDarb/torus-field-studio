@@ -1,0 +1,1 @@
+{"classification": "NOT_EXACT_ENVIRONMENT_REPRODUCTION", "environment_id": "windows-python-3.13-path-normalized-replay", "original_colab_path_preserved_semantically": true, "path_normalization": "/content -> fresh temporary directory", "python": "3.13", "release_requirements": "minimum versions only; no complete historical lock files"}

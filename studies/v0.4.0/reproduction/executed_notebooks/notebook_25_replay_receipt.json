@@ -1,0 +1,33 @@
+{
+  "claim_authority": "REPRODUCTION_DIAGNOSTIC_ONLY",
+  "elapsed_seconds": 202.45,
+  "error": {
+    "message": "A cell timed out while it was being executed, after 180 seconds.\nThe message was: Cell execution timed out.\nHere is a preview of the cell contents:\n-------------------\n['A_TRIALS = 500', 'B_TRIALS = 300', 'C_TRIALS = 200', 'MAX_STEPS = 200', '']\n...\n['master = pd.DataFrame(rows_master)', 'master.to_csv(\"p7_out/P7_variant_comparison_summary.csv\", index=False)', '', 'print(\"Wrote: p7_out/P7_variant_comparison_summary.csv\")', 'master.sort_values([\"variant_label\",\"family\"]).head(24)']\n-------------------\n",
+    "type": "CellTimeoutError"
+  },
+  "executed_code_cell_count": 5,
+  "generated_or_changed_outputs": [],
+  "input_count": 8,
+  "input_files_flattened": [
+    "CITATION.cff",
+    "P7_appendix_margin_diagnostics.csv",
+    "P7_variant_comparison_summary.csv",
+    "README.md",
+    "requirements.txt",
+    "targets_baseline.csv",
+    "targets_metadata_addon.csv",
+    "targets_metadata_template.csv"
+  ],
+  "notebook": 25,
+  "outcome_exposed_release_outputs_admitted_as_inputs": true,
+  "path_change_only": true,
+  "record_id": "18103642",
+  "release": "V",
+  "replay_class": "PATH_NORMALIZED_NUMERICAL_REPLAY_NOT_EXACT_ENVIRONMENT_REPLAY",
+  "schema_version": "tfs-v040-notebook-replay-receipt-v1",
+  "source_file": "Notebook25_P7_Closure_Discrimination_Gate.ipynb",
+  "source_sha256": "4a0f4e7a626d4dcf6d7f88c0c02d75c120112db143beb7a3efd2336da86af43c",
+  "status": "BLOCKED",
+  "valid_for_independent_reproduction": false,
+  "upload_or_install_cells_suppressed": []
+}
