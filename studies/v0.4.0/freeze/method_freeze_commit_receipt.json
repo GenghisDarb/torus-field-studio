@@ -1,0 +1,11 @@
+{
+  "branch": "agent/v0.4.0-phase-orientation-tld",
+  "commit": "2a9ab03a3fb4edb6e702d0695d27fd87f4b642f9",
+  "commit_date": "2026-08-21T08:14:55-07:00",
+  "message": "Freeze audited phase-orientation method after full TLD lineage recovery",
+  "parent": "6be85d11f22f9e04f7d9ede376734fb8f0a6eae8",
+  "remote": "https://github.com/GenghisDarb/torus-field-studio.git",
+  "remote_branch_verified_at_commit": true,
+  "selected_method": "NO_PHASE_ORIENTATION_METHOD_ESTABLISHED",
+  "tree": "60352f75e0d5b8353e5fe90487f08a9f83cf8f0a"
+}

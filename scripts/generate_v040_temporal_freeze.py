@@ -239,6 +239,12 @@ def main() -> None:
     )
 
     calibration = json.loads((CALIBRATION / "calibration_summary.json").read_text(encoding="utf-8"))
+    freeze_receipt_path = FREEZE / "method_freeze_commit_receipt.json"
+    freeze_commit = (
+        json.loads(freeze_receipt_path.read_text(encoding="utf-8"))["commit"]
+        if freeze_receipt_path.exists()
+        else "RECORDED_BY_FOLLOWUP_RECEIPT_AFTER_ENCLOSING_COMMIT"
+    )
     candidates = json.loads(
         (CALIBRATION / "preregistration" / "candidate_family.json").read_text(encoding="utf-8")
     )
@@ -312,7 +318,7 @@ def main() -> None:
             ),
             "calibration_summary_sha256": digest(CALIBRATION / "calibration_summary.json"),
             "calibration_manifest_sha256": digest(CALIBRATION / "SHA256SUMS.txt"),
-            "method_freeze_commit": "RECORDED_BY_FOLLOWUP_RECEIPT_AFTER_ENCLOSING_COMMIT",
+            "method_freeze_commit": freeze_commit,
             "untouched_heldout_phase_sensitive_outcomes_accessed": False,
             "real_candidate_selected": False,
             "TLD_DERIVED": "BLOCKED",
