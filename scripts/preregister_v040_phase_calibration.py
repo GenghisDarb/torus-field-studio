@@ -133,6 +133,65 @@ def main() -> None:
     o2 = {22, 23, 24, 25, 26, 27}
     nulls = {1, 2, 14, 33, 39, 40}
     adversarial = {5, 8, 28, 29, 30, 35, 36, 37, 38, 40}
+    expected: dict[int, dict[str, object]] = {
+        1: {"U1_WINDING": "ZERO"},
+        2: {"U1_WINDING": "NULL_RANDOM_PHASE_NO_STRUCTURE_DECISION"},
+        3: {"U1_WINDING": "ZERO_WITH_NONZERO_GRADIENT"},
+        4: {"U1_WINDING": "ONE_POSITIVE"},
+        5: {"U1_WINDING": "ONE_POSITIVE_ONE_NEGATIVE_GLOBAL_ZERO"},
+        6: {"U1_WINDING": "TWO_POSITIVE"},
+        7: {"SIGNED_VECTOR": "POSITIVE_AND_NEGATIVE_LOCAL_DOMAINS"},
+        8: {"SIGNED_VECTOR": "POSITIVE_AND_NEGATIVE_LOCAL_DOMAINS_GLOBAL_ZERO"},
+        9: {"TEMPORAL_CROSS_SPECTRUM": {"period": 12, "phase": 0.0}},
+        10: {"TEMPORAL_CROSS_SPECTRUM": {"period": 12, "phase": "PI_OVER_3"}},
+        11: {"TEMPORAL_CROSS_SPECTRUM": {"period": 16, "phase": "PI_OVER_2"}},
+        12: {"TEMPORAL_CROSS_SPECTRUM": {"period": 16, "phase": 0.0}},
+        13: {"TEMPORAL_CROSS_SPECTRUM": {"period": 16, "phase": "PI_OVER_2"}},
+        14: {"U1_WINDING": "NULL_SPECTRUM_PRESERVING_RANDOM_PHASE"},
+        15: {"U1_WINDING": "ONE_POSITIVE_AMPLITUDE_NUISANCE"},
+        16: {"SIGNED_VECTOR": "REFLECTED_PSEUDOSCALAR_SIGN"},
+        17: {"SIGNED_VECTOR": "PROPER_ROTATION_EQUIVALENT"},
+        18: {"TEMPORAL_CROSS_SPECTRUM": {"period": 12, "phase": "NEGATED_BY_TIME_REVERSAL"}},
+        19: {"TEMPORAL_CROSS_SPECTRUM": {"period": 8, "representation": "DIRECTOR_PI_PERIODIC"}},
+        20: {"TEMPORAL_CROSS_SPECTRUM": {"period": 16, "representation": "VECTOR_2PI_PERIODIC"}},
+        21: {
+            "TEMPORAL_CROSS_SPECTRUM": {
+                "period": 32,
+                "representation": "SYNTHETIC_SPINOR_LIKE_ONLY",
+            }
+        },
+        22: {"O2_MONODROMY": -1},
+        23: {"O2_MONODROMY": -1},
+        24: {"O2_MONODROMY": 1},
+        25: {"O2_MONODROMY": 1, "rotation_holonomy": "NONZERO"},
+        26: {"O2_MONODROMY": -1},
+        27: {"O2_MONODROMY": 1},
+        28: {"U1_WINDING": "ABSTAIN_BOUNDARY_TRUNCATED"},
+        29: {"U1_WINDING": "ABSTAIN_MASKED_SINGULARITY"},
+        30: {"U1_WINDING": "ABSTAIN_IRREGULAR_SAMPLING_UNSUPPORTED"},
+        31: {
+            "SIGNED_VECTOR": "OSCILLATORY_LOCAL_CHIRALITY",
+            "TEMPORAL_CROSS_SPECTRUM": {"period": 12},
+        },
+        32: {
+            "SIGNED_VECTOR": "DIRECTION_REVERSAL_PRESENT",
+            "TEMPORAL_CROSS_SPECTRUM": "ABSTAIN_NONSTATIONARY_BURST",
+        },
+        33: {"U1_WINDING": "ZERO_AMPLITUDE_ONLY_DECOY"},
+        34: {"U1_WINDING": "NULL_PHASE_ONLY_DECOY"},
+        35: {"SIGNED_VECTOR": "NESTED_REPLICATES_NOT_PARENTS"},
+        36: {"SIGNED_VECTOR": "CAMPAIGNS_ARE_HIGHEST_INFERENCE_LEVEL"},
+        37: {
+            "U1_WINDING": "ABSTAIN_INSTRUMENT_LIMITED",
+            "TEMPORAL_CROSS_SPECTRUM": "ABSTAIN_INSTRUMENT_LIMITED",
+        },
+        38: {
+            "U1_WINDING": "ABSTAIN_ALIASED",
+            "TEMPORAL_CROSS_SPECTRUM": "ABSTAIN_ALIASED",
+        },
+        39: {"SIGNED_VECTOR": "NULL_NO_DIRECTION_DECISION"},
+        40: {"SIGNED_VECTOR": "NULL_COMPATIBLE_AFTER_DOMAIN_BASELINE"},
+    }
     registry = []
     truth = []
     for number, name in enumerate(names, 1):
@@ -166,6 +225,7 @@ def main() -> None:
                 "null_family": number in nulls,
                 "adversarial_or_abstention_family": number in adversarial,
                 "applicable_candidates": applicable,
+                "expected": expected[number],
             }
         )
     write_jsonl(OUT / "synthetic_registry.jsonl", registry)
