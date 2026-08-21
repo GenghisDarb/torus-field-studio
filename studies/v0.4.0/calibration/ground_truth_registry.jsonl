@@ -1,0 +1,40 @@
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_01", "null_family": true, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_02", "null_family": true, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_03", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_04", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_05", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_06", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_07", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_08", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_09", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_10", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_11", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_12", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_13", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_14", "null_family": true, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_15", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_16", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_17", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_18", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_19", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_20", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_21", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["O2_MONODROMY"], "family_id": "SYN_22", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["O2_MONODROMY"], "family_id": "SYN_23", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["O2_MONODROMY"], "family_id": "SYN_24", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["O2_MONODROMY"], "family_id": "SYN_25", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["O2_MONODROMY"], "family_id": "SYN_26", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["O2_MONODROMY"], "family_id": "SYN_27", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_28", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_29", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_30", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["SIGNED_VECTOR", "TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_31", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["SIGNED_VECTOR", "TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_32", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_33", "null_family": true, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["U1_WINDING"], "family_id": "SYN_34", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_35", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_36", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["U1_WINDING", "TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_37", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["U1_WINDING", "TEMPORAL_CROSS_SPECTRUM"], "family_id": "SYN_38", "null_family": false, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": false, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_39", "null_family": true, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}
+{"adversarial_or_abstention_family": true, "applicable_candidates": ["SIGNED_VECTOR"], "family_id": "SYN_40", "null_family": true, "truth_scope": "CHANNEL_SPECIFIC_NOT_UNIVERSAL_TLD_LABEL"}

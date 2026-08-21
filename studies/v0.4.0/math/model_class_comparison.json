@@ -1,0 +1,64 @@
+{
+  "models": [
+    {
+      "c1": "not applicable",
+      "gauge": "not applicable",
+      "input": "registered real vector field",
+      "local_invariant": "signed curl/circulation and divergence",
+      "model": "MODEL_0_SIGNED_VECTOR_BASELINE",
+      "orientation_action": "push-forward of coordinates and vector components",
+      "parity_authority": "pseudoscalar sign only under declared reflection; no bundle monodromy",
+      "spinor": false,
+      "status": "MATHEMATICALLY_WELL_DEFINED_BUT_INCOMPLETE_FOR_PHASE",
+      "w1": "not applicable without transition bundle"
+    },
+    {
+      "c1": "applicable only with declared complex line bundle and global patching",
+      "gauge": "local U(1) gauge cancels around closed loop",
+      "input": "nonzero complex scalar samples on oriented adjacency/plaquettes",
+      "local_invariant": "plaquette product of normalized phase links",
+      "model": "MODEL_1_U1_PHASE_LINK",
+      "orientation_action": "oriented boundary reversal/conjugation changes holonomy sign",
+      "parity_authority": "none by itself",
+      "spinor": false,
+      "status": "MATHEMATICALLY_WELL_DEFINED",
+      "w1": "not the U(1) invariant"
+    },
+    {
+      "c1": "not primary nonorientability obstruction",
+      "gauge": "edge transitions transform by endpoint O(2) frames; loop conjugacy class retained",
+      "input": "explicit O(2) transition elements (theta,s) on oriented edges/charts",
+      "local_invariant": "loop determinant product s_loop; rotation holonomy only up to conjugacy/gauge",
+      "model": "MODEL_2_O2_Z2_MONODROMY",
+      "orientation_action": "s=-1, commonly acting by complex conjugation",
+      "parity_authority": "yes for declared transition bundle",
+      "spinor": false,
+      "status": "MATHEMATICALLY_WELL_DEFINED_BUT_NOT_INFERABLE_FROM_UNANNOTATED_FIELDS",
+      "w1": "evaluation on loop equals reflection parity"
+    },
+    {
+      "c1": "not sufficient",
+      "gauge": "representation-specific",
+      "input": "explicitly justified spinor or lifted frame state",
+      "local_invariant": "representation-dependent lifted holonomy",
+      "model": "MODEL_3_SPINOR_DOUBLE_VALUED",
+      "orientation_action": "requires Pin/Spin convention",
+      "parity_authority": "only under declared Pin/Spin structure",
+      "spinor": true,
+      "status": "NOT_APPLICABLE_TO_ORDINARY_V030_SCALAR_OR_VECTOR_FIELDS",
+      "w1": "orientation prerequisite/obstruction depends on structure"
+    },
+    {
+      "c1": "not inferred",
+      "gauge": "same processing as parent",
+      "input": "matched field preserving amplitude spectrum/nuisance while randomizing target phase/orientation relation",
+      "local_invariant": "none by construction",
+      "model": "MODEL_4_NULL_NO_TOPOLOGY",
+      "orientation_action": "matched to tested representation",
+      "parity_authority": "null reference only",
+      "spinor": false,
+      "status": "REQUIRED_CONTROL_FAMILY",
+      "w1": "not inferred"
+    }
+  ]
+}

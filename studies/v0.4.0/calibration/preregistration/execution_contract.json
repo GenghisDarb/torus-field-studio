@@ -1,0 +1,32 @@
+{
+  "array_grid": [
+    65,
+    65
+  ],
+  "outcome_exposed_v030_or_TLD_data_allowed": false,
+  "period_family": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    18,
+    20,
+    24,
+    28,
+    32
+  ],
+  "raw_realization_storage": "compressed numeric arrays plus seed and semantic metadata",
+  "replicates_per_family": 96,
+  "root_seed": 2026082104,
+  "scientific_parameters_may_change_after_execution": false,
+  "temporal_samples": 1024
+}
