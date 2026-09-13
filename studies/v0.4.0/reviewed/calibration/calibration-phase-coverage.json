@@ -1,0 +1,4640 @@
+{
+  "contract_sha256": "d8a38c74b3aa44be9e4c54f7ec227566856ce3bdeb1fe880ad3bfa45fce270ad",
+  "families": [
+    {
+      "coverage": 0.9375,
+      "coverage_lower_95": 0.880563216606145,
+      "coverage_upper_95": 0.9726333151136295,
+      "covered": 120,
+      "family": "temporal_coherent",
+      "independent_trials": 128,
+      "mean_interval_width_radians": 0.40493497710780424,
+      "mean_phase_error_radians": 0.0005555920726926355
+    },
+    {
+      "coverage": 0.9140625,
+      "coverage_lower_95": 0.8514365078654025,
+      "coverage_upper_95": 0.9563176931226514,
+      "covered": 117,
+      "family": "temporal_colored_coherent",
+      "independent_trials": 128,
+      "mean_interval_width_radians": 0.4229700171881022,
+      "mean_phase_error_radians": -0.012128298696884095
+    }
+  ],
+  "kind": "AUXILIARY_COVERAGE_DIAGNOSTIC",
+  "multiplicity": "Pointwise 95% exact intervals; not simultaneous acceptance gates",
+  "parameter_changes": false,
+  "partition": "CALIBRATION",
+  "physical_coverage_claim": false,
+  "rows": [
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.13529451043300697,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6898411526781023,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1442918671,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2513389678886898,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.08984115267810233,
+      "trial": 0
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22584961642229973,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5555770014105861,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 346081361,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18938838693195675,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.0444229985894139,
+      "trial": 1
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.12109320229533477,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5271448063323034,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2943052196,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12629682036748685,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07285519366769655,
+      "trial": 2
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1459504816536192,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5710958683044066,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1834422812,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.13446903546911443,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.02890413169559336,
+      "trial": 3
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.13104019016827503,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.515915661636873,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1693820982,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12986579116451835,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.08408433836312701,
+      "trial": 4
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2772886939392457,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8153422377660716,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3077539710,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1755124800374804,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.21534223776607164,
+      "trial": 5
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.33440417155372276,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5200478150469173,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1813642954,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3090093243186846,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07995218495308266,
+      "trial": 6
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11638095936017265,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.536418114227536,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2125202533,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1735950762859847,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06358188577246393,
+      "trial": 7
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2414729376878952,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5984236104140656,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 678291392,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2405697979042454,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.0015763895859344235,
+      "trial": 8
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23267389112306033,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6042364183374545,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3186310159,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.29355487789383045,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.004236418337454473,
+      "trial": 9
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15114202979680108,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5375257822579224,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1743121873,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12807205299572147,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06247421774207762,
+      "trial": 10
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20054295111427542,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5823358275334716,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 506132941,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21145717309626572,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.017664172466528405,
+      "trial": 11
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23648804248788788,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7135746511761035,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1856476114,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2067920552623342,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.11357465117610355,
+      "trial": 12
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16846487030390683,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6011823242768317,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3290078035,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23498208440448715,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0011823242768317366,
+      "trial": 13
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.24064297095564818,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6321395563471215,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 888350750,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2297075332227851,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.03213955634712151,
+      "trial": 14
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.09341476374833145,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5822287374571666,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 198456979,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1176489820618977,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.017771262542833344,
+      "trial": 15
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2271378783594741,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5769525605500617,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 298404934,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21808155255694647,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.023047439449938256,
+      "trial": 16
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22578305876243085,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.47940234211454924,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 312288788,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23460362532328022,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.12059765788545074,
+      "trial": 17
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.10744165310812338,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.3407118283600562,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1443671519,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11455983146104373,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.2592881716399438,
+      "trial": 18
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19187758550535455,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.601670534177323,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3143744154,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1996942966007568,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.001670534177322991,
+      "trial": 19
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16450922067081133,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6350779811036704,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1406270584,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.22427086577873953,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.03507798110367044,
+      "trial": 20
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.259753453136863,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.654136798829486,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 96889776,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24013094330101115,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.05413679882948607,
+      "trial": 21
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1854158648437826,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6177639583816543,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3730765859,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.27245479815466994,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.017763958381654347,
+      "trial": 22
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.24396028106155784,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5735373271811107,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2891902097,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14860391667180756,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.026462672818889255,
+      "trial": 23
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.14489372424595678,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.540332509356696,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2865940361,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.221761565397836,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.05966749064330401,
+      "trial": 24
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25955973060186843,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6098689881657153,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1190432095,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.25644228937313307,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.009868988165715355,
+      "trial": 25
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2838923864004108,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7628670063406664,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1360198387,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20533398595745966,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.16286700634066642,
+      "trial": 26
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.12661137313135776,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.49261331934736596,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1391274792,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11713996483461087,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.10738668065263401,
+      "trial": 27
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21352689572872477,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4782184755019618,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2769555627,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2281393050414795,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1217815244980382,
+      "trial": 28
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.10597292725920132,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6314901365665422,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2934018476,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.08997344581609167,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0314901365665422,
+      "trial": 29
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.348483212669669,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.45869800594175575,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2686289553,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2483263756404184,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.14130199405824423,
+      "trial": 30
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21898655487985724,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6051655356118197,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 783443906,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16880363657238964,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.00516553561181976,
+      "trial": 31
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18275578148616886,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.709103937496558,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1971250019,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14669994198922348,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.109103937496558,
+      "trial": 32
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22996098548398392,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5452628944394549,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1992993037,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2094171234727561,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.05473710556054512,
+      "trial": 33
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19511344342077214,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5094708020409278,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2345491176,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14770920585350172,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09052919795907223,
+      "trial": 34
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22770292314551296,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7098437447581638,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4149009635,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11777774485793562,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.10984374475816383,
+      "trial": 35
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16322287193163929,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.45880105736126664,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1938369472,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2028085940285736,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.14119894263873334,
+      "trial": 36
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11748340512094177,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7235820249347047,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1435271558,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.10710270624737873,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.12358202493470472,
+      "trial": 37
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.4232483480260006,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7103466016851434,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1218601169,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3279274499877929,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.11034660168514343,
+      "trial": 38
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.26982915256829315,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6144406686235424,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3941347407,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2838312129558084,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.01444066862354243,
+      "trial": 39
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.26653670683073794,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5573023780295865,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1089732679,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24874330651128831,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.04269762197041349,
+      "trial": 40
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.10356088552675215,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5196014526370137,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3127866871,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17249623454163232,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.08039854736298624,
+      "trial": 41
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1062406428330265,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6571732980071513,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 377492376,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12403905695071672,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.05717329800715132,
+      "trial": 42
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.13784088194366623,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5930074622951974,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3907060882,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14204887280117784,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.00699253770480257,
+      "trial": 43
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.24489850747807065,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7605927695318615,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1882479960,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11043014424947832,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.16059276953186152,
+      "trial": 44
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16556572505590475,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5605635344680214,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3103483474,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19857838183618792,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.03943646553197855,
+      "trial": 45
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.3296528278557262,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6040635015748299,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2641337040,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16890718242171435,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.004063501574829931,
+      "trial": 46
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1460812726101046,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5814932328562706,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1657274731,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17036336360549462,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.01850676714372934,
+      "trial": 47
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2156976841118534,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.638308484475806,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1744225129,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14759864651292365,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.03830848447580604,
+      "trial": 48
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15118144211450418,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4810291761979599,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3087162681,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1735438687042379,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.11897082380204009,
+      "trial": 49
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22653170556062024,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5100954445929227,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4267793294,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1934464578907233,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.08990455540707731,
+      "trial": 50
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.6138407434842057,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6821621228486586,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1716895757,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.22286192536622806,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.08216212284865865,
+      "trial": 51
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.300995401487896,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.15493205290217524,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1295121687,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2530512222478287,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.4450679470978247,
+      "trial": 52
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23513732550840263,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5438534258139238,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3646920523,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.273895913998004,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.05614657418607616,
+      "trial": 53
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1999980248965256,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5219045884483606,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3585946203,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.13980603844347358,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07809541155163935,
+      "trial": 54
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22789707414412197,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5985997026105088,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 705816823,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3182271339980415,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.0014002973894912119,
+      "trial": 55
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.14056336890844046,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6899667331210757,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3882978891,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19400759303721446,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.08996673312107573,
+      "trial": 56
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1379820935573506,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4179592327595873,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3144878249,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.26007778787795616,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.18204076724041268,
+      "trial": 57
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.13289204051235923,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6448543728326527,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3146786992,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1331411970237945,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0448543728326527,
+      "trial": 58
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15340383636443827,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4663612311677475,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4031836338,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.13750069951693528,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.13363876883225245,
+      "trial": 59
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2060778714296129,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5217785703308075,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4170277931,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2346267084724177,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07822142966919243,
+      "trial": 60
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2516191263422332,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5502952754235555,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2543582062,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18380480685677703,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.04970472457644448,
+      "trial": 61
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.06268998669199363,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.535463349884067,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3269769253,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.065990253134637,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06453665011593301,
+      "trial": 62
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.08096603753626692,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.48725427315083747,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 977468451,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1302037698976636,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.11274572684916251,
+      "trial": 63
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.33240368181456614,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6080816809147442,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1693133639,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20220589042660053,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.00808168091474426,
+      "trial": 64
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15913971605693808,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4932239250256647,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1592744984,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20034946553468266,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.10677607497433528,
+      "trial": 65
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25372019275042323,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4745762587208052,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1722413105,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21840096482291896,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.12542374127919478,
+      "trial": 66
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2167413904342154,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6289687603418079,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4155395404,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2330165219806625,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.02896876034180795,
+      "trial": 67
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2703152573029944,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5147368177219388,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2904825151,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.29159506764780607,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.08526318227806118,
+      "trial": 68
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2333098691079309,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8085455430150704,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1495319170,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20057492953609435,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.20854554301507044,
+      "trial": 69
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.08901568643849879,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7100542555909919,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2001688511,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.10115419367579204,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.11005425559099191,
+      "trial": 70
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15506646774444863,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6366455205450291,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3283470354,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14573601105607276,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.03664552054502912,
+      "trial": 71
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1741532620849209,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4189468150003254,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 6019508,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1936254886104663,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.18105318499967457,
+      "trial": 72
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2880874783064689,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6898734802660426,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1792684249,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2665723890031943,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0898734802660426,
+      "trial": 73
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2237537074591433,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6848403516689772,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 947960056,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17720184750794613,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.08484035166897719,
+      "trial": 74
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18396674155441906,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.540943264560549,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 455177950,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.29372799438350716,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.059056735439451,
+      "trial": 75
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.35829301052683526,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7792737728033359,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2561936960,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21094123862821829,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.1792737728033359,
+      "trial": 76
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23346584183272742,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7558041209118826,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1267258823,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.22934808233958032,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.15580412091188267,
+      "trial": 77
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1432425771879855,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.49114961553033426,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4221432295,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1859843726550321,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.10885038446966572,
+      "trial": 78
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.26472641024791943,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.655186275931055,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4230431891,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1614349495419983,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.05518627593105507,
+      "trial": 79
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.12340215594681926,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7376760875790326,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3372381098,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20982588307641845,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.1376760875790326,
+      "trial": 80
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18911343255467428,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5515548506694044,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1737392593,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2409358453344318,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.04844514933059563,
+      "trial": 81
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.29252968946233737,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6696991083256996,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1482331900,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2829052963511484,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.06969910832569959,
+      "trial": 82
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.17291111388086997,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7367582238284962,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3765432384,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16633701513490265,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.13675822382849623,
+      "trial": 83
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16836212006639123,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7035981738506779,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 535434954,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3586207145000766,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.10359817385067793,
+      "trial": 84
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22329860983554567,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5724648672773222,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3714305617,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1291465886873224,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.02753513272267782,
+      "trial": 85
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1583305893112764,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7826996802891902,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2282365278,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24381650353441672,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.18269968028919026,
+      "trial": 86
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16444776789294893,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5981739340569091,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 362822328,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17289586671809767,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.001826065943090871,
+      "trial": 87
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.14908094623254756,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6751837716897241,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2127061039,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.28247393130413456,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07518377168972412,
+      "trial": 88
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19235532642354827,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6472552024643915,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3721991313,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16419928381836799,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.04725520246439152,
+      "trial": 89
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2251175864567279,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6920193612209903,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2549400433,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19579863048329504,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.09201936122099032,
+      "trial": 90
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.262394935635902,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6145195741440871,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2581044631,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2406899647093293,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.01451957414408711,
+      "trial": 91
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20514877883174837,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5832502151157882,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3887400079,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19616284438230336,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.01674978488421175,
+      "trial": 92
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19978149034371803,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6033741303279767,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3663479163,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17964656479965638,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.003374130327976732,
+      "trial": 93
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19206875228952777,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6496164482177443,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1841758157,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21766009008211837,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.04961644821774436,
+      "trial": 94
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2830001803790084,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.606941687151753,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4108046210,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.22131437602547596,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.00694168715175303,
+      "trial": 95
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.34401120671314905,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5007106238792977,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3403472119,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.10363425554418616,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09928937612070232,
+      "trial": 96
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22970678399759498,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.49751704472236435,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3514834595,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.15198459798987654,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.10248295527763562,
+      "trial": 97
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.17217257800321545,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6872509898310918,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2314578504,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21069100226949672,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.08725098983109181,
+      "trial": 98
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.14218995048900077,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5391887424826801,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1794208501,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12247349669056805,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06081125751731986,
+      "trial": 99
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15687087494663823,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6731005435381495,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3060574663,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21317355098370408,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07310054353814954,
+      "trial": 100
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18160869135737895,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6742240570457257,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2895825243,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18730798665339585,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07422405704572577,
+      "trial": 101
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23124289609825296,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5267351616643011,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3854520665,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17219389660883036,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07326483833569886,
+      "trial": 102
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1983434990817405,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7107622833283612,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1565807186,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.22799940670878718,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.11076228332836124,
+      "trial": 103
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25793488048829255,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6218061320623363,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 407185739,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24243262823265846,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.02180613206233628,
+      "trial": 104
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18854261154342136,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6413481301402063,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4238055494,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1890054017210856,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.04134813014020633,
+      "trial": 105
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1451933238647771,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.47555681096841457,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1732948996,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.15644085070712643,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.12444318903158541,
+      "trial": 106
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23402825573989833,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5678511775560479,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1522286592,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14608939113649289,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.03214882244395212,
+      "trial": 107
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.17421342261532474,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4803704760181495,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2981056052,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.22674573773058684,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1196295239818505,
+      "trial": 108
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.35482109491375624,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8062818045334749,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4000185598,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2677668334572891,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.2062818045334749,
+      "trial": 109
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.4196202938453038,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6048695786986464,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 279781786,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.35523646319691304,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0048695786986464595,
+      "trial": 110
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2839980759332723,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5053792722736474,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 246047156,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20591999490219065,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09462072772635256,
+      "trial": 111
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11749722292768652,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5304777778468642,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1973231298,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1881080503921133,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06952222215313575,
+      "trial": 112
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.3197908620877882,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6335319149829958,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 913946528,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.15431477688319198,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.03353191498299579,
+      "trial": 113
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.10905190814911975,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4753307394793178,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2508865275,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21629645818315515,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.12466926052068217,
+      "trial": 114
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.3104350664140852,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5355215142909963,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3768576672,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1525429136687488,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06447848570900372,
+      "trial": 115
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20449769191467965,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.738633805118184,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1837463552,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1370536405781852,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.13863380511818402,
+      "trial": 116
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2645461975046892,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6552208216165384,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1188885816,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1901840018242258,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.05522082161653841,
+      "trial": 117
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1907571495926645,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6463912593743951,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4161858789,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.194995148098724,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.04639125937439514,
+      "trial": 118
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15916159964578933,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8020497597322053,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3247300233,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2257326289894726,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.2020497597322053,
+      "trial": 119
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21584730421475126,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6058941744418025,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3070329705,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1317370236125539,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.005894174441802513,
+      "trial": 120
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16207047207836947,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6580211612573699,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 425511054,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16568703183165118,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.05802116125736989,
+      "trial": 121
+    },
+    {
+      "covered": false,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1224570701143607,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.40114843791653276,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2824645079,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12393621204812579,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.19885156208346721,
+      "trial": 122
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.3154774842232957,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6773925253049133,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4099919500,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20845455044037148,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07739252530491336,
+      "trial": 123
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11411362302039325,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6367987870407741,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3224274798,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11667729209301259,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.036798787040774106,
+      "trial": 124
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22367922509002294,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7174373116749635,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1227493130,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2520973235469374,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.11743731167496353,
+      "trial": 125
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20372897382651006,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7800706748959441,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 175064834,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.29445700044152934,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.18007067489594408,
+      "trial": 126
+    },
+    {
+      "covered": true,
+      "family": "temporal_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11120873124545519,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6476022467965126,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 255153165,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.15808133781325412,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.04760224679651259,
+      "trial": 127
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22694308904286353,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6722544631306266,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2666961676,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.27628755232455354,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07225446313062667,
+      "trial": 0
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.28631139739890893,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6976258637415199,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3806975196,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2559036631560292,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.09762586374151994,
+      "trial": 1
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18376637528337675,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5052268227945627,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1760972086,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.13626904758190647,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09477317720543732,
+      "trial": 2
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18749737320758914,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.670729631639845,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1094576443,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24525970493946703,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07072963163984504,
+      "trial": 3
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.24824760022416092,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6785225327366243,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1222168996,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16484968965175797,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07852253273662435,
+      "trial": 4
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18969005658861277,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.48277116677703236,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4206202028,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12487908016783568,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.11722883322296762,
+      "trial": 5
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15995885018539815,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4484117017256876,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3734619382,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11956293497354067,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.15158829827431236,
+      "trial": 6
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.5226356485462195,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7309960804673274,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4240583594,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20187303812712287,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.13099608046732747,
+      "trial": 7
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1399222221039935,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5969747997150701,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3356508356,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20910949355260977,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.0030252002849299187,
+      "trial": 8
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2008303404639914,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6717404305217006,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 924465560,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.15067329385676892,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07174043052170065,
+      "trial": 9
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1560700174751544,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.692177066823052,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1624926011,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.13611742070701954,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.09217706682305205,
+      "trial": 10
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.35320444962838293,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6674207089603841,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1766530942,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19485402109575864,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0674207089603841,
+      "trial": 11
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16958652801760643,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.733279192800084,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1437608319,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12454590681870037,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.13327919280008407,
+      "trial": 12
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15973126919366898,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6529111737230475,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1206221278,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.36605961953424826,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.052911173723047544,
+      "trial": 13
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20351697974812424,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8424732690399058,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2176323550,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1632285920006764,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.24247326903990588,
+      "trial": 14
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.4395687183874284,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5399038288020307,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1067051005,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2290602195169137,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06009617119796928,
+      "trial": 15
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.27385765084705993,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6602389436374776,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 762021486,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21057088483776557,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.060238943637477615,
+      "trial": 16
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18540616502924734,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.47336737590797556,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2409039638,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.30217460040791033,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.12663262409202442,
+      "trial": 17
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.3098701700350741,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5605310368011068,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1451605559,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3098654155663925,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.03946896319889315,
+      "trial": 18
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15871175517903965,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5776329871967016,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1139418103,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1375297208426771,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.022367012803298336,
+      "trial": 19
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1963995419400346,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4440162584934268,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2812208794,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14483421610394182,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.15598374150657315,
+      "trial": 20
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.26753683663013306,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7423935427094401,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 394529630,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11198673246247765,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.14239354270944016,
+      "trial": 21
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2663897654785381,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.3766212968989635,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2810368106,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.4749341744922106,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.22337870310103647,
+      "trial": 22
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1905930196115478,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5909075143644386,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4033815325,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17355564346672686,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.00909248563556142,
+      "trial": 23
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.14275237521815545,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5789993028730077,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3823677677,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.33228062013993115,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.021000697126992263,
+      "trial": 24
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.13984493764715972,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5954545446568758,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3940947266,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2050518795314582,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.004545455343124227,
+      "trial": 25
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1896818625584691,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.46637402271743256,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1209188049,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19677802741985623,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.13362597728256742,
+      "trial": 26
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1183068509366429,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5743346184072573,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1491092217,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.109371717886241,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.025665381592742675,
+      "trial": 27
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11209096002548365,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4451938363309919,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3757827902,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1309962007630911,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.15480616366900807,
+      "trial": 28
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18567203964737114,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.55856127747542,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 144665480,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16703679414821582,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.04143872252458003,
+      "trial": 29
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.14213672878359604,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.49313275139566815,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 311314541,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21082405786851505,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.10686724860433185,
+      "trial": 30
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16292086777262363,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5316173053406731,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 932131153,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23385489577710222,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06838269465932689,
+      "trial": 31
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1333690757864566,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5933109261445253,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 793457936,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20378138842512586,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.006689073855474681,
+      "trial": 32
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21127632008332928,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5439681722161226,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3701380723,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20722526800574828,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.056031827783877386,
+      "trial": 33
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2138131830683691,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6013936542377526,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3666599606,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23699201672377115,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0013936542377526175,
+      "trial": 34
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.173882927790438,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5445923762378453,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1163435301,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1695963299172304,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.05540762376215469,
+      "trial": 35
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.24311852496367523,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6822283728724535,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3611833711,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23748580489087304,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.08222837287245355,
+      "trial": 36
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.14886002780276428,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.62425963370828,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 762384768,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1793166411974992,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.024259633708279993,
+      "trial": 37
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.38411543632978046,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5749350833866518,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3173395926,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17017729670487586,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.025064916613348198,
+      "trial": 38
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.12730826266526796,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7017162246492142,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1751017996,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16016736297156578,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.10171622464921426,
+      "trial": 39
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.17364063061263812,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4265459702128185,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1068859191,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14675376749788532,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1734540297871815,
+      "trial": 40
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11095436917493424,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6453510393269093,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2745001461,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.28347238964433824,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.045351039326909315,
+      "trial": 41
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2279034412916288,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.42998628444740555,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3506051108,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20724207606342532,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.17001371555259442,
+      "trial": 42
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.34959697566059295,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6249172779021573,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2065923712,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.30463332281111116,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.024917277902157364,
+      "trial": 43
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2930185819649354,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8016320619152182,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 559124060,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2729216045434014,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.2016320619152182,
+      "trial": 44
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2098356606017107,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5916551500937667,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3727857724,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19608643910173632,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.008344849906233298,
+      "trial": 45
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.38284673674916303,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5067777907369216,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3838861160,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3882737357285113,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09322220926307834,
+      "trial": 46
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.12961205236079137,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7131506812486054,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2082232467,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1724696666098061,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.1131506812486054,
+      "trial": 47
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.13855644683282423,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5247249671396444,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3541518982,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12351754132716042,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07527503286035553,
+      "trial": 48
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2258115453027978,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7007107310837167,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 271437351,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21599444160180653,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.10071073108371675,
+      "trial": 49
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15862150554482457,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6514315051235874,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2717588046,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19312172150532347,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.05143150512358741,
+      "trial": 50
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20619726785248849,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5039075940429564,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2023225974,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17465173032941772,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09609240595704362,
+      "trial": 51
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16364634363204808,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6427573285890179,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3643870247,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20600857761029098,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.042757328589017936,
+      "trial": 52
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1793822035137229,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5771547343689039,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2310857370,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2671860662975328,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.022845265631096123,
+      "trial": 53
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11326884927270914,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6602987539376363,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2012269985,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18590442084324102,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.060298753937636285,
+      "trial": 54
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1485055729684527,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.46201584598156803,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1407570941,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11982181188186174,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.13798415401843195,
+      "trial": 55
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.24694722777228126,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6205180260374387,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1741272132,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21274114626292667,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.020518026037438686,
+      "trial": 56
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15871671751560845,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7882448180154344,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4196072403,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2716395599559078,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.18824481801543447,
+      "trial": 57
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23844359639491577,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5337248897784984,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3545959405,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.29103041209280045,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06627511022150157,
+      "trial": 58
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.148008695475294,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.49217043032393676,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2855461170,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3154986087962873,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.10782956967606322,
+      "trial": 59
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.11839067360805822,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8109298025313145,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2401646808,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.09818220205000687,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.21092980253131458,
+      "trial": 60
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1992578574464148,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7130468789255625,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3604507549,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1514369097069628,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.11304687892556255,
+      "trial": 61
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.08461613946539778,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4666142748132428,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1763671161,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.13794223961143928,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.13338572518675718,
+      "trial": 62
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.27775000677929984,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5104807325883746,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3052057764,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17875553468899474,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.08951926741162541,
+      "trial": 63
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.24108599839737607,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.42860001659595925,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 547404137,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18796776503137158,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.17139998340404072,
+      "trial": 64
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16434307631834416,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.46657895895065205,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2939560214,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19056174457915964,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.13342104104934796,
+      "trial": 65
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22575276453191803,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.73266371259173,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4048653467,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17359550174156407,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.13266371259173004,
+      "trial": 66
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22153383569880478,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6704208257832428,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2803616143,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23435284091156594,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.07042082578324282,
+      "trial": 67
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25748784175248957,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4041218243413278,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1639476517,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24552808125034747,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.19587817565867216,
+      "trial": 68
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20033737219921013,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.607094762968084,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1080072751,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2162211983074693,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0070947629680839785,
+      "trial": 69
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.31501972379308274,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6108794574731548,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4036162638,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23573773761131506,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.010879457473154773,
+      "trial": 70
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.09887911068453921,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4856586638264098,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 726427019,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1661623855190043,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.11434133617359016,
+      "trial": 71
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.17211212580558977,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5926346305377684,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 730240969,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23039302848389648,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.007365369462231541,
+      "trial": 72
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25633618718274426,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5394878387021484,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 291694000,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24199003497718446,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06051216129785152,
+      "trial": 73
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.183365191443131,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.3490757905331156,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3433526568,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12728989487673642,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.2509242094668844,
+      "trial": 74
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21263219199809216,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.776923779339819,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3884295238,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21275853098948774,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.1769237793398191,
+      "trial": 75
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20872307128070058,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5356205238937096,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3090559331,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23949218611833198,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.06437947610629036,
+      "trial": 76
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.22474595139920706,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6228073071087017,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1366322452,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2961995749164694,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.022807307108701713,
+      "trial": 77
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.213660496425123,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5876266910114559,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 859776207,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1453148750123041,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.012373308988544052,
+      "trial": 78
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18317818352600046,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4110131089918186,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3939865542,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17155929656501112,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1889868910081814,
+      "trial": 79
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.566630496748692,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6848525190957246,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2247561188,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.30811900425401717,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.08485251909572467,
+      "trial": 80
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.161181416914015,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.546668226354296,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 162623211,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20966251573596584,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.053331773645703955,
+      "trial": 81
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.181256066138592,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.44988210326394357,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1055579367,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16021899203914344,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1501178967360564,
+      "trial": 82
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18335275599623932,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5937645541294208,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3135782358,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21125590530364677,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.006235445870579226,
+      "trial": 83
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25746905133598075,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5299641707516801,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 295281392,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2597179376371128,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07003582924831986,
+      "trial": 84
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.20873306072957423,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.654481561469475,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3235751352,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23774397468707406,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.054481561469475026,
+      "trial": 85
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21573413230761887,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6691302822870528,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4019346043,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1097615282910175,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.06913028228705285,
+      "trial": 86
+    },
+    {
+      "covered": false,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2152210224690228,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.37761891936394437,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4225728618,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2191552252884173,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.2223810806360556,
+      "trial": 87
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21940105116537492,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5862575589452467,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4155607189,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1975279542615863,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.013742441054753305,
+      "trial": 88
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18774730543758758,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5049942845856886,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4082892943,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.15098488972281385,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09500571541431135,
+      "trial": 89
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19005388744203494,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4823945684455844,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 202696088,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.28476216922314557,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.11760543155441555,
+      "trial": 90
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1479888244488062,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7016599616891177,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3078264475,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11155863281118557,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.10165996168911773,
+      "trial": 91
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1954922200119651,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5475861679655769,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 318898409,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17299933549510613,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.05241383203442306,
+      "trial": 92
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.09786864203227601,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6102545365348807,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4222828571,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12458520296430882,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.010254536534880732,
+      "trial": 93
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2728821740360589,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6011613294980025,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1527130837,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3251128531479623,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.0011613294980025168,
+      "trial": 94
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21495520579147798,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5517278194604834,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3579562918,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2853343482443373,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.04827218053951654,
+      "trial": 95
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2623072951563279,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7458787091544032,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3423866575,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18254831749361547,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.14587870915440326,
+      "trial": 96
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25001014359680174,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.48739642007184286,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1109927694,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.30135930670299504,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1126035799281571,
+      "trial": 97
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2323603711758346,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5192853801531494,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1414630605,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12841919535713314,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.08071461984685058,
+      "trial": 98
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.10870502137327027,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5802942768513774,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 574450211,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.14694100217682338,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.019705723148622623,
+      "trial": 99
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19691831685640449,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6080286312033586,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3041473281,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17195465695350579,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.008028631203358616,
+      "trial": 100
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.35415495428667537,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6484422520527755,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4250137565,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.30960215654011175,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.048442252052775525,
+      "trial": 101
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2374672675272574,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.578983113987189,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2333823947,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.21174230568644958,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.02101688601281093,
+      "trial": 102
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.23507218653464126,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5246105472916809,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 471144503,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2511565985458709,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.0753894527083191,
+      "trial": 103
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2013769474541357,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5955216706483721,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3815411325,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.27003962359212647,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.004478329351627841,
+      "trial": 104
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25877090417467324,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.8206417896664782,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4134687773,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2401250964109622,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.22064178966647818,
+      "trial": 105
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.25613661381338826,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5822786400380099,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 96279014,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.25682014640814177,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.01772135996199009,
+      "trial": 106
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2903602337719597,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5058871827151667,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2582020221,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.4604521492820158,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.09411281728483323,
+      "trial": 107
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18973501034677825,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6072154040666318,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1267843369,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.16829675638779976,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.007215404066631792,
+      "trial": 108
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.15421312250418542,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5432552377894724,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 792332879,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12592213097095356,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.0567447622105276,
+      "trial": 109
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.18854023605614997,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5991057041699439,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4111841776,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19193788720909918,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.0008942958300560687,
+      "trial": 110
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1687842538022943,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4699750921964749,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 44878181,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.20200862504423311,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1300249078035251,
+      "trial": 111
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16158757806675508,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6396153800477336,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3235520259,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19705024438920574,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.03961538004773357,
+      "trial": 112
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19442862966502394,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7813796193131614,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 673416202,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.17157432514871032,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.18137961931316138,
+      "trial": 113
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.16727902528630523,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.48180945873677244,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4263062963,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.19563402675839897,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.11819054126322753,
+      "trial": 114
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1154414884537382,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6915272671418535,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 188607824,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.12798277659151824,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.09152726714185355,
+      "trial": 115
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1537623655262442,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.46393755868823233,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4049414376,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18380317934558485,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.13606244131176765,
+      "trial": 116
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.17180143561990596,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4263577757393552,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2688632338,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3060629650637219,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.1736422242606448,
+      "trial": 117
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.3103805906574639,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5747699952123231,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2418242794,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.1922227397619929,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.025230004787676896,
+      "trial": 118
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.196641841498302,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5266665864924304,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3461951711,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3026025747980838,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.07333341350756961,
+      "trial": 119
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.28997054864075544,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7509716188361006,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2145966668,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2945674151228759,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.15097161883610066,
+      "trial": 120
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.21698973715894845,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.519433632752988,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4224976954,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.11381098767287962,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.08056636724701194,
+      "trial": 121
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.1808457414850909,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.6275209524019365,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3446159600,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2261985051470792,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.027520952401936527,
+      "trial": 122
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.17552821232304477,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.5513953436377151,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 834096577,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.18452687608117105,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.04860465636228484,
+      "trial": 123
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2870015694642397,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7362057324700779,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 2586145107,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.24866373545478124,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.13620573247007794,
+      "trial": 124
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.2942818082403262,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.4190908555194982,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 3938677889,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.3222069818551471,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": -0.18090914448050177,
+      "trial": 125
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.29974642005423846,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7424282409972283,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 4077351281,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.2305373214337268,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.14242824099722828,
+      "trial": 126
+    },
+    {
+      "covered": true,
+      "family": "temporal_colored_coherent",
+      "interval": {
+        "confidence": 0.95,
+        "lower_offset_radians": -0.19358337680079837,
+        "method": "SEGMENT_PERCENTILE_CIRCULAR_OFFSETS",
+        "reference_phase_radians": 0.7661138790430442,
+        "replicates": 199,
+        "scope": "ASSUMED_EXCHANGEABLE_INDEPENDENT_SEGMENTS",
+        "seed": 1277268157,
+        "status": "CONDITIONAL_BOOTSTRAP",
+        "upper_offset_radians": 0.23129056764111644,
+        "warning": "Unreliable near zero cross-spectrum or wrapped diffuse phase"
+      },
+      "phase_error": 0.16611387904304423,
+      "trial": 127
+    }
+  ]
+}

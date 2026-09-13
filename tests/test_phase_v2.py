@@ -228,3 +228,10 @@ def test_iat_convention_and_oscillatory_limit() -> None:
                                              applicability="STATIONARY_SHORT_MEMORY_NONOSCILLATORY")
     assert oscillatory["tau_factor"] is None
     assert oscillatory["reason"] == "STRONG_NEGATIVE_LOBE_USE_OSCILLATORY_MODEL"
+
+
+def test_finite_components_with_overflowing_modulus_abstain() -> None:
+    result = sampled_winding(np.full(4, complex(1.7e308, 1.7e308)))
+    assert result["winding"] is None
+    assert result["valid_sample_count"] == 0
+    assert result["phase_unidentifiable_sample_count"] == 4

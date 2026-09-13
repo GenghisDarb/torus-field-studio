@@ -53,8 +53,9 @@ def sampled_winding(
         if supplied.shape != z.shape:
             raise ValueError("mask must match the loop")
         observed &= supplied
-    amplitude = np.abs(z)
-    valid = observed & (amplitude > amplitude_floor) & (amplitude > noise)
+    with np.errstate(over="ignore", invalid="ignore"):
+        amplitude = np.abs(z)
+    valid = observed & np.isfinite(amplitude) & (amplitude > amplitude_floor) & (amplitude > noise)
     result: dict[str, object] = {
         "operator_id": "SAMPLED_WINDING_V2",
         "status": "INDETERMINATE",
