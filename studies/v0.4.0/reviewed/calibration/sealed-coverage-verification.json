@@ -1,0 +1,40 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "bootstrap_children": 203776,
+  "coverage_sha256": "81a283fe9b6b694dfa3d2081a3b7ff8a3b3bd1e52f9861c6b6777936b9f4822c",
+  "families": [
+    {
+      "coverage": 0.890625,
+      "coverage_lower_95": 0.8603247274974912,
+      "coverage_upper_95": 0.9163150723695714,
+      "covered": 456,
+      "family": "temporal_coherent",
+      "independent_trials": 512,
+      "mean_interval_width_radians": 0.4170706684058866,
+      "mean_phase_error_radians": 0.0041611532249063955
+    },
+    {
+      "coverage": 0.91796875,
+      "coverage_lower_95": 0.8907339159358716,
+      "coverage_upper_95": 0.9402413055056811,
+      "covered": 470,
+      "family": "temporal_colored_coherent",
+      "independent_trials": 512,
+      "mean_interval_width_radians": 0.42213480910797185,
+      "mean_phase_error_radians": 0.002194298187125154
+    }
+  ],
+  "independent_recomputation": true,
+  "independent_trials": 1024,
+  "partition": "SEALED_SYNTHETIC_VALIDATION",
+  "physical_coverage_claim": false,
+  "production_outputs_opened_after_reconstruction": true,
+  "production_scoring_imported": false,
+  "shared_assumptions": [
+    "audited generator",
+    "PCG64 bootstrap indices",
+    "exchangeable independent segments in synthetic model"
+  ],
+  "status": "VERIFIED",
+  "valid": true
+}

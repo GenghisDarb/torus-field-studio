@@ -1,0 +1,12 @@
+{
+  "status": "NOT_RUN_METHOD_UNCERTAINTY_GATE_FAILED",
+  "source_access": "NO_NEW_SOURCE_SELECTED_OR_RAW_VALUES_ACCESSED",
+  "new_prospective_sources": 0,
+  "new_scored_events": 0,
+  "decision": "Do not authorize a new physical phase-lag assay from detection-only synthetic success. Preserve nominal95percent interval undercoverage and calibration finite-sample precision failures.",
+  "evidence": ["../calibration/calibration-final-verification.json", "../calibration/sealed-verification.json", "../calibration/sealed-coverage-verification.json"],
+  "sealed_interval_coverage": {"temporal_coherent": "456/512 = 0.890625", "temporal_colored_coherent": "470/512 = 0.91796875"},
+  "separate_capability": "Deterministic rectilinear derivatives and bounded-noise sampled winding remain usable under their own declared contracts; they do not establish a physical phase instrument or satisfy an unspecified physical study design.",
+  "next_prerequisite": "Diagnose segment-percentile interval undercoverage using the now-exposed banks; freeze a justified uncertainty method and genuinely new validation partition under a finite revision budget before any new physical-source selection.",
+  "not_claimed": ["no eligible public dataset exists", "all phase measurements fail", "external replication", "TLD-specific predictive gain"]
+}
