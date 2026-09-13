@@ -1,0 +1,39 @@
+{
+  "O2_parity_estimator": false,
+  "P01": {
+    "local_phase": false,
+    "shape": "(y,x,2)",
+    "signed_components": true,
+    "time": "temporal mean by preregistered projection"
+  },
+  "P02": {
+    "reported_channels": "median per-frame vector summaries",
+    "shape": "(time,y,x,2)",
+    "signed_components": true,
+    "temporal_order_retained_in_typed_input": true,
+    "temporal_phase_retained_in_reported_channels": false,
+    "time_coordinates": true
+  },
+  "completely_sign_blind": false,
+  "flattening": false,
+  "lost_or_missing": [
+    "local curl sign distribution",
+    "spatial chirality domains",
+    "complex phase",
+    "cross-component phase",
+    "temporal cross-spectrum",
+    "phase lag",
+    "parity-change event",
+    "orientation-bundle monodromy"
+  ],
+  "preserved": [
+    "coordinates",
+    "mask",
+    "u/v components",
+    "time",
+    "orientation metadata",
+    "signed mean curl",
+    "proper-rotation equivariance",
+    "2D vector reflection"
+  ]
+}

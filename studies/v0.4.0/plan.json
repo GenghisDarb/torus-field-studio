@@ -1,0 +1,28 @@
+{
+  "program_id": "TFS-V040-REVIEWED-2026-09-13-V2",
+  "started_utc": "2026-09-13T14:44:47Z",
+  "starting_head": "892a6d04468211a2adbb9d7f878e56b5921fb53e",
+  "baseline_commit": "abe12e1da964c8902978ac7460028975f1f0324d",
+  "branch": "agent/v0.4.0-phase-orientation-tld",
+  "prior_stop": "Preserved in final_report.json and freeze/. This reviewed program is a new development cycle, with new contracts and evidence under reviewed/.",
+  "statuses": ["NOT_STARTED", "IMPLEMENTED_NOT_RUN", "EXECUTED", "VERIFIED", "BLOCKED", "NOT_APPLICABLE"],
+  "release_acceptance": {
+    "version": "0.4.0",
+    "kind": "RESEARCH_TOOLING",
+    "claim": "NO_NEW_CONFIRMATORY_PHYSICS_RESULT unless a separately qualified prospective endpoint completes",
+    "required": ["baseline custody", "versioned physical metrology with expected-red counterexamples", "valid phase kernels and identifiability exclusions", "frozen bounded calibration and sealed validation with measured uncertainty", "independent raw verifier", "exposed diagnostics with quantified changes", "source dependency ledger", "usable CLI and Studio", "archive/schema/security/regression gates", "installed-wheel replication", "normal PR review and main-only Pages", "fresh release download verification"],
+    "not_required_for_tooling": ["universal TLD classifier", "unrelated missing historical sources", "identification of unobserved O2 transitions", "new confirmatory physical result"],
+    "unsafe_or_unfinished": "DRAFT_PR_ONLY"
+  },
+  "compute": {"logical_cpus": 8, "memory_bytes": 14913122304, "max_parallel_agents": 4, "simulation": "stream deterministic trials; freeze counts before calibration; no large Cartesian sweep", "candidate_revision_budget": 3, "prospective_source_limit": 1},
+  "workstreams": [
+    {"id":"A","task":"Baseline custody and isolated reproduction","status":"NOT_STARTED","prerequisites":[],"paths":["reviewed/custody"],"command":"record exact commands in execution_ledger.jsonl"},
+    {"id":"B","task":"Lineage recovery, operators, anchors and claim dependencies","status":"NOT_STARTED","prerequisites":[],"paths":["reviewed/lineage"],"command":"record exact commands in execution_ledger.jsonl"},
+    {"id":"C","task":"Versioned coordinate/mask/unit metrology and exposed diagnostics","status":"NOT_STARTED","prerequisites":[],"paths":["python/torusbrot/metrology","reviewed/metrology"],"command":"record exact commands in execution_ledger.jsonl"},
+    {"id":"D","task":"Phase/winding/temporal kernels and mathematical counterexamples","status":"NOT_STARTED","prerequisites":[],"paths":["python/torusbrot/phase/v2.py","reviewed/math"],"command":"record exact commands in execution_ledger.jsonl"},
+    {"id":"E","task":"Calibration, sealed validation and independent raw verification","status":"NOT_STARTED","prerequisites":["C","D"],"paths":["reviewed/calibration"],"command":"freeze executable design before execution"},
+    {"id":"F","task":"Outcome-exposed diagnostics","status":"NOT_STARTED","prerequisites":["C","D"],"paths":["reviewed/diagnostics"],"command":"freeze questions before accessing results"},
+    {"id":"G","task":"Conditional prospective source study","status":"NOT_STARTED","prerequisites":["E"],"paths":["reviewed/prospective"],"command":"no endpoint access before method, source and preregistration freezes"},
+    {"id":"H","task":"Studio, CLI, TBX, release and handoff","status":"NOT_STARTED","prerequisites":["A","B","C","D","E","F"],"paths":["apps/studio","reviewed/release"],"command":"normal PR CI then main-only release"}
+  ]
+}

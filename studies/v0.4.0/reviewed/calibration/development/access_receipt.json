@@ -1,0 +1,13 @@
+{
+  "design_sha256": "d3716418c8837e9a9bf8b63f54610d4edc26dc430c67b17cf8f6ff9f4f10c296",
+  "implementation_hashes": {
+    "metrology/v1.py": "5f4f9b413ed65b106fb906fea141fc7574ac38aa0dce3573d72a04fdecb96e13",
+    "phase/v2.py": "e39a2da9a5920ff5f96f32976fb861156a4a110b662553abb7d02d82b9f4c030",
+    "research/benchmark.py": "3a01c83aa01b03231ea891d7398367c709a53abcf6c4b398a821facab174887c",
+    "research/contracts.py": "24c50df5c497ea03ba26ff3442c211f552a536dce3028ead07223364923704fd",
+    "research/generators.py": "c177677f4afb214d9e418be1696e34a2bceaca1cb0821555d04773f84c014aed"
+  },
+  "kind": "DETERMINISTIC_BENCHMARK_NOT_REAL_SCORED_EVENT",
+  "method_seal_sha256": null,
+  "partition": "DEVELOPMENT"
+}

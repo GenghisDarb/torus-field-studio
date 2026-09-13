@@ -1,0 +1,44 @@
+{
+  "claim_authority": "REPRODUCTION_DIAGNOSTIC_ONLY",
+  "elapsed_seconds": 23.799,
+  "error": {
+    "message": "int(\"Found existing valid domains/ folder. Reusing it.\")\n            print(\"Domains:\", domains)\n            return domains\n        except Exception as e:\n            print(\"Existing domains/ found but invalid. Rebuilding. Reason:\", e)\n            shutil.rmtree(DOMAINS_DIR, ignore_errors=True)\n\n    # Ask for upload if zip name not provided or not found\n    if uploaded_zip_name is None or not Path(uploaded_zip_name).exists():\n        print(\"Upload your existing domain pack zip (same one used for Notebook 29).\")\n# suppressed by path-normalized replay:         from google.colab import files\n# suppressed by path-normalized replay:         uploaded = files.upload()\n        if not uploaded:\n            raise RuntimeError(\"No file uploaded.\")\n        uploaded_zip_name = list(uploaded.keys())[0]\n\n    zip_path = Path(uploaded_zip_name)\n    # Normalize name if Colab gave it \" (1).zip\"\n    norm_name = _normalize_uploaded_name(zip_path)\n    if norm_name != zip_path.name:\n        # rename to a stable filename\n        stable = WORKDIR / norm_name\n        if stable.exists():\n            stable.unlink()\n        zip_path.rename(stable)\n        zip_path = stable\n\n    if not zipfile.is_zipfile(zip_path):\n        raise RuntimeError(f\"Uploaded file is not a zip: {zip_path}\")\n\n    # Extract into a temp folder first (avoid FileExistsError collisions)\n    tmp = WORKDIR / \"_tmp_domains_unpack\"\n    if tmp.exists():\n        shutil.rmtree(tmp, ignore_errors=True)\n    tmp.mkdir(parents=True, exist_ok=True)\n\n    with zipfile.ZipFile(zip_path, \"r\") as zf:\n        zf.extractall(tmp)\n\n    found = _find_domains_dir(tmp)\n    if found is None:\n        # Show helpful debug tree\n        sample = [str(p) for p in list(tmp.rglob(\"*\"))[:60]]\n        raise RuntimeError(\n            \"Could not find a valid domains/ folder inside the zip.\\n\"\n            \"Expected to find domains/DOMAIN_REGISTRY.json somewhere.\\n\"\n            f\"Top sample paths:\\n- \" + \"\\n- \".join(sample)\n        )\n\n    # Move found domains/ into working directory\n    shutil.move(str(found), str(DOMAINS_DIR))\n\n    # Cleanup\n    shutil.rmtree(tmp, ignore_errors=True)\n\n    domains = _validate_domains(DOMAINS_DIR)\n    print(\"\u2705 domains/ prepared successfully.\")\n    print(\"Domains:\", domains)\n    print(\"domains/ path:\", DOMAINS_DIR.resolve())\n    return domains\n\n# ---- RUN PREP ----\ndomains_list = prepare_domains_from_zip()  # upload zip when prompted (same zip as Notebook 29)\n------------------\n\n----- stdout -----\nUpload your existing domain pack zip (same one used for Notebook 29).\n------------------\n\n\u001b[31m---------------------------------------------------------------------------\u001b[39m\n\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[2]\u001b[39m\u001b[32m, line 118\u001b[39m\n\u001b[32m    115\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m domains\n\u001b[32m    117\u001b[39m \u001b[38;5;66;03m# ---- RUN PREP ----\u001b[39;00m\n\u001b[32m--> \u001b[39m\u001b[32m118\u001b[39m domains_list = \u001b[43mprepare_domains_from_zip\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m  \u001b[38;5;66;03m# upload zip when prompted (same zip as Notebook 29)\u001b[39;00m\n\n\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[2]\u001b[39m\u001b[32m, line 68\u001b[39m, in \u001b[36mprepare_domains_from_zip\u001b[39m\u001b[34m(uploaded_zip_name)\u001b[39m\n\u001b[32m     65\u001b[39m         \u001b[38;5;28mprint\u001b[39m(\u001b[33m\"\u001b[39m\u001b[33mUpload your existing domain pack zip (same one used for Notebook 29).\u001b[39m\u001b[33m\"\u001b[39m)\n\u001b[32m     66\u001b[39m \u001b[38;5;66;03m# suppressed by path-normalized replay:         from google.colab import files\u001b[39;00m\n\u001b[32m     67\u001b[39m \u001b[38;5;66;03m# suppressed by path-normalized replay:         uploaded = files.upload()\u001b[39;00m\n\u001b[32m---> \u001b[39m\u001b[32m68\u001b[39m         \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[43muploaded\u001b[49m:\n\u001b[32m     69\u001b[39m             \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mRuntimeError\u001b[39;00m(\u001b[33m\"\u001b[39m\u001b[33mNo file uploaded.\u001b[39m\u001b[33m\"\u001b[39m)\n\u001b[32m     70\u001b[39m         uploaded_zip_name = \u001b[38;5;28mlist\u001b[39m(uploaded.keys())[\u001b[32m0\u001b[39m]\n\n\u001b[31mNameError\u001b[39m: name 'uploaded' is not defined\n",
+    "type": "CellExecutionError"
+  },
+  "executed_code_cell_count": 2,
+  "generated_or_changed_outputs": [],
+  "input_count": 17,
+  "input_files_flattened": [
+    "CITATION.cff",
+    "README.md",
+    "SHA256SUMS_32.txt",
+    "SHA256SUMS_33.txt",
+    "domain_features_31.csv",
+    "ladder_registry_31.csv",
+    "ladder_registry_33.csv",
+    "ladder_scores_byN_31.csv",
+    "ladder_scores_byN_33.csv",
+    "ladder_winners_33.csv",
+    "notebook32_audit.json",
+    "notebook33_audit.json",
+    "null_ui_bootstrap_samples_32.csv",
+    "primary_endpoints_32.csv",
+    "requirement.txt",
+    "topology_endpoints_33.csv",
+    "torusbrot_map_33.csv"
+  ],
+  "notebook": 31,
+  "outcome_exposed_release_outputs_admitted_as_inputs": true,
+  "path_change_only": true,
+  "record_id": "18188063",
+  "release": "IX",
+  "replay_class": "PATH_NORMALIZED_NUMERICAL_REPLAY_NOT_EXACT_ENVIRONMENT_REPLAY",
+  "schema_version": "tfs-v040-notebook-replay-receipt-v1",
+  "source_file": "TORUS_Ladder_Dynamics_IX_Notebook_31.ipynb",
+  "source_sha256": "8e5ae9ba43d14ddbaf49528331f4af568ab7afe1a637c2ca4698abaabfd7472a",
+  "status": "BLOCKED",
+  "valid_for_independent_reproduction": false,
+  "upload_or_install_cells_suppressed": [
+    3
+  ]
+}

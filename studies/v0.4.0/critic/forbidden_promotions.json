@@ -1,0 +1,16 @@
+{
+  "forbidden": [
+    "phase plot -> parity",
+    "parity -> Klein bottle",
+    "Klein bottle -> TORUS proof",
+    "14 -> universal law",
+    "28 -> double-cover validation",
+    "U(1) -> parity",
+    "c1=0 -> anomaly cancellation",
+    "4pi -> spinor evidence without spinor input",
+    "diagnostic prototype -> confirmatory evidence",
+    "TLD lineage -> TLD_DERIVED phase method",
+    "one system -> population inference",
+    "decorrelated frames -> independent parents"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "block_bootstrap_length": "rounded median integral autocorrelation time, minimum one sample",
+  "change_point": "maximum standardized absolute cumulative centered sum",
+  "component_autocorrelation": "calculated independently per registered component",
+  "convective_time": "D/U only when D and U are source-registered physical quantities",
+  "dominant_spectral_period": "maximum non-DC periodogram bin",
+  "effective_temporal_degrees_of_freedom": "sample_count / integral_autocorrelation_time; descriptive uncertainty only",
+  "integral_autocorrelation_time": "1 + 2*sum positive-lag sample ACF until first nonpositive lag",
+  "stationarity": "absolute first-half versus second-half mean difference divided by full standard deviation",
+  "vortex_shedding_period": "reported only when an identifiable spectral peak and source interpretation agree",
+  "vorticity_autocorrelation": "same estimator on signed vorticity or declared temporal proxy"
+}

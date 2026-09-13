@@ -1,0 +1,20 @@
+{
+  "estimators_frozen_before_field_diagnostic": true,
+  "forbidden_use": "decorrelated frames may not increase system, campaign, acquisition, or population-parent count",
+  "hierarchy": [
+    "nested snapshots",
+    "within-acquisition temporal support",
+    "independent acquisitions",
+    "paired blocks",
+    "campaigns",
+    "systems"
+  ],
+  "permitted_uses": [
+    "estimator uncertainty",
+    "block length",
+    "null construction",
+    "descriptive dynamics"
+  ],
+  "schema_version": "TemporalDependenceAuditV1",
+  "three_turnover_universal_rule": false
+}

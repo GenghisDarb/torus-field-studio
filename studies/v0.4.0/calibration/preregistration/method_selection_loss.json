@@ -1,0 +1,33 @@
+{
+  "abstention_policy": "instrument-limited, inapplicable representation, or incomplete transition data must abstain",
+  "confidence_method": "Wilson 95 percent interval",
+  "declared_power_lower_95_min": 0.8,
+  "false_parity_upper_95_max": 0.05,
+  "false_sign_upper_95_max": 0.05,
+  "familywise_type_I_upper_95_max": 0.05,
+  "frozen_before_outcomes": true,
+  "hard_gates": [
+    "mathematical consistency",
+    "no 14/28 privilege",
+    "valid matched null",
+    "declared gauge invariance",
+    "reflection/rotation equivariance",
+    "time-reversal behavior",
+    "mask/boundary and sampling policy",
+    "parent hierarchy",
+    "independent recomputation",
+    "mutation rejection",
+    "claim quarantine",
+    "T_e/S_e/winner_N firewalls"
+  ],
+  "period_accuracy_lower_95_min": 0.8,
+  "schema_version": "tfs-v040-phase-selection-loss-v1",
+  "selection_options": [
+    "PHASE_ORIENTATION_V1_CALIBRATED_SELECTIVE_CLASSIFIER",
+    "PHASE_ORIENTATION_V1_HIERARCHICAL_MODEL",
+    "PHASE_ORIENTATION_V1_CONFORMAL_DECISION_SET",
+    "PHASE_ORIENTATION_V1_EVIDENCE_VECTOR_ONLY",
+    "NO_PHASE_ORIENTATION_METHOD_ESTABLISHED"
+  ],
+  "tie_break": "prefer fewer assumptions and narrower claim; otherwise abstain"
+}

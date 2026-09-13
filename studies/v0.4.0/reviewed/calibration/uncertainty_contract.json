@@ -1,0 +1,12 @@
+{
+  "id":"temporal-phase-coverage-20260913-v1",
+  "status":"FROZEN_BEFORE_CALIBRATION_AND_SEALED_ACCESS",
+  "purpose":"Measure finite-segment phase bias and uncertainty coverage as an auxiliary diagnostic, without changing the fixed detection rule or primary multiplicity allocation.",
+  "families":["temporal_coherent","temporal_colored_coherent"],
+  "partitions":["CALIBRATION","SEALED_SYNTHETIC_VALIDATION"],
+  "replicates":199,
+  "seed":"SeedSequence([row seed...,919]); fixed per independent experiment",
+  "interval":"production segment-percentile circular phase offsets, confidence 0.95",
+  "coverage_uncertainty":"unadjusted one-sided exact bounds at delta=0.025 reported as a two-sided 95% interval per family; descriptive, not a simultaneous primary gate",
+  "claim_limit":"No prospective uncertainty coverage claim is granted by a detection gate; compare measured coverage and disclose undercoverage. No threshold tuning."
+}

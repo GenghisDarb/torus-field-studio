@@ -1,0 +1,15 @@
+{
+  "frozen_hierarchy": {
+    "condition_acquisitions": 4,
+    "condition_acquisitions_exchangeable": false,
+    "coupled_lidar_modalities": 2,
+    "facility_campaigns": 1,
+    "nested_synchronized_samples": true,
+    "same_yaw_repeated_acquisitions": 0
+  },
+  "population_aggregation": false,
+  "reason": "no established phase/orientation method exists",
+  "source_role": "OUTCOME_EXPOSED_NONCONFIRMATORY_ENGINEERING_PILOT",
+  "status": "NOT_EXECUTED_AFTER_NO_METHOD_GATE",
+  "temporal_phase_applicability": "BLOCKED_NO_REGISTERED_TIME_AXIS_IN_FROZEN_PILOT_PROJECTIONS"
+}

@@ -1,0 +1,4 @@
+{"id":"physical-metrology","status":"NOT_STARTED","depends_on":["C","E"],"claim":"Coordinate-correct local field measurements within declared geometry/support"}
+{"id":"phase-estimation","status":"NOT_STARTED","depends_on":["D","E"],"claim":"Sampled winding and temporal phase within frozen sampling and amplitude contract"}
+{"id":"TLD_DERIVED","status":"BLOCKED","depends_on":["B","E"],"claim":"No badge promotion from conventional estimator success"}
+{"id":"external-validation","status":"NOT_APPLICABLE","claim":"EXTERNALLY_VALIDATED=false; internal independent implementation is not outside replication"}

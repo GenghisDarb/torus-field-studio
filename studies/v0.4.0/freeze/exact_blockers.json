@@ -1,0 +1,13 @@
+{
+  "absence_of_untouched_heldout_outcomes": true,
+  "blockers": [
+    "PHASE_V3_A lacks a frozen matched-null selective decision and formal null type-I calibration",
+    "PHASE_V3_B scalar-derived link holonomy is algebraically trivial and wrapped winding fails arbitrary local-gauge invariance",
+    "PHASE_V3_B has no frozen selective rule separating random-phase/spectrum-preserving null windings",
+    "PHASE_V3_C is valid only for explicit O2 transition data and cannot infer transitions from ordinary unannotated scalar/vector fields",
+    "PHASE_V3_D lacks a frozen phase-randomized classification null plus irregular-sampling/stationarity/instrument decision calibration",
+    "PHASE_V3_E is optional and unimplemented",
+    "no bounded combination has an independently verified selective decision rule spanning the declared representation lanes"
+  ],
+  "next_phase_prohibited": "PHASE_K_AND_L_THROUGH_Q"
+}

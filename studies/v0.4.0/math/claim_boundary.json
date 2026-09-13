@@ -1,0 +1,21 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "established": [
+    "U1 plaquette holonomy is gauge invariant for eligible nonzero closed plaquettes",
+    "O2 loop determinant is a gauge/conjugacy-invariant parity bit when transition data are declared",
+    "w1 is the applicable orientation obstruction for the declared real bundle",
+    "pi/7 arithmetic"
+  ],
+  "not_established": [
+    "physical U1 field in TLD",
+    "physical O2 orientation bundle in TLD",
+    "spinor applicability",
+    "14 or 28 specificity",
+    "Klein-bottle detection",
+    "anomaly cancellation",
+    "TORUS confirmation",
+    "TLD_DERIVED phase method",
+    "external validation"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "authoritative_TLD_I_XIV_phase_method_found": false,
+  "prior_exposed_prototype": {
+    "archive": "C:\\Users\\thisb\\Downloads\\notebook_xv_chirality_orientability_release_candidate.zip",
+    "implemented": "imposed alternating-sign/parity scans and hard-coded single-14/double-28 cover labels",
+    "not_implemented": "gauge-derived U(1) links, inferred O(2) transition parity, w1 evaluation, blind period selection, prospective field validation",
+    "sha256": "9c5081a61a3abf9b5ae3b3c170b0e7abc10b69388b89075d177fb0b6c96599b5",
+    "status": "LOCAL_RELEASE_CANDIDATE_NOT_IMMUTABLE_PUBLIC_AUTHORITY"
+  },
+  "schema_version": "tfs-v040-chiral-source-audit-v1",
+  "source_conclusion": "No canonical chiral specification was recovered; a new method can only be independently derived and calibrated."
+}

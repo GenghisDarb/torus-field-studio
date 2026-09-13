@@ -1,0 +1,41 @@
+{
+  "fresh_execution": {
+    "all_preserved_attempts": 6,
+    "blocked": [
+      "notebook_15_replay_receipt_clean_inputs_v2.json"
+    ],
+    "invalid_outcome_exposed_attempts": [
+      "notebook_15_replay_receipt.json",
+      "notebook_25_replay_receipt.json",
+      "notebook_31_replay_receipt.json",
+      "notebook_41_replay_receipt.json"
+    ],
+    "passes": [
+      "notebook_15_replay_receipt_clean_inputs.json"
+    ],
+    "tld_i_prior_exact_replay": true,
+    "valid_path_normalized_attempts": 2
+  },
+  "full_failure_count": 13,
+  "full_lineage_blockers": [
+    "exact source files for pre-release Notebooks 1-11 were not found",
+    "Notebook 12 is executable JSON embedded only in an authority-D ledger",
+    "historical environments are minimum-version requirements, not complete locks",
+    "published notebooks contain preserved error/aborted outputs",
+    "Notebook 44 recomputation disagrees with Notebook 43 for all nine EEG baseline N rows"
+  ],
+  "lineage_outcome": "FULL_TLD_I_XIV_LINEAGE_PARTIALLY_RECOVERED_WITH_BLOCKERS",
+  "method_authority_effect": {
+    "TLD_DERIVED": "BLOCKED",
+    "independent_phase_orientation_method_research": "MAY_CONTINUE_WITHOUT_TLD_DERIVATION",
+    "reason": "the recovered lineage is sufficient to establish what TLD did not implement; it is insufficient to confer phase/parity authority"
+  },
+  "notebook_coverage": {
+    "embedded_executable_source": 1,
+    "published_exact_source": 32,
+    "summary_only": 11,
+    "total": 44
+  },
+  "release_coverage": "14/14 immutable public releases located",
+  "schema_version": "tfs-v040-tld-i-xiv-reproduction-summary-v1"
+}

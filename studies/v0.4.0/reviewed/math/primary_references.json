@@ -1,0 +1,43 @@
+{
+  "retrieved_utc_date": "2026-09-13",
+  "hash_scope": "HTTP response body bytes independently downloaded with HttpClient; HTML bytes may change even at versioned content URLs. No full third-party documents are redistributed here.",
+  "sources": [
+    {
+      "id": "HATCHER_VBKT_2_2",
+      "url": "https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf",
+      "version": "2.2, November 2017",
+      "sha256": "04282b30dfa6305183827d399deddd0bd98240c2e6d2d0c416b06e2d4e1fa097",
+      "bytes": 1563812,
+      "inspected": "Introduction; chapter 3, Proposition 3.10 on line bundles and Proposition 3.11 on w1 and orientability, printed pages 86-87",
+      "scope": "Characteristic classes belong to specified bundles; no TORUS predictions inferred"
+    },
+    {
+      "id": "FUKUI_HATSUGAI_SUZUKI_2005_V2",
+      "url": "https://arxiv.org/html/cond-mat/0503172v2",
+      "version": "arXiv cond-mat/0503172v2, revised 2005-04-06; JPSJ 74:1674-1677",
+      "doi": "10.1143/JPSJ.74.1674",
+      "sha256": "1086e1fcf9564bce20e956ecf66ec624944d95f6baefe3c98131de1f272698c1",
+      "bytes": 172019,
+      "inspected": "Equations 1-14: normalized Bloch eigenstates, Berry link overlaps, principal logarithm, admissibility and band gap condition",
+      "scope": "Berry construction differs from ordinary scalar endpoint links"
+    },
+    {
+      "id": "SCIPY_CSD_1_18_0",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.csd.html",
+      "version": "SciPy 1.18.0 documentation as displayed at retrieval",
+      "sha256": "864263a253a74f309466a7de31f20cd805fc4c809fbd9d236cb9b30aae730fee",
+      "bytes": 51566,
+      "inspected": "Parameters and Notes: conj(X)*Y cross convention; density and one-sided normalization",
+      "scope": "Official algorithm documentation; SciPy is not required at runtime"
+    },
+    {
+      "id": "SCIPY_COHERENCE_1_18_0",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.coherence.html",
+      "version": "SciPy 1.18.0 documentation as displayed at retrieval",
+      "sha256": "e878c209032c15f14282b9b01968e310adce73e330504aee81529dad32f16838",
+      "bytes": 39135,
+      "inspected": "Magnitude squared coherence formula and Welch window/segment specification",
+      "scope": "Estimator definition; not a proof of independence or causal interpretation"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "bootstrap_children": 50944,
+  "coverage_sha256": "0ce7d55b1c0216b79ad40e0207809e0816e07384a905ff7a374972ce5de101a8",
+  "families": [
+    {
+      "coverage": 0.9375,
+      "coverage_lower_95": 0.8805632166061459,
+      "coverage_upper_95": 0.9726333151136293,
+      "covered": 120,
+      "family": "temporal_coherent",
+      "independent_trials": 128,
+      "mean_interval_width_radians": 0.40493497710780424,
+      "mean_phase_error_radians": 0.0005555920726926476
+    },
+    {
+      "coverage": 0.9140625,
+      "coverage_lower_95": 0.8514365078654029,
+      "coverage_upper_95": 0.9563176931226511,
+      "covered": 117,
+      "family": "temporal_colored_coherent",
+      "independent_trials": 128,
+      "mean_interval_width_radians": 0.42297001718810223,
+      "mean_phase_error_radians": -0.012128298696884086
+    }
+  ],
+  "independent_recomputation": true,
+  "independent_trials": 256,
+  "partition": "CALIBRATION",
+  "physical_coverage_claim": false,
+  "production_outputs_opened_after_reconstruction": true,
+  "production_scoring_imported": false,
+  "shared_assumptions": [
+    "audited generator",
+    "PCG64 bootstrap indices",
+    "exchangeable independent segments in synthetic model"
+  ],
+  "status": "VERIFIED",
+  "valid": true
+}

@@ -1,0 +1,25 @@
+{
+  "audit_branch": "agent/v0.4.0-phase-orientation-tld",
+  "audit_date_utc": "2026-08-21",
+  "default_branch": "main",
+  "evidence_kind": "fresh_download_and_independent_recomputation",
+  "ignored_runtime_outputs_only": true,
+  "local_authoritative_path": "C:\\Users\\thisb\\Documents\\Codex\\2026-08-13\\pok\\work\\torus-field-studio",
+  "origin_main": "abe12e1da964c8902978ac7460028975f1f0324d",
+  "package_version": "0.3.0",
+  "pr_5": {
+    "head": "a572681c868f2df68ed938586ef0e79ac2d9d1db",
+    "merge_commit": "abe12e1da964c8902978ac7460028975f1f0324d",
+    "state": "MERGED",
+    "url": "https://github.com/GenghisDarb/torus-field-studio/pull/5"
+  },
+  "public_pages": "https://genghisdarb.github.io/torus-field-studio/",
+  "repository": "GenghisDarb/torus-field-studio",
+  "repository_url": "https://github.com/GenghisDarb/torus-field-studio",
+  "schema_version": "tfs-v040-v030-custody-v1",
+  "starting_main": "abe12e1da964c8902978ac7460028975f1f0324d",
+  "tracked_tree_clean_before_v040_writes": true,
+  "v030_tag_commit": "abe12e1da964c8902978ac7460028975f1f0324d",
+  "v030_tag_object": "c86ad35049dac249824b52deab8ffc041a084646",
+  "visibility": "PUBLIC"
+}

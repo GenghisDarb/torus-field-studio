@@ -1,0 +1,31 @@
+{
+  "invalid_as_sole_channel_for": [
+    "orientation",
+    "phase",
+    "handedness",
+    "sign",
+    "parity",
+    "transport direction",
+    "local winding"
+  ],
+  "legacy_export": {
+    "claim_bearing_v030_piv_path": false,
+    "path": "python/torusbrot/geometry/channels.py",
+    "silent_leading_axis_average": true,
+    "silent_vector_magnitude": true
+  },
+  "v030_active_piv": {
+    "signed_channel_present": true,
+    "silent_time_average_in_P02_storage": false,
+    "silent_vector_magnitude": false,
+    "temporal_summary_order_loss": true
+  },
+  "valid_uses": [
+    "norm",
+    "energy",
+    "unsigned residual",
+    "distance",
+    "amplitude",
+    "numerical disagreement magnitude"
+  ]
+}

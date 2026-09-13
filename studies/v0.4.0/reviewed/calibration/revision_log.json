@@ -1,0 +1,7 @@
+{
+  "maximum_rounds":3,
+  "rounds":[
+    {"round":1,"implementation_commit":"0df6fa4","partition":"CALIBRATION","results":"calibration/","independent_trials":2048,"null_children":32256,"verification":"calibration-verification.json","finding":"One false alarm in each of two temporal null families; exact upper 0.06624 at n=128, a precision limitation. The final n=512 was already preregistered; no threshold change is made.","sealed_exposure":false},
+    {"round":2,"cause":"Review found finite complex components whose modulus overflows to infinity, outside the calibration amplitude envelope. Winding must abstain instead of returning zero.","counterexample":"four complex values 1.7e308+1.7e308j","repair":"Exclude nonfinite modulus from valid phase support; preserve all ordinary calibration parameters and seed policy.","regression":"test_finite_components_with_overflowing_modulus_abstain","calibration_policy":"Rerun the same calibration trials for code-custody verification, not additional independent evidence; keep first output bytes and verification receipt.","sealed_exposure":false}
+  ]
+}

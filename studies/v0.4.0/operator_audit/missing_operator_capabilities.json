@@ -1,0 +1,11 @@
+{
+  "required_before_phase_method": [
+    "complex-valued typed field or explicitly reconstructed analytic-signal contract",
+    "local U(1) link and plaquette holonomy with zero/mask policy",
+    "signed local curl/circulation distributions",
+    "temporal cross-spectrum with sampling and stationarity gates",
+    "explicit O(2) transition records before any parity-monodromy inference",
+    "matched spectrum-preserving phase and orientation nulls",
+    "reflection, rotation, gauge, time-reversal, boundary, mask, sampling, and instrument tests"
+  ]
+}

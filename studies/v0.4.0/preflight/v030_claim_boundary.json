@@ -1,0 +1,27 @@
+{
+  "EXTERNALLY_VALIDATED": false,
+  "TLD_DERIVED": "BLOCKED",
+  "TORUS_confirmation": "FORBIDDEN",
+  "ToT_BROT": "FORBIDDEN",
+  "audit_date_utc": "2026-08-21",
+  "binary_positive_negative_classification": "NOT_PERFORMED_AND_FORBIDDEN_BY_METHOD_V2_FREEZE",
+  "endpoint_applicability": {
+    "S_e": "NOT_APPLICABLE_NO_CALIBRATED_PERSISTENCE_ENDPOINT",
+    "T_e": "NOT_APPLICABLE_NO_OPERATION_DEPTH_AXIS",
+    "winner_N": "NOT_APPLICABLE_NO_CANONICAL_PATH_CLOSURE_AXIS"
+  },
+  "evidence_kind": "fresh_download_and_independent_recomputation",
+  "inferential_hierarchy": {
+    "campaign_independence": "UNKNOWN",
+    "deposit_level_clusters": 1,
+    "paired_acquisition_blocks": 28,
+    "physical_systems": 1,
+    "population_generalization_credit": false,
+    "population_sign_test": false,
+    "snapshots": "nested_within_acquisition",
+    "spatial_cells": "nested_within_snapshot_and_acquisition"
+  },
+  "method_role": "measurement_instrument_not_universal_classifier",
+  "schema_version": "tfs-v040-v030-custody-v1",
+  "scientific_outcome": "GEOMETRY_INDEXED_TLD_METHOD_NONBINARY_EVIDENCE_VECTOR_ONLY"
+}
